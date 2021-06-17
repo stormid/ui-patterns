@@ -1,0 +1,42 @@
+@mixin column($num) {
+	width: column-calc($num);
+}
+
+@mixin wrap {
+    max-width: var(--max-container-width);
+    margin:0 auto;
+    padding: 0 calc(var(--gutter)/2);
+}
+
+@mixin visuallyhidden {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    border: 0;
+}
+
+@mixin visible {
+    position: static;
+    visibility: visible;
+    opacity: 1;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: auto;
+    overflow:inherit;
+    clip:auto;
+}
+
+@mixin clearfix {
+    &:after {
+        content:'';
+        display: table;
+        clear: both;
+        width:100%;
+    }
+}

@@ -1,0 +1,335 @@
+*,
+*:before,
+*:after { 
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+applet
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th, 
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+main {
+	background: transparent;
+	border: 0;
+	font-size: 100%;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+html, 
+body {
+    background-color: var(--light-grey-1);
+    min-height: 100%;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    height: 100%;
+}
+
+    
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, main { 
+	display:block;
+}
+    
+ol, ul {
+	list-style: none;
+}
+
+ins {
+    text-decoration: none;
+}
+
+mark {
+    font-style: italic;
+    font-weight: var(--bold-weight);
+}
+
+del {
+    text-decoration: line-through;
+}
+	
+dfn {
+    font-style: italic;
+}
+	
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+	
+td { 
+	vertical-align: top; 
+}
+
+hr {
+	border: 0;
+    display: block;
+    height: 1px; 
+    margin: 0;
+    padding: 0;
+}
+	
+legend {
+    border: 0;
+    padding: 0;
+    white-space: normal;
+}
+	
+figure {
+    margin: 0;
+}
+
+[hidden] {
+    display: none;
+}
+	
+img {
+    display:block;
+	border: 0;
+    max-width: 100%;
+    height:auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+}
+
+
+strong, 
+b {
+	font-weight:var(--bold-weight);
+}
+
+em, 
+i {
+	font-style:italic;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: var(--regular-weight);
+}
+
+blockquote, q {
+	quotes: none;
+}
+    
+blockquote:before, 
+blockquote:after,
+q:before, 
+q:after {
+	content: '';
+	content: none;
+}
+
+address {
+	font-style: var(--regular-weight);
+}
+legend {
+    border: 0;
+    padding: 0;
+    white-space: normal;
+}
+	
+figure {
+    margin: 0;
+}
+
+[hidden] {
+    display: none;
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+	
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+	
+input, 
+button,
+select {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+	
+input, 
+button, 
+select {
+	border: 0 none;
+	border-radius: 0;
+	padding: 0;
+	vertical-align: middle;
+}
+
+select::-ms-expand {
+  display:none;
+}
+
+input[type="search"] {
+	border-radius: 0;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  	display: none;
+}
+	
+input[type="checkbox"] {
+	-moz-appearance: checkbox;
+	-webkit-appearance: checkbox;
+}
+	
+input[type="radio"] {
+	-moz-appearance: radio;
+	-webkit-appearance: radio;
+}
+
+input[type="range"] {
+	-moz-appearance: slider-horizontal;
+    -webkit-appearance: slider-horizontal;
+}
+select {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+
+button::-moz-focus-inner, 
+input::-moz-focus-inner { 
+	border: 0; 
+	padding: 0; 
+}
+
+button,
+input,
+select,
+textarea {
+    font-size: 99%;
+    line-height: normal;
+    margin: 0;
+    vertical-align: baseline;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    border:0 none;
+    cursor: pointer;
+    -webkit-appearance: button;
+}
+
+a[disabled],
+button[disabled],
+input[disabled] {
+	cursor: default;
+	pointer-events: none;
+}
+
+textarea { 
+	overflow: auto; 
+	vertical-align: top; 
+	resize: vertical; 
+    width:100%;
+}

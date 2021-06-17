@@ -1,0 +1,3 @@
+@function column-calc($num, $spacing: var(--gutter)){
+    @return calc(((99.999% / #{$columns}) * #{$num}) - (#{$spacing}));
+}

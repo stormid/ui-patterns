@@ -1,0 +1,7 @@
+.list {
+    list-style: disc outside;
+    margin-left: 1rem;
+}
+.list-item {
+    margin-bottom: calc(var(--baseline)/4);
+}

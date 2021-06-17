@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@templates/*": ["src/templates/*"],
+      "@layouts/*": ["src/templates/layouts/*"],
+      "@components/*": ["src/templates/components/*"]
+    }
+  },
+  "exclude": ["node_modules", "build", "tools"]
+}

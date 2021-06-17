@@ -1,0 +1,26 @@
+.skip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+.skip__btn {
+    text-align: center;
+    position: relative;
+    left: -999em;
+    height:1px;
+}
+.skip__btn:focus {
+    pointer-events:all;
+    outline: 0;
+    position: fixed;
+    height: auto;
+    width: auto;
+    margin: 0 auto;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    text-align: center;
+}

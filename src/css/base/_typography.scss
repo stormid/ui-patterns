@@ -1,0 +1,61 @@
+body,
+button,
+input,
+select,
+textarea {
+    font: 100%/1.5 var(--font-family-default);
+    color: var(--off-black);
+}
+a {
+    color: var(--off-black);
+}
+p a,
+ul a {
+    text-decoration: underline;
+}
+
+input,
+select,
+textarea {
+    font-size: .99rem;
+    line-height: 1rem;
+}
+
+p,
+ul {
+    max-width: 42rem;
+}
+
+.plus-2 {
+    font-size: var(--font-size-plus-2);
+}
+.plus-1 {
+    font-size: var(--font-size-plus-1);
+}
+.baseline {
+    font-size: var(--font-size-baseline);
+}
+.minus-1 {
+    font-size: var(--font-size-minus-1);
+}
+.minus-2 {
+    font-size: var(--font-size-minus-2);
+}
+
+.bold {
+    font-family: var(--font-family-bold);
+}
+.medium {
+    font-family: var(--font-family-medium);
+}
+.light {
+    font-family: var(--font-family-default);
+}
+.thin {
+    font-family: var(--font-family-thin);
+}
+
+.align-right {
+    max-width: none;
+    text-align: right;
+}
