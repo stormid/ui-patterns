@@ -10,3 +10,9 @@ export const TOGGLE = {
         }
     }
 };
+
+export const MODAL = {
+    SELECTOR: {
+        MODAL_SEARCH: '.js-modal-search'
+    }
+};

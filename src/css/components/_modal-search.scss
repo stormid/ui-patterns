@@ -1,0 +1,19 @@
+.modal-search__container {
+    padding: var(--baseline) var(--gutter);
+    background-color: var(--off-black);
+    height: 95px;
+}
+.modal-search {
+    display: flex;
+    justify-content: flex-end;
+}
+.modal-search__btn {
+    display: flex;
+    background-color: transparent;
+    font-weight: var(--medium-weight);
+    padding: calc(var(--baseline)/2) calc(var(--gutter)/3);
+    color: white;
+        &:focus {
+            outline: 1px solid white;
+        }
+}
