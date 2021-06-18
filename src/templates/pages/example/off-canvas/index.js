@@ -25,7 +25,7 @@ const OffCanvas = () => <ExampleLayout>
                         <a
                             class={`off-canvas__link is--active`}
                             href={'#'}
-                            aria-current={'true'}
+                            aria-current={'page'}
                         >Item 2</a>
                     </li>
                     <li class="off-canvas__item">

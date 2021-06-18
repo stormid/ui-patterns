@@ -55,7 +55,7 @@ const OffCanvas = () => <PatternLayout>
     </ul>
 </nav>`}</code></pre>
     <pre class="pre"><code class="code">{`import toggle from '@stormid/toggle';
-    
+
 toggle('.js-off-canvas', { focus: false, closeOnBlur: true });`}</code></pre>
     <h2 class="push-bottom--half plus-1 medium">Acceptance criteria</h2>
     <ul class="list push-bottom">
@@ -71,7 +71,7 @@ toggle('.js-off-canvas', { focus: false, closeOnBlur: true });`}</code></pre>
         <li class="list-item">Navigation should be tabable</li>
         <li class="list-item">Either the first item in the navigation should be the next in the focus order after the button, or the first item should programmatically receive focus when navigation is opened</li>
         <li class="list-item">Should not trap tab - a user should be able to tab out of the navigation</li>
-        <li class="list-item">Tabbing outside navigation should hide navigation</li>
+        <li class="list-item">Focus outside navigation should hide navigation</li>
         <li class="list-item">ARIA expanded attribute should correctly describe shown/hidden state</li>
         <li class="list-item">ARIA controls attribute should correctly associate button with nav element</li>
         <li class="list-item">Navigation links should be appropriately labelled</li>

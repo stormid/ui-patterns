@@ -1,7 +1,7 @@
-import Toggle from './modules/toggle';
+import OffCanvas from './modules/off-canvas';
 
 export const initStack = [
-    Toggle,
+    OffCanvas,
     // Importer(`tabs`)
     // () => { import(/* webpackChunkName: "toggle" */`./features/toggle`).then(module => module.default()); },
     // () => { import(/* webpackChunkName: "validate" */`@stormid/validate`).then(module => module.default.init(VALIDATE.SELECTOR)); },
