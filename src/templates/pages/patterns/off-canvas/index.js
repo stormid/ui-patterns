@@ -22,35 +22,19 @@ const OffCanvas = () => <PatternLayout>
     </button>
     <ul id="off-canvas" class="off-canvas__list js-off-canvas" data-toggle="js-off-canvas__toggle">
         <li class="off-canvas__item">
-            <a
-                class="off-canvas__link"
-                href="#"
-            >Item 1</a>
+            <a class="off-canvas__link" href="#">Item 1</a>
         </li>
         <li class="off-canvas__item">
-            <a
-                class="off-canvas__link is--active"
-                href="#"
-                aria-current="true"
-            >Item 2</a>
+            <a class="off-canvas__link is--active" href="#" aria-current="true">Item 2</a>
         </li>
         <li class="off-canvas__item">
-            <a
-                class="off-canvas__link"
-                href="#"
-            >Item 3</a>
+            <a class="off-canvas__link" href="#">Item 3</a>
         </li>
         <li class="off-canvas__item">
-            <a
-                class="off-canvas__link"
-                href="#"
-            >Item 4</a>
+            <a class="off-canvas__link" href="#">Item 4</a>
         </li>
         <li class="off-canvas__item">
-            <a
-                class="off-canvas__link"
-                href="#"
-            >Item 5</a>
+            <a class="off-canvas__link" href="#">Item 5</a>
         </li>
     </ul>
 </nav>`}</code></pre>
@@ -58,7 +42,7 @@ const OffCanvas = () => <PatternLayout>
 
 toggle('.js-off-canvas', { focus: false, closeOnBlur: true });`}</code></pre>
     <h2 class="push-bottom--half plus-1 medium">Acceptance criteria</h2>
-    <ul class="list push-bottom">
+    <ul class="list list--tick push-bottom">
         <li class="list-item">Use a button tag for the navigation triggers</li>
         <li class="list-item">Navigation should be nav element should be appropriately labelled</li>
         <li class="list-item">Buttons should be within the nav element</li>
