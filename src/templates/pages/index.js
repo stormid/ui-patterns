@@ -10,14 +10,14 @@ export const title = 'Home';
 
 const PATTERNS = [
     { title: 'Off-screen navigation', summary: 'Show and hide navigation with a button', url: '/patterns/off-canvas' },
-    { title: 'Modal search', url: '/patterns/modal-search' },
-    { title: 'Collapsable section', url: '/patterns/collapsable-section' },
-    { title: 'Linked header buttons', summary: 'Off-canvas navigation and modal search that can only be open one at a time', url: '/patterns/linked-header-buttons' },
-    { title: 'Modal confirmation', summary: 'Ask users to confirm before performing an action', url: '/patterns/modal-confirmation' },
-    { title: 'Cookie banner', url: '/patterns/cookie-banner' },
-    { title: 'Form validation', url: '/patterns/form-validation' },
-    { title: 'Tabs', url: '/patterns/tabs' },
-    { title: 'Modal gallery', url: '/patterns/modal-gallery' },
+    { title: 'Modal search', summary: 'Show and hide a modal search form', url: '/patterns/modal-search' },
+    { title: 'Expandable section', summary:'Show and hide a section of content', url: '/patterns/expandable-section' },
+    // { title: 'Linked header buttons', summary: 'Off-canvas navigation and modal search that can only be open one at a time', url: '/patterns/linked-header-buttons' },
+    // { title: 'Modal confirmation', summary: 'Ask users to confirm before performing an action', url: '/patterns/modal-confirmation' },
+    // { title: 'Cookie banner', url: '/patterns/cookie-banner' },
+    // { title: 'Form validation', url: '/patterns/form-validation' },
+    // { title: 'Tabs', url: '/patterns/tabs' },
+    // { title: 'Modal gallery', url: '/patterns/modal-gallery' },
 ];
 
 const HomePage = () => <DefaultLayout>
