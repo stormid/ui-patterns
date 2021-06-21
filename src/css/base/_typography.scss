@@ -3,7 +3,9 @@ button,
 input,
 select,
 textarea {
-    font: 100%/1.5 var(--font-family-default);
+    font-size: 100%;
+    line-height:1.5;
+    font-family: var(--font-family-default);
     color: var(--off-black);
 }
 a {
@@ -58,4 +60,8 @@ ul {
 .align-right {
     max-width: none;
     text-align: right;
+}
+
+.visuallyhidden {
+    @include visuallyhidden;
 }

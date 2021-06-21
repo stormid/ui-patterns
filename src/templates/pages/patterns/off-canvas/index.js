@@ -51,7 +51,7 @@ toggle('.js-off-canvas', { focus: false, closeOnBlur: true });`}</code></pre>
         <li class="list-item">Buttons should be appropriately labelled</li>
         <li class="list-item">Buttons should be keyboard operable</li>
         <li class="list-item">Navigation should be hidden visually and from accessibility tree when closed</li>
-        <li class="list-item">Navigation should be visible and in accessibility tree when open</li>
+        <li class="list-item">Navigation should be visible and in  the accessibility tree when open</li>
         <li class="list-item">Navigation should be tabable</li>
         <li class="list-item">Either the first item in the navigation should be the next in the focus order after the button, or the first item should programmatically receive focus when navigation is opened</li>
         <li class="list-item">Should not trap tab - a user should be able to tab out of the navigation</li>

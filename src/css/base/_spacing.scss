@@ -7,3 +7,6 @@
 .push-bottom--double {
     margin-bottom: calc(var(--baseline)*2);
 }
+.soft-top {
+    padding-top: var(--baseline);
+}
