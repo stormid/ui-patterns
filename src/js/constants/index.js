@@ -4,3 +4,9 @@ export const TOGGLE = {
         EXPANDABLE_SECTION: '.js-expandable-section'
     }
 };
+
+export const MODAL = {
+    SELECTOR: {
+        MODAL_SEARCH: '.js-modal-search'
+    }
+};

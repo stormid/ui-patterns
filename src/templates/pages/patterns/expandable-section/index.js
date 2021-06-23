@@ -6,6 +6,8 @@ export const title = 'Disclosure';
 const ExpandableSection = () => <PatternLayout>
     <h1 class="push-bottom--half plus-2 medium">Expandable section</h1>
     <p class="push-bottom">Show and hide a section of content</p>
+    <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
+    <p class="push-bottom">Use this pattern for toggles and accordions that expands and collapse content into in the document flow.</p>
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example expandable section" src={'/example/expandable-section'}></iframe>
     <p class="push-bottom align-right"><a href="/example/expandable-section" target="_blank">Open in a new tab</a></p>
@@ -43,8 +45,8 @@ toggle('.js-expandable-section, { focus: false, local: true });
         <li class="list-item">The button trigger has an aria-controls attribute that matches the id of the section that it expands and collapses</li>
         <li class="list-item">The button trigger supports enter and space keyboard interactions to expand and collapse the section</li>
         <li class="list-item">The button trigger is focusable</li>
-        <li class="list-item">The button trigger has a focus state style</li>
-        <li class="list-item">The button trigger is properly labelled with text content (e.g. the title of the section), an aria-label or aria-labelledby</li>
+        <li class="list-item">The button trigger has a focus style</li>
+        <li class="list-item">The button trigger is properly labelled with text content such as the title of the section, or an aria-label, or aria-labelledby attribute</li>
         <li class="list-item">The collapsed section is hidden visually and from the accessibility tree</li>
         <li class="list-item">The expanded section is visible and in the accessibility tree</li>
     </ul>

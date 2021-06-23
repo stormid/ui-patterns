@@ -9,7 +9,7 @@ describe('Off-canvas > mark up', () => {
         initOffCanvas();
     });
     
-    it('Should use a button tag for the navigation triggers', () => {
+    it('Should use a button element for the navigation triggers', () => {
         const toggleButton = document.querySelector('.off-canvas__btn');
         expect(toggleButton.tagName).toEqual('BUTTON');
     });

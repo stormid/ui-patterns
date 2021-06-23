@@ -6,6 +6,7 @@ export const title = 'Modal search';
 const ModalSearch = () => <PatternLayout>
     <h1 class="push-bottom--half plus-2 medium">Modal search</h1>
     <p class="push-bottom">Show and hide a modal search form.</p>
+    <p class="push-bottom">Use this pattern for search forms that should capture focus, take over the whole screen and prevent interaction with the rest of the page until they are closed.</p>
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example modal search navigation" src={'/example/modal-search'}></iframe>
     <p class="push-bottom align-right"><a href="/example/modal-search" target="_blank">Open in a new tab</a></p>
