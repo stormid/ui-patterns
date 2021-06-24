@@ -8,7 +8,7 @@ const OffCanvas = () => <PatternLayout>
     <h1 class="push-bottom--half plus-2 medium">Off canvas</h1>
     <p class="push-bottom">Show and hide navigation with a button.</p>
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
-    <p class="push-bottom">Use this pattern for hamburger-type navigation that expands and collapses in the document flow. In contrast, modal navigation captures focus, takes over the whole screen and prevents interaction with the rest of the page. The off-canvas pattern does not trap tab in the same way and closes when the focus moves off the navigation.</p>
+    <p class="push-bottom">Use this pattern for hamburger-type navigation that expands and collapses in the document flow. In contrast modal navigation captures focus, takes over the whole screen and prevents interaction with the rest of the page. The off-canvas pattern does not trap tab in the same way and closes when the focus moves off the navigation.</p>
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example off-canvas navigation" src={'/example/off-canvas'}></iframe>
     <p class="push-bottom align-right"><a href="/example/off-canvas" target="_blank">Open in a new tab</a></p>
@@ -56,7 +56,8 @@ toggle('.js-off-canvas', { focus: false, closeOnBlur: true });`}</code></pre>
         <li class="list-item">Navigation should be visible and in the accessibility tree when open</li>
         <li class="list-item">Navigation should be tabbable</li>
         <li class="list-item">Either the first item in the navigation should be in the focus order after the button, or the first item should programmatically receive focus when navigation is opened</li>
-        <li class="list-item">Whe open the navigation should not trap tab if is not modal - a user should be able to tab out</li>
+        <li class="list-item">When open the navigation should not trap tab - a user should be able to tab out</li>
+        <li class="list-item">When open the navigation should be in normal document flow - tabbing off the last focuable item should go to the next focuable item in the document</li>
         <li class="list-item">Focus outside navigation (including when tabbing out) should hide navigation</li>
         <li class="list-item">ARIA expanded attribute should correctly describe shown/hidden state</li>
         <li class="list-item">ARIA controls attribute should correctly associate button with nav element</li>
