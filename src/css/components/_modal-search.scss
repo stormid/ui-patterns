@@ -1,6 +1,6 @@
 .modal-search__container {
     padding: var(--baseline) var(--gutter);
-    background-color: var(--off-black);
+    border-bottom: 1px solid var(--light-grey-3);
     height: 95px;
 }
 .modal-search {
@@ -12,14 +12,15 @@
     background-color: transparent;
     font-weight: var(--medium-weight);
     padding: calc(var(--baseline)/2) calc(var(--gutter)/3);
-    color: white;
+    color: var(--off-black);
         &:focus {
-            outline: 1px solid white;
+            outline: 1px solid var(--off-black);
         }
 }
 .modal-search__btn-icon {
     margin-right: calc(var(--gutter)/6);
     display: block;
+    fill: var(--off-black);
 }
 
 .modal-container {
@@ -38,7 +39,7 @@
             left: 0;
             bottom: 0;
             right: 0;
-            background-color: var(--off-black);
+            background-color: white;
         }
 }
 .modal__title,
@@ -55,12 +56,13 @@
     align-items: center;
     padding: calc(var(--baseline)/3) calc(var(--gutter)/2);
         &:focus {
-            outline: 1px solid white;
+            outline: 1px solid var(--off-black);
             border-radius: 0;
         }
 }
 .modal__close-icon {
     display: block;
+    fill: var(--off-black);
 }
 .modal__form {
     display: flex;
@@ -70,27 +72,29 @@
     width:100%;
     display: block;
     padding: 0 calc(var(--gutter)/2);
-    background-color: rgba(255,255,255,.1);
-    border: 0 none;
+    // background-color: rgba(255,255,255,.1);
+    border: 1px solid var(--light-grey-3);
     appearance: none;
     -moz-appearance: textfield;
     height:40px;
     line-height:36px;
     min-width: 250px;
     border-radius: 0;
-    color: white;
+    color: var(--off-black);
         &:focus {
-            outline: 1px solid white;
+            outline: 1px solid var(--off-black);
         }
 }
 .modal__search-btn {
     background-color: transparent;
-    color: white;
+    color: var(--off-black);
     padding: 0 6px;
     border-radius: 0;
     min-width: 70px;
+    margin-left:1px;
         &:focus {
-            outline: 1px solid white;
+            outline: 0 none;
+            border: 1px solid var(--off-black);
             border-radius: 0;
         }
 }

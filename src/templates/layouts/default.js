@@ -10,7 +10,6 @@ import Footer from '@components/footer';
 
 const Default = ({ children }) => <body>
     <Header>
-        <Skip />
         <LogoLink />
         <Title>UI Patterns</Title>
         {/* <ExampleNavigation ariaLabel={'Main navigation'}>

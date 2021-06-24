@@ -1,11 +1,11 @@
 import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
 
-export const title = 'Off canvas';
+export const title = 'Off-canvas navigation';
 
 
 const OffCanvas = () => <PatternLayout>
-    <h1 class="push-bottom--half plus-2 medium">Off canvas</h1>
+    <h1 class="push-bottom--half plus-2 medium">Off-canvas navigation</h1>
     <p class="push-bottom">Show and hide navigation with a button.</p>
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
     <p class="push-bottom">Use this pattern for hamburger-type navigation that expands and collapses in the document flow. In contrast modal navigation captures focus, takes over the whole screen and prevents interaction with the rest of the page. The off-canvas pattern does not trap tab in the same way and closes when the focus moves off the navigation.</p>
