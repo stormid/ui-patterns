@@ -1,3 +1,15 @@
+@font-face {
+    font-family: system;
+    font-style: normal;
+    font-weight: 300;
+    src: local(".SFNSText-Regular"),
+         local(".HelveticaNeueDeskInterface"),
+         local("Ubuntu"),
+         local("Segoe UI"),
+         local("Lucida Grande"),
+         local("Roboto"),
+         local("DroidSans");
+}
 body,
 button,
 input,
@@ -5,7 +17,7 @@ select,
 textarea {
     font-size: 100%;
     line-height:1.5;
-    font-family: var(--font-family-default);
+    font-family: system, sans-serif;
     color: var(--off-black);
 }
 a {
@@ -45,16 +57,16 @@ ul {
 }
 
 .bold {
-    font-family: var(--font-family-bold);
+    font-weight: var(--bold-weight);
+}
+.semibold {
+    font-weight: var(--semibold-weight);
 }
 .medium {
-    font-family: var(--font-family-medium);
+    font-weight: var(--medium-weight);
 }
 .light {
-    font-family: var(--font-family-default);
-}
-.thin {
-    font-family: var(--font-family-thin);
+    font-weight: var(--light-weight);
 }
 
 .align-right {

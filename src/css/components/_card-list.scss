@@ -20,12 +20,13 @@
         }
 }
 .card-list__title {
-    font-family: var(--font-family-medium);
+    font-weight: var(--medium-weight);
     margin-bottom: calc(var(--baseline)/4);
 }
 .card-list__link {
     font-size: var(--font-size-plus-1);
     color: var(--off-black);
+    text-decoration: none;
         &:after {
             content: '';
             display: block;

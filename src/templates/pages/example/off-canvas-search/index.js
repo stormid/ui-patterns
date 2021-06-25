@@ -2,11 +2,11 @@ import { h } from 'preact';
 import ExampleLayout from '@layouts/example';
 import Code from './code';
 
-export const title = 'Off canvas navigation example';
+export const title = 'Off-canvas search example';
 
-const OffCanvasNav = () => <ExampleLayout>
-    <header class="off-canvas-nav__container">
-        <div class="off-canvas-nav">
+const ModalSearch = () => <ExampleLayout>
+    <header class="off-canvas-search__header">
+        <div class="off-canvas-search__header-inner">
             <Code />
         </div>
     </header>
@@ -15,4 +15,4 @@ const OffCanvasNav = () => <ExampleLayout>
     </main>
 </ExampleLayout>;
 
-export default OffCanvasNav;
+export default ModalSearch;

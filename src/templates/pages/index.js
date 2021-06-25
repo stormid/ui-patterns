@@ -12,6 +12,7 @@ const PATTERNS = [
     { title: 'Off-canvas navigation', url: '/patterns/off-canvas-navigation' },
     { title: 'Modal search', url: '/patterns/modal-search' },
     { title: 'Expandable section', url: '/patterns/expandable-section' },
+    { title: 'Off-canvas search', url: '/patterns/off-canvas-search' },
     // { title: 'Linked header buttons', summary: 'Off-canvas navigation and modal search that can only be open one at a time', url: '/patterns/linked-header-buttons' },
     // { title: 'Modal confirmation', summary: 'Ask users to confirm before performing an action', url: '/patterns/modal-confirmation' },
     // { title: 'Cookie banner', url: '/patterns/cookie-banner' },

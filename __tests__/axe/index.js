@@ -11,6 +11,7 @@ expect.extend(toHaveNoViolations);
 
 walker(__dirname, `../../src/templates/pages`)
     .forEach(link => {
+        if (link.name === 'code.js') return;
         const url = `${link.path ? `/${link.path}` : ''}/${link.name}`;
 
         describe(`Accessibility`, () => {

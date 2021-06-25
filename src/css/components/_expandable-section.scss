@@ -9,7 +9,7 @@
     padding: calc(var(--baseline)/2) calc(var(--gutter)/2);
     background-color: transparent;
     font-size: var(--font-size-plus-1);
-    font-family: var(--font-family-medium);
+    font-weight: var(--medium-weight);
         &:before,
         &:after {
             content: '';
