@@ -1,9 +1,9 @@
-import OffCanvas from './modules/off-canvas';
+import OffCanvasNav from './modules/off-canvas-navigation';
 import ModalSearch from './modules/modal-search';
 import ExpandableSection from './modules/expandable-section';
 
 export const initStack = [
-    OffCanvas,
+    OffCanvasNav,
     ModalSearch,
     ExpandableSection
     // Importer(`tabs`)

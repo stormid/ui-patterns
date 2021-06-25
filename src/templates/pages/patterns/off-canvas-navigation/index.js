@@ -10,39 +10,14 @@ const OffCanvas = () => <PatternLayout>
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
     <p class="push-bottom">Use this pattern for hamburger-type navigation that expands and collapses in the document flow. In contrast modal navigation captures focus, takes over the whole screen and prevents interaction with the rest of the page. The off-canvas pattern does not trap tab in the same way and closes when the focus moves off the navigation.</p>
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
-    <iframe style="--height: 375px" class="example" title="Example off-canvas navigation" src={'/example/off-canvas'}></iframe>
-    <p class="push-bottom align-right"><a href="/example/off-canvas" target="_blank">Open in a new tab</a></p>
+    <iframe style="--height: 375px" class="example" title="Example off-canvas navigation" src={'/example/off-canvas-navigation'}></iframe>
+    <p class="push-bottom align-right"><a href="/example/off-canvas-navigation" target="_blank">Open in a new tab</a></p>
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
     <pre class="pre"><code class="code">
-{`<nav aria-label="Primary navigation">
-    <button class="off-canvas__btn js-off-canvas__toggle" aria-label="Show or hide navigation menu">
-        <svg focusable="false" class="off-canvas__btn-icon" aria-hidden="true" fill="#fff" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-            <path d="M0 0h24v24H0z" fill="none" />
-            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
-        </svg>
-        menu
-    </button>
-    <ul id="off-canvas" class="off-canvas__list js-off-canvas" data-toggle="js-off-canvas__toggle">
-        <li class="off-canvas__item">
-            <a class="off-canvas__link" href="#">Item 1</a>
-        </li>
-        <li class="off-canvas__item">
-            <a class="off-canvas__link is--active" href="#" aria-current="true">Item 2</a>
-        </li>
-        <li class="off-canvas__item">
-            <a class="off-canvas__link" href="#">Item 3</a>
-        </li>
-        <li class="off-canvas__item">
-            <a class="off-canvas__link" href="#">Item 4</a>
-        </li>
-        <li class="off-canvas__item">
-            <a class="off-canvas__link" href="#">Item 5</a>
-        </li>
-    </ul>
-</nav>`}</code></pre>
+{``}</code></pre>
     <pre class="pre"><code class="code">{`import toggle from '@stormid/toggle';
 
-toggle('.js-off-canvas', { focus: false, closeOnBlur: true });`}</code></pre>
+toggle('.js-off-canvas-nav', { focus: false, closeOnBlur: true });`}</code></pre>
     <h2 class="push-bottom--half plus-1 medium">Acceptance criteria</h2>
     <ul class="list list--tick push-bottom">
         <li class="list-item">Use a button element for the navigation triggers</li>
@@ -52,6 +27,7 @@ toggle('.js-off-canvas', { focus: false, closeOnBlur: true });`}</code></pre>
         <li class="list-item">Button focus style should be visible</li>
         <li class="list-item">Buttons should be appropriately labelled</li>
         <li class="list-item">Buttons should be keyboard operable</li>
+        <li class="list-item">Buttons should be no less than 44px x 44px</li>
         <li class="list-item">Navigation should be hidden visually and from accessibility tree when closed</li>
         <li class="list-item">Navigation should be visible and in the accessibility tree when open</li>
         <li class="list-item">Navigation should be tabbable</li>

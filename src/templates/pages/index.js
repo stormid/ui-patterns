@@ -9,7 +9,7 @@ export const title = 'Home';
 // }];
 
 const PATTERNS = [
-    { title: 'Off-canvas navigation', url: '/patterns/off-canvas' },
+    { title: 'Off-canvas navigation', url: '/patterns/off-canvas-navigation' },
     { title: 'Modal search', url: '/patterns/modal-search' },
     { title: 'Expandable section', url: '/patterns/expandable-section' },
     // { title: 'Linked header buttons', summary: 'Off-canvas navigation and modal search that can only be open one at a time', url: '/patterns/linked-header-buttons' },

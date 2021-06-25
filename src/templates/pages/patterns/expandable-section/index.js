@@ -46,6 +46,7 @@ toggle('.js-expandable-section, { focus: false, local: true });
         <li class="list-item">The button trigger supports enter and space keyboard interactions to expand and collapse the section</li>
         <li class="list-item">The button trigger is focusable</li>
         <li class="list-item">The button trigger has a focus style</li>
+        <li class="list-item">Buttons should be no less than 44px x 44px</li>
         <li class="list-item">The button trigger is properly labelled with text content such as the title of the section, or an aria-label, or aria-labelledby attribute</li>
         <li class="list-item">The collapsed section is hidden visually and from the accessibility tree</li>
         <li class="list-item">The expanded section is visible and in the accessibility tree</li>

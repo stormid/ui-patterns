@@ -1,6 +1,6 @@
 export const TOGGLE = {
     SELECTOR: {
-        OFF_CANVAS: '.js-off-canvas',
+        OFF_CANVAS: '.js-off-canvas-nav',
         EXPANDABLE_SECTION: '.js-expandable-section'
     }
 };

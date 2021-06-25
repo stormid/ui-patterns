@@ -42,6 +42,7 @@ modal('.js-modal-search');
         <li class="list-item">Trigger button focus style should be visible</li>
         <li class="list-item">Trigger button should be appropriately labelled</li>
         <li class="list-item">Trigger button should be keyboard operable</li>
+        <li class="list-item">Buttons should be no less than 44px x 44px</li>
         <li class="list-item">Modal should have a role of dialog that contains all elements of the modal</li>
         <li class="list-item">Modal should be hidden visually and from accessibility tree when closed</li>
         <li class="list-item">Modal should be visible and in accessibility tree when open</li>
