@@ -37,6 +37,7 @@ toggle('.js-expandable-section, { focus: false, local: true });
         <li class="list-item"><a href="https://www.w3.org/TR/wai-aria-practices-1.1/#disclosure" rel="noopener nofollow">https://www.w3.org/TR/wai-aria-practices-1.1/#disclosure</a></li>
         <li class="list-item"><a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/disclosure/disclosure-faq.html" rel="noopener nofollow">https://www.w3.org/TR/wai-aria-practices-1.1/examples/disclosure/disclosure-faq.html</a></li>
         <li class="list-item"><a href="https://inclusive-components.design/collapsible-sections/" rel="noopener nofollow">https://inclusive-components.design/collapsible-sections/</a></li>
+        <li class="list-item"><a href="https://webaim.org/standards/wcag/checklist" rel="noopener nofollow">https://webaim.org/standards/wcag/checklist</a></li>
     </ul>
 </PatternLayout>;
 

@@ -49,30 +49,40 @@
     border-radius: 0;
     color: var(--off-black);
         &:focus {
-            outline: 1px solid var(--off-black);
+            outline: 0 none;
+            border: 1px solid var(--off-black);
+            box-shadow: 0 0 0 1px white;
         }
 }
 
 .off-canvas-search__submit {
     background-color: transparent;
-    color: var(--off-black);
+    color: white;
     padding: 0 6px;
     border-radius: 0;
     min-width: 70px;
     margin-left:1px;
         &:focus {
             outline: 0 none;
-            border: 1px solid var(--off-black);
+            border: 1px solid white;
             border-radius: 0;
         }
 }
 .on--js-off-canvas-search {
+    .off-canvas-search {
+        display: block;
+        position: fixed;
+        max-width: none;
+        top: 95px;
+        right: 0;
+        left: 0;
+        background-color: var(--off-black);
+        padding: calc(var(--baseline)/2) calc(var(--gutter)/2);
+    }
     .off-canvas-search__form {
         display: block;
         display: flex;
         max-width: 500px;
-    }
-    .off-canvas-search__btn {
-        display: none;
+        margin: 0 auto;
     }
 }
