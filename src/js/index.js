@@ -4,6 +4,8 @@ import ExpandableSection from './modules/expandable-section';
 import OffCanvasSearch from './modules/off-canvas-search';
 import ExclusiveToggles from './modules/exclusive-toggles';
 import ModalConfirmation from './modules/modal-confirmation';
+import CookieBanner from './modules/cookie-banner';
+import Tabs from './modules/tabs';
 
 export const initStack = [
     OffCanvasNav,
@@ -11,7 +13,9 @@ export const initStack = [
     ExpandableSection,
     OffCanvasSearch,
     ExclusiveToggles,
-    ModalConfirmation
+    ModalConfirmation,
+    CookieBanner,
+    Tabs
     // Importer(`tabs`)
     // () => { import(/* webpackChunkName: "toggle" */`./features/toggle`).then(module => module.default()); },
     // () => { import(/* webpackChunkName: "validate" */`@stormid/validate`).then(module => module.default.init(VALIDATE.SELECTOR)); },

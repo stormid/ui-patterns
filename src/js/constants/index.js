@@ -14,3 +14,11 @@ export const MODAL = {
         MODAL_CONFIRMATION: '.js-modal-confirmation'
     }
 };
+
+export const COOKIE_BANNER = {
+    SELECTOR: '#js-cookie-banner-example'
+};
+
+export const TABS = {
+    SELECTOR: '.js-tabs'
+};
