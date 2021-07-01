@@ -15,7 +15,10 @@ const ExclusiveToggles = () => <PatternLayout>
     <p class="push-bottom align-right"><a href="/example/exclusive-toggles" target="_blank">Open in a new tab</a></p>
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
-    <pre class="pre"><code class="code">{``}</code></pre>
+    <pre class="pre"><code class="code">{`import toggle from '@stormid/toggle';
+    
+toggle('.js-exclusive-nav', { focus: false, closeOnBlur: true });
+toggle('.js-exclusive-search', { closeOnBlur: true });`}</code></pre>
     <h2 class="push-bottom--half plus-1 medium">Acceptance criteria</h2>
     <ul class="list list--tick push-bottom--double">
         <li class="list-item"></li>

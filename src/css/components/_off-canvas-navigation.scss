@@ -28,26 +28,29 @@
 }
 .off-canvas-nav__item {
     display: block;
-    border-bottom: 1px solid var(--light-grey-3);
+    // border-bottom: 1px solid var(--light-grey-3);
         // &:first-child {
         //     border-top: 1px solid var(--dark-grey-3);
         // }
 }
 .off-canvas-nav__link {
     display: block;
-    color: var(--off-black);
+    color: white;
+    background-color: var(--off-black);
     padding: calc(var(--baseline)/2) var(--gutter);
     border: 1px solid transparent;
+    border-bottom: 1px solid var(--dark-grey-3);
     transition: background-color 120ms ease;
     text-decoration: none;
         &.is--active {
-            background-color: var(--light-grey-1);
+            background-color: var(--dark-grey-3);
         }
         &:focus {
-            border: 1px solid var(--off-black);
+            border: 1px solid white;
+            outline: 0 none;
         }
         &:hover {
-            background-color: var(--light-grey-2);
+            background-color: var(--dark-grey-2);
         }
 }
 .off-canvas-nav__close {

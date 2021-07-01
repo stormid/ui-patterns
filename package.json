@@ -30,8 +30,6 @@
     "@babel/plugin-transform-react-jsx": "^7.0.0",
     "@babel/preset-env": "^7.1.6",
     "@stormid/eslint-config": "^1.2.0",
-    "@stormid/outliner": "^1.0.0-alpha.4",
-    "@stormid/toggle": "^1.0.0-alpha.9",
     "autoprefixer": "^9.3.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^26.3.0",
@@ -74,6 +72,8 @@
   },
   "dependencies": {
     "@stormid/modal": "^1.0.0-alpha.8",
+    "@stormid/outliner": "^1.0.0-alpha.4",
+    "@stormid/toggle": "^1.0.0-alpha.10",
     "es6-object-assign": "^1.1.0",
     "promise-polyfill": "^8.1.0"
   }
