@@ -1,7 +1,6 @@
 .off-canvas-nav__container {
     padding: var(--baseline) var(--gutter);
-    // background-color: var(--off-black);
-    border-bottom: 1px solid var(--light-grey-3);
+    background-color: var(--off-black);
     height: 95px;
 }
 .off-canvas-nav {
@@ -13,15 +12,15 @@
     background-color: transparent;
     font-weight: var(--medium-weight);
     padding: calc(var(--baseline)/2) calc(var(--gutter)/3);
-    color: var(--off-black);
+    color: white;
         &:focus {
-            outline: 1px solid var(--off-black);
+            outline: 1px solid var(--highlight);
         }
 }
 .off-canvas-nav__btn-icon {
     margin-right: calc(var(--gutter)/6);
     display: block;
-    fill: var(--off-black);
+    fill: white;
 }
 .off-canvas-nav__list {
     display: none;
@@ -29,9 +28,9 @@
 .off-canvas-nav__item {
     display: block;
     // border-bottom: 1px solid var(--light-grey-3);
-        // &:first-child {
-        //     border-top: 1px solid var(--dark-grey-3);
-        // }
+        &:first-child {
+            border-top: 1px solid var(--dark-grey-3);
+        }
 }
 .off-canvas-nav__link {
     display: block;
@@ -46,7 +45,7 @@
             background-color: var(--dark-grey-3);
         }
         &:focus {
-            border: 1px solid white;
+            border: 1px solid var(--highlight);
             outline: 0 none;
         }
         &:hover {
@@ -75,7 +74,7 @@
         right: calc(var(--gutter)/2);
         background-color: transparent;
             &:focus {
-                outline-color: var(--off-black);
+                outline-color: var(--highlight);
             }
     }
     .off-canvas-nav__close-icon {

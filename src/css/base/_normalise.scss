@@ -327,6 +327,15 @@ input[disabled] {
 	pointer-events: none;
 }
 
+a,
+button,
+input,
+textarea {
+    &:focus {
+        outline: 2px solid var(--highlight)
+    }
+}
+
 textarea { 
 	overflow: auto; 
 	vertical-align: top; 

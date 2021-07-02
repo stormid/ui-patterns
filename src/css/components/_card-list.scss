@@ -27,6 +27,19 @@
     font-size: var(--font-size-plus-1);
     color: var(--off-black);
     text-decoration: none;
+        &:focus {
+            outline: 0 none;
+                &:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left:0;
+                    outline: 2px solid var(--highlight)
+                }
+        }
         &:after {
             content: '';
             display: block;

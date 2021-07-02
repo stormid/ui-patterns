@@ -1,5 +1,7 @@
 .logo-link {
+    padding: 4px;
+    margin: -4px;
     &:focus {
-        outline: 1px solid white
+        outline: 1px solid var(--highlight)
     }
 }

@@ -13,7 +13,7 @@
     padding: var(--baseline) var(--gutter);
     position: relative;
         &:focus {
-            box-shadow: 0 0 0 1px var(--off-black);
+            box-shadow: 0 0 0 1px var(--highlight);
             outline: 0 none;
         }
         &.is--active:after {

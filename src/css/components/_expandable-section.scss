@@ -24,7 +24,7 @@
             transform: rotate(90deg);
         }
         &:focus {
-            outline: 1px solid var(--off-black);
+            outline: 1px solid var(--highlight);
         }
 }
 .expandable-section__bd {
