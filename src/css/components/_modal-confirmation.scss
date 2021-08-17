@@ -1,0 +1,46 @@
+.modal-confirmation__btn {
+    display: inline-block;
+    padding: calc(var(--baseline)/2) var(--gutter);
+    background-color: var(--off-black);
+    border: 1px solid var(--off-black);
+    color: white;
+    margin:2px;
+        &:hover,
+        &:focus {
+            transition: background-color 120ms ease;
+            background-color: white;
+            color: var(--off-black);
+        }
+}
+.modal-confirmation {
+    color: white
+}
+.modal-confirmation__title {
+    font-size: var(--font-size-plus-1);
+}
+.modal-confirmation__row {
+    padding-top: var(--baseline)
+}
+.modal-confirmation__form {
+    flex-direction: column;
+}
+.modal-confirmation__cancel,
+.modal-confirmation__confirm {
+    display: inline-block;
+    padding: calc(var(--baseline)/2) var(--gutter);
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: white;
+}
+.modal-confirmation__confirm {
+    border: 1px solid white;
+        &:hover,
+        &:focus {
+            transition: background-color 120ms ease;
+            background-color: white;
+            color: var(--off-black)
+        }
+}
+.modal-confirmation__cancel {
+    margin-left: calc(var(--gutter)/2);
+}

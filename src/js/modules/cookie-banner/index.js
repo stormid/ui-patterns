@@ -1,10 +1,13 @@
 import { COOKIE_BANNER } from '../../constants';
 import cookieBanner from '@stormid/cookie-banner';
+import { TOGGLE } from '../../constants';
+import toggle from '@stormid/toggle';
 
 export default () => {
     if (!document.querySelector(COOKIE_BANNER.SELECTOR)) return;
-    return cookieBanner({
-        tid: TID,
+
+    const banner = cookieBanner({
+        tid: 'UA-401849-33',
         policyURL: '#',
         hideBannerOnFormPage: true,
         types: {
@@ -48,7 +51,7 @@ export default () => {
                                 <button type="button" class="btn btn--primary ${model.classNames.acceptBtn}">Accept and close</button>
                                 <button type="button" class="privacy-banner__link js-toggle__preferences ${model.classNames.optionsBtn}">Your options</button>
                             </div>
-                            <div id="preferences" class="privacy-banner__panel js-toggle" data-toggle="js-toggle__preferences">
+                            <div id="preferences" class="privacy-banner__panel js-toggle-banner" data-toggle="js-toggle__preferences">
                                 <div class="privacy-banner__form-container"></div>
                             </div>
                             <!--googleon: all-->
@@ -58,7 +61,7 @@ export default () => {
             </section>`;
         },
         formTemplate(model){
-            return `<form id="preferences" class="row ${model.settings.classNames.form}" novalidate>
+            return `<form id="preferences-form" class="row ${model.settings.classNames.form}" novalidate>
                     ${Object.keys(model.settings.types).map(type => `<div class="privacy-banner__col"><fieldset class="${model.settings.classNames.fieldset}">
                     <legend class="${model.settings.classNames.legend}">
                         <span class="${model.settings.classNames.title}">${model.settings.types[type].title}</span>
@@ -100,4 +103,9 @@ export default () => {
             </form>`;
         },
     });
+
+    return {
+        banner,
+        toggle: toggle(TOGGLE.SELECTOR.COOKIE_BANNER)
+    };
 };

@@ -7,7 +7,7 @@ export const title = 'Modal confirmation';
 
 const ModalConfirmation = () => <PatternLayout>
     <h1 class="push-bottom--half plus-2 medium">Modal confirmation</h1>
-    {/* <p class="push-bottom--double"></p> */}
+    <p class="push-bottom--double">Ask for confirmation from the user before executing an action.</p>
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
     <p class="push-bottom--double">Use this pattern to add friction to severe actions to help prevent user errors.</p>
     <h2 class="push-bottom--half plus-1 medium">Example</h2>

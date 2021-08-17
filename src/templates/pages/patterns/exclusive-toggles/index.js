@@ -7,9 +7,9 @@ export const title = 'Exclusive toggles';
 
 const ExclusiveToggles = () => <PatternLayout>
     <h1 class="push-bottom--half plus-2 medium">Exclusive toggles</h1>
-    <p class="push-bottom--double"></p>
+    <p class="push-bottom--double">Mutually exclusive toggled sections.</p>
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
-    <p class="push-bottom--double"></p>
+    <p class="push-bottom--double">Use this pattern for dealing with multiple togglable sections that can only display one at a time. This pattern is commonly used for off-canvas navigation and off-canvas search that can only be displayed independent of each other. Note that if either (or both) expandable sections are modal, this pattern is not necessary since when a modal dialog is open it should not be possibnle to interact with the rest of the page.</p>
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example exclusive buttons" src={'/example/exclusive-toggles'}></iframe>
     <p class="push-bottom align-right"><a href="/example/exclusive-toggles" target="_blank">Open in a new tab</a></p>
@@ -21,8 +21,10 @@ toggle('.js-exclusive-nav', { focus: false, closeOnBlur: true });
 toggle('.js-exclusive-search', { closeOnBlur: true });`}</code></pre>
     <h2 class="push-bottom--half plus-1 medium">Acceptance criteria</h2>
     <ul class="list list--tick push-bottom--double">
-        <li class="list-item"></li>
-        {/* <li class="list-item">The navigation should be usable without JavaScript</li> */}
+        <li class="list-item">Acceptance criteria for each constituent toggle pattern should be met</li>
+        <li class="list-item">Expansion of one section should trigger the collapse lifecycle (and all associated aria, className, and state changes) in all associated toggles</li>
+        <li class="list-item">Closing toggles should not interfere with notifications about opening toggle attribute changes</li>
+        <li class="list-item">Closing toggles should not interfere with focus behaviour</li>
     </ul>
     <h2 class="push-bottom--half plus-1 medium">References</h2>
     <ul class="list push-bottom--double">

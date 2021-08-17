@@ -4,7 +4,8 @@ export const TOGGLE = {
         EXPANDABLE_SECTION: '.js-expandable-section',
         OFF_CANVAS_SEARCH: '.js-off-canvas-search',
         EXCLUSIVE_SEARCH: '.js-exclusive-search',
-        EXCLUSIVE_NAV: '.js-exclusive-nav'
+        EXCLUSIVE_NAV: '.js-exclusive-nav',
+        COOKIE_BANNER: '.js-toggle-banner'
     }
 };
 
