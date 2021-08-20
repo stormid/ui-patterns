@@ -48,7 +48,7 @@ export default () => {
                                 <p class="privacy-banner__summary privacy-banner__summary--preferences"><button type="button" class="privacy-banner__btn-text ${model.classNames.acceptBtn}">Accept and close </button> or edit your choices below and click 'Save my choices'.</p>
                             </div>
                             <div class="privacy-banner__actions">
-                                <button type="button" class="btn btn--primary ${model.classNames.acceptBtn}">Accept and close</button>
+                                <button type="button" class="privacy-banner__btn ${model.classNames.acceptBtn}">Accept and close</button>
                                 <button type="button" class="privacy-banner__link js-toggle__preferences ${model.classNames.optionsBtn}">Your options</button>
                             </div>
                             <div id="preferences" class="privacy-banner__panel js-toggle-banner" data-toggle="js-toggle__preferences">
@@ -62,7 +62,7 @@ export default () => {
         },
         formTemplate(model){
             return `<form id="preferences-form" class="row ${model.settings.classNames.form}" novalidate>
-                    ${Object.keys(model.settings.types).map(type => `<div class="privacy-banner__col"><fieldset class="${model.settings.classNames.fieldset}">
+                    ${Object.keys(model.settings.types).map(type => `<div class="privacy-banner__col col"><fieldset class="${model.settings.classNames.fieldset}">
                     <legend class="${model.settings.classNames.legend}">
                         <span class="${model.settings.classNames.title}">${model.settings.types[type].title}</span>
                         <span class="${model.settings.classNames.description}">${model.settings.types[type].description}</span>
@@ -96,7 +96,7 @@ export default () => {
                         </div>
                     </div>
                 </fieldset></div>`).join('')}
-                <div class="privacy-banner__set">
+                <div class="privacy-banner__set col">
                     <button class="${model.settings.classNames.submitBtn}"${Object.keys(model.consent).length !== Object.keys(model.settings.types).length ? ` disabled` : ''}>Save my choices</button>
                     <div class="privacy-banner__set-accept">Or <button type="button" class="privacy-banner__btn-text ${model.settings.classNames.acceptBtn}">Accept and close</button></div>
                 </div>

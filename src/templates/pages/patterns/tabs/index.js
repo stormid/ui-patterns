@@ -19,6 +19,40 @@ const Tabs = () => <PatternLayout>
     <h2 class="push-bottom--half plus-1 medium">Acceptance criteria</h2>
     <ul class="list list--tick push-bottom--double">
         {/* <li class="list-item">Use a button element for the expandable section trigger</li> */}
+        {/* 
+        role="tablist" for list of tabs
+
+        role="tab" direct children of tablist
+
+        role="tabpanel" 
+
+        tabs should be anchor link
+
+        url should update with hash from tab anchor
+
+        tabs should be addressable - inbound link with hash of a tab should open the correct tab
+        
+        closed tabs should be hidden from the axe tree
+
+        tabbing:
+            - When focus moves into the tab list, places focus on the active tab element .
+            - When the tab list contains the focus, moves focus to the next element in the 
+        
+        Enter/space
+        When a tab has focus, activates the tab, causing its associated panel to be displayed.
+
+
+        Right Arrow	When a tab has focus:
+        Moves focus to the next tab.
+        If focus is on the last tab, moves focus to the first tab.
+
+        Left Arrow	When a tab has focus:
+        Moves focus to the previous tab.
+        If focus is on the first tab, moves focus to the last tab.
+
+        Home	When a tab has focus, moves focus to the first tab.
+
+        */}
     </ul>
     <h2 class="push-bottom--half plus-1 medium">References</h2>
     <ul class="list push-bottom--double">
