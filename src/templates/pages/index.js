@@ -15,8 +15,8 @@ const PATTERNS = [
     { title: 'Off-canvas search', url: '/patterns/off-canvas-search' },
     { title: 'Exclusive toggles', url: '/patterns/exclusive-toggles' },
     { title: 'Modal confirmation',/* summary: 'Ask users to confirm before performing an action',*/ url: '/patterns/modal-confirmation' },
-    { title: 'Cookie banner', url: '/patterns/cookie-banner' },
-    { title: 'Tabs', url: '/patterns/tabs' },
+    // { title: 'Cookie banner', url: '/patterns/cookie-banner' },
+    { title: 'Automatic activation tabs', url: '/patterns/tabs' },
     // { title: 'Form validation', url: '/patterns/form-validation' },
     // { title: 'Modal gallery', url: '/patterns/modal-gallery' },
 ];
