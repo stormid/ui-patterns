@@ -85,8 +85,7 @@
     }
 }
 
-.privacy-banner__panel,
-.privacy-banner__summary--preferences{
+.privacy-banner__panel {
     display:none;
     .on--preferences &{
         display:block;
@@ -221,7 +220,7 @@
 }
 
 .privacy-banner__label-text {
-    display: inline;
+    display: block;
     font-weight: var(--semibold-weight);
     &:before {
         background-color: var(--light-grey-3);
@@ -264,7 +263,8 @@
     letter-spacing: 0.3px;  
 }
 
-.privacy-banner__label-description {
+.privacy-banner__label-description {    
+    font-size: var(--font-size-minus-1);
     font-weight:var(--regular-weight);
     color:var(--dark-grey-2);
     letter-spacing: 0.3px;
@@ -286,7 +286,7 @@
     &:focus {
         background-color: white;
         border-color: var(--off-black);
-        color:#ffffff;
+        color: var(--off-black);
     }
     &:disabled {
         opacity:.6;

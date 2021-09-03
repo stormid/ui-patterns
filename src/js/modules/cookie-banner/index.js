@@ -7,6 +7,7 @@ export default () => {
     if (!document.querySelector(COOKIE_BANNER.SELECTOR)) return;
 
     const banner = cookieBanner({
+        name: '.Patterns.Consent',
         tid: 'UA-401849-33',
         policyURL: '#',
         hideBannerOnFormPage: true,
@@ -45,13 +46,13 @@ export default () => {
                                 <div class="privacy-banner__title">Cookies</div>
                                 <p class="privacy-banner__summary">This web service uses cookies to ensure it functions correctly, and to help gather analytics data which is used to help us improve the service.</p>
                                 <p class="privacy-banner__summary">Find out more from our <a class="privacy-banner__link" rel="noopener noreferrer nofollow" href="/privacy">privacy policy</a> and <a class="privacy-banner__link" rel="noopener noreferrer nofollow" href="${model.policyURL}">cookie policy</a>.</p>
-                                <p class="privacy-banner__summary privacy-banner__summary--preferences"><button type="button" class="privacy-banner__btn-text ${model.classNames.acceptBtn}">Accept and close </button> or edit your choices below and click 'Save my choices'.</p>
                             </div>
                             <div class="privacy-banner__actions">
                                 <button type="button" class="privacy-banner__btn ${model.classNames.acceptBtn}">Accept and close</button>
                                 <button type="button" class="privacy-banner__link js-toggle__preferences ${model.classNames.optionsBtn}">Your options</button>
                             </div>
                             <div id="preferences" class="privacy-banner__panel js-toggle-banner" data-toggle="js-toggle__preferences">
+                                <p><button type="button" class="privacy-banner__btn-text ${model.classNames.acceptBtn}">Accept and close </button> or edit your choices below and click 'Save my choices'.</p>
                                 <div class="privacy-banner__form-container"></div>
                             </div>
                             <!--googleon: all-->
@@ -106,6 +107,6 @@ export default () => {
 
     return {
         banner,
-        toggle: toggle(TOGGLE.SELECTOR.COOKIE_BANNER)
+        toggle: document.querySelector(TOGGLE.SELECTOR.COOKIE_BANNER) && toggle(TOGGLE.SELECTOR.COOKIE_BANNER)
     };
 };
