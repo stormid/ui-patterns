@@ -2,11 +2,17 @@
     display: inline-block;
     font-size: var(--font-size-minus-2);
     padding: calc(var(--baseline)/8) calc(var(--gutter)/4);
-    text-transform: uppercase;
+    // text-transform: uppercase;
+    // font-weight: var(--semibold-weight);
+    text-transform: capitalize;
     border-radius: 4px;
     color: var(--off-black)
 }
 .status--development {
-    background-color:darkorange;
-    color: hsl(33 100% 18% / 1);
+    background-color: var(--light-grey-1);
+    color: var(--dark-grey-3);
+}
+.status--production {
+    background-color:#c9eeea;
+    color: #0d544e;
 }
