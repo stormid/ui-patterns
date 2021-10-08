@@ -2,11 +2,11 @@
     display: inline-block;
     font-size: var(--font-size-minus-2);
     padding: calc(var(--baseline)/8) calc(var(--gutter)/4);
-    font-weight: medium;
     text-transform: uppercase;
     border-radius: 4px;
     color: var(--off-black)
 }
 .status--development {
     background-color:darkorange;
+    color: hsl(33 100% 18% / 1);
 }
