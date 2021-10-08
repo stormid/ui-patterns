@@ -1,5 +1,9 @@
 import { h } from 'preact';
 import DefaultLayout from '@layouts/default';
+const STATUS = {
+    DEVELOPMENT: 'development',
+    PRODUCTION: 'production'
+};
 
 export const title = 'Home';
 
@@ -9,20 +13,43 @@ export const title = 'Home';
 // }];
 
 const PATTERNS = [
-    { title: 'Off-canvas navigation', url: '/patterns/off-canvas-navigation' },
-    { title: 'Modal search', url: '/patterns/modal-search' },
-    { title: 'Expandable section', url: '/patterns/expandable-section' },
-    { title: 'Off-canvas search', url: '/patterns/off-canvas-search' },
-    { title: 'Exclusive toggles', url: '/patterns/exclusive-toggles' },
-    { title: 'Modal confirmation', url: '/patterns/modal-confirmation' },
+    { title: 'Off-canvas navigation', url: '/patterns/off-canvas-navigation', status: STATUS.DEVELOPMENT },
+    { title: 'Modal search', url: '/patterns/modal-search', status: STATUS.DEVELOPMENT },
+    { title: 'Expandable section', url: '/patterns/expandable-section', status: STATUS.DEVELOPMENT },
+    { title: 'Off-canvas search', url: '/patterns/off-canvas-search', status: STATUS.DEVELOPMENT },
+    { title: 'Exclusive toggles', url: '/patterns/exclusive-toggles', status: STATUS.DEVELOPMENT },
+    { title: 'Modal confirmation', url: '/patterns/modal-confirmation', status: STATUS.DEVELOPMENT },
     // { title: 'Cookie banner', url: '/patterns/cookie-banner' },
-    { title: 'Tabs', url: '/patterns/tabs' },
+    { title: 'Tabs', url: '/patterns/tabs', status: STATUS.DEVELOPMENT },
     // { title: 'Form validation', url: '/patterns/form-validation' },
     // { title: 'Modal gallery', url: '/patterns/modal-gallery' },
 ];
 
+
 const HomePage = () => <DefaultLayout>
-    <ul class="card-list">
+    <div class="table__container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="th">Pattern</th>
+                    <th class="th th--status">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                { 
+                    PATTERNS.map(pattern => <tr class="tr">
+                            <td class="td">
+                                <a class="td__link" href={pattern.url}>{pattern.title}</a>
+                            </td>
+                            <td class="td td--status">
+                                <span class={`status status--${pattern.status}`}>{pattern.status}</span>
+                            </td>
+                        </tr>)
+                }
+            </tbody>
+        </table>
+    </div>
+    {/* <ul class="card-list">
         { PATTERNS.map(pattern => <li class="card-list__item">
             <h2 class="card-list__title">
                 <a class="card-list__link" href={pattern.url}>{pattern.title}</a>
@@ -33,9 +60,9 @@ const HomePage = () => <DefaultLayout>
                 <li class="tag">accordion</li>
                 <li class="tag">show/hide</li>
                 <li class="tag">expandable</li>
-            </ul> */}
-        </li>) }
-    </ul>
+            </ul>
+        </li>) } 
+    </ul>*/}
 </DefaultLayout>;
 
 export default HomePage;
