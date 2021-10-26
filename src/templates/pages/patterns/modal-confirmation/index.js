@@ -27,14 +27,15 @@ modal('.js-modal-confirmation);
         <li class="list-item">Trigger button should be appropriately labelled</li>
         <li class="list-item">Trigger button should be keyboard operable</li>
         <li class="list-item">Buttons should be no less than 44px x 44px</li>
-        <li class="list-item">Modal should have a role of dialog that contains all elements of the modal</li>
+        <li class="list-item">Modal should have a role of alertdialog that contains all elements of the modal</li>
         <li class="list-item">Modal should be hidden visually and from accessibility tree when closed</li>
         <li class="list-item">Modal should be visible and in accessibility tree when open</li>
-        <li class="list-item">Modal should be labelled with either an aria-label or an aria-labelledby that points to a visible title</li>
+        <li class="list-item">Alertdialog should be labelled with either an aria-label or an aria-labelledby that points to a visible title</li>
+        <li class="list-item">Alertdialog should have a description - an aria-describedby attirbute that points to a visible description</li>
         <li class="list-item">An element within modal should be given focus when open</li>
-        <li class="list-item">Modal should either have an aria-modal attribute or the background (rest of the page) must get an aria-hidden attribute when the modal is open</li>
+        <li class="list-item">When the modal is open the background (rest of the elements on the page) must get an aria-hidden attribute</li>
         <li class="list-item">Modal must trap tab when open</li>
-        <li class="list-item">Tab sequence in the modal should include a visible button that closes the dialog</li>
+        <li class="list-item">Tab sequence in the modal should include a visible button that closes the alertdialog</li>
         <li class="list-item">Search input should be appropriately labelled</li>
         <li class="list-item">Escape button should close the modal</li>
         <li class="list-item">Focus must return to the trigger button when closed</li>
@@ -42,8 +43,8 @@ modal('.js-modal-confirmation);
     <h2 class="push-bottom--half plus-1 medium">References</h2>
     <ul class="list push-bottom--double">
         <li class="list-item"><a href="https://www.smashingmagazine.com/2018/01/friction-ux-design-tool/" rel="noopener nofollow">https://www.smashingmagazine.com/2018/01/friction-ux-design-tool/</a></li>
-        <li class="list-item"><a href="https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal" rel="noopener nofollow">https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal</a></li>
-        <li class="list-item"><a href="https://w3c.github.io/aria-practices/examples/dialog-modal/dialog.html" rel="noopener nofollow">https://w3c.github.io/aria-practices/examples/dialog-modal/dialog.html</a></li>
+        <li class="list-item"><a href="https://www.w3.org/TR/wai-aria-practices-1.1/#alertdialog" rel="noopener nofollow">https://www.w3.org/TR/wai-aria-practices-1.1/#alertdialog</a></li>
+        <li class="list-item"><a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/alertdialog.html" rel="noopener nofollow">https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/alertdialog.html</a></li>
         <li class="list-item"><a href="https://webaim.org/standards/wcag/checklist" rel="noopener nofollow">https://webaim.org/standards/wcag/checklist</a></li>
     </ul>
 </PatternLayout>;

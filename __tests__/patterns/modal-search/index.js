@@ -37,11 +37,6 @@ describe('Modal search > mark up', () => {
         expect(document.getElementById(id).textContent).toBeDefined();
     });
 
-    it('Modal should either have an aria-modal attribute or the background (rest of the page) must get an aria-hidden attribute when the modal is open', () => {
-        const modal = document.querySelector('.modal');
-        expect(modal.getAttribute('aria-modal')).toBeDefined();
-    });
-
 });
 
 describe('Modal search > behaviour > keyboard', () => {

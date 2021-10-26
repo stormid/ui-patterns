@@ -43,9 +43,9 @@ describe('Modal confirmation > mark up', () => {
         expect(toggleButton.textContent).toEqual('Delete');
     });
 
-    it('Modal should have a role of dialog', () => {
+    it('Modal should have a role of alertdialog', () => {
         const modal = document.querySelector('.modal');
-        expect(modal.getAttribute('role')).toEqual('dialog');
+        expect(modal.getAttribute('role')).toEqual('alertdialog');
     });
 
     it('Modal should be labelled with either an aria-label or an aria-labelledby that points to a visible title', () => {
@@ -109,7 +109,7 @@ describe('Modal search > behaviour > tab', () => {
     });
 
     it('Focus must return to the trigger button when closed', () => {
-        const toggleButton = document.querySelector('.js-modal-confirmation__btn');
+        const toggleButton = document.querySelector('.modal-confirmation__btn.js-modal-confirmation__btn');
         expect(instance.getState().isOpen).toEqual(true);
         const escapeEvent = new window.KeyboardEvent('keydown', { keyCode: 27, bubbles: true });
         document.body.dispatchEvent(escapeEvent);
@@ -127,7 +127,7 @@ describe('Modal search > behaviour > escape', () => {
     });
 
     it('Escape button should close the modal', () => {
-        const toggleButton = document.querySelector('.js-modal-confirmation__btn');
+        const toggleButton = document.querySelector('.modal-confirmation__btn.js-modal-confirmation__btn');
         const enterEvent = new window.KeyboardEvent('keydown', { keyCode: 32, bubbles: true });
         toggleButton.dispatchEvent(enterEvent);
         const escapeEvent = new window.KeyboardEvent('keydown', { keyCode: 27, bubbles: true });
