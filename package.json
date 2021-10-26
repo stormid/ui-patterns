@@ -72,7 +72,7 @@
   },
   "dependencies": {
     "@stormid/cookie-banner": "^1.0.0-alpha.15",
-    "@stormid/modal": "^1.0.0-alpha.8",
+    "@stormid/modal": "^1.0.0-alpha.10",
     "@stormid/outliner": "^1.0.0-alpha.4",
     "@stormid/tabs": "^1.0.0-alpha.4",
     "@stormid/toggle": "^1.0.0-alpha.10",
