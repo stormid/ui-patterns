@@ -31,8 +31,8 @@ modal('.js-modal-search');
         <li class="list-item">Modal should be hidden visually and from accessibility tree when closed</li>
         <li class="list-item">Modal should be visible and in accessibility tree when open</li>
         <li class="list-item">Modal should be labelled with either an aria-label or an aria-labelledby that points to a visible title</li>
-        <li class="list-item">An element within modal should be given focus when open</li>
-        <li class="list-item">Modal should either have an aria-modal attribute or the background (rest of the page) must get an aria-hidden attribute when the modal is open</li>
+        <li class="list-item">An element within the modal should be given focus when open</li>
+        <li class="list-item">When the modal is open the background (rest of the elements on the page) must get an aria-hidden attribute</li>
         <li class="list-item">Modal must trap tab when open</li>
         <li class="list-item">Tab sequence in the modal should include a visible button that closes the dialog</li>
         <li class="list-item">Search input should be appropriately labelled</li>
