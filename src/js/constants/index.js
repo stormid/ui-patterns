@@ -12,7 +12,8 @@ export const TOGGLE = {
 export const MODAL = {
     SELECTOR: {
         MODAL_SEARCH: '.js-modal-search',
-        MODAL_CONFIRMATION: '.js-modal-confirmation'
+        MODAL_CONFIRMATION: '.js-modal-confirmation',
+        MODAL_NAVIGATION: '.js-modal-nav'
     }
 };
 
