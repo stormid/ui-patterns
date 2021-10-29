@@ -23,3 +23,7 @@ export const COOKIE_BANNER = {
 export const TABS = {
     SELECTOR: '.js-tabs'
 };
+
+export const VALIDATION = {
+    SELECTOR: 'form:not([novalidate])'
+};
