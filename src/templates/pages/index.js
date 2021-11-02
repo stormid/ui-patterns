@@ -1,9 +1,8 @@
 import { h } from 'preact';
 import DefaultLayout from '@layouts/default';
-const STATUS = {
-    DEVELOPMENT: 'development',
-    PRODUCTION: 'production'
-};
+import { STATUS } from '@constants';
+import Status from '@components/status';
+
 
 export const title = 'Home';
 
@@ -42,7 +41,7 @@ const HomePage = () => <DefaultLayout>
                                 <a class="td__link" href={pattern.url}>{pattern.title}</a>
                             </td>
                             <td class="td td--status">
-                                <span class={`status status--${pattern.status}`}>{pattern.status}</span>
+                                <Status type={pattern.status} />
                             </td>
                         </tr>)
                 }

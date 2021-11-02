@@ -1,18 +1,31 @@
 .status {
     display: inline-block;
+    line-height: 1;
     font-size: var(--font-size-minus-2);
-    padding: calc(var(--baseline)/8) calc(var(--gutter)/4);
+    padding: calc(var(--baseline)/8) calc(var(--gutter)/4) calc(var(--baseline)/6) calc(var(--gutter)/4);
+    min-width: 90px;
+    text-align: center;
     // text-transform: uppercase;
     // font-weight: var(--semibold-weight);
     text-transform: capitalize;
-    border-radius: 4px;
-    color: var(--off-black)
+    border-radius: 8px;
+    color: var(--off-black);
+    
 }
 .status--development {
-    background-color: var(--light-grey-1);
+    background-color: var(--light-grey-2);
     color: var(--dark-grey-3);
 }
-.status--production {
-    background-color:#c9eeea;
-    color: #0d544e;
+.status--release {
+    background-color: var(--highlight);
+}
+.status--depreciated {
+    background-color: var(--off-black);
+    color:white;
+}
+.tr:hover,
+.tr:focus {
+    .status {
+        background-color: white;
+    }
 }

@@ -47,6 +47,7 @@ module.exports = {
     },
     resolve: {
         alias: {
+            '@constants': path.join(process.cwd(), 'src/templates/constants/'),
             '@templates': path.join(process.cwd(), 'src/templates/'),
             '@layouts': path.join(process.cwd(), 'src/templates/layouts'),
             '@components': path.join(process.cwd(), 'src/templates/components'),

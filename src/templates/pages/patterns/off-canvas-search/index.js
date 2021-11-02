@@ -2,11 +2,13 @@ import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
 import Code from '../../example/off-canvas-search/code';
 import { render } from 'preact-render-to-string';
+import PatternTitle from '@components/pattern-title';
+import { STATUS } from '@constants';
 
 export const title = 'Off-canvas search';
 
 const OffCanvasSearch = () => <PatternLayout>
-    <h1 class="push-bottom--half plus-2 medium">Off-canvas search</h1>
+    <PatternTitle status={STATUS.DEVELOPMENT}>Off-canvas search</PatternTitle>
     <p class="push-bottom--double">Show and hide inline search with a button.</p>
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
     <p class="push-bottom--double">Use this pattern for a search form that expands and collapses in the document flow. In contrast modal search captures focus, takes over the whole screen and prevents interaction with the rest of the page. The off-canvas pattern does not trap tab in the same way and closes when the focus moves off the search form.</p>
