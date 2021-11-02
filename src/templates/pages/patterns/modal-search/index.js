@@ -14,7 +14,7 @@ const ModalSearch = () => <PatternLayout>
     <p class="push-bottom--double">Use this pattern for search forms that should capture focus, take over the whole screen and prevent interaction with the rest of the page until they are closed.</p>
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example modal search navigation" src={'/example/modal-search'}></iframe>
-    <p class="push-bottom- align-right"><a href="/example/modal-search" target="_blank">Open in a new tab</a></p>
+    <p class="push-bottom- align-right"><a href="/example/modal-search" rel="noopener" target="_blank">Open in a new tab</a></p>
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
     <pre class="pre"><code class="code">{`import modal from '@stormid/modal';

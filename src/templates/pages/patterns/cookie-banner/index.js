@@ -14,7 +14,7 @@ const CookieBanner = () => <PatternLayout>
     <p class="push-bottom--double"></p>
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example expandable section" src={'/example/cookie-banner'}></iframe>
-    <p class="push-bottom align-right"><a href="/example/cookie-banner" target="_blank">Open in a new tab</a></p>
+    <p class="push-bottom align-right"><a href="/example/cookie-banner" rel="noopener" target="_blank">Open in a new tab</a></p>
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
     <pre class="pre"><code class="code">{``}</code></pre>   
