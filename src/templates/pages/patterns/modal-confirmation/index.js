@@ -34,6 +34,7 @@ modal('.js-modal-confirmation);
         <li class="list-item">Alertdialog should have a description - an aria-describedby attirbute that points to a visible description</li>
         <li class="list-item">An element within modal should be given focus when open</li>
         <li class="list-item">When the modal is open the background (rest of the elements on the page) must get an aria-hidden attribute</li>
+        <li class="list-item">When the modal is open the background document must not be scrollable, and the original scroll position must be restored when the modal is closed</li>
         <li class="list-item">Modal must trap tab when open</li>
         <li class="list-item">Tab sequence in the modal should include a visible button that closes the alertdialog</li>
         <li class="list-item">Search input should be appropriately labelled</li>
