@@ -2,11 +2,13 @@ import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
 import Code from '../../example/tabs/code';
 import { render } from 'preact-render-to-string';
+import PatternTitle from '@components/pattern-title';
+import { STATUS } from '@constants';
 
 export const title = 'Tabs';
 
 const Tabs = () => <PatternLayout>
-    <h1 class="push-bottom--half plus-2 medium">Tabs</h1>
+    <PatternTitle status={STATUS.DEVELOPMENT}>Tabs</PatternTitle>
     <p class="push-bottom--double">Automatically activated tabs display their panel when they receive focus.</p>
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
     <p class="push-bottom--double">Automatic activation should be used when the tabpanel content is immediately available and present in the DOM. Manual activation (requiring a click or enter/space keydown event) should be used if the content is not immediately present, for example if it requires a network request to retrieve it.</p>

@@ -2,11 +2,13 @@ import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
 import Code from '../../example/cookie-banner/code';
 import { render } from 'preact-render-to-string';
+import PatternTitle from '@components/pattern-title';
+import { STATUS } from '@constants';
 
 export const title = 'Cookie banner';
 
 const CookieBanner = () => <PatternLayout>
-    <h1 class="push-bottom--half plus-2 medium">Cookie banner</h1>
+    <PatternTitle status={STATUS.DEVELOPMENT}>Cookie banner</PatternTitle>    
     <p class="push-bottom--double"></p>
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
     <p class="push-bottom--double"></p>

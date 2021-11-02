@@ -2,11 +2,13 @@ import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
 import Code from '../../example/exclusive-toggles/code';
 import { render } from 'preact-render-to-string';
+import PatternTitle from '@components/pattern-title';
+import { STATUS } from '@constants';
 
 export const title = 'Exclusive toggles';
 
 const ExclusiveToggles = () => <PatternLayout>
-    <h1 class="push-bottom--half plus-2 medium">Exclusive toggles</h1>
+    <PatternTitle status={STATUS.DEVELOPMENT}>Exclusive toggles</PatternTitle>
     <p class="push-bottom--double">Mutually exclusive toggled sections.</p>
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
     <p class="push-bottom--double">Use this pattern for dealing with multiple togglable sections that can only display one at a time. This pattern is commonly used for off-canvas navigation and off-canvas search that can only be displayed independent of each other. Note that if either (or both) expandable sections are modal, this pattern is not necessary since when a modal dialog is open it should not be possibnle to interact with the rest of the page.</p>

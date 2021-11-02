@@ -1,0 +1,11 @@
+.pattern-title {
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    margin-bottom: calc(var(--baseline)/2);
+    font-size: var(--font-size-plus-2);
+    font-weight: var(--medium-weight);
+}
+.pattern-title__text {
+    margin-right: var(--gutter);
+}

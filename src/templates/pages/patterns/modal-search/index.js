@@ -2,11 +2,13 @@ import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
 import Code from '../../example/modal-search/code';
 import { render } from 'preact-render-to-string';
+import PatternTitle from '@components/pattern-title';
+import { STATUS } from '@constants';
 
 export const title = 'Modal search';
 
 const ModalSearch = () => <PatternLayout>
-    <h1 class="push-bottom--half plus-2 medium">Modal search</h1>
+    <PatternTitle status={STATUS.DEVELOPMENT}>Modal search</PatternTitle>
     <p class="push-bottom--double">Show and hide a modal search form.</p>
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
     <p class="push-bottom--double">Use this pattern for search forms that should capture focus, take over the whole screen and prevent interaction with the rest of the page until they are closed.</p>

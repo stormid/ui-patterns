@@ -2,11 +2,13 @@ import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
 import Code from '../../example/expandable-section/code';
 import { render } from 'preact-render-to-string';
+import PatternTitle from '@components/pattern-title';
+import { STATUS } from '@constants';
 
 export const title = 'Expandable section';
 
 const ExpandableSection = () => <PatternLayout>
-    <h1 class="push-bottom--half plus-2 medium">Expandable section</h1>
+    <PatternTitle status={STATUS.DEVELOPMENT}>Expandable section</PatternTitle>
     <p class="push-bottom--double">Show and hide a section of content</p>
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
     <p class="push-bottom--double">Use this pattern for toggles and accordions that expand and collapse content into in the document flow. Consider using the <a rel="noopener nofollow" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details" target="_blank">HTML details tag</a> as an alternative if Internet Explorer 11 support is not required.</p>

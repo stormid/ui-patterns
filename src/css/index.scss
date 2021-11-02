@@ -6,6 +6,7 @@
 @import 'base/grid';
 @import 'base/typography';
 @import 'base/spacing';
+@import 'base/visibility';
  
 @import 'components/skip';
 @import 'components/header';
@@ -22,6 +23,7 @@
 @import 'components/table';
 @import 'components/code';
 @import 'components/status';
+@import 'components/pattern-title';
 
 @import 'components/off-canvas-navigation';
 @import 'components/modal-search';
