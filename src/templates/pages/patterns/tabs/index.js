@@ -14,7 +14,7 @@ const Tabs = () => <PatternLayout>
     <p class="push-bottom--double">Automatic activation should be used when the tabpanel content is immediately available and present in the DOM. Manual activation (requiring a click or enter/space keydown event) should be used if the content is not immediately present, for example if it requires a network request to retrieve it.</p>
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example expandable section" src={'/example/tabs'}></iframe>
-    <p class="push-bottom align-right"><a href="/example/tabs" target="_blank">Open in a new tab</a></p>
+    <p class="push-bottom align-right"><a href="/example/tabs" rel="noopener" target="_blank">Open in a new tab</a></p>
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
     <pre class="pre"><code class="code">{`import modal from '@stormid/tabs';

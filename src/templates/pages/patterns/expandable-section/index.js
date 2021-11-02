@@ -14,7 +14,7 @@ const ExpandableSection = () => <PatternLayout>
     <p class="push-bottom--double">Use this pattern for toggles and accordions that expand and collapse content into in the document flow. Consider using the <a rel="noopener nofollow" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details" target="_blank">HTML details tag</a> as an alternative if Internet Explorer 11 support is not required.</p>
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example expandable section" src={'/example/expandable-section'}></iframe>
-    <p class="push-bottom align-right"><a href="/example/expandable-section" target="_blank">Open in a new tab</a></p>
+    <p class="push-bottom align-right"><a href="/example/expandable-section" rel="noopener" target="_blank">Open in a new tab</a></p>
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
     <pre class="pre"><code class="code">{`import toggle from '@stormid/toggle';

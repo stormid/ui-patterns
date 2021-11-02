@@ -14,7 +14,7 @@ const ModalConfirmation = () => <PatternLayout>
     <p class="push-bottom--double">Use this pattern to add friction to severe actions to help prevent user errors.</p>
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example modal-confirmation" src={'/example/modal-confirmation'}></iframe>
-    <p class="push-bottom align-right"><a href="/example/modal-confirmation" target="_blank">Open in a new tab</a></p>
+    <p class="push-bottom align-right"><a href="/example/modal-confirmation" rel="noopener" target="_blank">Open in a new tab</a></p>
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
     <pre class="pre"><code class="code">{`import modal from '@stormid/modal';

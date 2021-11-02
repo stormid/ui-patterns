@@ -14,7 +14,7 @@ const OffCanvasSearch = () => <PatternLayout>
     <p class="push-bottom--double">Use this pattern for a search form that expands and collapses in the document flow. In contrast modal search captures focus, takes over the whole screen and prevents interaction with the rest of the page. The off-canvas pattern does not trap tab in the same way and closes when the focus moves off the search form.</p>
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example off-canvas search" src={'/example/off-canvas-search'}></iframe>
-    <p class="push-bottom align-right"><a href="/example/off-canvas-search" target="_blank">Open in a new tab</a></p>
+    <p class="push-bottom align-right"><a href="/example/off-canvas-search" rel="noopener" target="_blank">Open in a new tab</a></p>
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
     <pre class="pre"><code class="code">{`import toggle from '@stormid/toggle';
