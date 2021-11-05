@@ -1,7 +1,7 @@
 import { h } from 'preact';
 import ExampleLayout from '@layouts/example';
 
-export const title = 'Modal navigation > separate code';
+export const title = 'Modal navigation > double code';
 
 const ModalNavigation = () => <ExampleLayout>
     <header class="modal-nav__container">
