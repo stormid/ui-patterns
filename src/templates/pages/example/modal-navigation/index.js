@@ -2,7 +2,7 @@ import { h } from 'preact';
 import ExampleLayout from '@layouts/example';
 import Code from './code';
 
-export const title = 'Modal search example';
+export const title = 'Modal navigation example';
 
 const ModalSearch = () => <ExampleLayout>
     <header class="modal-search__container">

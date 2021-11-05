@@ -8,7 +8,7 @@ const Code = () => <nav aria-label={'Primary navigation'}>
         </svg>
         menu
     </button>
-    <div id="modal-navigation" class="js-modal-nav modal-nav__container" data-modal-toggle="js-modal-nav__toggle" hidden>
+    <div id="modal-navigation" class="js-modal-nav modal-nav__modal-container" data-modal-toggle="js-modal-nav__toggle" hidden>
         <div class="modal" role="dialog" aria-label="Navigation">
             <ul class="modal-nav__list">
                 <li class="modal-nav__item">
