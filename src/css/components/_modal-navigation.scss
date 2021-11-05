@@ -135,19 +135,21 @@
 }
 .on--non-modal-nav,
 .on--modal-fishy-nav {
-    .non-modal-nav__container,
-    .modal-fishy-nav__container {
-        display: block;
-        overflow: auto;
-        position: fixed;
-        justify-content: center;
-        padding-top: 20vh;
-        width: auto;
-        height: auto;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        background-color: var(--off-black);
+    @media (max-width: 1023px) {
+        .non-modal-nav__container,
+        .modal-fishy-nav__container {
+            display: block;
+            overflow: auto;
+            position: fixed;
+            justify-content: center;
+            padding-top: 20vh;
+            width: auto;
+            height: auto;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: var(--off-black);
+        }
     }
 }
