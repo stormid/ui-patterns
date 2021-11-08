@@ -7,5 +7,7 @@ export default () => {
     if (!document.querySelector(VALIDATION.SELECTOR)) return;
     if (document.querySelector('.js-polite-invalid')) return invalid('.js-polite-invalid');
     if (document.querySelector('.js-aria-describedby')) return describedby('.js-aria-describedby');
-    return baseline(VALIDATION.SELECTOR);
+    return baseline(VALIDATION.SELECTOR, {
+        useSummary: true
+    });
 };

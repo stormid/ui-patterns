@@ -41,7 +41,7 @@ export default {
             state.groups[data.groupName]
                 ?  { validators: [...state.groups[data.groupName].validators, data.validator] }
                 : {
-                    fields: document.querySelector('[data-val-'+GROUP_ATTRIBUTE+'="'+data.groupName+'"]') ? [].slice.call(document.querySelectorAll('[data-val-'+GROUP_ATTRIBUTE+'="'+data.groupName+'"]')) : [].slice.call(document.getElementsByName(data.groupName)),
+                    fields: data.fields || (document.querySelector(`[data-val-${GROUP_ATTRIBUTE}="${data.groupName}"]`) ? [].slice.call(document.querySelectorAll(`[data-val-${GROUP_ATTRIBUTE}="${data.groupName}"]`)) : [].slice.call(document.getElementsByName(data.groupName))),
                     serverErrorNode: document.querySelector(`[${DOTNET_ERROR_SPAN_DATA_ATTRIBUTE}=${data.groupName}]`) || false,
                     valid: false,
                     validators: [data.validator],

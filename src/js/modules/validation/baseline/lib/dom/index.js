@@ -98,7 +98,11 @@ export const renderErrors = Store => () => {
     });
     
     if (state.settings.useSummary && !state.errorSummary) createErrorSummary(Store, render);
-    else render();
+    else {
+        state.errorSummary.removeAttribute('role');
+        state.errorSummary.setAttribute('role', 'alert');
+        render();
+    }
     
 };
 

@@ -94,14 +94,18 @@ export const clearErrors = state => {
  * @param state [Object, validation state]
  * 
  */
-export const renderErrors = Store => () => {
+ export const renderErrors = Store => () => {
     const state = Store.getState();
     const render = () => Object.keys(state.groups).forEach(groupName => {
         if (!state.groups[groupName].valid) renderError(Store)(groupName);
     });
     
     if (state.settings.useSummary && !state.errorSummary) createErrorSummary(Store, render);
-    else render();
+    else {
+        state.errorSummary.removeAttribute('role');
+        state.errorSummary.setAttribute('role', 'alert');
+        render();
+    }
     
 };
 
