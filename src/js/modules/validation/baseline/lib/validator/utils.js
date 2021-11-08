@@ -29,10 +29,10 @@ export const groupIsDisabled = fields => fields.reduce((acc, field) => {
 export const hasValue = input => (input.value !== undefined && input.value !== null && input.value.length > 0);
 
 export const groupValueReducer = (acc, input) => {
-    if (!isCheckable(input) && !isHidden(input) && hasValue(input)) acc = input.value;
+    if (!isCheckable(input) && !isHidden(input) && hasValue(input)) acc = input.value.trim();
     if (isCheckable(input) && input.checked) {
-        if (Array.isArray(acc)) acc.push(input.value);
-        else acc = [input.value];
+        if (Array.isArray(acc)) acc.push(input.value.trim());
+        else acc = [input.value.trim()];
     }
     return acc;
 };

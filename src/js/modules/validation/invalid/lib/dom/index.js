@@ -91,14 +91,18 @@ export const clearErrors = state => {
  * @param state [Object, validation state]
  * 
  */
-export const renderErrors = Store => () => {
+ export const renderErrors = Store => () => {
     const state = Store.getState();
     const render = () => Object.keys(state.groups).forEach(groupName => {
         if (!state.groups[groupName].valid) renderError(Store)(groupName);
     });
     
     if (state.settings.useSummary && !state.errorSummary) createErrorSummary(Store, render);
-    else render();
+    else {
+        state.errorSummary.removeAttribute('role');
+        state.errorSummary.setAttribute('role', 'alert');
+        render();
+    }
     
 };
 
@@ -110,7 +114,7 @@ export const renderErrors = Store => () => {
  * 
  */
 export const createErrorSummary = (Store, cb) => {
-    const errorSummary = h('div', { role: 'alert', class: AX_ATTRIBUTES.HIDDEN_CLASS, [AX_ATTRIBUTES.ERROR_SUMMARY]: 'true' } );
+    const errorSummary = h('div', { 'aria-live': 'polite', class: AX_ATTRIBUTES.HIDDEN_CLASS, [AX_ATTRIBUTES.ERROR_SUMMARY]: 'true' } );
     const { form } = Store.getState();
     form.insertBefore(errorSummary, form.firstChild);
     Store.dispatch(ACTIONS.CREATE_ERROR_SUMMARY, errorSummary, [ cb ]);
