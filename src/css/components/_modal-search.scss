@@ -48,7 +48,8 @@
 }
 .modal__close {
     position:fixed;
-    top: var(--baseline);
+    color: white;
+    bottom: var(--baseline);
     right: var(--gutter);
     background-color: transparent;
     display: flex;
