@@ -1,3 +1,9 @@
+# UI Patterns
+
+A catalogue of accessible, design agnostic best, practice user interface patterns.
+
+## Development
+
 | Command | Description |
 |-|-|
 | `npm i` | install dependencies
