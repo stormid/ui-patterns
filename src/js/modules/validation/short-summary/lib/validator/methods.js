@@ -61,5 +61,5 @@ export default {
         })
             .then(data => resolve(data));
     }),
-    custom: (method, group) => isOptional(group) || method(extractValueFromGroup(group), group.fields)
+    custom: (method, group) => isOptional(group)|| method(extractValueFromGroup(group), group.fields)
 };

@@ -29,10 +29,10 @@ export const groupIsDisabled = fields => fields.reduce((acc, field) => {
 export const hasValue = input => (input.value !== undefined && input.value !== null && input.value.length > 0);
 
 export const groupValueReducer = (acc, input) => {
-    if (!isCheckable(input) && !isHidden(input) && hasValue(input)) acc = input.value.trim();
+    if (!isCheckable(input) && !isHidden(input) && hasValue(input)) acc = input.value;
     if (isCheckable(input) && input.checked) {
-        if (Array.isArray(acc)) acc.push(input.value.trim());
-        else acc = [input.value.trim()];
+        if (Array.isArray(acc)) acc.push(input.value);
+        else acc = [input.value];
     }
     return acc;
 };
@@ -79,8 +79,6 @@ export const fetch = (url, props) =>
         xhr.onerror = () => reject(xhr.statusText);
         xhr.send(props.body);
     });
-
-export const findErrorSummary = form => form.querySelector(`[${AX_ATTRIBUTES.ERROR_SUMMARY}]`); 
 
 export const findErrors = groups => Object.keys(groups).reduce((errors, groupName) => {
     if (groups[groupName].serverErrorNode){

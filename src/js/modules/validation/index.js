@@ -1,13 +1,11 @@
 import { VALIDATION } from '../../constants';
-import baseline from './baseline';
 import describedby from './describedby';
-import invalid from './invalid';
+import nosummary from './no-summary';
+import shortsummary from './short-summary';
 
 export default () => {
     if (!document.querySelector(VALIDATION.SELECTOR)) return;
-    if (document.querySelector('.js-polite-invalid')) return invalid('.js-polite-invalid');
+    if (document.querySelector('.js-no-summary')) return nosummary('.js-no-summary');
     if (document.querySelector('.js-aria-describedby')) return describedby('.js-aria-describedby');
-    return baseline(VALIDATION.SELECTOR, {
-        useSummary: true
-    });
+    if (document.querySelector('.js-short-summary')) return shortsummary('.js-short-summary');
 };

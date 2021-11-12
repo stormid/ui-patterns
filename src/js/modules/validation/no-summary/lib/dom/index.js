@@ -61,13 +61,6 @@ export const clearError = groupName => state => {
         field.parentNode.classList.remove('is--invalid');
         field.removeAttribute('aria-invalid');
     });
-
-    if (state.errorSummary) {
-        const errorSummaryItem = state.errorSummary.querySelector(`[${AX_ATTRIBUTES.ERROR_MESSAGE}=${groupName}]`);
-        if (errorSummaryItem) {
-            errorSummaryItem.parentNode.removeChild(errorSummaryItem);
-        }
-    }
     
     delete state.errors[groupName];//shouldn't be doing this here...
 };
@@ -79,7 +72,6 @@ export const clearError = groupName => state => {
  * 
  */
 export const clearErrors = state => {
-    if (state.errorSummary && state.errorSummary.firstElementChild) state.errorSummary.removeChild(state.errorSummary.firstElementChild);
     state.errors && Object.keys(state.errors).forEach(name => {
         clearError(name)(state);
     });
@@ -91,34 +83,13 @@ export const clearErrors = state => {
  * @param state [Object, validation state]
  * 
  */
-export const renderErrors = Store => () => {
+ export const renderErrors = Store => () => {
     const state = Store.getState();
     const render = () => Object.keys(state.groups).forEach(groupName => {
         if (!state.groups[groupName].valid) renderError(Store)(groupName);
     });
-    
-    if (state.settings.useSummary && !state.errorSummary) createErrorSummary(Store, render);
-    else {
-        state.errorSummary.removeAttribute('role');
-        state.errorSummary.setAttribute('role', 'alert');
-        render();
-    }
-    
 };
 
-/**
- * Iterates over all groups to render each error post-vaidation
- * 
- * @param Store [Object]
- * @param cb [Funciton, callback]
- * 
- */
-export const createErrorSummary = (Store, cb) => {
-    const errorSummary = h('div', { role: 'alert', class: AX_ATTRIBUTES.HIDDEN_CLASS, [AX_ATTRIBUTES.ERROR_SUMMARY]: 'true' } );
-    const { form } = Store.getState();
-    form.insertBefore(errorSummary, form.firstChild);
-    Store.dispatch(ACTIONS.CREATE_ERROR_SUMMARY, errorSummary, [ cb ]);
-};
 
 /**
  * Adds an error message to the DOM and saves it to local scope
@@ -154,40 +125,14 @@ export const renderError = Store => (groupName, realtime = false) => {
         field.parentNode.classList.add('is--invalid');
         field.removeAttribute('aria-invalid');
     });
-	
-    if (state.errorSummary) renderErrorToSummary(state, groupName, realtime);
     
 };
 
 export const renderRealtimeError = Store => groupName => renderError(Store)(groupName, true);
 
-/*
- * This only runs once during initialisation to ensure that the server-side error messages are announced
- * They are only announed if they are appended to the live region summary some time (200ms+) after it is rendered to the DOM.
- * @param state [Object, validation state]
- */
-export const renderErrorSummary = Store => state => {
-    if (!state.errorSummary && !state.settings.useSummary) return;
-    const render = state => window.setTimeout(() => {
-        Object.keys(state.groups).forEach(groupName => {
-            if (state.groups[groupName].errorMessages && state.groups[groupName].errorMessages.length > 0) renderErrorToSummary(state, groupName);
-        });
-    }, 200);
-    //200ms timeout to ensure that the alert is in the DOM for long enough before the content changes with the error messages
-    if (state.settings.useSummary && !state.errorSummary) createErrorSummary(Store, render);
-    else render(state);
-};
 
-/*
- * Append an error message span (screen readers don't announce ul > li) to the summary live region
- * @param state [Object, validation state]
- * @param groupName [String, identifier (name or data-group attribute)]
- */
-export const renderErrorToSummary = (state, groupName, realtime) => {
-    const newNode = h('span', { [AX_ATTRIBUTES.ERROR_MESSAGE]: groupName }, state.groups[groupName].errorMessages[0]);
-    if (realtime && state.errorSummary.childNodes.length > 0) state.errorSummary.insertBefore(newNode, state.errorSummary.childNodes[0]); 
-    else state.errorSummary.appendChild(newNode);
-};
+
+
 
 /**
  * Set focus on first invalid field after form-level validate()

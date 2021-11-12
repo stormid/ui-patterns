@@ -1,4 +1,4 @@
-import { DOTNET_CLASSNAMES, AX_ATTRIBUTES, ACTIONS } from '../constants';
+import { DOTNET_CLASSNAMES, AX_ATTRIBUTES, ERROR_SUMMARY_FN, ACTIONS } from '../constants';
 
 /**
  * Hypertext DOM factory function
@@ -60,15 +60,11 @@ export const clearError = groupName => state => {
     state.groups[groupName].fields.forEach(field => {
         field.parentNode.classList.remove('is--invalid');
         field.removeAttribute('aria-invalid');
+        //assuming that the field only has an aria-describedby because of an associated error summary row
+        //do we need to add support for fields that have aria-describedby for another reason?
+        if (field.hasAttribute('aria-describedby')) field.removeAttribute('aria-describedby');
     });
 
-    if (state.errorSummary) {
-        const errorSummaryItem = state.errorSummary.querySelector(`[${AX_ATTRIBUTES.ERROR_MESSAGE}=${groupName}]`);
-        if (errorSummaryItem) {
-            errorSummaryItem.parentNode.removeChild(errorSummaryItem);
-        }
-    }
-    
     delete state.errors[groupName];//shouldn't be doing this here...
 };
 
@@ -79,7 +75,7 @@ export const clearError = groupName => state => {
  * 
  */
 export const clearErrors = state => {
-    if (state.errorSummary && state.errorSummary.firstElementChild) state.errorSummary.removeChild(state.errorSummary.firstElementChild);
+    // if (state.errorSummary && state.errorSummary.firstElementChild) state.errorSummary.removeChild(state.errorSummary.firstElementChild);
     state.errors && Object.keys(state.errors).forEach(name => {
         clearError(name)(state);
     });
@@ -93,17 +89,19 @@ export const clearErrors = state => {
  */
  export const renderErrors = Store => () => {
     const state = Store.getState();
-    const render = () => Object.keys(state.groups).forEach(groupName => {
-        if (!state.groups[groupName].valid) renderError(Store)(groupName);
-    });
+    // const render = () => {
+        Object.keys(state.groups).forEach(groupName => {
+            if (!state.groups[groupName].valid) renderError(Store)(groupName);
+        });
+        // if (state.errorSummary) renderErrorSummaryMessage(state);
+    // };
     
-    if (state.settings.useSummary && !state.errorSummary) createErrorSummary(Store, render);
-    else {
-        state.errorSummary.removeAttribute('role');
-        state.errorSummary.setAttribute('role', 'alert');
-        render();
-    }
-    
+    // if (state.settings.useSummary && !state.errorSummary) createErrorSummary(Store, render);
+    // else {
+    //     state.errorSummary.removeAttribute('role');
+    //     state.errorSummary.setAttribute('role', 'alert');
+    //     render();
+    // }
 };
 
 /**
@@ -114,7 +112,7 @@ export const clearErrors = state => {
  * 
  */
 export const createErrorSummary = (Store, cb) => {
-    const errorSummary = h('div', { 'aria-live': 'polite', class: AX_ATTRIBUTES.HIDDEN_CLASS, [AX_ATTRIBUTES.ERROR_SUMMARY]: 'true' } );
+    const errorSummary = h('div', { role: 'alert', class: AX_ATTRIBUTES.HIDDEN_CLASS, [AX_ATTRIBUTES.ERROR_SUMMARY]: 'true' } );
     const { form } = Store.getState();
     form.insertBefore(errorSummary, form.firstChild);
     Store.dispatch(ACTIONS.CREATE_ERROR_SUMMARY, errorSummary, [ cb ]);
@@ -133,7 +131,7 @@ export const createErrorSummary = (Store, cb) => {
  * @param state [Object, validation state]
  * 
  */
-export const renderError = Store => (groupName, realtime = false) => {
+export const renderError = Store => (groupName) => {
     const state = Store.getState();
 
     if (state.errors[groupName]) clearError(groupName)(state);
@@ -152,14 +150,11 @@ export const renderError = Store => (groupName, realtime = false) => {
 
     state.groups[groupName].fields.forEach(field => {
         field.parentNode.classList.add('is--invalid');
-        field.setAttribute('aria-invalid', 'true');
+        field.removeAttribute('aria-invalid');
     });
-	
-    if (state.errorSummary) renderErrorToSummary(state, groupName, realtime);
     
 };
 
-export const renderRealtimeError = Store => groupName => renderError(Store)(groupName, true);
 
 /*
  * This only runs once during initialisation to ensure that the server-side error messages are announced
@@ -168,26 +163,29 @@ export const renderRealtimeError = Store => groupName => renderError(Store)(grou
  */
 export const renderErrorSummary = Store => state => {
     if (!state.errorSummary && !state.settings.useSummary) return;
-    const render = state => window.setTimeout(() => {
-        Object.keys(state.groups).forEach(groupName => {
-            if (state.groups[groupName].errorMessages && state.groups[groupName].errorMessages.length > 0) renderErrorToSummary(state, groupName);
-        });
-    }, 200);
-    //200ms timeout to ensure that the alert is in the DOM for long enough before the content changes with the error messages
-    if (state.settings.useSummary && !state.errorSummary) createErrorSummary(Store, render);
-    else render(state);
+    if (state.settings.useSummary && !state.errorSummary) createErrorSummary(Store, renderErrorSummaryMessage);
+    else renderErrorSummaryMessage(state);
+
+    // //ffs ;_;
+    // state.errorSummary.removeAttribute('role');
+    // state.errorSummary.setAttribute('role', 'alert');
 };
 
 /*
- * Append an error message span (screen readers don't announce ul > li) to the summary live region
+ * Empty unneeded error messages then append an error message span (screen readers don't announce ul > li) to the summary live region if required
  * @param state [Object, validation state]
  * @param groupName [String, identifier (name or data-group attribute)]
  */
-export const renderErrorToSummary = (state, groupName, realtime) => {
-    const newNode = h('span', { [AX_ATTRIBUTES.ERROR_MESSAGE]: groupName }, state.groups[groupName].errorMessages[0]);
-    if (realtime && state.errorSummary.childNodes.length > 0) state.errorSummary.insertBefore(newNode, state.errorSummary.childNodes[0]); 
+export const renderErrorSummaryMessage = state => {
+    if (state.errorSummary && state.errorSummary.firstElementChild) state.errorSummary.removeChild(state.errorSummary.firstElementChild);
+    const totalErrors = Object.keys(state.errors).length;
+    if (totalErrors === 0) return;
+    const newNode = h('span', {}, ERROR_SUMMARY_FN(totalErrors));
+    if (state.errorSummary.childNodes.length > 0) state.errorSummary.replaceChild(newNode, state.errorSummary.firstElementChild);
     else state.errorSummary.appendChild(newNode);
+    
 };
+
 
 /**
  * Set focus on first invalid field after form-level validate()

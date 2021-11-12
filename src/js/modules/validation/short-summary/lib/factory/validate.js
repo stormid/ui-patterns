@@ -10,6 +10,7 @@ import { initRealTimeValidation } from '../validator/real-time-validation';
 import {
     clearErrors,
     renderErrors,
+    renderErrorSummary,
     focusFirstInvalidField
 }  from '../dom';
 
@@ -45,7 +46,7 @@ export const validate = Store => event => {
                             valid: validityState[i].reduce(reduceGroupValidityState, true),
                             errorMessages: validityState[i].reduce(reduceErrorMessages(group, state), [])
                         }, acc), {}),
-                    [renderErrors(Store), focusFirstInvalidField]
+                    [renderErrors(Store), renderErrorSummary(Store.getState()), focusFirstInvalidField]
                 );
                 
                 return resolve(false);

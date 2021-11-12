@@ -2,7 +2,7 @@ import { createStore } from '../store';
 import { ACTIONS } from '../constants';
 import { getInitialState } from '../validator';
 import { validate }  from './validate';
-import { clearErrors, renderErrorSummary }  from '../dom';
+import { clearErrors }  from '../dom';
 import { addMethod } from './add-method';
 import { addGroup, removeGroup } from './group';
 
@@ -16,7 +16,7 @@ import { addGroup, removeGroup } from './group';
  */
 export default (form, settings) => {
     const Store = createStore();
-    Store.dispatch(ACTIONS.SET_INITIAL_STATE, getInitialState(form, settings), [ renderErrorSummary(Store) ]);
+    Store.dispatch(ACTIONS.SET_INITIAL_STATE, getInitialState(form, settings));
     form.addEventListener('submit', validate(Store));
     form.addEventListener('reset', () => Store.dispatch(ACTIONS.CLEAR_ERRORS, {}, [ clearErrors ]));
 

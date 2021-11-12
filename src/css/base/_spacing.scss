@@ -1,12 +1,12 @@
 .push-bottom {
-    margin-bottom: var(--baseline);
+    margin-bottom: var(--baseline) !important;
 }
 .push-bottom--half {
-    margin-bottom: calc(var(--baseline)/2);
+    margin-bottom: calc(var(--baseline)/2) !important;
 }
 .push-bottom--double {
-    margin-bottom: calc(var(--baseline)*2);
+    margin-bottom: calc(var(--baseline)*2) !important;
 }
 .soft-top {
-    padding-top: var(--baseline);
+    padding-top: var(--baseline) !important;
 }
