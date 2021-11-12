@@ -7,7 +7,6 @@ import {
     domNodesFromCommaList,
     groupIsDisabled,
     findErrors,
-    findErrorSummary,
     groupIsAllHidden,
     addErrorMessageToGroup,
     hasNoValidate
@@ -247,7 +246,6 @@ export const getInitialState = (form, settings) => {
         form,
         settings,
         errors,
-        errorSummary: findErrorSummary(form),
         realTimeValidation: false,
         groups: errors ? addErrorMessageToGroup(groups, errors) : groups
     };

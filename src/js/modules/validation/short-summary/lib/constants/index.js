@@ -24,6 +24,8 @@ export const AX_ATTRIBUTES = {
     HIDDEN_CLASS: 'visually-hidden'
 };
 
+export const ERROR_SUMMARY_FN = n => `There ${ n === 1 ? 'is' : 'are'} ${n} problem${ n > 1 ? 's' : ''}`;
+
 //https://html.spec.whatwg.org/multipage/forms.html#valid-e-mail-address
 export const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 

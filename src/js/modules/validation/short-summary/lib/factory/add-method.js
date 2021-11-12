@@ -9,8 +9,8 @@ import { ACTIONS } from '../constants';
  * @param message [String] Te error message displayed if the validation method returns false
  * 
  */
-export const addMethod = Store => (groupName, method, message, fields) => {
-    if ((groupName === undefined || method === undefined || message === undefined) || !Store.getState()[groupName] && (document.getElementsByName(groupName).length === 0  && [].slice.call(document.querySelectorAll(`[data-val-group="${groupName}"]`)).length === 0) && !fields)
+export const addMethod = Store => (groupName, method, message) => {
+    if ((groupName === undefined || method === undefined || message === undefined) || !Store.getState()[groupName] && (document.getElementsByName(groupName).length === 0  && [].slice.call(document.querySelectorAll('[data-val-group="'+groupName+'"]')).length === 0))
         return console.warn('Custom validation method cannot be added.');
-    Store.dispatch(ACTIONS.ADD_VALIDATION_METHOD, { groupName, fields, validator: { type: 'custom', method, message } });
+    Store.dispatch(ACTIONS.ADD_VALIDATION_METHOD, { groupName, validator: { type: 'custom', method, message } });
 };

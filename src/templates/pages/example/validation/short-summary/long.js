@@ -5,37 +5,47 @@ export const title = 'Form validation example';
 
 const Validation = () => <ExampleLayout>
     <main>
-        <form class="form js-aria-describedby" action="#">
+        <form class="form js-short-summary" action="#">
             <div class="visually-hidden" data-error-summary role="alert" />
             <fieldset class="fieldset">
                 <legend class="legend">Your details</legend>
                 <div class="push-bottom">
-                    <label for="f_3fcb38c71c74e61180ca00505684117c" class="label">First Name</label>
-                    <span class="error-message" data-valmsg-for="f_3fcb38c71c74e61180ca00505684117c" />
+                    <label for="f_3fcb38c71c74e61180ca00505684117c" class="label">
+                        First Name
+                        <span class="error-message" data-valmsg-for="f_3fcb38c71c74e61180ca00505684117c" />
+                    </label>
                     <input data-val="true" data-val-required="First name is required" class="input" type="text" id="f_3fcb38c71c74e61180ca00505684117c" name="f_3fcb38c71c74e61180ca00505684117c" value="" />
                 </div>
 
                 <div class="push-bottom">
-                    <label for="f_040be6e11c74e61180ca00505684117c" class="label">Last Name</label>
-                    <span class="error-message" data-valmsg-for="f_040be6e11c74e61180ca00505684117c" />
+                    <label for="f_040be6e11c74e61180ca00505684117c" class="label">
+                        Last Name
+                        <span class="error-message" data-valmsg-for="f_040be6e11c74e61180ca00505684117c" />
+                    </label>
                     <input data-val="true" data-val-required="Last name is required" class="input" type="text" id="f_040be6e11c74e61180ca00505684117c" name="f_040be6e11c74e61180ca00505684117c" value="" />
                 </div>
 
                 <div class="push-bottom">
-                    <label for="f_e1a2f0121d74e61180ca00505684117c" class="label">Email</label>
-                    <span class="error-message" data-valmsg-for="f_e1a2f0121d74e61180ca00505684117c" />
+                    <label for="f_e1a2f0121d74e61180ca00505684117c" class="label">
+                        Email
+                        <span class="error-message" data-valmsg-for="f_e1a2f0121d74e61180ca00505684117c" />
+                    </label>
                     <input data-val="true" data-val-required="Email is required" data-val-email="Email must be correct format" class="input" type="email" id="f_e1a2f0121d74e61180ca00505684117c" name="f_e1a2f0121d74e61180ca00505684117c" value="" />
                 </div>
 
                 <div class="push-bottom">
-                    <label for="f_780c312f1d74e61180ca00505684117c" class="label">Company Name</label>
-                    <span class="error-message" data-valmsg-for="f_780c312f1d74e61180ca00505684117c" />
+                    <label for="f_780c312f1d74e61180ca00505684117c" class="label">
+                        Company Name
+                        <span class="error-message" data-valmsg-for="f_780c312f1d74e61180ca00505684117c" />
+                    </label>
                     <input data-val="true" data-val-required="Company name is required" class="input" type="text" id="f_780c312f1d74e61180ca00505684117c" name="f_780c312f1d74e61180ca00505684117c" value="" />
                 </div>
 
                 <div class="push-bottom">
-                    <label for="f_e5ce0352b486e81180f700505684117c" class="label">Business Sector</label>
-                    <span class="field-validation-error error-message" data-valmsg-for="f_e5ce0352b486e81180f700505684117c" />
+                    <label for="f_e5ce0352b486e81180f700505684117c" class="label">
+                        Business Sector
+                        <span class="field-validation-error error-message" data-valmsg-for="f_e5ce0352b486e81180f700505684117c" />
+                    </label>
                     <select data-val="true" data-val-required="Business sector is required" class="select" id="f_e5ce0352b486e81180f700505684117c" name="f_e5ce0352b486e81180f700505684117c">
                         <option value="" />
                         <option value="Aquaculture">Aquaculture</option>
@@ -180,8 +190,8 @@ const Validation = () => <ExampleLayout>
                     <input data-val="true" data-val-required="You must agree to the terms and conditions" class="checkbox__input" id="f_2e32eb840e98e91180fe00505684117c" name="f_2e32eb840e98e91180fe00505684117c" type="checkbox" />
                     <label class="checkbox__label" for="f_2e32eb840e98e91180fe00505684117c">
                         I have read and agree to the privacy policy
+                        <span class="field-validation-error pull-up" data-valmsg-for="f_2e32eb840e98e91180fe00505684117c" />
                     </label>
-                    <span class="field-validation-error pull-up" data-valmsg-for="f_2e32eb840e98e91180fe00505684117c" />
                 </div>
             </fieldset>
             <button class="btn">Submit</button>
