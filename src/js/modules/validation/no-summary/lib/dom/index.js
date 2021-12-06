@@ -85,9 +85,10 @@ export const clearErrors = state => {
  */
  export const renderErrors = Store => () => {
     const state = Store.getState();
-    const render = () => Object.keys(state.groups).forEach(groupName => {
+    Object.keys(state.groups).forEach(groupName => {
         if (!state.groups[groupName].valid) renderError(Store)(groupName);
     });
+
 };
 
 
