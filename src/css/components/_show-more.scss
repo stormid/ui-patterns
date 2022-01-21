@@ -5,11 +5,12 @@
     display: block;
 }
 .show-more__btn {
+    font-size: var(--font-size-minus-2);
     display: inline-block;
     background-color: transparent;
     border: 1px solid var(--off-black);
     color: var(--off-black);
-    padding: calc(var(--baseline)/4) calc(var(--gutter)/2);
+    padding: calc(var(--baseline)/8) calc(var(--gutter)/4);
         &:hover,
         &:focus {
             transition: background-color 120ms ease;

@@ -35,9 +35,8 @@ textarea {
     line-height: 1rem;
 }
 
-p,
-ul {
-    max-width: 42rem;
+p {
+    margin-bottom: calc(var(--baseline)/2);
 }
 
 .plus-2 {

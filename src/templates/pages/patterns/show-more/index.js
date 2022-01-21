@@ -9,9 +9,9 @@ export const title = 'Read more';
 
 const ShowMore = () => <PatternLayout>
     <PatternTitle status={STATUS.DEVELOPMENT}>Show more</PatternTitle>
-    <p class="push-bottom--double">Show and hide inline content with a button.</p>
+    <p class="push-bottom--double">Inline progressive disclosure with expandable content.</p>
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
-    <p class="push-bottom--double"></p>
+    <p class="push-bottom--double">Hide content from the user can reduce cognitive load but understand that longer pages can benefit users, and this pattern increases the interaction cost.</p>
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example read more" src={'/example/show-more'} />
     <p class="push-bottom align-right"><a href="/example/show-more" rel="noopener" target="_blank">Open in a new tab</a></p>
@@ -24,7 +24,7 @@ toggle('.js-show-more', {
     focus: false,
     callback({ node, toggles, isOpen }){
         if (isOpen) {
-            toggles[0].textContent = 'Hide';
+            toggles[0].textContent = 'Show less';
             toggles[0].previousElementSibling.focus();
         } else {
             toggles[0].textContent = 'Show more';
@@ -48,6 +48,7 @@ toggle('.js-show-more', {
     <ul class="list push-bottom--double">
         <li class="list-item"><a href="https://webaim.org/standards/wcag/checklist" rel="noopener nofollow">https://webaim.org/standards/wcag/checklist</a></li>
         <li class="list-item"><a href="https://www.accede-web.com/en/guidelines/rich-interface-components/show-more-buttons/" rel="noopener nofollow">https://www.accede-web.com/en/guidelines/rich-interface-components/show-more-buttons/</a></li>
+        <li class="list-item"><a href="https://www.nngroup.com/articles/accordions-complex-content/" rel="noopener nofollow">https://www.nngroup.com/articles/accordions-complex-content/</a></li>
     </ul>
 </PatternLayout>;
 

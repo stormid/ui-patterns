@@ -36,7 +36,7 @@ const HomePage = () => <DefaultLayout>
                 </tr>
             </thead>
             <tbody>
-                { 
+                {
                     PATTERNS.map(pattern => <tr class="tr">
                             <td class="td">
                                 <a class="td__link" href={pattern.url}>{pattern.title}</a>
