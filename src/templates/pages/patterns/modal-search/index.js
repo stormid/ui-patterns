@@ -20,7 +20,7 @@ const ModalSearch = () => <PatternLayout>
     <pre class="pre"><code class="code">{`import modal from '@stormid/modal';
 
 modal('.js-modal-search');
-`}</code></pre>   
+`}</code></pre>
     <h2 class="push-bottom--half plus-1 medium">Acceptance criteria</h2>
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">Use a button element for the modal trigger</li>

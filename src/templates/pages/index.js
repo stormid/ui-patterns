@@ -20,6 +20,7 @@ const PATTERNS = [
     { title: 'Modal confirmation', url: '/patterns/modal-confirmation', status: STATUS.DEVELOPMENT },
     // { title: 'Cookie banner', url: '/patterns/cookie-banner' },
     { title: 'Tabs', url: '/patterns/tabs', status: STATUS.DEVELOPMENT },
+    { title: 'Show more', url: '/patterns/show-more', status: STATUS.DEVELOPMENT },
     // { title: 'Form validation', url: '/patterns/form-validation' },
     // { title: 'Modal gallery', url: '/patterns/modal-gallery' },
 ];

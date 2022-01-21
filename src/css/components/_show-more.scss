@@ -1,0 +1,19 @@
+.show-more {
+    display: none;
+}
+.is--active > .show-more {
+    display: block;
+}
+.show-more__btn {
+    display: inline-block;
+    background-color: transparent;
+    border: 1px solid var(--off-black);
+    color: var(--off-black);
+    padding: calc(var(--baseline)/4) calc(var(--gutter)/2);
+        &:hover,
+        &:focus {
+            transition: background-color 120ms ease;
+            background-color: var(--off-black);
+            color:#ffffff;
+        }
+}
