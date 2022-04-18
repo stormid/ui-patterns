@@ -11,7 +11,7 @@ const OffCanvas = () => <PatternLayout>
     <PatternTitle status={STATUS.DEVELOPMENT}>Off-canvas navigation</PatternTitle>
     <p class="push-bottom--double">Show and hide navigation with a button.</p>
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
-    <p class="push-bottom--double">Use this pattern for hamburger-type navigation that expands and collapses in the document flow. In contrast modal navigation captures focus, takes over the whole screen and prevents interaction with the rest of the page. The off-canvas pattern does not trap tab in the same way remains open when the focus moves out of the navigation.</p>
+    <p class="push-bottom--double">Use this pattern for hamburger-type navigation that expands and collapses in the document flow. In contrast modal navigation captures focus, takes over the whole screen and prevents interaction with the rest of the page. The off-canvas pattern does not trap tab in the same way and remains open when the focus moves out of the navigation.</p>
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example off-canvas navigation" src={'/example/off-canvas-navigation'}></iframe>
     <p class="push-bottom align-right"><a href="/example/off-canvas-navigation" rel="noopener" target="_blank">Open in a new tab</a></p>
