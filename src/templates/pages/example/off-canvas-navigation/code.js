@@ -9,23 +9,24 @@ const Code = () => <nav class="off-canvas-nav__nav" aria-label={'Primary navigat
         menu
     </button>
     <div id="off-canvas-nav" class="off-canvas-nav__display-wrap js-off-canvas-nav" data-toggle="js-off-canvas-nav__toggle">
-    <ul class="off-canvas-nav__list">
-        <li class="off-canvas-nav__item">
-            <a class={`off-canvas-nav__link`} href={'#'} >Item 1</a>
-        </li>
-        <li class="off-canvas-nav__item">
-            <a  class={`off-canvas-nav__link is--active`} href={'#'} aria-current={'page'}>Item 2</a>
-        </li>
-        <li class="off-canvas-nav__item">
-            <a class={`off-canvas-nav__link`} href={'#'} >Item 3</a>
-        </li>
-        <li class="off-canvas-nav__item">
-            <a class={`off-canvas-nav__link`} href={'#'} >Item 4</a>
-        </li>
-        <li class="off-canvas-nav__item">
-            <a class={`off-canvas-nav__link`} href={'#'} >Item 5</a>
-        </li>
-    </ul></div>
+        <ul class="off-canvas-nav__list">
+            <li class="off-canvas-nav__item">
+                <a class={`off-canvas-nav__link`} href={'#'} >Item 1</a>
+            </li>
+            <li class="off-canvas-nav__item">
+                <a  class={`off-canvas-nav__link is--active`} href={'#'} aria-current={'page'}>Item 2</a>
+            </li>
+            <li class="off-canvas-nav__item">
+                <a class={`off-canvas-nav__link`} href={'#'} >Item 3</a>
+            </li>
+            <li class="off-canvas-nav__item">
+                <a class={`off-canvas-nav__link`} href={'#'} >Item 4</a>
+            </li>
+            <li class="off-canvas-nav__item">
+                <a class={`off-canvas-nav__link`} href={'#'} >Item 5</a>
+            </li>
+        </ul>
+    </div>
 </nav>;
 
 export default Code;
