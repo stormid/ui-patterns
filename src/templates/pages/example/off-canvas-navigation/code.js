@@ -1,6 +1,6 @@
 import { h } from 'preact';
 
-const Code = () => <nav aria-label={'Primary navigation'}>
+const Code = () => <nav class="off-canvas-nav__nav" aria-label={'Primary navigation'}>
     <button class="off-canvas-nav__btn js-off-canvas-nav__toggle" aria-label="Show or hide navigation menu" aria-controls="off-canvas-nav" aria-expanded="false">
         <svg focusable="false" class="off-canvas-nav__btn-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
             <path d="M0 0h24v24H0z" fill="none" />

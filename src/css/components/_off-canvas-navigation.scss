@@ -1,17 +1,19 @@
 .off-canvas-nav__container {
-    padding: var(--baseline) var(--gutter);
     background-color: var(--off-black);
-    height: 95px;
 }
-.off-canvas-nav {
+
+.off-canvas-nav__nav{
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
 }
+
 .off-canvas-nav__btn {
     display: flex;
     background-color: transparent;
     font-weight: var(--medium-weight);
-    padding: calc(var(--baseline)/2) calc(var(--gutter)/3);
+    margin: 0 var(--gutter);
+    padding: var(--baseline) 0;
     color: white;
         &:focus {
             outline: 1px solid var(--highlight);
@@ -27,7 +29,6 @@
 }
 .off-canvas-nav__item {
     display: block;
-    // border-bottom: 1px solid var(--light-grey-3);
         &:first-child {
             border-top: 1px solid var(--dark-grey-3);
         }
@@ -59,14 +60,12 @@
 .on--off-canvas-nav {
     .off-canvas-nav__list {
         display: block;
-        position: fixed;
         max-width: none;
-        top: 95px;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        flex: 1 1 100%;
+        align-self: stretch;
         background-color: white;
     }
+
     .off-canvas-nav__close {
         display: block;
         position: absolute;
