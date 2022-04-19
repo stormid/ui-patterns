@@ -297,29 +297,3 @@
         margin-bottom:calc(var(--baseline)/2)
     }
 }
-
-.privacy-banner__form-msg {
-    padding-top: calc(var(--baseline)/2);
-}
-
-.privacy-embed-message {
-    position: absolute;
-    top:0;
-    left:0;
-    right: 0;
-    bottom: 0;
-    z-index: 9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0,0,0, .85);
-    color:#fff;
-}
-
-.privacy-embed-message__link {
-    color: #fff;
-    text-decoration: underline;
-        &:hover {
-            text-decoration: none;
-        }
-}
