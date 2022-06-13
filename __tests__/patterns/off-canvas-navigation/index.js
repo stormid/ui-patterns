@@ -58,7 +58,7 @@ describe('Off-canvas navigation > behaviour > keyboard', () => {
         const toggleButton = document.querySelector('.off-canvas-nav__btn');
         const enterEvent = new window.KeyboardEvent('keydown', { keyCode: 32, bubbles: true });
         toggleButton.dispatchEvent(enterEvent);
-        expect(instance.getState().isOpen).toEqual(true);
+        setTimeout(() => expect(instance.getState().isOpen).toEqual(true), 1);
     });
 });
 

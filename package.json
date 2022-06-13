@@ -17,7 +17,8 @@
     "moduleNameMapper": {
       "^@templates(.*)$": "<rootDir>/src/templates$1",
       "^@layouts(.*)$": "<rootDir>/src/templates/layouts$1",
-      "^@components(.*)$": "<rootDir>/src/templates/components$1"
+      "^@components(.*)$": "<rootDir>/src/templates/components$1",
+      "^@constants(.*)$": "<rootDir>/src/templates/constants$1"
     }
   },
   "devDependencies": {
