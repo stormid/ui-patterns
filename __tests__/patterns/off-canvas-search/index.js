@@ -43,13 +43,6 @@ describe('Off-canvas search > behaviour > keyboard', () => {
     afterEach(() => {
         if (instance.getState().isOpen === true) instance.toggle();
     });
-
-    it('Buttons should be keyboard operable', () => {
-        const toggleButton = document.querySelector('.off-canvas-search__btn');
-        const enterEvent = new window.KeyboardEvent('keydown', { keyCode: 32, bubbles: true });
-        toggleButton.dispatchEvent(enterEvent);
-        setTimeout(() => expect(instance.getState().isOpen).toEqual(true), 1);
-    });
 });
 
 describe('Off-canvas search > focus order', () => {
