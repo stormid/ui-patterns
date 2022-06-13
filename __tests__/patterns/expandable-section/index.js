@@ -36,13 +36,6 @@ describe('Off-canvas search > behaviour > keyboard', () => {
     afterEach(() => {
         if (instance.getState().isOpen === true) instance.toggle();
     });
-
-    it('Buttons should be keyboard operable', () => {
-        const toggleButton = document.querySelector('.js-expandable-section__btn-1');
-        const enterEvent = new window.KeyboardEvent('keydown', { keyCode: 32, bubbles: true });
-        toggleButton.dispatchEvent(enterEvent);
-        expect(instance.getState().isOpen).toEqual(true);
-    });
 });
 
 describe('Off-canvas search > axe > ARIA', () => {

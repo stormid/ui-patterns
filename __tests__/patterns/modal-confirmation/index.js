@@ -68,13 +68,6 @@ describe('Modal search > behaviour > keyboard', () => {
         document.body.innerHTML = render(<ModalConfirmation />);
         [ instance ] = initModalConfirmation();
     });
-
-    it('Trigger button should be keyboard operable', () => {
-        const toggleButton = document.querySelector('.js-modal-confirmation__btn');
-        const enterEvent = new window.KeyboardEvent('keydown', { keyCode: 32, bubbles: true });
-        toggleButton.dispatchEvent(enterEvent);
-        expect(instance.getState().isOpen).toEqual(true);
-    });
 });
 
 describe('Modal search > behaviour > focus', () => {
@@ -86,8 +79,7 @@ describe('Modal search > behaviour > focus', () => {
 
     it('An element within modal should be given focus when open', () => {
         const toggleButton = document.querySelector('.js-modal-confirmation__btn');
-        const enterEvent = new window.KeyboardEvent('keydown', { keyCode: 32, bubbles: true });
-        toggleButton.dispatchEvent(enterEvent);
+        toggleButton.click();
         expect(instance.getState().isOpen).toEqual(true);
         expect(document.activeElement).toEqual(document.querySelector('.modal-confirmation__confirm'));
     });
@@ -102,21 +94,10 @@ describe('Modal search > behaviour > tab', () => {
 
     it('An element within modal should be given focus when open', () => {
         const toggleButton = document.querySelector('.js-modal-confirmation__btn');
-        const enterEvent = new window.KeyboardEvent('keydown', { keyCode: 32, bubbles: true });
-        toggleButton.dispatchEvent(enterEvent);
+        toggleButton.click();
         expect(instance.getState().isOpen).toEqual(true);
         expect(document.activeElement).toEqual(document.querySelector('.modal-confirmation__confirm'));
     });
-
-    it('Focus must return to the trigger button when closed', () => {
-        const toggleButton = document.querySelector('.modal-confirmation__btn.js-modal-confirmation__btn');
-        expect(instance.getState().isOpen).toEqual(true);
-        const escapeEvent = new window.KeyboardEvent('keydown', { keyCode: 27, bubbles: true });
-        document.body.dispatchEvent(escapeEvent);
-        expect(instance.getState().isOpen).toEqual(false);
-        expect(document.activeElement).toEqual(toggleButton);
-    });
-
 });
 
 describe('Modal search > behaviour > escape', () => {
