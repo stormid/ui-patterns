@@ -72,11 +72,12 @@
   },
   "dependencies": {
     "@stormid/cookie-banner": "^1.0.0-alpha.15",
-    "@stormid/modal": "^1.0.0-alpha.11",
+    "@stormid/modal": "^1.0.0-alpha.15",
     "@stormid/outliner": "^1.0.0-alpha.4",
-    "@stormid/tabs": "^1.0.0-alpha.4",
-    "@stormid/toggle": "^1.0.0-alpha.10",
+    "@stormid/tabs": "^1.0.0-alpha.10",
+    "@stormid/toggle": "^1.0.0-alpha.18",
     "es6-object-assign": "^1.1.0",
+    "latest": "^0.2.0",
     "promise-polyfill": "^8.1.0"
   }
 }
