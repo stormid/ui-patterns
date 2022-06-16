@@ -1,4 +1,4 @@
-import OffCanvasNav from './modules/off-canvas-navigation';
+import OffCanvasNav from './modules/expandable-navigation';
 import ModalSearch from './modules/modal-search';
 import ExpandableSection from './modules/expandable-section';
 import OffCanvasSearch from './modules/off-canvas-search';

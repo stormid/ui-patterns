@@ -2,11 +2,11 @@ import { h } from 'preact';
 import ExampleLayout from '@layouts/example';
 import Code from './code';
 
-export const title = 'Off canvas navigation example';
+export const title = 'Expandable navigation example';
 
 const OffCanvasNav = () => <ExampleLayout>
-    <header class="off-canvas-nav__container">
-        <div class="off-canvas-nav">
+    <header class="expandable-nav__container">
+        <div class="expandable-nav">
             <Code />
         </div>
     </header>

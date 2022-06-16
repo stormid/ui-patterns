@@ -1,9 +1,9 @@
 import { h } from 'preact';
-import initOffCanvasNav from '../../../src/js/modules/off-canvas-navigation';
-import OffCanvasNav from '../../../src/templates/pages/example/off-canvas-navigation';
+import initOffCanvasNav from '../../../src/js/modules/expandable-navigation';
+import OffCanvasNav from '../../../src/templates/pages/example/expandable-navigation';
 import { render } from 'preact-render-to-string';
 
-describe('Off-canvas navigation > mark up', () => {
+describe('Expandable navigation > mark up', () => {
     beforeAll(() => {
         document.body.innerHTML = render(<OffCanvasNav />);
         initOffCanvasNav();
@@ -44,7 +44,7 @@ describe('Off-canvas navigation > mark up', () => {
 
 });
 
-describe('Off-canvas navigation > behaviour > keyboard', () => {
+describe('Expandable navigation > behaviour > keyboard', () => {
     let instance;
     beforeAll(() => {
         document.body.innerHTML = render(<OffCanvasNav />);
@@ -55,7 +55,7 @@ describe('Off-canvas navigation > behaviour > keyboard', () => {
     });
 });
 
-describe('Off-canvas navigation > focus order', () => {
+describe('Expandable navigation > focus order', () => {
     let instance;
     beforeAll(() => {
         document.body.innerHTML = render(<OffCanvasNav />);
@@ -97,7 +97,7 @@ describe('Off-canvas navigation > focus order', () => {
 
 });
 
-describe('Off-canvas navigation > behaviour > keyboard', () => {
+describe('Expandable navigation > behaviour > keyboard', () => {
     let instance;
     beforeAll(() => {
         document.body.innerHTML = render(<OffCanvasNav />);
@@ -120,7 +120,7 @@ describe('Off-canvas navigation > behaviour > keyboard', () => {
 
 });
 
-describe('Off-canvas navigation > axe > ARIA', () => {
+describe('Expandable navigation > axe > ARIA', () => {
     let instance;
     beforeAll(() => {
         document.body.innerHTML = render(<OffCanvasNav />);

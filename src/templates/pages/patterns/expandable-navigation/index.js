@@ -1,25 +1,25 @@
 import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
-import Code from '../../example/off-canvas-navigation/code';
+import Code from '../../example/expandable-navigation/code';
 import { render } from 'preact-render-to-string';
 import PatternTitle from '@components/pattern-title';
 import { STATUS } from '@constants';
 
-export const title = 'Off-canvas navigation';
+export const title = 'Expandable navigation';
 
-const OffCanvas = () => <PatternLayout>
-    <PatternTitle status={STATUS.DEVELOPMENT}>Off-canvas navigation</PatternTitle>
+const ExpandableNavigation = () => <PatternLayout>
+    <PatternTitle status={STATUS.DEVELOPMENT}>Expandable navigation</PatternTitle>
     <p class="push-bottom--double">Show and hide navigation with a button.</p>
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
-    <p class="push-bottom--double">Use this pattern for hamburger-type navigation that expands and collapses in the document flow. In contrast modal navigation captures focus, takes over the whole screen and prevents interaction with the rest of the page. The off-canvas pattern does not trap tab in the same way and remains open when the focus moves out of the navigation.</p>
+    <p class="push-bottom--double">Use this pattern for hamburger-type navigation that expands and collapses in the document flow. In contrast modal navigation captures focus, takes over the whole screen and prevents interaction with the rest of the page. The expandable navigation pattern remains open when the focus moves out of the navigation.</p>
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
-    <iframe style="--height: 375px" class="example" title="Example off-canvas navigation" src={'/example/off-canvas-navigation'}></iframe>
-    <p class="push-bottom align-right"><a href="/example/off-canvas-navigation" rel="noopener" target="_blank">Open in a new tab</a></p>
+    <iframe style="--height: 375px" class="example" title="Example Expandable navigation" src={'/example/expandable-navigation'}></iframe>
+    <p class="push-bottom align-right"><a href="/example/expandable-navigation" rel="noopener" target="_blank">Open in a new tab</a></p>
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
     <pre class="pre"><code class="code">{`import toggle from '@stormid/toggle';
 
-toggle('.js-off-canvas-nav', { focus: false });`}</code></pre>
+toggle('.js-expandable-nav', { focus: false });`}</code></pre>
     <h2 class="push-bottom--half plus-1 medium">Acceptance criteria</h2>
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">Use a button element for the navigation triggers</li>
@@ -29,7 +29,7 @@ toggle('.js-off-canvas-nav', { focus: false });`}</code></pre>
         <li class="list-item">Button focus style should be visible</li>
         <li class="list-item">Buttons should be appropriately labelled</li>
         <li class="list-item">Buttons should be keyboard operable</li>
-        <li class="list-item">Buttons should be no less than 44px x 44px</li>
+        {/* <li class="list-item">Buttons should be no less than 44px x 44px</li> */}
         <li class="list-item">Navigation should be hidden visually and from accessibility tree when closed</li>
         <li class="list-item">Navigation should be visible and in the accessibility tree when open</li>
         <li class="list-item">Navigation should push down, not overlay, content when open</li>
@@ -53,4 +53,4 @@ toggle('.js-off-canvas-nav', { focus: false });`}</code></pre>
     </ul>
 </PatternLayout>;
 
-export default OffCanvas;
+export default ExpandableNavigation;
