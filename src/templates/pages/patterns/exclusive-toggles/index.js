@@ -11,7 +11,7 @@ const ExclusiveToggles = () => <PatternLayout>
     <PatternTitle status={STATUS.DEVELOPMENT}>Exclusive toggles</PatternTitle>
     <p class="push-bottom--double">Mutually exclusive toggled sections.</p>
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
-    <p class="push-bottom--double">Use this pattern for dealing with multiple togglable sections that can only display one at a time. This pattern is commonly used for off-canvas navigation and off-canvas search that can only be displayed independent of each other. Note that if either (or both) expandable sections are modal, this pattern is not necessary since when a modal dialog is open it should not be possibnle to interact with the rest of the page.</p>
+    <p class="push-bottom--double">Use this pattern for dealing with multiple togglable sections that can only display one at a time. This pattern is commonly used for Expandable navigation and off-canvas search that can only be displayed independent of each other. Note that if either (or both) expandable sections are modal, this pattern is not necessary since when a modal dialog is open it should not be possibnle to interact with the rest of the page.</p>
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example exclusive buttons" src={'/example/exclusive-toggles'}></iframe>
     <p class="push-bottom align-right"><a href="/example/exclusive-toggles" rel="noopener" target="_blank">Open in a new tab</a></p>

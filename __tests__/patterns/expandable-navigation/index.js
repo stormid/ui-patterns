@@ -1,16 +1,16 @@
 import { h } from 'preact';
-import initOffCanvasNav from '../../../src/js/modules/off-canvas-navigation';
-import OffCanvasNav from '../../../src/templates/pages/example/off-canvas-navigation';
+import initExpandableNav from '../../../src/js/modules/expandable-navigation';
+import ExpandableNav from '../../../src/templates/pages/example/expandable-navigation';
 import { render } from 'preact-render-to-string';
 
-describe('Off-canvas navigation > mark up', () => {
+describe('Expandable navigation > mark up', () => {
     beforeAll(() => {
-        document.body.innerHTML = render(<OffCanvasNav />);
-        initOffCanvasNav();
+        document.body.innerHTML = render(<ExpandableNav />);
+        initExpandableNav();
     });
     
     it('Should use a button element for the navigation triggers', () => {
-        const toggleButton = document.querySelector('.off-canvas-nav__btn');
+        const toggleButton = document.querySelector('.expandable-nav__btn');
         expect(toggleButton.tagName).toEqual('BUTTON');
     });
 
@@ -21,18 +21,18 @@ describe('Off-canvas navigation > mark up', () => {
 
     it('Buttons should be within the nav element', () => {
         const navigation = document.querySelector('nav');
-        const toggleButton = document.querySelector('.off-canvas-nav__btn');
+        const toggleButton = document.querySelector('.expandable-nav__btn');
         expect(toggleButton.parentNode).toEqual(navigation);
     });
 
     it('Buttons should be focusable', () => {
-        const toggleButton = document.querySelector('.off-canvas-nav__btn');
+        const toggleButton = document.querySelector('.expandable-nav__btn');
         toggleButton.focus();
         expect(document.activeElement).toEqual(toggleButton);
     });
 
     it('Buttons should be appropriately labelled', () => {
-        const toggleButton = document.querySelector('.off-canvas-nav__btn');
+        const toggleButton = document.querySelector('.expandable-nav__btn');
         expect(toggleButton.getAttribute('aria-label')).toEqual('Show or hide navigation menu');
     });
 
@@ -44,22 +44,11 @@ describe('Off-canvas navigation > mark up', () => {
 
 });
 
-describe('Off-canvas navigation > behaviour > keyboard', () => {
+describe('Expandable navigation > focus order', () => {
     let instance;
     beforeAll(() => {
-        document.body.innerHTML = render(<OffCanvasNav />);
-        [ instance ] = initOffCanvasNav();
-    });
-    afterEach(() => {
-        if (instance.getState().isOpen === true) instance.toggle();
-    });
-});
-
-describe('Off-canvas navigation > focus order', () => {
-    let instance;
-    beforeAll(() => {
-        document.body.innerHTML = render(<OffCanvasNav />);
-        [ instance ] = initOffCanvasNav();
+        document.body.innerHTML = render(<ExpandableNav />);
+        [ instance ] = initExpandableNav();
     });
     afterEach(() => {
         if (instance.getState().isOpen === true) instance.toggle();
@@ -91,23 +80,23 @@ describe('Off-canvas navigation > focus order', () => {
             if (element === toggleButton) return;
             index++;
         }
-        const firstNavItem = document.querySelector('.off-canvas-nav__link');
+        const firstNavItem = document.querySelector('.expandable-nav__link');
         expect(focusableElements[index + 1]).toEqual(firstNavItem);
     });
 
 });
 
-describe('Off-canvas navigation > behaviour > keyboard', () => {
+describe('Expandable navigation > behaviour > keyboard', () => {
     let instance;
     beforeAll(() => {
-        document.body.innerHTML = render(<OffCanvasNav />);
-        [ instance ] = initOffCanvasNav();
+        document.body.innerHTML = render(<ExpandableNav />);
+        [ instance ] = initExpandableNav();
     });
     afterEach(() => {
         if (instance.getState().isOpen === true) instance.toggle();
     });
 
-    it('Focus outside navigation should hide navigation', () => {
+    it('Focus outside navigation should not hide navigation', () => {
         //First open the nav
         instance.toggle();
         //check it's open
@@ -115,16 +104,16 @@ describe('Off-canvas navigation > behaviour > keyboard', () => {
 
         //ain has a tabindex in order to make it selectabled for testing
         document.querySelector('main').focus();
-        expect(instance.getState().isOpen).toEqual(false);
+        expect(instance.getState().isOpen).toEqual(true);
     });
 
 });
 
-describe('Off-canvas navigation > axe > ARIA', () => {
+describe('Expandable navigation > axe > ARIA', () => {
     let instance;
     beforeAll(() => {
-        document.body.innerHTML = render(<OffCanvasNav />);
-        [ instance ] = initOffCanvasNav();
+        document.body.innerHTML = render(<ExpandableNav />);
+        [ instance ] = initExpandableNav();
     });
     afterEach(() => {
         if (instance.getState().isOpen === true) instance.toggle();
