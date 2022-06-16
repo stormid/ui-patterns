@@ -60,7 +60,6 @@
 .on--off-canvas-nav {
     .off-canvas-nav__display-wrap {
         display: block;
-        flex: 1 1 100%;
         align-self: stretch;
     }   
     .off-canvas-nav__list {
@@ -68,7 +67,6 @@
         max-width: none;
         overflow: hidden;
         background-color: white;
-        animation: 0.5s ease-in-out heightAnimation;
     }
 
     .off-canvas-nav__close {
@@ -83,16 +81,5 @@
     }
     .off-canvas-nav__close-icon {
         display: block;
-    }
-}
-
-@keyframes heightAnimation {
-    0% {
-        max-height: 0;
-    }
-
-    100% {
-        max-height: 100vh;
-        overflow-y: auto;
     }
 }
