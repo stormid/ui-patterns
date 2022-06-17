@@ -6,8 +6,7 @@ export const TOGGLE = {
         EXCLUSIVE_SEARCH: '.js-exclusive-search',
         EXCLUSIVE_NAV: '.js-exclusive-nav',
         COOKIE_BANNER: '.js-toggle-banner',
-        MODAL_FISHY_NAVIGATION: '.js-modal-fishy-nav',
-        NON_MODAL_NAVIGATION: '.js-non-modal-nav'
+        FULL_SCREEN_NAVIGATION: '.js-full-screen-nav'
     }
 };
 
@@ -15,7 +14,7 @@ export const MODAL = {
     SELECTOR: {
         MODAL_SEARCH: '.js-modal-search',
         MODAL_CONFIRMATION: '.js-modal-confirmation',
-        MODAL_NAVIGATION: '.js-modal-nav'
+        MODAL_NAVIGATION: '.js-full-screen-nav'
     }
 };
 

@@ -1,5 +1,5 @@
 import ExpandableNav from './modules/expandable-navigation';
-import ModalNav from './modules/modal-navigation';
+import FullScreenNav from './modules/full-screen-navigation';
 import ModalSearch from './modules/modal-search';
 import ExpandableSection from './modules/expandable-section';
 import ExpandableSearch from './modules/expandable-search';
@@ -11,7 +11,7 @@ import Tabs from './modules/tabs';
 
 export const initStack = [
     ExpandableNav,
-    ModalNav,
+    FullScreenNav,
     ModalSearch,
     ExpandableSection,
     ExpandableSearch,

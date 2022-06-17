@@ -12,10 +12,9 @@ export const title = 'Home';
 
 const PATTERNS = [
     { title: 'Expandable navigation', url: '/patterns/expandable-navigation', status: STATUS.DEVELOPMENT },
-    { title: 'Modal navigation', url: '/patterns/modal-navigation', status: STATUS.DEVELOPMENT },
+    { title: 'Full screen navigation', url: '/patterns/full-screen-navigation', status: STATUS.DEVELOPMENT },
     { title: 'Expandable search', url: '/patterns/expandable-search', status: STATUS.DEVELOPMENT },
     { title: 'Modal search', url: '/patterns/modal-search', status: STATUS.DEVELOPMENT },
-    { title: 'Expandable section', url: '/patterns/expandable-section', status: STATUS.DEVELOPMENT },
     { title: 'Expandable section', url: '/patterns/expandable-section', status: STATUS.DEVELOPMENT },
     { title: 'Exclusive toggles', url: '/patterns/exclusive-toggles', status: STATUS.DEVELOPMENT },
     { title: 'Modal confirmation', url: '/patterns/modal-confirmation', status: STATUS.DEVELOPMENT },

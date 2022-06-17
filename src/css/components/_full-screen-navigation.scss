@@ -1,24 +1,22 @@
-.modal-nav__container {
+.full-screen-nav__header {
     padding: var(--baseline) var(--gutter);
     background-color: var(--off-black);
     height: 95px;
 }
-.modal-nav__modal {
+.full-screen-nav__header-inner {
+    display: flex;
+    justify-content: flex-end;
+}
+.full-screen-nav__modal {
     @media (min-width: 1024px) {
         display: none;
     }
 }
-.modal-nav__inline {
+.full-screen-nav {
     display: none;
-        @media (min-width: 1024px) {
-            display: block;
-        }
+    // justify-content: flex-end;
 }
-.modal-nav {
-    display: flex;
-    justify-content: flex-end;
-}
-.modal-nav__btn {
+.full-screen-nav__btn {
     display: flex;
     background-color: transparent;
     font-weight: var(--medium-weight);
@@ -28,18 +26,18 @@
             outline: 1px solid var(--highlight);
         }
 }
-.modal-nav__btn-icon {
+.full-screen-nav__btn-icon {
     margin-right: calc(var(--gutter)/6);
     display: block;
     fill: white;
 }
-.modal-nav__list {
+.full-screen-nav__list {
     max-width: none;
     @media (min-width: 1024px) {
         display: flex;
     }
 }
-.modal-nav__item {
+.full-screen-nav__item {
     display: block;
     // border-bottom: 1px solid var(--light-grey-3);
         &:first-child {
@@ -49,7 +47,7 @@
                 }
         }
 }
-.modal-nav__link {
+.full-screen-nav__link {
     display: block;
     color: white;
     background-color: var(--off-black);
@@ -100,7 +98,7 @@
                 }
         }
 }
-.modal-nav__modal-container {
+.full-screen-nav__modal-container {
     display: none;
         &.is--active {
             display: block;
@@ -120,36 +118,18 @@
         }
 }
 
-.non-modal-nav__btn,
-.modal-fishy-nav__btn {
-    @media (min-width: 1024px) {
-        display: none;
+.on--full-screen-navigation {
+    .full-screen-nav {        
+        display: block;
+        position: fixed;
+        padding-top: 30vh;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: var(--off-black);
     }
-}
-.non-modal-nav__container,
-.modal-fishy-nav__container {
-    display: none;
-        @media (min-width: 1024px) {
-            display: block;
-        }
-}
-.on--non-modal-nav,
-.on--modal-fishy-nav {
-    @media (max-width: 1023px) {
-        .non-modal-nav__container,
-        .modal-fishy-nav__container {
-            display: block;
-            overflow: auto;
-            position: fixed;
-            justify-content: center;
-            padding-top: 20vh;
-            width: auto;
-            height: auto;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            background-color: var(--off-black);
-        }
+    main {
+        display: none;
     }
 }

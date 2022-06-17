@@ -1,24 +1,24 @@
 import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
-import Code from '../../example/modal-navigation/code';
+import Code from '../../example/full-screen-navigation/code';
 import { render } from 'preact-render-to-string';
 
-export const title = 'Modal search';
+export const title = 'Full screen navigation';
 
-const ModalNavigation = () => <PatternLayout>
-    <h1 class="push-bottom--half plus-2 medium">Modal navigation</h1>
-    <p class="push-bottom--double">Show and hide modal navigation with a button.</p>
+const FullScreenNavigation = () => <PatternLayout>
+    <h1 class="push-bottom--half plus-2 medium">Full screen navigation</h1>
+    <p class="push-bottom--double">Show and hide full screen navigation.</p>
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
-    <p class="push-bottom">Use this pattern for navigation that should capture focus, take over the whole screen and prevent interaction with the rest of the page until they are closed.</p>
-    <p class="push-bottom--double"><b>This pattern cannot be modal at one screen size and non-modal at another</b>. The mark-up and behaviours required for a modal dialog are incompatible with being visible and in the the normal document flow at a different screen size. This pattern can only be used as the only navigation pattern at all screen sizes, or with separate mark-up for the modal and non-modal navigation.</p>
+    <p class="push-bottom">Use this pattern for navigation that take over the whole screen and prevent interaction with the rest of the page until it is closed.</p>
+    <p class="push-bottom--double"><b>This pattern cannot be used for full screen navigation at one screen size and inline navigation at another</b>. </p>
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
-    <iframe style="--height: 375px" class="example" title="Example modal navigation" src={'/example/modal-navigation'}></iframe>
-    <p class="push-bottom- align-right"><a href="/example/modal-navigation" target="_blank">Open in a new tab</a></p>
+    <iframe style="--height: 375px" class="example" title="Example Full screen navigation" src={'/example/full-screen-navigation'}></iframe>
+    <p class="push-bottom- align-right"><a href="/example/full-screen-navigation" target="_blank">Open in a new tab</a></p>
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
     <pre class="pre"><code class="code">{`import modal from '@stormid/modal';
 
-modal('.js-modal-navigation');
+modal('.js-full-screen-navigation');
 `}</code></pre>   
     <h2 class="push-bottom--half plus-1 medium">Acceptance criteria</h2>
     <ul class="list list--tick push-bottom--double">
@@ -39,7 +39,7 @@ modal('.js-modal-navigation');
         <li class="list-item">Search input should be appropriately labelled</li>
         <li class="list-item">Escape button should close the modal</li>
         <li class="list-item">Focus must return to the trigger button when closed</li>
-        <li class="list-item">Modal navigation must not be non-modal at a different screen size.</li>
+        <li class="list-item">Full screen navigation must not be non-modal at a different screen size.</li>
     </ul>
     <h2 class="push-bottom--half plus-1 medium">References</h2>
     <ul class="list push-bottom--double">
@@ -49,4 +49,4 @@ modal('.js-modal-navigation');
     </ul>
 </PatternLayout>;
 
-export default ModalNavigation;
+export default FullScreenNavigation;
