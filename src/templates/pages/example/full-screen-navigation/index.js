@@ -2,11 +2,11 @@ import { h } from 'preact';
 import ExampleLayout from '@layouts/example';
 import Code from './code';
 
-export const title = 'Modal navigation example';
+export const title = 'Full screen navigation example';
 
 const ModalSearch = () => <ExampleLayout>
-    <header class="modal-search__container">
-        <div class="modal-search">
+    <header class="full-screen-nav__header">
+        <div class="full-screen-nav__header-inner">
             <Code />
         </div>
     </header>
