@@ -1,17 +1,23 @@
 .form {
-    margin: 0 auto;
+    margin: 0 auto var(--baseline) auto;
     padding: var(--baseline) var(--gutter);
     max-width: 500px;
     background-color: var(--light-grey-1);
 }
+.form-row {
+    margin-bottom: calc(var(--baseline)*.75);
+        &:last-child {
+            margin-bottom: 0;
+        }
+}
 .fieldset {
-    margin-bottom: var(--baseline);
+    margin-bottom: calc(var(--baseline)*2);
 }
 .fieldset--secondary {
     border-bottom: 0 none;
 }
 .legend {
-    margin-bottom: var(--baseline);
+    margin-bottom: calc(var(--baseline)/2);
     font-size: var(--font-size-plus-2);
 }
 .legend--secondary {
@@ -20,7 +26,11 @@
 }
 .label {
     display: block;
-    margin-bottom: calc(var(--baseline)/4);
+}
+.label__hint {
+    display: block;
+    color: var(--dark-grey-2);
+    font-size: var(--font-size-minus-1);
 }
 .label__text {}
 .input {
@@ -28,11 +38,12 @@
     display: block;
     padding:0 calc(var(--gutter)/2);
     background-color: #ffffff;
-    border: 1px solid var(--light-grey-2);
+    border: 1px solid var(--mid-grey-1);
     appearance: none;
     -moz-appearance: textfield;
     height:40px;
     line-height:36px;
+    margin-top: calc(var(--baseline)/6);
         &::-webkit-outer-spin-button,
         &::-webkit-inner-spin-button {
             -webkit-appearance: none;
@@ -52,7 +63,7 @@
     display: block;
     padding:0 calc(var(--gutter)/2);
     background-color: #ffffff;
-    border: 1px solid var(--light-grey-2);
+    border: 1px solid var(--mid-grey-1);
     height:40px;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -106,7 +117,7 @@
             left: 0;
             width: 24px;
             height: 24px;
-            border: 1px solid var(--light-grey-2);
+            border: 1px solid var(--mid-grey-1);
             background-color: white;
         }
 }
@@ -129,22 +140,26 @@
         outline: 4px solid var(--highlight);
     }
 }
-.checkbox__input:disabled,
-.checkbox__input[readonly] {
-    pointer-events: none;
-        &+ .checkbox__label {
-            pointer-events: none;
-                &:before {
-                    background:var(--light-grey-2);
-                    opacity: .7;
-                }
-        }
-}
 .error-message {
     font-size: var(--font-size-minus-1);
     display: block;
-    margin-bottom: calc(var(--baseline)/4);
     font-weight:var(--bold-weight);
+}
+.is--invalid {
+    // position: relative;
+    //     &:before {
+    //         content: '';
+    //         position: absolute;
+    //         width:2px;
+    //         top: 0;
+    //         bottom: 0;
+    //         left: calc(var(--gutter)*-1);
+    //         background-color: var(--red);
+    //     }
+    // .input,
+    // .checkbox__label:before {
+    //     border-color: var(--red)
+    // }
 }
 .btn {
     line-height:1;
