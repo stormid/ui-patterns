@@ -28,6 +28,7 @@ toggle(TOGGLE('.js-full-screen-navigation', { focus: false });
         <li class="list-item">Trigger button should be appropriately labelled</li>
         <li class="list-item">Trigger button should be keyboard operable</li>
         <li class="list-item">Buttons should be no less than 44px x 44px</li>
+        <li class="list-item">Active navigation link should have ARIA current attribute</li>
         <li class="list-item">Nav must not use a modal dialog</li>
         <li class="list-item">When the nav is open it should not trap tab</li>
         <li class="list-item">When the nav is open, the background (rest of the elements on the page) must be untabbable using (<code>display: none !important;visibility: hidden !important;</code>)</li>

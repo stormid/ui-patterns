@@ -4,7 +4,7 @@ import Code from './code';
 
 export const title = 'Full screen navigation example';
 
-const ModalSearch = () => <ExampleLayout>
+const ModalFullScreenNav = () => <ExampleLayout>
     <header class="full-screen-nav__header">
         <div class="full-screen-nav__header-inner">
             <Code />
@@ -15,4 +15,4 @@ const ModalSearch = () => <ExampleLayout>
     </main>
 </ExampleLayout>;
 
-export default ModalSearch;
+export default ModalFullScreenNav;
