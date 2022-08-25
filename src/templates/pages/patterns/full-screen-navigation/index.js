@@ -10,8 +10,7 @@ const FullScreenNavigation = () => <PatternLayout>
     <p class="push-bottom--double">Show and hide full screen navigation.</p>
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
     <p class="push-bottom">Use this pattern for navigation that take over the whole screen and prevent interaction with the rest of the page until it is closed.</p>
-    <p class="push-bottom">This pattern differs from a modal dialog because it is CSS-based and does not require being marked up as a dialog. This is useful if you want the same nav mark up used as both inline navigation (visible on large screens) and off-canvas or modal-like navigation on small screens.</p>
-    <p class="push-bottom--double">Use this pattern for navigation that take over the whole screen and prevent interaction with the rest of the page until it is closed.</p>
+    <p class="push-bottom-double">This pattern differs from a modal dialog because it is CSS-based and does not require being marked up as a dialog. This is useful if you want the same nav mark up used as both inline navigation (visible on large screens) and off-canvas or modal-like navigation on small screens.</p>
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example Full screen navigation" src={'/example/full-screen-navigation'}></iframe>
     <p class="push-bottom- align-right"><a href="/example/full-screen-navigation" target="_blank">Open in a new tab</a></p>
