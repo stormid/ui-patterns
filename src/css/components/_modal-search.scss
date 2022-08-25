@@ -49,13 +49,14 @@
 .modal__close {
     position:fixed;
     color: white;
-    bottom: var(--baseline);
+    top: var(--baseline);
     right: var(--gutter);
     background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: calc(var(--baseline)/3) calc(var(--gutter)/2);
+    padding: calc(var(--baseline)/2) calc(var(--gutter)/2);
+    font-weight: var(--medium-weight);
         &:focus {
             outline: 1px solid var(--highlight);
             border-radius: 0;

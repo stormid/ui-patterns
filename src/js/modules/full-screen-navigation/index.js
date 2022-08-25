@@ -3,9 +3,6 @@ import { TOGGLE } from '../../constants';
 
 export default () => {
     if (document.querySelector(TOGGLE.SELECTOR.FULL_SCREEN_NAVIGATION)) {
-        return toggle(TOGGLE.SELECTOR.FULL_SCREEN_NAVIGATION, {
-            focus: false,
-            closeOnBlur: true
-        });
+        return toggle(TOGGLE.SELECTOR.FULL_SCREEN_NAVIGATION, { focus: false });
     }
 };
