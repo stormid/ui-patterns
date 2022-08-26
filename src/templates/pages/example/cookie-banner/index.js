@@ -8,7 +8,12 @@ const CookieBanner = () => <ExampleLayout>
     <main class="wrap soft-top" id="js-cookie-banner-example">
         <h1 class="visuallyhidden">Cookie banner example</h1>
         <Code />
-        {/* <button class="cookie-banner__delete">Restart</button> */}
+        <div class="embed">
+            <div class="embed__placeholder" data-iframe-src={'https://www.youtube.com/embed/qpLKTUQev30'} data-iframe-title={'test video'}>
+                <p>Update your cookie preferences to view this content.</p>
+                <button type="button" class="embed__placeholder-btn js-preferences-update">Update preferences</button>
+            </div>
+        </div>
     </main>
 </ExampleLayout>;
 
