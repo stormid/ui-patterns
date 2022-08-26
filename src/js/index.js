@@ -5,7 +5,7 @@ import ExpandableSearch from './modules/expandable-search';
 import ExclusiveToggles from './modules/exclusive-toggles';
 import ModalConfirmation from './modules/modal-confirmation';
 import CookieBanner from './modules/cookie-banner';
-import Validation from './modules/validation';
+import Validation from './modules/form-validation';
 import Tabs from './modules/tabs';
 
 export const initStack = [
