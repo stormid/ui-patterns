@@ -3,6 +3,7 @@ import PatternLayout from '@layouts/pattern';
 import Code from '../../example/modal-search/code';
 import { render } from 'preact-render-to-string';
 import PatternTitle from '@components/pattern-title';
+import DependencyTable from '@components/dependency-table';
 import { STATUS } from '@constants';
 
 export const title = 'Modal search';
@@ -10,17 +11,23 @@ export const title = 'Modal search';
 const ModalSearch = () => <PatternLayout>
     <PatternTitle status={STATUS.DEVELOPMENT}>Modal search</PatternTitle>
     <p class="push-bottom--double">Show and hide a modal search form.</p>
+    
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
     <p class="push-bottom--double">Use this pattern for search forms that should capture focus, take over the whole screen and prevent interaction with the rest of the page until they are closed.</p>
+    
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example modal search navigation" src={'/example/modal-search'}></iframe>
     <p class="push-bottom- align-right"><a href="/example/modal-search" rel="noopener" target="_blank">Open in a new tab</a></p>
+    
+    <h2 class="push-bottom--half plus-1 medium">Dependencies and installation</h2>
+    <DependencyTable dependencies={[{ package: '@stormid/modal', installation: 'npm i -S @stormid/modal' }]} />
+
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
     <pre class="pre"><code class="code">{`import modal from '@stormid/modal';
 
 modal('.js-modal-search');
-`}</code></pre>   
+`}</code></pre>
     <h2 class="push-bottom--half plus-1 medium">Acceptance criteria</h2>
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">Use a button element for the modal trigger</li>

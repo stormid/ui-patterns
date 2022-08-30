@@ -2,8 +2,15 @@
     background-color: white;
     line-height: 1.45;
     overflow: auto;
-    padding: var(--baseline);
+    padding: var(--baseline) var(--gutter);
     margin-bottom: calc(var(--baseline)*2);
+}
+.pre--inline {
+    padding: calc(var(--baseline)/8) calc(var(--gutter)/8);
+    background-color: transparent;
+    margin-bottom: 0;
+    display: inline-block;
+    background-color: white;
 }
 .code {
 }

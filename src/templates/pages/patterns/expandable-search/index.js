@@ -3,6 +3,7 @@ import PatternLayout from '@layouts/pattern';
 import Code from '../../example/expandable-search/code';
 import { render } from 'preact-render-to-string';
 import PatternTitle from '@components/pattern-title';
+import DependencyTable from '@components/dependency-table';
 import { STATUS } from '@constants';
 
 export const title = 'Expandable search';
@@ -10,11 +11,16 @@ export const title = 'Expandable search';
 const ExpandableSearch = () => <PatternLayout>
     <PatternTitle status={STATUS.DEVELOPMENT}>Expandable search</PatternTitle>
     <p class="push-bottom--double">Show and hide inline search with a button.</p>
+    
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
     <p class="push-bottom--double">Use this pattern for a search form that expands and collapses in the document flow. In contrast modal search captures focus, takes over the whole screen and prevents interaction with the rest of the page. The expandable pattern does not trap tab in the same way.</p>
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example expandable search" src={'/example/expandable-search'}></iframe>
     <p class="push-bottom align-right"><a href="/example/expandable-search" rel="noopener" target="_blank">Open in a new tab</a></p>
+    
+    <h2 class="push-bottom--half plus-1 medium">Dependencies and installation</h2>
+    <DependencyTable dependencies={[{ package: '@stormid/toggle', installation: 'npm i -S @stormid/toggle' }]} />
+    
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
     <pre class="pre"><code class="code">{`import toggle from '@stormid/toggle';

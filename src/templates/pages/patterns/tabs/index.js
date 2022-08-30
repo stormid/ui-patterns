@@ -3,6 +3,7 @@ import PatternLayout from '@layouts/pattern';
 import Code from '../../example/tabs/code';
 import { render } from 'preact-render-to-string';
 import PatternTitle from '@components/pattern-title';
+import DependencyTable from '@components/dependency-table';
 import { STATUS } from '@constants';
 
 export const title = 'Tabs';
@@ -12,15 +13,21 @@ const Tabs = () => <PatternLayout>
     <p class="push-bottom--double">Automatically activated tabs display their panel when they receive focus.</p>
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
     <p class="push-bottom--double">Automatic activation should be used when the tabpanel content is immediately available and present in the DOM. Manual activation (requiring a click or enter/space keydown event) should be used if the content is not immediately present, for example if it requires a network request to retrieve it.</p>
+    
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example expandable section" src={'/example/tabs'}></iframe>
     <p class="push-bottom align-right"><a href="/example/tabs" rel="noopener" target="_blank">Open in a new tab</a></p>
+    
+    <h2 class="push-bottom--half plus-1 medium">Dependencies and installation</h2>
+    <DependencyTable dependencies={[{ package: '@stormid/tabs', installation: 'npm i -S @stormid/tabs' }]} />
+    
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
     <pre class="pre"><code class="code">{`import tabs from '@stormid/tabs';
 
 tabs('.js-tabs');
-`}</code></pre>   
+`}</code></pre>
+    
     <h2 class="push-bottom--half plus-1 medium">Acceptance criteria</h2>
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">The element containing the tabs should have a role of 'tablist'</li>
@@ -39,8 +46,8 @@ tabs('.js-tabs');
     </ul>
     <h2 class="push-bottom--half plus-1 medium">References</h2>
     <ul class="list push-bottom--double">
-    <li class="list-item"><a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-1/tabs.html" rel="noopener nofollow">https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-1/tabs.html</a></li>
-    <li class="list-item"><a href="https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_selection_follows_focus" rel="noopener nofollow">https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_selection_follows_focus</a></li>
+        <li class="list-item"><a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-1/tabs.html" rel="noopener nofollow">https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-1/tabs.html</a></li>
+        <li class="list-item"><a href="https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_selection_follows_focus" rel="noopener nofollow">https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_selection_follows_focus</a></li>
        <li class="list-item"><a href="https://webaim.org/standards/wcag/checklist" rel="noopener nofollow">https://webaim.org/standards/wcag/checklist</a></li>
     </ul>
 </PatternLayout>;

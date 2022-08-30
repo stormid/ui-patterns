@@ -3,6 +3,7 @@ import PatternLayout from '@layouts/pattern';
 import Code from '../../example/expandable-section/code';
 import { render } from 'preact-render-to-string';
 import PatternTitle from '@components/pattern-title';
+import DependencyTable from '@components/dependency-table';
 import { STATUS } from '@constants';
 
 export const title = 'Expandable section';
@@ -10,17 +11,24 @@ export const title = 'Expandable section';
 const ExpandableSection = () => <PatternLayout>
     <PatternTitle status={STATUS.DEVELOPMENT}>Expandable section</PatternTitle>
     <p class="push-bottom--double">Show and hide a section of content</p>
+    
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
     <p class="push-bottom--double">Use this pattern for toggles and accordions that expand and collapse content into in the document flow. Consider using the <a rel="noopener nofollow" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details" target="_blank">HTML details tag</a> as an alternative if Internet Explorer 11 support is not required.</p>
+    
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example expandable section" src={'/example/expandable-section'}></iframe>
     <p class="push-bottom align-right"><a href="/example/expandable-section" rel="noopener" target="_blank">Open in a new tab</a></p>
+
+    <h2 class="push-bottom--half plus-1 medium">Dependencies and installation</h2>
+    <DependencyTable dependencies={[{ package: '@stormid/toggle', installation: 'npm i -S @stormid/toggle' }]} />
+
+    
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
     <pre class="pre"><code class="code">{`import toggle from '@stormid/toggle';
 
 toggle('.js-expandable-section, { focus: false, local: true });
-`}</code></pre>   
+`}</code></pre>
     <h2 class="push-bottom--half plus-1 medium">Acceptance criteria</h2>
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">Use a button element for the expandable section trigger</li>

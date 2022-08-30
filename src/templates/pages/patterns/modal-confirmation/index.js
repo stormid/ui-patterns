@@ -3,6 +3,7 @@ import PatternLayout from '@layouts/pattern';
 import Code from '../../example/modal-confirmation/code';
 import { render } from 'preact-render-to-string';
 import PatternTitle from '@components/pattern-title';
+import DependencyTable from '@components/dependency-table';
 import { STATUS } from '@constants';
 
 export const title = 'Modal confirmation';
@@ -10,17 +11,23 @@ export const title = 'Modal confirmation';
 const ModalConfirmation = () => <PatternLayout>
     <PatternTitle status={STATUS.DEVELOPMENT}>Modal confirmation</PatternTitle>
     <p class="push-bottom--double">Ask for confirmation from the user before executing an action.</p>
+    
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
     <p class="push-bottom--double">Use this pattern to add friction to severe actions to help prevent user errors.</p>
+    
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example modal-confirmation" src={'/example/modal-confirmation'}></iframe>
     <p class="push-bottom align-right"><a href="/example/modal-confirmation" rel="noopener" target="_blank">Open in a new tab</a></p>
+
+    <h2 class="push-bottom--half plus-1 medium">Dependencies and installation</h2>
+    <DependencyTable dependencies={[{ package: '@stormid/modal', installation: 'npm i -S @stormid/modal' }]} />
+
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
     <pre class="pre"><code class="code">{`import modal from '@stormid/modal';
 
 modal('.js-modal-confirmation);
-`}</code></pre>   
+`}</code></pre>
     <h2 class="push-bottom--half plus-1 medium">Acceptance criteria</h2>
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">Use a button element for the modal trigger</li>
