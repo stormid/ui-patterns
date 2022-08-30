@@ -6,9 +6,7 @@ export const title = 'Off-canvas search example';
 
 const ModalSearch = () => <ExampleLayout>
     <header class="off-canvas-search__header">
-        <div class="off-canvas-search__header-inner">
-            <Code />
-        </div>
+        <Code />
     </header>
     <main tabindex="0" aria-label="Next focusable item on the page">
 
