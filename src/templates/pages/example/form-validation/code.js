@@ -1,6 +1,6 @@
 import { h } from 'preact';
 
-export const FormValidation = () => <form class="form js-validate" action="#">
+export const Code = () => <form class="form js-validate" action="#">
     <p class="push-bottom">All fields are required unless marked as optional.</p>
     <fieldset class="fieldset">
         <legend class="legend">Your details</legend>
@@ -62,4 +62,4 @@ export const FormValidation = () => <form class="form js-validate" action="#">
     <button type="submit" class="btn">Submit</button>
 </form>;
 
-export default FormValidation;
+export default Code;
