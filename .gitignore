@@ -51,3 +51,4 @@ typings/
 pwa
 
 .DS_store
+/image-component.code-workspace

@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import initFormValidation from '../../../src/js/modules/form-validation';
+import { init as initFormValidation } from '../../../src/js/modules/form-validation';
 import FormValidation from '../../../src/templates/pages/example/form-validation';
 import { render } from 'preact-render-to-string';
 

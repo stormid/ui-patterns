@@ -48,20 +48,6 @@ const HomePage = () => <DefaultLayout>
             </tbody>
         </table>
     </div>
-    {/* <ul class="card-list">
-        { PATTERNS.map(pattern => <li class="card-list__item">
-            <h2 class="card-list__title">
-                <a class="card-list__link" href={pattern.url}>{pattern.title}</a>
-            </h2>
-            {pattern.summary && <p class="card-list__summary">{pattern.summary}</p>}
-            {/* <ul class="tag-list">
-                <li class="tag">toggle</li>
-                <li class="tag">accordion</li>
-                <li class="tag">show/hide</li>
-                <li class="tag">expandable</li>
-            </ul>
-        </li>) } 
-    </ul>*/}
 </DefaultLayout>;
 
 export default HomePage;

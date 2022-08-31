@@ -1,21 +1,15 @@
 const path = require('path');
-const webpack = require('webpack');
 const paths = require(path.join(process.cwd(), `./paths.config`));
 
 module.exports = {
     entry: {
-        index: path.join(process.cwd(), `${paths.src.js}/index.js`)
+        polyfills: path.join(process.cwd(), `${paths.src.js}/polyfills/index.js`)
     },
     target: 'web',
     stats: {
         modules: false,
         entrypoints: false
     },
-    plugins: [
-        new webpack.optimize.MinChunkSizePlugin({
-            minChunkSize: 30000
-        })
-    ],
     module: {
         rules: [
             {

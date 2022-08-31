@@ -1,7 +1,8 @@
-import { TABS } from '../../constants';
 import tabs from '@stormid/tabs';
+const SELECTOR = '.js-tabs';
 
-export default () => {
-    if (!document.querySelector(TABS.SELECTOR)) return;
-    return tabs(TABS.SELECTOR);
+export const init = () => {
+    if (document.querySelector(SELECTOR)) return tabs(SELECTOR);
 };
+
+init();

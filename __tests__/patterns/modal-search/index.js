@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import initModalSearch from '../../../src/js/modules/modal-search';
+import { init as initModalSearch } from '../../../src/js/modules/modal-search';
 import ModalSearch from '../../../src/templates/pages/example/modal-search';
 import { render } from 'preact-render-to-string';
 

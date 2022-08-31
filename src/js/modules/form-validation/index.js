@@ -1,7 +1,8 @@
-import { VALIDATION } from '../../constants';
 import validate from '@stormid/validate';
+const SELECTOR = 'form:not([novalidate])';
 
-export default () => {
-    if (!document.querySelector(VALIDATION.SELECTOR)) return;
-    validate(VALIDATION.SELECTOR);
+export const init = () => {
+    if (document.querySelector(SELECTOR)) return validate(SELECTOR);
 };
+
+init();

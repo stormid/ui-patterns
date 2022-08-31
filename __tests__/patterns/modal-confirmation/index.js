@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import initModalConfirmation from '../../../src/js/modules/modal-confirmation';
+import { init as initModalConfirmation } from '../../../src/js/modules/modal-confirmation';
 import ModalConfirmation from '../../../src/templates/pages/example/modal-confirmation';
 import { render } from 'preact-render-to-string';
 

@@ -1,8 +1,8 @@
-import { TOGGLE } from '../../constants';
 import toggle from '@stormid/toggle';
+const SELECTOR = '.js-expandable-section';
 
-export default () => {
-    if (document.querySelector(TOGGLE.SELECTOR.EXPANDABLE_SECTION)) {
-        return toggle(TOGGLE.SELECTOR.EXPANDABLE_SECTION, { focus: false, local: true });
-    }
+export const init = () => {
+    if (document.querySelector(SELECTOR)) return toggle(SELECTOR, { focus: false, local: true });
 };
+
+init();

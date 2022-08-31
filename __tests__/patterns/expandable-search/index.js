@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import initExpandableSearch from '../../../src/js/modules/expandable-search';
+import { init as initExpandableSearch } from '../../../src/js/modules/expandable-search';
 import ExpandableSearch from '../../../src/templates/pages/example/expandable-search';
 import { render } from 'preact-render-to-string';
 

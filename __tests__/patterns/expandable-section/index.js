@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import initExpandableSection from '../../../src/js/modules/expandable-section';
+import { init as initExpandableSection } from '../../../src/js/modules/expandable-section';
 import ExpandableSection from '../../../src/templates/pages/example/expandable-section';
 import { render } from 'preact-render-to-string';
 

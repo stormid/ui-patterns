@@ -1,4 +1,4 @@
-import { h, Fragment } from 'preact';
+import { h } from 'preact';
 
 const Code = () => <div class="tabs js-tabs">
     <div class="tabs__tabslist" role="tablist">

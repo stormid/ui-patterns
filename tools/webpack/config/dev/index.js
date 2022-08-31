@@ -6,6 +6,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
 const { getPaths } = require('../../utils');
 const paths = require('../../../../paths.config');
 
@@ -43,7 +45,23 @@ module.exports = [
                     port: 3000,
                     proxy: 'http://localhost:8080/'
                 }
-            )
+            ),
+            new ImageminWebpWebpackPlugin({
+                config: [{
+                        test: /\.(jpe?g|png|gif)$/i,
+                        options: {
+                            quality:  50
+                        },
+                }]
+            }),
+            new ImageminPlugin({
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                svgo: {
+                    plugins: [{
+                        removeViewBox: false
+                    }]
+                }
+            })
         ],
     }),
     merge(base.javascript, {
@@ -53,17 +71,15 @@ module.exports = [
             path: path.join(process.cwd(), paths.output)
         },
         mode: 'development',
-        devtool: 'cheap-module-eval-source-map',
-        // optimization: {
-        //     splitChunks: {
-        //         cacheGroups: {
-        //             vendor: {
-        //                 test: /[\\/]node_modules[\\/]/,
-        //                 name: 'vendors',
-        //                 chunks: 'all'
-        //             }
-        //         }
-        //     }
-        // }
+        devtool: 'cheap-module-eval-source-map'
+    }),
+    merge(base.polyfills, {
+        output: {
+            filename: '[name].js',
+            publicPath: '/',
+            path: path.join(process.cwd(), paths.output)
+        },
+        mode: 'development',
+        devtool: 'cheap-module-eval-source-map'
     })
 ];
