@@ -3,6 +3,7 @@ import PatternLayout from '@layouts/pattern';
 import Code from '../../example/form-validation/code';
 import { render } from 'preact-render-to-string';
 import PatternTitle from '@components/pattern-title';
+import DependencyTable from '@components/dependency-table';
 import { STATUS } from '@constants';
 
 export const title = 'Form validation';
@@ -10,12 +11,18 @@ export const title = 'Form validation';
 const FormValidation = () => <PatternLayout>
     <PatternTitle status={STATUS.DEVELOPMENT}>Form validation</PatternTitle>
     <p class="push-bottom--double">Check the information the user gives you to make sure it's valid</p>
+    
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
     <p class="push-bottom">Use this pattern to verify information provided by the user is suitable.</p>
     <p class="push-bottom--double">For more information on different types of validator, writing cutom validators, error messages and more <a href="https://github.com/stormid/components/tree/master/packages/validate" rel="noopener nofollow">see the validation library documentation</a>.</p>
+    
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example form validation section" src={'/example/form-validation'}></iframe>
     <p class="push-bottom align-right"><a href="/example/form-validation" rel="noopener" target="_blank">Open in a new tab</a></p>
+    
+    <h2 class="push-bottom--half plus-1 medium">Dependencies and installation</h2>
+    <DependencyTable dependencies={[{ package: '@stormid/toggle', installation: 'npm i -S @stormid/toggle' }]} />
+    
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
     <pre class="pre"><code class="code">{`import validate from '@stormid/validate';
