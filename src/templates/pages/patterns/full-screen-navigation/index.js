@@ -1,19 +1,28 @@
 import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
 import Code from '../../example/full-screen-navigation/code';
+import PatternTitle from '@components/pattern-title';
+import DependencyTable from '@components/dependency-table';
 import { render } from 'preact-render-to-string';
+import { STATUS } from '@constants';
 
 export const title = 'Full screen navigation';
 
 const FullScreenNavigation = () => <PatternLayout>
-    <h1 class="push-bottom--half plus-2 medium">Full screen navigation</h1>
+    <PatternTitle status={STATUS.DEVELOPMENT}>Full screen navigation</PatternTitle>
     <p class="push-bottom--double">Show and hide full screen navigation.</p>
+    
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
     <p class="push-bottom">Use this pattern for navigation that take over the whole screen and prevent interaction with the rest of the page until it is closed.</p>
-    <p class="push-bottom-double">This pattern differs from a modal dialog because it is CSS-based and does not require being marked up as a dialog. This is useful if you want the same nav mark up used as both inline navigation (visible on large screens) and off-canvas or modal-like navigation on small screens.</p>
+    <p class="push-bottom--double">This pattern differs from a modal dialog because it is CSS-based and does not require being marked up as a dialog. This is useful if you want the same nav mark up used as both inline navigation (visible on large screens) and off-canvas or modal-like navigation on small screens.</p>
+    
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example Full screen navigation" src={'/example/full-screen-navigation'}></iframe>
-    <p class="push-bottom- align-right"><a href="/example/full-screen-navigation" target="_blank">Open in a new tab</a></p>
+    <p class="push-bottom align-right"><a href="/example/full-screen-navigation" target="_blank">Open in a new tab</a></p>
+    
+    <h2 class="push-bottom--half plus-1 medium">Dependencies and installation</h2>
+    <DependencyTable dependencies={[{ package: '@stormid/toggle', installation: 'npm i -S @stormid/toggle' }]} />
+
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
     <pre class="pre"><code class="code">{`import toggle from '@stormid/toggle';
