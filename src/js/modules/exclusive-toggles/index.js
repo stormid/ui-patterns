@@ -2,10 +2,19 @@ import { TOGGLE } from '../../constants';
 import toggle from '@stormid/toggle';
 
 export default () => {
-    if (!document.querySelector(TOGGLE.SELECTOR.EXCLUSIVE_NAV)) return;
+    const navNode = document.querySelector(TOGGLE.SELECTOR.EXCLUSIVE_NAV);
+    const searchNode = document.querySelector(TOGGLE.SELECTOR.EXCLUSIVE_SEARCH);
+    if (!navNode || !searchNode) return;
     
-    const nav = toggle(TOGGLE.SELECTOR.EXCLUSIVE_NAV, { focus: false, closeOnBlur: true });
-    const search = toggle(TOGGLE.SELECTOR.EXCLUSIVE_SEARCH, { closeOnBlur: true });
+    const [ nav ] = toggle(navNode);
+    const [ search ] = toggle(searchNode);
+
+    navNode.addEventListener('toggle.open', e => {
+        if (search.getState().isOpen) search.startToggle();
+    });
+    searchNode.addEventListener('toggle.open', e => {
+        if (nav.getState().isOpen) nav.startToggle();
+    });
     
-    return { nav, search }; 
+    return { nav, search };
 };

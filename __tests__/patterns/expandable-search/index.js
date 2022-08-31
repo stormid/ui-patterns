@@ -1,55 +1,55 @@
 import { h } from 'preact';
-import initOffCanvasSearch from '../../../src/js/modules/off-canvas-search';
-import OffCanvasSearch from '../../../src/templates/pages/example/off-canvas-search';
+import initExpandableSearch from '../../../src/js/modules/expandable-search';
+import ExpandableSearch from '../../../src/templates/pages/example/expandable-search';
 import { render } from 'preact-render-to-string';
 
-describe('Off-canvas search > mark up', () => {
+describe('Expandable search > mark up', () => {
     beforeAll(() => {
-        document.body.innerHTML = render(<OffCanvasSearch />);
-        initOffCanvasSearch();
+        document.body.innerHTML = render(<ExpandableSearch />);
+        initExpandableSearch();
     });
     
     it('Should use a button element for the search triggers', () => {
-        const toggleButton = document.querySelector('.off-canvas-search__btn');
+        const toggleButton = document.querySelector('.expandable-search__btn');
         expect(toggleButton.tagName).toEqual('BUTTON');
     });
 
 
     it('Buttons should be focusable', () => {
-        const toggleButton = document.querySelector('.off-canvas-search__btn');
+        const toggleButton = document.querySelector('.expandable-search__btn');
         toggleButton.focus();
         expect(document.activeElement).toEqual(toggleButton);
     });
 
     it('Buttons should be appropriately labelled', () => {
-        const toggleButton = document.querySelector('.off-canvas-search__btn');
+        const toggleButton = document.querySelector('.expandable-search__btn');
         expect(toggleButton.getAttribute('aria-label')).toEqual('Show or hide site search');
     });
     
     it('Search input should be appropriately labelled', () => {
-        const input = document.querySelector('.off-canvas-search__input');
+        const input = document.querySelector('.expandable-search__input');
         const id = input.getAttribute('id');
         expect(document.querySelector(`[for="${id}"]`)).toBeDefined();
     });
 
 });
 
-describe('Off-canvas search > behaviour > keyboard', () => {
+describe('expandable search > behaviour > keyboard', () => {
     let instance;
     beforeAll(() => {
-        document.body.innerHTML = render(<OffCanvasSearch />);
-        [ instance ] = initOffCanvasSearch();
+        document.body.innerHTML = render(<ExpandableSearch />);
+        [ instance ] = initExpandableSearch();
     });
     afterEach(() => {
         if (instance.getState().isOpen === true) instance.toggle();
     });
 });
 
-describe('Off-canvas search > focus order', () => {
+describe('expandable search > focus order', () => {
     let instance;
     beforeAll(() => {
-        document.body.innerHTML = render(<OffCanvasSearch />);
-        [ instance ] = initOffCanvasSearch();
+        document.body.innerHTML = render(<ExpandableSearch />);
+        [ instance ] = initExpandableSearch();
     });
     afterEach(() => {
         if (instance.getState().isOpen === true) instance.toggle();
@@ -61,40 +61,28 @@ describe('Off-canvas search > focus order', () => {
         //check it's open
         expect(instance.getState().isOpen).toEqual(true);
 
-        const input = document.querySelector('.off-canvas-search__input');
+        const input = document.querySelector('.expandable-search__input');
         expect(document.activeElement).toEqual(input);
     });
 
 });
 
-describe('Off-canvas search > behaviour > keyboard', () => {
+describe('expandable search > behaviour > keyboard', () => {
     let instance;
     beforeAll(() => {
-        document.body.innerHTML = render(<OffCanvasSearch />);
-        [ instance ] = initOffCanvasSearch();
+        document.body.innerHTML = render(<ExpandableSearch />);
+        [ instance ] = initExpandableSearch();
     });
     afterEach(() => {
         if (instance.getState().isOpen === true) instance.toggle();
     });
-
-    it('Focus outside search should hide navigation', () => {
-        //First open the nav
-        instance.toggle();
-        //check it's open
-        expect(instance.getState().isOpen).toEqual(true);
-
-        //ain has a tabindex in order to make it selectabled for testing
-        document.querySelector('main').focus();
-        expect(instance.getState().isOpen).toEqual(false);
-    });
-
 });
 
-describe('Off-canvas search > axe > ARIA', () => {
+describe('expandable search > axe > ARIA', () => {
     let instance;
     beforeAll(() => {
-        document.body.innerHTML = render(<OffCanvasSearch />);
-        [ instance ] = initOffCanvasSearch();
+        document.body.innerHTML = render(<ExpandableSearch />);
+        [ instance ] = initExpandableSearch();
     });
     afterEach(() => {
         if (instance.getState().isOpen === true) instance.toggle();

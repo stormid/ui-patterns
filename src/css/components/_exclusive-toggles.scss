@@ -6,3 +6,178 @@
     display: flex;
     justify-content: flex-end;
 }
+.exclusive-search__header {
+    padding: var(--baseline) var(--gutter);
+    background-color: var(--off-black);
+    height: 95px;
+}
+.exclusive-search__header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.exclusive-search__btn {
+    display: flex;
+    background-color: transparent;
+    font-weight: var(--medium-weight);
+    padding: calc(var(--baseline)/2) calc(var(--gutter)/3);
+    color: white;
+    margin-right: 90px;
+        &:focus {
+            outline: 1px solid var(--highlight);
+        }
+}
+.exclusive-search__btn-icon {
+    margin-right: calc(var(--gutter)/6);
+    display: block;
+    fill: white ;
+}
+
+.exclusive-search__container {
+}
+.exclusive-search__form {
+    display: none;
+}
+.exclusive-search__label {
+    @include visuallyhidden;
+}
+.exclusive-search__input {
+    width:100%;
+    display: block;
+    padding: 0 calc(var(--gutter)/2);
+    // background-color: rgba(255,255,255,.1);
+    border: 1px solid var(--light-grey-3);
+    appearance: none;
+    -moz-appearance: textfield;
+    height:40px;
+    line-height:36px;
+    min-width: 250px;
+    border-radius: 0;
+    color: var(--off-black);
+        &:focus {
+            outline: 0 none;
+            border: 1px solid var(--off-black);
+            box-shadow: 0 0 0 1px var(--highlight);;
+        }
+}
+
+.exclusive-search__submit {
+    background-color: transparent;
+    color: white;
+    padding: 0 6px;
+    border-radius: 0;
+    min-width: 70px;
+    margin-left:1px;
+        &:focus {
+            outline: 0 none;
+            border: 1px solid var(--highlight);;
+            border-radius: 0;
+        }
+}
+.on--exclusive-search {
+    .exclusive-search {
+        display: block;
+        position: fixed;
+        max-width: none;
+        top: 95px;
+        right: 0;
+        left: 0;
+        background-color: var(--off-black);
+        padding: calc(var(--baseline)/2) calc(var(--gutter)/2);
+        border-top: 1px solid var(--dark-grey-3);
+    }
+    .exclusive-search__form {
+        display: block;
+        display: flex;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+.exclusive-nav__container {
+    background-color: var(--off-black);
+}
+
+.exclusive-nav__nav{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.exclusive-nav__btn {
+    display: flex;
+    background-color: transparent;
+    font-weight: var(--medium-weight);
+    margin: 0 var(--gutter);
+    padding: calc(var(--baseline)/2) calc(var(--gutter)/3);
+    color: white;
+    position: absolute;
+    top: var(--baseline);
+    right:0;
+        &:focus {
+            outline: 1px solid var(--highlight);
+        }
+}
+.exclusive-nav__btn-icon {
+    margin-right: calc(var(--gutter)/6);
+    display: block;
+    fill: white;
+}
+.exclusive-nav__display-wrap {
+    display: none;
+}
+.exclusive-nav__item {
+    display: block;
+        &:first-child {
+            border-top: 1px solid var(--dark-grey-3);
+        }
+}
+.exclusive-nav__link {
+    display: block;
+    color: white;
+    background-color: var(--off-black);
+    padding: calc(var(--baseline)/2) var(--gutter);
+    border: 1px solid transparent;
+    border-bottom: 1px solid var(--dark-grey-3);
+    transition: background-color 120ms ease;
+    text-decoration: none;
+        &.is--active {
+            background-color: var(--dark-grey-3);
+        }
+        &:focus {
+            border: 1px solid var(--highlight);
+            outline: 0 none;
+        }
+        &:hover {
+            background-color: var(--dark-grey-2);
+        }
+}
+.exclusive-nav__close {
+    display: none;
+}
+
+.on--exclusive-nav {
+    .exclusive-nav__display-wrap {
+        display: block;
+        align-self: stretch;
+    }   
+    .exclusive-nav__list {
+        display: block;
+        max-width: none;
+        overflow: hidden;
+        background-color: white;
+    }
+
+    .exclusive-nav__close {
+        display: block;
+        position: absolute;
+        top: calc(var(--baseline)/2);
+        right: calc(var(--gutter)/2);
+        background-color: transparent;
+            &:focus {
+                outline-color: var(--highlight);
+            }
+    }
+    .exclusive-nav__close-icon {
+        display: block;
+    }
+}
