@@ -1,4 +1,4 @@
-const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
@@ -9,14 +9,10 @@ module.exports = {
         modules: false,
         entrypoints: false
     },
-    plugins: [
-        new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i })
-    ],
     module: {
         rules: [
             {
                 test: /\.js$/,
-                exclude: /(node_modules)/,
                 use: {
                     loader: 'babel-loader'
                 }
@@ -29,7 +25,6 @@ module.exports = {
             },
             {
                 test: /\.(s)?css$/,
-                exclude: /node_modules/,
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,

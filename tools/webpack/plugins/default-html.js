@@ -6,7 +6,7 @@ const html = ({ htmlBody, css, title, meta }) => <Html
     css={css}
     title={title}
     meta={meta}
-    basePath={`${process.env.NODE_ENV === 'production' ? `/${paths.dest.js}` : ''}`} 
+    basePath={`${process.env.NODE_ENV === 'production' ? `/${paths.dest.js}` : ''}`}
 >
     {htmlBody}
 </Html>;

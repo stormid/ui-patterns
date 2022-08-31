@@ -1,8 +1,8 @@
 import toggle from '@stormid/toggle';
-import { TOGGLE } from '../../constants';
+const SELECTOR = '.js-full-screen-nav';
 
-export default () => {
-    if (document.querySelector(TOGGLE.SELECTOR.FULL_SCREEN_NAVIGATION)) {
-        return toggle(TOGGLE.SELECTOR.FULL_SCREEN_NAVIGATION, { focus: false });
-    }
+export const init = () => {
+    if (document.querySelector(SELECTOR)) return toggle(SELECTOR, { focus: false });
 };
+
+init();

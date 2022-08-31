@@ -1,14 +1,11 @@
-import { h } from 'preact';
-import Skip from '@components/skip';
+import { Fragment, h } from 'preact';
 import Header from '@components/header';
-// import ExampleNavigation from '@components/example-navigation';
-// import ExampleNavigationItem from '@components/example-navigation-item';
 import Main from '@components/main';
 import LogoLink from '@components/logo-link';
 import Title from '@components/title';
 import Footer from '@components/footer';
 
-const Default = ({ children }) => <body>
+const Default = ({ children }) => <Fragment>
     <Header>
         <LogoLink />
         <Title>UI Patterns</Title>
@@ -20,6 +17,6 @@ const Default = ({ children }) => <body>
         { children }
     </Main>
     <Footer />
-</body>;
+</Fragment>;
 
 export default Default;

@@ -8,6 +8,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
 // const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const { getPaths } = require('../../utils');
 const paths = require('../../../../paths.config');
@@ -45,7 +46,22 @@ module.exports = [
             new webpack.optimize.LimitChunkCountPlugin({
                 maxChunks: 5
             }),
-            new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i })
+            new ImageminWebpWebpackPlugin({
+                config: [{
+                        test: /\.(jpe?g|png|gif)$/i,
+                        options: {
+                            quality:  50
+                        },
+                }]
+            }),
+            new ImageminPlugin({
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                svgo: {
+                    plugins: [{
+                        removeViewBox: false
+                    }]
+                }
+            })
         ],
     }),
     merge(base.javascript, {
@@ -65,5 +81,16 @@ module.exports = [
         //         to: path.resolve(__dirname, `../../../../build/static/js/async`)
         //     }])
         ]
+    }),
+    merge(base.polyfills, {
+        output: {
+            filename: '[name].js',
+            publicPath: paths.webpackPublicPath,
+            path: path.join(process.cwd(), paths.output, paths.dest.js)
+        },
+        mode: 'production',
+        performance: {
+            hints: 'warning'
+        },
     })
 ];

@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import initExpandableNav from '../../../src/js/modules/expandable-navigation';
+import { init as initExpandableNav } from '../../../src/js/modules/expandable-navigation';
 import ExpandableNav from '../../../src/templates/pages/example/expandable-navigation';
 import { render } from 'preact-render-to-string';
 

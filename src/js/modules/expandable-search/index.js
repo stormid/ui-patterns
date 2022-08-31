@@ -1,8 +1,8 @@
-import { TOGGLE } from '../../constants';
 import toggle from '@stormid/toggle';
+const SELECTOR = '.js-expandable-search';
 
-export default () => {
-    if (document.querySelector(TOGGLE.SELECTOR.EXPANDABLE_SEARCH)) {
-        return toggle(TOGGLE.SELECTOR.EXPANDABLE_SEARCH);
-    }
+export const init = () => {
+    if (document.querySelector(SELECTOR)) return toggle(SELECTOR);
 };
+
+init();

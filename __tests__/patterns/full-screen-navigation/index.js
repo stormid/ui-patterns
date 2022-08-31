@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import initFullScreenNav from '../../../src/js/modules/full-screen-navigation';
+import { init as initFullScreenNav } from '../../../src/js/modules/full-screen-navigation';
 import FullScreenNav from '../../../src/templates/pages/example/full-screen-navigation';
 import { render } from 'preact-render-to-string';
 
