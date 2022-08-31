@@ -3,7 +3,7 @@ import { h, Fragment } from 'preact';
 const Code = () => <Fragment>
     <div class="expandable-section">
         <h2 class="expandable-section__heading">
-            <button class="expandable-section__btn js-expandable-section__btn-1" aria-expanded="false" aria-controls="section-1">
+            <button type="button" class="expandable-section__btn js-expandable-section__btn-1" aria-expanded="false" aria-controls="section-1">
                 Section title
             </button>
         </h2>
@@ -14,7 +14,7 @@ const Code = () => <Fragment>
     </div>
     <div class="expandable-section">
         <h2 class="expandable-section__heading">
-            <button class="expandable-section__btn js-expandable-section__btn-2" aria-expanded="false" aria-controls="section-2">
+            <button type="button" class="expandable-section__btn js-expandable-section__btn-2" aria-expanded="false" aria-controls="section-2">
                 Section title
             </button>
         </h2>

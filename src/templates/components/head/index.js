@@ -1,10 +1,19 @@
 import { h } from 'preact';
 
-const head = ({ title, meta, children }) => <head>
-    <meta charSet="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-    <link rel="shortcut icon" href={`/static/img/favicon.ico`} />
-    <title>Storm UI Patterns - {title}</title>
+const head = ({
+    charset = 'utf-8',
+    title,
+    meta,
+    viewport = 'width=device-width, initial-scale=1.0, shrink-to-fit=no',
+    favicon = `/static/img/favicon.ico`,
+    css,
+    children
+}) => <head>
+    <meta charset={charset} />
+    <meta name="viewport" content={viewport} />
+    <link rel="shortcut icon" href={favicon} />
+    <title>{title}</title>
+    {css && <link rel="stylesheet" href={`/${css}`} />}
     {children}
     {meta && meta.map(item => {
         if (item.name) return <meta name={item.name} content={item.content} />;

@@ -1,4 +1,5 @@
-import OffCanvasNav from './modules/expandable-navigation';
+import ExpandableNav from './modules/expandable-navigation';
+import FullScreenNav from './modules/full-screen-navigation';
 import ModalSearch from './modules/modal-search';
 import ExpandableSection from './modules/expandable-section';
 import ExpandableSearch from './modules/expandable-search';
@@ -9,7 +10,8 @@ import Validation from './modules/form-validation';
 import Tabs from './modules/tabs';
 
 export const initStack = [
-    OffCanvasNav,
+    ExpandableNav,
+    FullScreenNav,
     ModalSearch,
     ExpandableSection,
     ExpandableSearch,

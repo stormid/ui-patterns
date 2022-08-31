@@ -5,14 +5,16 @@ export const TOGGLE = {
         EXPANDABLE_SEARCH: '.js-expandable-search',
         EXCLUSIVE_SEARCH: '.js-exclusive-search',
         EXCLUSIVE_NAV: '.js-exclusive-nav',
-        COOKIE_BANNER: '.js-toggle-banner'
+        COOKIE_BANNER: '.js-toggle-banner',
+        FULL_SCREEN_NAVIGATION: '.js-full-screen-nav'
     }
 };
 
 export const MODAL = {
     SELECTOR: {
         MODAL_SEARCH: '.js-modal-search',
-        MODAL_CONFIRMATION: '.js-modal-confirmation'
+        MODAL_CONFIRMATION: '.js-modal-confirmation',
+        MODAL_NAVIGATION: '.js-full-screen-nav'
     }
 };
 

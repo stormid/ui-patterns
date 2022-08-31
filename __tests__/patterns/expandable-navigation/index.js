@@ -102,7 +102,7 @@ describe('Expandable navigation > behaviour > keyboard', () => {
         //check it's open
         expect(instance.getState().isOpen).toEqual(true);
 
-        //ain has a tabindex in order to make it selectabled for testing
+        //main has a tabindex in order to make it selectabled for testing
         document.querySelector('main').focus();
         expect(instance.getState().isOpen).toEqual(true);
     });
