@@ -17,7 +17,7 @@ const Tabs = () => <PatternLayout>
     <p class="push-bottom align-right"><a href="/example/tabs" rel="noopener" target="_blank">Open in a new tab</a></p>
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
-    <pre class="pre"><code class="code">{`import modal from '@stormid/tabs';
+    <pre class="pre"><code class="code">{`import tabs from '@stormid/tabs';
 
 tabs('.js-tabs');
 `}</code></pre>   
@@ -30,7 +30,7 @@ tabs('.js-tabs');
         <li class="list-item">The URL should update with the hash from the tab anchor</li>
         <li class="list-item">Tabs should be addressable - an inbound link with hash of a tab should open the correct tab</li>
         <li class="list-item">Inactive tabs should be present in the accessibility tree but not tabbable or focusable</li>
-        <li class="list-item">The active tab element should be tabbale and focusable</li>
+        <li class="list-item">The active tab element should be tabbable and focusable</li>
         <li class="list-item">Closed tabpanels should be hidden from the axe tree</li>
         <li class="list-item">Closed tabpanels should not be tabbable</li>
         <li class="list-item">When focus is on a tab, right arrow moves to the next tab or to the first tab if focus on the last</li>

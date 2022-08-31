@@ -3,7 +3,6 @@ import DefaultLayout from '@layouts/default';
 import { STATUS } from '@constants';
 import Status from '@components/status';
 
-
 export const title = 'Home';
 
 // export const meta = [{
@@ -20,7 +19,7 @@ const PATTERNS = [
     { title: 'Modal confirmation', url: '/patterns/modal-confirmation', status: STATUS.DEVELOPMENT },
     // { title: 'Cookie banner', url: '/patterns/cookie-banner' },
     { title: 'Tabs', url: '/patterns/tabs', status: STATUS.DEVELOPMENT },
-    // { title: 'Form validation', url: '/patterns/form-validation' },
+    { title: 'Form validation', url: '/patterns/form-validation', status: STATUS.DEVELOPMENT },
     // { title: 'Modal gallery', url: '/patterns/modal-gallery' },
 ];
 
@@ -35,7 +34,7 @@ const HomePage = () => <DefaultLayout>
                 </tr>
             </thead>
             <tbody>
-                { 
+                {
                     PATTERNS.map(pattern => <tr class="tr">
                             <td class="td">
                                 <a class="td__link" href={pattern.url}>{pattern.title}</a>
