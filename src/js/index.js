@@ -1,7 +1,7 @@
 import OffCanvasNav from './modules/expandable-navigation';
 import ModalSearch from './modules/modal-search';
 import ExpandableSection from './modules/expandable-section';
-import OffCanvasSearch from './modules/off-canvas-search';
+import ExpandableSearch from './modules/expandable-search';
 import ExclusiveToggles from './modules/exclusive-toggles';
 import ModalConfirmation from './modules/modal-confirmation';
 import CookieBanner from './modules/cookie-banner';
@@ -11,7 +11,7 @@ export const initStack = [
     OffCanvasNav,
     ModalSearch,
     ExpandableSection,
-    OffCanvasSearch,
+    ExpandableSearch,
     ExclusiveToggles,
     ModalConfirmation,
     CookieBanner,

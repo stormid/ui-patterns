@@ -1,25 +1,25 @@
 import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
-import Code from '../../example/off-canvas-search/code';
+import Code from '../../example/expandable-search/code';
 import { render } from 'preact-render-to-string';
 import PatternTitle from '@components/pattern-title';
 import { STATUS } from '@constants';
 
-export const title = 'Off-canvas search';
+export const title = 'Expandable search';
 
-const OffCanvasSearch = () => <PatternLayout>
-    <PatternTitle status={STATUS.DEVELOPMENT}>Off-canvas search</PatternTitle>
+const ExpandableSearch = () => <PatternLayout>
+    <PatternTitle status={STATUS.DEVELOPMENT}>Expandable search</PatternTitle>
     <p class="push-bottom--double">Show and hide inline search with a button.</p>
     <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
-    <p class="push-bottom--double">Use this pattern for a search form that expands and collapses in the document flow. In contrast modal search captures focus, takes over the whole screen and prevents interaction with the rest of the page. The off-canvas pattern does not trap tab in the same way and closes when the focus moves off the search form.</p>
+    <p class="push-bottom--double">Use this pattern for a search form that expands and collapses in the document flow. In contrast modal search captures focus, takes over the whole screen and prevents interaction with the rest of the page. The expandable pattern does not trap tab in the same way.</p>
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
-    <iframe style="--height: 375px" class="example" title="Example off-canvas search" src={'/example/off-canvas-search'}></iframe>
-    <p class="push-bottom align-right"><a href="/example/off-canvas-search" rel="noopener" target="_blank">Open in a new tab</a></p>
+    <iframe style="--height: 375px" class="example" title="Example expandable search" src={'/example/expandable-search'}></iframe>
+    <p class="push-bottom align-right"><a href="/example/expandable-search" rel="noopener" target="_blank">Open in a new tab</a></p>
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
     <pre class="pre"><code class="code">{`import toggle from '@stormid/toggle';
 
-toggle('.js-off-canvas-search', { focus: false, closeOnBlur: true });`}</code></pre>
+toggle('.js-expandable-search');`}</code></pre>
     <h2 class="push-bottom--half plus-1 medium">Acceptance criteria</h2>
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">Use a button element for the search triggers</li>
@@ -34,7 +34,6 @@ toggle('.js-off-canvas-search', { focus: false, closeOnBlur: true });`}</code></
         <li class="list-item">Search form should be tabbable when open</li>
         <li class="list-item">When open the search form should not trap tab - a user should be able to tab out</li>
         <li class="list-item">When open the search form should be in normal document flow - tabbing off the last focuable item should go to the next focuable item in the document</li>
-        <li class="list-item">Focus outside search form (including when tabbing out) should hide search form</li>
         <li class="list-item">ARIA expanded attribute should correctly describe shown/hidden state</li>
         <li class="list-item">ARIA controls attribute should correctly associate button with expandable element</li>
         <li class="list-item">Search input should be appropriately labelled</li>
@@ -48,4 +47,4 @@ toggle('.js-off-canvas-search', { focus: false, closeOnBlur: true });`}</code></
     </ul>
 </PatternLayout>;
 
-export default OffCanvasSearch;
+export default ExpandableSearch;

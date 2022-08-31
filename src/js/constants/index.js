@@ -2,7 +2,7 @@ export const TOGGLE = {
     SELECTOR: {
         EXPANDABLE_NAV: '.js-expandable-nav',
         EXPANDABLE_SECTION: '.js-expandable-section',
-        OFF_CANVAS_SEARCH: '.js-off-canvas-search',
+        EXPANDABLE_SEARCH: '.js-expandable-search',
         EXCLUSIVE_SEARCH: '.js-exclusive-search',
         EXCLUSIVE_NAV: '.js-exclusive-nav',
         COOKIE_BANNER: '.js-toggle-banner'

@@ -27,7 +27,7 @@ describe('Expandable section > mark up', () => {
 
 });
 
-describe('Off-canvas search > behaviour > keyboard', () => {
+describe('Expandable search > behaviour > keyboard', () => {
     let instance;
     beforeAll(() => {
         document.body.innerHTML = render(<ExpandableSection />);
@@ -38,7 +38,7 @@ describe('Off-canvas search > behaviour > keyboard', () => {
     });
 });
 
-describe('Off-canvas search > axe > ARIA', () => {
+describe('Expandable search > axe > ARIA', () => {
     let instance;
     beforeAll(() => {
         document.body.innerHTML = render(<ExpandableSection />);
