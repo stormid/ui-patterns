@@ -21,7 +21,7 @@ const FormValidation = () => <PatternLayout>
     <p class="push-bottom align-right"><a href="/example/form-validation" rel="noopener" target="_blank">Open in a new tab</a></p>
     
     <h2 class="push-bottom--half plus-1 medium">Dependencies and installation</h2>
-    <DependencyTable dependencies={[{ package: '@stormid/toggle', installation: 'npm i -S @stormid/toggle' }]} />
+    <DependencyTable dependencies={[{ package: '@stormid/validate', installation: 'npm i -S @stormid/validate' }]} />
     
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
