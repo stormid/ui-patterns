@@ -33,3 +33,9 @@ export const MEASUREMENTS = {
         ea: 'CookiePrefs'
     }
 };
+
+export const EVENTS = {
+    SHOW: 'banner.show',
+    HIDE: 'banner.hide',
+    CONSENT: 'banner.consent'
+};

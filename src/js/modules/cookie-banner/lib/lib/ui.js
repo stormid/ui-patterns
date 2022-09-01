@@ -1,5 +1,5 @@
-import { writeCookie, groupValueReducer, deleteCookies, getFocusableChildren } from './utils';
-import { ACCEPTED_TRIGGERS, MEASUREMENTS } from './constants';
+import { writeCookie, groupValueReducer, deleteCookies, getFocusableChildren, broadcast } from './utils';
+import { ACCEPTED_TRIGGERS, MEASUREMENTS, EVENTS } from './constants';
 import { apply } from './consent';
 import { updateConsent, updateBannerOpen } from './reducers';
 import { measure, composeMeasurementConsent } from './measurement';
@@ -11,7 +11,7 @@ export const initBanner = Store => () => {
     //track banner display
     if (state.settings.tid) measure(state, MEASUREMENTS.BANNER_DISPLAY);
     
-    Store.update(updateBannerOpen, true);
+    Store.update(updateBannerOpen, true, [ broadcast(EVENTS.SHOW, Store) ]);
 };
 
 export const showBanner = Store => cb => {
@@ -48,6 +48,7 @@ export const initBannerListeners = Store => () => {
                         apply(Store),
                         removeBanner(Store, banner),
                         initForm(Store, false),
+                        broadcast(EVENTS.CONSENT, Store),
                         //track banner accept click
                         state => {
                             if (state.settings.tid) {
@@ -77,7 +78,7 @@ export const initBannerListeners = Store => () => {
 const removeBanner = (Store, banner) => () => {
     if (banner && banner.parentNode) {
         banner.parentNode.removeChild(banner);
-        Store.update(updateBannerOpen, false);
+        Store.update(updateBannerOpen, false, [ broadcast(EVENTS.HIDE, Store) ]);
     }
 };
 
@@ -134,6 +135,7 @@ export const initForm = (Store, track = true) => () => {
                 writeCookie,
                 apply(Store),
                 removeBanner(Store, banner),
+                broadcast(EVENTS.CONSENT, Store),
                 renderMessage(button),
                 state => {
                     if (!state.settings.tid) return;
