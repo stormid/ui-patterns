@@ -1,4 +1,4 @@
-import cookieBanner from '@stormid/cookie-banner';
+import cookieBanner from './lib';
 import toggle from '@stormid/toggle';
 import config from './config';
 const SELECTOR = {
@@ -6,16 +6,21 @@ const SELECTOR = {
 };
 
 export const init = () => {
+    let bannerToggle;
+    document.addEventListener('banner.hide', _ => bannerToggle.startToggle()); // clean up className on root element if form in banner was open
+    document.addEventListener('banner.show', _ => [ bannerToggle ] = toggle(SELECTOR.TOGGLE));
+
     const banner = cookieBanner(config);
-    const retriggerBtn = document.querySelector('.js-preferences-update');
-    let toggles = document.querySelector(SELECTOR.TOGGLE) ? toggle(SELECTOR.TOGGLE) : [];
-    document.addEventListener('banner.hide', e => toggles[0].startToggle()); // clean up className on root element if form in banner was open
-    document.addEventListener('banner.show', e => toggles = toggle(SELECTOR.TOGGLE));
-    if (retriggerBtn) retriggerBtn.addEventListener('click', e => banner.showBanner());
+    // const retriggerBtn = document.querySelector('.js-preferences-update');
+    // if (retriggerBtn) retriggerBtn.addEventListener('click', e => banner.showBanner());
+    [].slice.call(document.querySelectorAll('.js-preferences-update')).forEach(btn => btn.addEventListener('click', e => {
+        banner.showBanner();
+        bannerToggle.startToggle();
+    }));
 
     return {
         banner,
-        toggles
+        toggle: bannerToggle
     };
 };
 
