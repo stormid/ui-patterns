@@ -8,10 +8,10 @@ export const title = 'Cookie banner';
 
 const CookieBanner = () => <PatternLayout>
     <PatternTitle status={STATUS.DEVELOPMENT}>Cookie banner</PatternTitle>
-    <p class="push-bottom">An implementation of the <a href="https://github.com/stormid/components/tree/master/packages/cookie-banner" target="_blank" rel="noreferrer noopener nofollow">Storm Cookie Banner</a> with the cookie preference form embedded within the banner itself.</p>
+    <p class="push-bottom">An implementation of the ICO/GDPR compliant <a href="https://github.com/stormid/components/tree/master/packages/cookie-banner" target="_blank" rel="noreferrer noopener nofollow">Storm Cookie Banner</a>, with the cookie consent form embedded within the banner.</p>
     
-    <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
-    <p class="push-bottom--double">The embedded preference selection requires a custom banner and form template to be passed to the cookie banner component, as shown in the code example.  The form can still be used stand-alone in a cookie policy page, as per the original component documentation.</p>
+    {/* <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
+    <p class="push-bottom--double">Use this pattern </p> */}
     
     <h2 class="push-bottom--half plus-1 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example expandable section" src={'/example/cookie-banner'}></iframe>
@@ -24,13 +24,10 @@ const CookieBanner = () => <PatternLayout>
     ]} />
 
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
-    <pre class="pre"><code class="code">{`
-import cookieBanner from '@stormid/cookie-banner';
-
-const banner = cookieBanner({
-    name: '.Patterns.Consent',
-    tid: 'UA-401849-33',
-    policyURL: '#',
+    <pre class="pre"><code class="code">{`const config = {
+    name: '.Patterns.Consent', //name of the consent cookie
+    tid: '', //tid of GA account anonymously monitoring interactions with the banner 
+    policyURL: '#', //url of cookie policy page
     hideBannerOnFormPage: true,
     types: {
         performance: {
@@ -41,9 +38,7 @@ const banner = cookieBanner({
                 yes: 'You agree to us using cookies to improve the service',
                 no: 'You do not agree to us using cookies to improve the service'
             },
-            fns: [
-                () => {}
-            ]
+            fns: [] //array of functions that set performance cookies
         },
         thirdParty: {
             title: 'Third-party services and advertising',
@@ -52,8 +47,24 @@ const banner = cookieBanner({
                 yes: 'You agree to allow third-party and advertising cookies',
                 no: 'You do not agree to third-party and advertising cookies'
             },
-            fns: [
-                () => {}
+            fns: [ //array of functions that set third-party cookies
+                () => {
+                    //render all iframes
+                    [].slice.call(document.querySelectorAll('[data-iframe-src]')).forEach(node => {
+                        const iframe = document.createElement('iframe');
+                        iframe.src = node.getAttribute('data-iframe-src');
+                        iframe.setAttribute('title', node.getAttribute('data-iframe-title') || 'iFrame embed');
+                        iframe.style.width =  node.getAttribute('data-iframe-width' || '100%');
+                        iframe.setAttribute('tabindex', '0');
+                        iframe.setAttribute('frameborder', '0');
+                        iframe.setAttribute('webkitallowfullscreen', 'webkitallowfullscreen');
+                        iframe.setAttribute('mozallowfullscreen', 'mozallowfullscreen');
+                        iframe.setAttribute('allowfullscreen', 'allowfullscreen');
+                        iframe.setAttribute('scrolling', 'no');
+                        node.parentNode.appendChild(iframe);
+                        node.parentNode.removeChild(node);
+                    });
+                }
             ]
         }
     },
@@ -114,7 +125,7 @@ const banner = cookieBanner({
                                 \${model.consent[type] === 0 ? \` checked\` : ''}>
                             <span class="privacy-banner__label-text">No</span>
                             <span class="privacy-banner__label-description">\${model.settings.types[type].labels.no}</span>
-                        </label>    
+                        </label>
                     </div>
                 </div>
             </fieldset></div>\`).join('')}
@@ -123,20 +134,35 @@ const banner = cookieBanner({
                 <div class="privacy-banner__set-accept">Or <button type="button" class="privacy-banner__btn-text \${model.settings.classNames.acceptBtn}">Accept and close</button></div>
             </div>
         </form>\`;
-    },
-});`}</code></pre>
+    }
+};
+
+let bannerToggle;
+document.addEventListener('banner.hide', _ => bannerToggle.startToggle());
+document.addEventListener('banner.show', _ => [ bannerToggle ] = toggle('.js-toggle-banner'));
+
+const banner = cookieBanner(config);
+
+[].slice.call(document.querySelectorAll('.js-preferences-update')).forEach(btn => btn.addEventListener('click', e => {
+    banner.showBanner();
+    bannerToggle.startToggle();
+}));
+
+`}</code></pre>
     <h2 class="push-bottom--half plus-1 medium">Acceptance criteria</h2>
     <ul class="list list--tick push-bottom--double">
-        <li class="list-item">The cookie banner should load with the preferences form collapsed and not visible/tabbable/focusable</li>
+        <li class="list-item">The cookie banner should only display if there are no consent preferences saved in the browser.</li>
+        <li class="list-item">The cookie banner should initially display with the consent form collapsed and not visible/tabbable/focusable</li>
         <li class="list-item">A primary button element should exist which allows the user to immediately accept all cookies and close the banner</li>
-        <li class="list-item">A secondary button element should exist which is used to expand the preferences form</li>
+        <li class="list-item">A secondary button element should exist which is used to expand the consent form</li>
         <li class="list-item">Once open, the focus should move to a button element which acts as a shortcut to accept all cookies and close the banner</li>
         <li class="list-item">Once open, a user should be able to click/tab/swipe through the available cookie types and set their preference</li>
         <li class="list-item">A primary button should be present for saving the user preferences. This is disabled until a user has made a choice for all cookie types</li>
         <li class="list-item">A secondary button should be available at the end of the form as a shortcut for the user to accept all cookie types and close the banner</li>
         <li class="list-item">Once the user has made their selections via the banner, the banner should close and not re-appear until the user clears their cookies, or until the preference cookie expires (1 year from date set)</li>
-        <li class="list-item">No functionality that sets non-essential 'necessary' cookies should run until consented by the user</li>
+        <li class="list-item">No functionality that sets cookies should run until consented to by the user</li>
         <li class="list-item">When the banner has closed and a user has accepted a cookie type, any functionality that relies on that cookie type (eg. analytics) should immediately run</li>
+        <li class="list-item">Consent should be saved in the browser for the next session.</li>
     </ul>
     <h2 class="push-bottom--half plus-1 medium">References</h2>
     <ul class="list push-bottom--double">
