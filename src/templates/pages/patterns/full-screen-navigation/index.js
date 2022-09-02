@@ -27,7 +27,7 @@ const FullScreenNavigation = () => <PatternLayout>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
     <pre class="pre"><code class="code">{`import toggle from '@stormid/toggle';
 
-toggle(TOGGLE('.js-full-screen-navigation', { focus: false });
+toggle(TOGGLE('.js-full-screen-navigation');
 `}</code></pre>
     <h2 class="push-bottom--half plus-1 medium">Acceptance criteria</h2>
     <ul class="list list--tick push-bottom--double">

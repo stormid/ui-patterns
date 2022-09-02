@@ -101,11 +101,22 @@ body {
 }
 
 html {
+    color-scheme: light dark;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
+    text-rendering: optimizeSpeed;
     height: 100%;
+        &:focus-within {
+            scroll-behavior: smooth;
+        } 
 }
-
+body {
+    min-height: 100%;
+    min-width: 100%;
+    font-size: 100%;
+    line-height: 1.5;
+    color: var(--off-black);
+}
     
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, main { 
 	display:block;
@@ -162,6 +173,13 @@ figure {
 [hidden] {
     display: none;
 }
+:focus {
+    outline: 0 none;
+}
+:focus-visible {
+    outline: 4px solid transparent;
+    box-shadow: 0px 0px 0px 4px var(--highlight);
+}
 	
 img {
     display:block;
@@ -170,14 +188,11 @@ img {
     height:auto;
 }
 
-a {
-    text-decoration: none;
-}
-
 a:hover,
 a:focus,
 a:active {
     text-decoration: none;
+    text-decoration-skip-ink: auto;
 }
 
 
@@ -225,9 +240,6 @@ figure {
     margin: 0;
 }
 
-[hidden] {
-    display: none;
-}
 
 sub,
 sup {
@@ -302,14 +314,14 @@ input::-moz-focus-inner {
 	padding: 0; 
 }
 
-button,
+
 input,
-select,
-textarea {
-    font-size: 99%;
-    line-height: normal;
-    margin: 0;
-    vertical-align: baseline;
+button,
+textarea,
+select {
+    font: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
 }
 button,
 input[type="button"],
@@ -327,18 +339,23 @@ input[disabled] {
 	pointer-events: none;
 }
 
-a,
-button,
-input,
-textarea {
-    &:focus {
-        outline: 2px solid var(--highlight)
-    }
-}
-
 textarea { 
 	overflow: auto; 
 	vertical-align: top; 
 	resize: vertical; 
     width:100%;
 }
+
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+  }
