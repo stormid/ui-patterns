@@ -297,6 +297,11 @@
         margin-bottom:calc(var(--baseline)/2)
     }
 }
+.privacy-banner__form-announcement {
+    @include visuallyhidden;
+}
+
+
 .embed {    
     position: relative;
     height:0;
