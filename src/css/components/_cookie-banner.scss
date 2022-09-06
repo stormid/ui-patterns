@@ -338,3 +338,28 @@
             text-decoration: none;
         }
 }
+
+.standalone {
+
+    .privacy-banner__col,
+    .privacy-banner__set {
+        width: 100% !important;
+        margin-bottom: var(--baseline);
+        text-align: left;
+    }
+    .row {
+        display: block;
+    }
+    col {
+        margin-left:0 !important;
+        margin-right:0 !important;
+    }
+
+    .privacy-banner__form-msg {
+        margin-bottom: calc(var(--baseline) / 2);
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: calc(var(--gutter)/2);
+    }
+
+}
