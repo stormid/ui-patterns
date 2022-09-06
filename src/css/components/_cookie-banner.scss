@@ -137,8 +137,7 @@
 }
 
 .privacy-banner__set-accept{
-    text-align:center;
-    
+    display: flex;
 }
 .privacy-banner__form-container--page .privacy-banner__set-accept {
     display: none;
@@ -206,11 +205,11 @@
     background-color:transparent;
     text-decoration:underline;
     color: currentColor;
-    margin:0;
+    margin:0 0 0 calc(var(--gutter)/4);
     padding:0;
-    &:hover{
-        text-decoration:none;
-    }
+        &:hover{
+            text-decoration:none;
+        }
 }
 
 .privacy-banner__field:focus + .privacy-banner__label-text {
