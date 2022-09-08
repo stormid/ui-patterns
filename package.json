@@ -76,7 +76,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "@stormid/cookie-banner": "^1.0.0-alpha.21",
+    "@stormid/cookie-banner": "^1.0.0-alpha.24",
     "@stormid/modal": "^1.0.0-alpha.15",
     "@stormid/tabs": "^1.0.0-alpha.10",
     "@stormid/toggle": "^1.0.0-alpha.18",
