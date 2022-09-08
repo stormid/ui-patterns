@@ -24,9 +24,12 @@ const CookieBanner = () => <PatternLayout>
     ]} />
 
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
-    <pre class="pre"><code class="code">{`const config = {
+    <pre class="pre"><code class="code">{`import cookieBanner from '@stormid/cookie-banner';
+import toggle from '@stormid/toggle';
+
+const config = {
     name: '.Patterns.Consent', //name of the consent cookie
-    tid: '', //tid of GA account anonymously monitoring interactions with the banner 
+    tid: '', //tid of GA account anonymously measuring interactions with the banner 
     policyURL: '#', //url of cookie policy page
     hideBannerOnFormPage: true,
     types: {
@@ -38,7 +41,7 @@ const CookieBanner = () => <PatternLayout>
                 yes: 'You agree to us using cookies to improve the service',
                 no: 'You do not agree to us using cookies to improve the service'
             },
-            fns: [] //array of functions that set performance cookies
+            fns: [] //array of functions that set performance cookies, usually including the Google Analytics performance container initialisation
         },
         thirdParty: {
             title: 'Third-party services and advertising',
@@ -69,7 +72,7 @@ const CookieBanner = () => <PatternLayout>
         }
     },
     bannerTemplate(model){
-        return \`<section role="dialog" aria-live="polite" aria-label="Your privacy" class="\${model.classNames.banner}">
+        return \`<section role="dialog" aria-live="polite" aria-label="Cookies" class="\${model.classNames.banner}">
             <div class="privacy-content">
                 <div class="wrap">
                     <div class="col xs-12 privacy-banner__inner">
@@ -138,8 +141,8 @@ const CookieBanner = () => <PatternLayout>
 };
 
 let bannerToggle;
-document.addEventListener('banner.hide', _ => bannerToggle.startToggle());
 document.addEventListener('banner.show', _ => [ bannerToggle ] = toggle('.js-toggle-banner'));
+document.addEventListener('banner.hide', _ => bannerToggle.startToggle());
 
 const banner = cookieBanner(config);
 
@@ -151,22 +154,28 @@ const banner = cookieBanner(config);
 `}</code></pre>
     <h2 class="push-bottom--half plus-1 medium">Acceptance criteria</h2>
     <ul class="list list--tick push-bottom--double">
-        <li class="list-item">The cookie banner should only display if there are no consent preferences saved in the browser.</li>
+        <li class="list-item">The cookie banner should only display if there are no consent preferences saved in the browser</li>
         <li class="list-item">The cookie banner should initially display with the consent form collapsed and not visible/tabbable/focusable</li>
+        <li class="list-item">The banner should have a role of dialog</li>
+        <li class="list-item">The banner should be a sectioning element with an appropriate title (heading or aria-label)</li>
         <li class="list-item">A primary button element should exist which allows the user to immediately accept all cookies and close the banner</li>
         <li class="list-item">A secondary button element should exist which is used to expand the consent form</li>
         <li class="list-item">Once open, the focus should move to a button element which acts as a shortcut to accept all cookies and close the banner</li>
         <li class="list-item">Once open, a user should be able to click/tab/swipe through the available cookie types and set their preference</li>
         <li class="list-item">A primary button should be present for saving the user preferences. This is disabled until a user has made a choice for all cookie types</li>
         <li class="list-item">A secondary button should be available at the end of the form as a shortcut for the user to accept all cookie types and close the banner</li>
+        <li class="list-item">All form inputs should be appropriately grouped in fiedsets with legends</li>
+        <li class="list-item">All form inputs should be labelled</li>
+        <li class="list-item">All form inputs should be keyboard navigable and editable</li>
         <li class="list-item">Once the user has made their selections via the banner, the banner should close and not re-appear until the user clears their cookies, or until the preference cookie expires (1 year from date set)</li>
         <li class="list-item">No functionality that sets cookies should run until consented to by the user</li>
         <li class="list-item">When the banner has closed and a user has accepted a cookie type, any functionality that relies on that cookie type (eg. analytics) should immediately run</li>
-        <li class="list-item">Consent should be saved in the browser for the next session.</li>
+        <li class="list-item">Consent should be saved in the browser for the next session</li>
     </ul>
     <h2 class="push-bottom--half plus-1 medium">References</h2>
     <ul class="list push-bottom--double">
        <li class="list-item"><a href="https://webaim.org/standards/wcag/checklist" rel="noopener nofollow">https://webaim.org/standards/wcag/checklist</a></li>
+       <li class="list-item"><a href="https://uxdesign.cc/cookie-banners-and-accessibility-d476bf9ee4fc" rel="noopener nofollow">https://uxdesign.cc/cookie-banners-and-accessibility-d476bf9ee4fc</a></li>
     </ul>
 </PatternLayout>;
 

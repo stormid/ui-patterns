@@ -347,6 +347,9 @@
         margin-bottom: var(--baseline);
         text-align: left;
     }
+    .privacy-banner__col:after {
+        display: none !important;
+    }
     .row {
         display: block;
     }
@@ -355,11 +358,19 @@
         margin-right:0 !important;
     }
 
+    .privacy-banner__set {
+        display: block;
+    }
     .privacy-banner__form-msg {
         margin-bottom: calc(var(--baseline) / 2);
         display: inline-block;
         vertical-align: middle;
         margin-left: calc(var(--gutter)/2);
+    }
+
+    .privacy-banner__submit {
+        margin-bottom: calc(var(--baseline) / 2);
+        margin-right:0;
     }
 
 }
