@@ -18,7 +18,7 @@ const PATTERNS = [
     { title: 'Expandable section', url: '/patterns/expandable-section', status: STATUS.DEVELOPMENT },
     { title: 'Exclusive toggles', url: '/patterns/exclusive-toggles', status: STATUS.DEVELOPMENT },
     { title: 'Modal confirmation', url: '/patterns/modal-confirmation', status: STATUS.DEVELOPMENT },
-    // { title: 'Cookie banner', url: '/patterns/cookie-banner', status: STATUS.DEVELOPMENT },
+    { title: 'Cookie banner', url: '/patterns/cookie-banner', status: STATUS.DEVELOPMENT },
     { title: 'Tabs', url: '/patterns/tabs', status: STATUS.DEVELOPMENT },
     { title: 'Form validation', url: '/patterns/form-validation', status: STATUS.DEVELOPMENT },
     // { title: 'Modal gallery', url: '/patterns/modal-gallery' },
