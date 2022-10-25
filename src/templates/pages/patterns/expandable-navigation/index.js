@@ -44,13 +44,13 @@ toggle('.js-expandable-nav', { focus: false });`}</code></pre>
     <h3 class="push-bottom--half plus-1 medium">For visual validation</h3>
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">Navigation toggle buttons should have a clearly visible focus style which meets accessibility contrast requirements</li>
-        <li class="list-item">Navigation toggle buttons should be appropriately labelled to describe their functionality.  If the design requires no visible text, a label should be added as an aria-label attribute on the <pre class="pre--inline">&lt;button&gt;</pre> tag to meet accessibility requirements</li>
+        <li class="list-item">Navigation toggle buttons should be appropriately labelled to describe their functionality.  If the design requires no visible text, a label should be added as an <pre class="pre--inline">aria-label</pre> attribute on the <pre class="pre--inline">&lt;button&gt;</pre> tag to meet accessibility requirements</li>
+        <li class="list-item">Navigation toggle buttons should be no less than 44px x 44px in size</li>
         <li class="list-item">Navigation links should be hidden visually, hidden from keyboard access and not read by screenreaders when the menu is closed</li>
         <li class="list-item">Navigation links should be visible, available for keyboard access and read by screenreaders when the menu is opened</li>
         <li class="list-item">Navigation links should push down, not overlay, any page content when opened</li>
         <li class="list-item">Moving page focus to outside of the navigation via mouse, keyboard or any other means should leave the navigation open</li>
-        <li class="list-item">Navigation link text should accurately describe the link destination to meet accessibility requirements</li>
-        {/* <li class="list-item">Buttons should be no less than 44px x 44px</li> */}
+        <li class="list-item">Navigation link text should accurately describe the link destination to meet accessibility requirements</li> 
     </ul>
 
     <h3 class="push-bottom--half plus-1 medium">For functional validation</h3>
