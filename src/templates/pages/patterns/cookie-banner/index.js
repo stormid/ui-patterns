@@ -10,10 +10,7 @@ const CookieBanner = () => <PatternLayout>
     <PatternTitle status={STATUS.DEVELOPMENT}>Cookie banner</PatternTitle>
     <p class="push-bottom">An implementation of the ICO/GDPR compliant <a href="https://github.com/stormid/components/tree/master/packages/cookie-banner" target="_blank" rel="noreferrer noopener nofollow">Storm Cookie Banner</a>, with the cookie consent form embedded within the banner.</p>
     
-    {/* <h2 class="push-bottom--half plus-1 medium">Guidance</h2>
-    <p class="push-bottom--double">Use this pattern </p> */}
-    
-    <h2 class="push-bottom--half plus-1 medium">Example</h2>
+    <h2 class="push-bottom--half plus-2 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example expandable section" src={'/example/cookie-banner'}></iframe>
     <p class="push-bottom align-right"><a href="/example/cookie-banner" rel="noopener" target="_blank">Open in a new tab</a></p>
     
@@ -152,27 +149,35 @@ const banner = cookieBanner(config);
 }));
 
 `}</code></pre>
-    <h2 class="push-bottom--half plus-1 medium">Acceptance criteria</h2>
+    <h2 class="push-bottom plus-2 medium">Acceptance criteria</h2>
+    <p class="push-bottom--double">The following is a list of example acceptance criteria to test against when using this pattern.  These critera should test that the specific markup requirements are met, and that the cookie banner behaves visually and functionally as expected.</p>
+
+    <h3 class="push-bottom--half plus-1 medium">For validation in developer tools / web inspector</h3>
     <ul class="list list--tick push-bottom--double">
-        <li class="list-item">The cookie banner should only display if there are no consent preferences saved in the browser</li>
-        <li class="list-item">The cookie banner should initially display with the consent form collapsed and not visible/tabbable/focusable</li>
-        <li class="list-item">The banner should have a role of dialog</li>
-        <li class="list-item">The banner should be a sectioning element with an appropriate title (heading or aria-label)</li>
-        <li class="list-item">A primary button element should exist which allows the user to immediately accept all cookies and close the banner</li>
-        <li class="list-item">A secondary button element should exist which is used to expand the consent form</li>
-        <li class="list-item">Once open, the focus should move to a button element which acts as a shortcut to accept all cookies and close the banner</li>
-        <li class="list-item">Once open, a user should be able to click/tab/swipe through the available cookie types and set their preference</li>
-        <li class="list-item">A primary button should be present for saving the user preferences. This is disabled until a user has made a choice for all cookie types</li>
-        <li class="list-item">A secondary button should be available at the end of the form as a shortcut for the user to accept all cookie types and close the banner</li>
-        <li class="list-item">All form inputs should be appropriately grouped in fiedsets with legends</li>
-        <li class="list-item">All form inputs should be labelled</li>
-        <li class="list-item">All form inputs should be keyboard navigable and editable</li>
-        <li class="list-item">Once the user has made their selections via the banner, the banner should close and not re-appear until the user clears their cookies, or until the preference cookie expires (1 year from date set)</li>
-        <li class="list-item">No functionality that sets cookies should run until consented to by the user</li>
-        <li class="list-item">When the banner has closed and a user has accepted a cookie type, any functionality that relies on that cookie type (eg. analytics) should immediately run</li>
-        <li class="list-item">Consent should be saved in the browser for the next session</li>
+        <li class="list-item">The cookie banner should be an HTML element with a <pre class="pre--inline">role="dialog"</pre> attribute. This element must contain everything that's visible within the banner when it opens</li>
+        <li class="list-item">The cookie banner element should either have an <pre class="pre--inline">aria-label</pre> attribute which titles the content, or an <pre class="pre--inline">aria-labelledby</pre> attribute that points to a visible <pre class="pre--inline">&lt;h2&gt;</pre> element with a matching ID</li>
+        <li class="list-item">An HTML <pre class="pre--inline">&lt;button&gt;</pre> element should be present to accept all cookies</li>
+        <li class="list-item">An HTML <pre class="pre--inline">&lt;button&gt;</pre> element should be present to expand the consent form and show the available cookie options</li>
+        <li class="list-item">Within the preferences form an HTML <pre class="pre--inline">&lt;button&gt;</pre> element should be present to accept all cookies</li>
+        <li class="list-item">Within the preferences form an HTML <pre class="pre--inline">&lt;button&gt;</pre> element should be present to save user preferences</li>
+        <li class="list-item">Any form inputs within the cookie preferences form should have a matching <pre class="pre--inline">&lt;label&gt;</pre> describing the choice</li>
+        <li class="list-item">All cookie selection inputs within the cookie preferences form should be grouped in <pre class="pre--inline">&lt;fiedset&gt;</pre> tags with appropiate <pre class="pre--inline">&lt;legend&gt;</pre> tags for each cookie type</li>
     </ul>
-    <h2 class="push-bottom--half plus-1 medium">References</h2>
+
+    <h3 class="push-bottom--half plus-1 medium">For functional validation</h3>
+    <ul class="list list--tick push-bottom--double">
+        <li class="list-item">The cookie banner should only appear if the user has not previously set their cookie preferences</li>
+        <li class="list-item">On selecting 'accept all cookies' the banner should immediately close</li>
+        <li class="list-item">On opening the cookie preferences form, the visual and keyboard focus should move to an HTML <pre class="pre--inline">&lt;button&gt;</pre> element which acts as a shortcut to accept all cookies and close the banner</li>
+        <li class="list-item">Once the preferences form is open, a user should be able to click/tab/swipe through the available cookie types and set their preference</li>
+        <li class="list-item">The button for saving the user preferences should be disabled until a user has made a choice for all cookie types</li>
+        <li class="list-item">Once the user has saved their preferences via the banner, the banner should close and not re-appear until the user clears their cookies, or until the preference cookie expires (1 year from date set)</li>
+        <li class="list-item">No functionality or third-party service that sets cookies should run until the user has consented to that type of cookie</li>
+        <li class="list-item">When the banner has closed and a user has accepted a cookie type, any functionality that relies on that cookie type (eg. analytics) should immediately run</li>
+        <li class="list-item">Consent should be saved in the browser when the user returns to the site, unless the user has cleared their cookies, or until the preference cookie expires (1 year from date set)</li>
+    </ul>
+
+    <h2 class="push-bottom--half plus-2 medium">References</h2>
     <ul class="list push-bottom--double">
        <li class="list-item"><a href="https://webaim.org/standards/wcag/checklist" rel="noopener nofollow">https://webaim.org/standards/wcag/checklist</a></li>
        <li class="list-item"><a href="https://uxdesign.cc/cookie-banners-and-accessibility-d476bf9ee4fc" rel="noopener nofollow">https://uxdesign.cc/cookie-banners-and-accessibility-d476bf9ee4fc</a></li>
