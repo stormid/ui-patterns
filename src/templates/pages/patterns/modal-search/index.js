@@ -55,10 +55,10 @@ modal('.js-modal-search');
         <li class="list-item">Search open and close buttons should be available to be tabbed to and activated via keyboard</li>
         <li class="list-item">The first available form input, button or link within the search form should receive visible focus when the search is opened</li>
         <li class="list-item">When the search is open, it should not be possible to access the page content underneith via mouse, keyboard or any other means</li>
-        <li class="list-item">When the search is open the page behind must not be scrollable. The original scroll position must be restored when the search is closed</li>
+        <li class="list-item">When the search is open, the page behind must not be scrollable. The original scroll position must be restored when the search is closed</li>
         <li class="list-item">When the search is open, the user's tab should be 'trapped'.  Tabbing should loop within the search until the search is closed</li>
         <li class="list-item">Pressing the 'escape' key on the keyboard should close the modal</li>
-        <li class="list-item">When the search is closed, visible focus should return to the 'open search' button</li>
+        <li class="list-item">When the search is closed, visible focus should return to the button which opened the search</li>
     </ul>
 
     <h2 class="push-bottom--half plus-1 medium">References</h2>
