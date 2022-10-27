@@ -8,8 +8,10 @@ import { STATUS } from '@constants';
 
 export const title = 'Tabs';
 
+export const status = STATUS.RELEASE;
+
 const Tabs = () => <PatternLayout>
-    <PatternTitle status={STATUS.DEVELOPMENT}>Tabs</PatternTitle>
+    <PatternTitle status={status}>Tabs</PatternTitle>
     <p class="push-bottom--double">Automatically activated tabs display their panel when they receive focus.</p>
     <h2 class="push-bottom--half plus-2 medium">Guidance</h2>
     <p class="push-bottom--double">Automatic activation should be used when the tabpanel content is immediately available and present in the DOM. Manual activation (requiring a click or enter/space keydown event) should be used if the content is not immediately present, for example if it requires a network request to retrieve it.</p>

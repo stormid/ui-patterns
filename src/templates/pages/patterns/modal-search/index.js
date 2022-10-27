@@ -8,8 +8,10 @@ import { STATUS } from '@constants';
 
 export const title = 'Modal search';
 
+export const status = STATUS.RELEASE;
+
 const ModalSearch = () => <PatternLayout>
-    <PatternTitle status={STATUS.DEVELOPMENT}>Modal search</PatternTitle>
+    <PatternTitle status={status}>Modal search</PatternTitle>
     <p class="push-bottom--double">Show and hide a modal search form.</p>
     
     <h2 class="push-bottom--half plus-2 medium">Guidance</h2>

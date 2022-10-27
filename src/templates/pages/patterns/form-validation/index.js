@@ -8,8 +8,10 @@ import { STATUS } from '@constants';
 
 export const title = 'Form validation';
 
+export const status = STATUS.RELEASE;
+
 const FormValidation = () => <PatternLayout>
-    <PatternTitle status={STATUS.DEVELOPMENT}>Form validation</PatternTitle>
+    <PatternTitle status={status}>Form validation</PatternTitle>
     <p class="push-bottom--double">Check the information the user gives you to make sure it's valid</p>
     
     <h2 class="push-bottom--half plus-2 medium">Guidance</h2>

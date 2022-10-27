@@ -8,8 +8,10 @@ import { STATUS } from '@constants';
 
 export const title = 'Modal confirmation';
 
+export const status = STATUS.RELEASE;
+
 const ModalConfirmation = () => <PatternLayout>
-    <PatternTitle status={STATUS.DEVELOPMENT}>Modal confirmation</PatternTitle>
+    <PatternTitle status={status}>Modal confirmation</PatternTitle>
     <p class="push-bottom--double">Ask for confirmation from the user before executing an action.</p>
     
     <h2 class="push-bottom--half plus-2 medium">Guidance</h2>

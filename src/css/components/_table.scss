@@ -57,8 +57,10 @@
 }
 .td__link {
     text-decoration: none;
-    &:focus {
+    &:focus,
+    &:focus-visible {
         outline: 0 none;
+        box-shadow: none;
     }
     &:before {
         content: '';

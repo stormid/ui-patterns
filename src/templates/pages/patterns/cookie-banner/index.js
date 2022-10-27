@@ -6,8 +6,10 @@ import { STATUS } from '@constants';
 
 export const title = 'Cookie banner';
 
+export const status = STATUS.RELEASE;
+
 const CookieBanner = () => <PatternLayout>
-    <PatternTitle status={STATUS.DEVELOPMENT}>Cookie banner</PatternTitle>
+    <PatternTitle status={status}>Cookie banner</PatternTitle>
     <p class="push-bottom">An implementation of the ICO/GDPR compliant <a href="https://github.com/stormid/components/tree/master/packages/cookie-banner" target="_blank" rel="noreferrer noopener nofollow">Storm Cookie Banner</a>, with the cookie consent form embedded within the banner.</p>
     
     <h2 class="push-bottom--half plus-2 medium">Example</h2>
