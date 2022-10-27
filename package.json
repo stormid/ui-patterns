@@ -51,7 +51,6 @@
     "eslint-plugin-jest": "^23.3.0",
     "eval": "^0.1.4",
     "fast-async": "^7.0.0",
-    "fibers": "^5.0.0",
     "filemanager-webpack-plugin": "^2.0.5",
     "imagemin-webp-webpack-plugin": "^3.3.6",
     "imagemin-webpack-plugin": "^2.4.2",
