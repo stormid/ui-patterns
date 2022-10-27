@@ -34,27 +34,27 @@ toggle('.js-expandable-search');`}</code></pre>
     <h3 class="push-bottom--half plus-1 medium">For validation in developer tools / web inspector</h3>
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">An HTML <pre class="pre--inline">&lt;button&gt;</pre> element is used to open/close the search</li>
-        <li class="list-item">An <pre class="pre--inline">aria-expanded</pre> attribute should be present on the toggle <pre class="pre--inline">&lt;button&gt;</pre>.  The value of this should be 'true' when the search is visible, and false when the search is hidden.</li>
-        <li class="list-item">The toggle <pre class="pre--inline">&lt;button&gt;</pre> element should have an <pre class="pre--inline">aria-controls</pre> attribute.  The value of this should match the ID of the element being shown/hidden.</li>
+        <li class="list-item">An <pre class="pre--inline">aria-expanded</pre> attribute should be present on the toggle <pre class="pre--inline">&lt;button&gt;</pre>. The value of this should be 'true' when the search is visible, and 'false' when the search is hidden.</li>
+        <li class="list-item">The toggle <pre class="pre--inline">&lt;button&gt;</pre> element should have an <pre class="pre--inline">aria-controls</pre> attribute. The value of this should match the ID of the element being shown/hidden.</li>
     </ul>
 
     <h3 class="push-bottom--half plus-1 medium">For visual validation</h3>
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">Search toggle buttons should have a clearly visible focus style which meets accessibility contrast requirements</li>
-        <li class="list-item">Search toggle buttons should be appropriately labelled to describe their functionality.  If the design requires no visible text, a label should be added as an <pre class="pre--inline">aria-label</pre> attribute on the <pre class="pre--inline">&lt;button&gt;</pre> tag to meet accessibility requirements</li>
+        <li class="list-item">Search toggle buttons should be appropriately labelled to describe their functionality.  If the design requires no visible text, a label should be added as an <pre class="pre--inline">aria-label</pre> attribute on the <pre class="pre--inline">&lt;button&gt;</pre> element.</li>
         <li class="list-item">Search toggle buttons should be no less than 44px x 44px in size</li>
-        <li class="list-item">The search form should be hidden visually, hidden from keyboard access and not read by screenreaders when the search is closed</li>
-        <li class="list-item">The search form should be visible, available for keyboard access and read by screenreaders when the search is opened</li>
-        <li class="list-item">Any form inputs within the search form should have a matching form label describing its functionality.  If the design does not use a visible label (for example, it may only ask for a placholder in the input itself) then a label should still be present in the page but hidden with accessible CSS styles.</li>
+        <li class="list-item">The search form should be hidden visually, hidden from keyboard access and not read by screen readers when the search is closed</li>
+        <li class="list-item">The search form should be visible, available for keyboard access and read by screen readers when the search is open</li>
+        <li class="list-item">Any form inputs within the search form should have a matching label describing its functionality. If the design does not use a visible label (for example, it may only ask for a placholder in the input itself) then the input should still be labelled either with an <pre class="pre--inline">aria-label</pre> attribute, or a visually hidden label</li>
         <li class="list-item">Any form inputs within the search form should have a clearly visible focus style which meets accessibility contrast requirements</li>
     </ul>
 
     <h3 class="push-bottom--half plus-1 medium">For functional validation</h3>
-    <ul class="list list--tick push-bottom--double"> 
+    <ul class="list list--tick push-bottom--double">
         <li class="list-item">Search toggle buttons should be available to be tabbed to and activated via keyboard</li>
         <li class="list-item">The first available form input, button or link within the search form should receive visible focus when the search is opened</li>
         <li class="list-item">It should be possible to tab into the search form if the search is open</li>
-        <li class="list-item">When open, the search should not trap the tab key - a user should be able to tab out of the menu to page content below</li>
+        <li class="list-item">When open, the search should not trap tab - a user should be able to tab out of the menu to page content below</li>
     </ul>
 
     <h2 class="push-bottom--half plus-1 medium">References</h2>
