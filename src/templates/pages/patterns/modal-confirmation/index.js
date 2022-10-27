@@ -18,7 +18,7 @@ const ModalConfirmation = () => <PatternLayout>
     <p class="push-bottom--double">Use this pattern to add friction to severe actions to help prevent user errors.</p>
     
     <h2 class="push-bottom--half plus-2 medium">Example</h2>
-    <iframe style="--height: 375px" class="example" title="Example modal-confirmation" src={'/example/modal-confirmation'}></iframe>
+    <iframe style="--height: 375px" class="example" title="Example modal confirmation" src={'/example/modal-confirmation'}></iframe>
     <p class="push-bottom align-right"><a href="/example/modal-confirmation" rel="noopener" target="_blank">Open in a new tab</a></p>
 
     <h2 class="push-bottom--half plus-2 medium">Dependencies and installation</h2>

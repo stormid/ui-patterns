@@ -38,7 +38,7 @@ toggle('.js-expandable-nav', { focus: false });`}</code></pre>
         <li class="list-item">The navigation should be contained within an HTML <pre class="pre--inline">&lt;nav&gt;</pre> element</li>
         <li class="list-item">The navigation should be labelled appropriately to describe its function (e.g. 'Primary Navigation').  This can be done by an HTML heading element being the first item in the navigation, or an <pre class="pre--inline">aria-label</pre> on the <pre class="pre--inline">&lt;nav&gt;</pre> element itself</li>
         <li class="list-item">Buttons should be contained within the <pre class="pre--inline">&lt;nav&gt;</pre> element</li>
-        <li class="list-item">An <pre class="pre--inline">aria-expanded</pre> attribute should be present on the toggle <pre class="pre--inline">&lt;button&gt;</pre>.  The value of this should be 'true' when the navigation is visible, and false when the navigation is hidden.</li>
+        <li class="list-item">An <pre class="pre--inline">aria-expanded</pre> attribute should be present on the toggle <pre class="pre--inline">&lt;button&gt;</pre>.  The value of this should be 'true' when the navigation is visible, and 'false' when the navigation is hidden.</li>
         <li class="list-item">The toggle <pre class="pre--inline">&lt;button&gt;</pre> element should have an <pre class="pre--inline">aria-controls</pre> attribute.  The value of this should match the ID of the element being shown/hidden.</li>
         <li class="list-item">The currently active navigation link should have <pre class="pre--inline">aria-current</pre> attribute with its value set to 'page'</li>
     </ul>
@@ -46,13 +46,13 @@ toggle('.js-expandable-nav', { focus: false });`}</code></pre>
     <h3 class="push-bottom--half plus-1 medium">For visual validation</h3>
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">Navigation toggle buttons should have a clearly visible focus style which meets accessibility contrast requirements</li>
-        <li class="list-item">Navigation toggle buttons should be appropriately labelled to describe their functionality.  If the design requires no visible text, a label should be added as an <pre class="pre--inline">aria-label</pre> attribute on the <pre class="pre--inline">&lt;button&gt;</pre> tag to meet accessibility requirements</li>
+        <li class="list-item">Navigation toggle buttons should be appropriately labelled to describe their functionality.  If the design requires no visible text, a label should be added as an <pre class="pre--inline">aria-label</pre> attribute on the <pre class="pre--inline">&lt;button&gt;</pre> element</li>
         <li class="list-item">Navigation toggle buttons should be no less than 44px x 44px in size</li>
-        <li class="list-item">Navigation links should be hidden visually, hidden from keyboard access and not read by screenreaders when the menu is closed</li>
-        <li class="list-item">Navigation links should be visible, available for keyboard access and read by screenreaders when the menu is opened</li>
-        <li class="list-item">Navigation links should push down, not overlay, any page content when opened</li>
+        <li class="list-item">Navigation links should be hidden visually, hidden from keyboard access, and not read by screenreaders when the menu is closed</li>
+        <li class="list-item">Navigation links should be visible, available for keyboard access, and read by screenreaders when the menu is opened</li>
+        <li class="list-item">Navigation links should push down - not overlay - any page content when opened</li>
         <li class="list-item">Moving page focus to outside of the navigation via mouse, keyboard or any other means should leave the navigation open</li>
-        <li class="list-item">Navigation link text should accurately describe the link destination to meet accessibility requirements</li>
+        <li class="list-item">Navigation link text should accurately describe the link destination</li>
     </ul>
 
     <h3 class="push-bottom--half plus-1 medium">For functional validation</h3>
@@ -60,8 +60,7 @@ toggle('.js-expandable-nav', { focus: false });`}</code></pre>
         <li class="list-item">Navigation toggle buttons should be available to be tabbed to and activated via keyboard</li>
         <li class="list-item">Navigation links should be available to be tabbed to and activated via keyboard</li>
         <li class="list-item">The first navigation link should receive visible focus when navigation is opened</li>
-        <li class="list-item">When open, the navigation should not trap the tab key - a user should be able to tab out of the menu to page content below</li>
-        {/* <li class="list-item">The navigation should be usable without JavaScript</li> */}
+        <li class="list-item">When open, the navigation should not trap tab - a user should be able to tab out of the menu to page content below</li>
     </ul>
     <h2 class="push-bottom--half plus-1 medium">References</h2>
     <ul class="list push-bottom--double">

@@ -15,7 +15,7 @@ const ExpandableSection = () => <PatternLayout>
     <p class="push-bottom--double">Show and hide a section of content</p>
     
     <h2 class="push-bottom--half plus-2 medium">Guidance</h2>
-    <p class="push-bottom--double">Use this pattern for toggles and accordions that expand and collapse content into in the document flow. Consider using the <a rel="noopener nofollow" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details" target="_blank">HTML details tag</a> as an alternative if Internet Explorer 11 support is not required.</p>
+    <p class="push-bottom--double">Use this pattern for toggles and accordions that expand and collapse content into in the document flow. This is an alterantive to the <a rel="noopener nofollow" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details" target="_blank">HTML details element</a> which has some accessibility issues and constraints (see references below).</p>
     
     <h2 class="push-bottom--half plus-2 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example expandable section" src={'/example/expandable-section'}></iframe>
@@ -45,13 +45,13 @@ toggle('.js-expandable-section, { focus: false, local: true });
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">Section toggle buttons should have a clearly visible focus style which meets accessibility contrast requirements</li>
         <li class="list-item">Section toggle buttons should be no less than 44px x 44px in size</li>
-        <li class="list-item">Section toggle buttons should be appropriately labelled to describe their functionality.  If the design requires no visible text, a label should be added as an <pre class="pre--inline">aria-label</pre> attribute on the <pre class="pre--inline">&lt;button&gt;</pre> tag to meet accessibility requirements</li>
-        <li class="list-item">The collapsed section should be hidden visually, hidden from keyboard access and not read by screenreaders</li>
-        <li class="list-item">The expanded section should be visible, available for keyboard access and read by screenreaders</li>
+        <li class="list-item">Section toggle buttons should be appropriately labelled to describe their functionality. If the design requires no visible text, a label should be added as an <pre class="pre--inline">aria-label</pre> attribute on the <pre class="pre--inline">&lt;button&gt;</pre> element</li>
+        <li class="list-item">The collapsed section should be hidden visually, hidden from keyboard access, and not read by screen readers</li>
+        <li class="list-item">The expanded section should be visible, available for keyboard access, and read by screen readers</li>
     </ul>
 
     <h3 class="push-bottom--half plus-1 medium">For functional validation</h3>
-    <ul class="list list--tick push-bottom--double"> 
+    <ul class="list list--tick push-bottom--double">
         <li class="list-item">Section toggle buttons should be available to be tabbed to and activated via keyboard</li>
     </ul>
 
@@ -61,6 +61,8 @@ toggle('.js-expandable-section, { focus: false, local: true });
         <li class="list-item"><a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/disclosure/disclosure-faq.html" rel="noopener nofollow">https://www.w3.org/TR/wai-aria-practices-1.1/examples/disclosure/disclosure-faq.html</a></li>
         <li class="list-item"><a href="https://inclusive-components.design/collapsible-sections/" rel="noopener nofollow">https://inclusive-components.design/collapsible-sections/</a></li>
         <li class="list-item"><a href="https://webaim.org/standards/wcag/checklist" rel="noopener nofollow">https://webaim.org/standards/wcag/checklist</a></li>
+        <li class="list-item"><a href="https://adrianroselli.com/2019/04/details-summary-are-not-insert-control-here.html" rel="noopener nofollow">https://adrianroselli.com/2019/04/details-summary-are-not-insert-control-here.html</a></li>
+        <li class="list-item"><a href="https://www.scottohara.me//blog/2022/09/12/details-summary.html" rel="noopener nofollow">https://www.scottohara.me//blog/2022/09/12/details-summary.html</a></li>
     </ul>
 </PatternLayout>;
 
