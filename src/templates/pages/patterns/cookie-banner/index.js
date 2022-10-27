@@ -171,7 +171,7 @@ const banner = cookieBanner(config);
         <li class="list-item">The cookie banner should only appear if the user has not previously set their cookie preferences</li>
         <li class="list-item">On selecting 'accept all cookies' the banner should immediately close</li>
         <li class="list-item">On opening the cookie preferences form, the visual and keyboard focus should move to an HTML <pre class="pre--inline">&lt;button&gt;</pre> element which acts as a shortcut to accept all cookies and close the banner</li>
-        <li class="list-item">Once the preferences form is open, a user should be able to click/tab/swipe through the available cookie types and set their preference</li>
+        <li class="list-item">Once the preferences form is open, a user should be able to move through the available cookie types and set their preferences</li>
         <li class="list-item">The button for saving the user preferences should be disabled until a user has made a choice for all cookie types</li>
         <li class="list-item">Once the user has saved their preferences via the banner, the banner should close and not re-appear until the user clears their cookies, or until the preference cookie expires (1 year from date set)</li>
         <li class="list-item">No functionality or third-party service that sets cookies should run until the user has consented to that type of cookie</li>

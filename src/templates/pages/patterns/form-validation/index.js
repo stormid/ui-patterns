@@ -36,19 +36,19 @@ validate('.js-validate');
 
     <h3 class="push-bottom--half plus-1 medium">For validation in developer tools / web inspector</h3>
     <ul class="list list--tick push-bottom--double">
-        <li class="list-item">All form <pre class="pre--inline">&lt;input&gt;</pre>, <pre class="pre--inline">&lt;select&gt;</pre> or <pre class="pre--inline">&lt;textarea&gt;</pre> tags must have a matching <pre class="pre--inline">&lt;label&gt;</pre> tag</li>
-        <li class="list-item">Any inputs that are related to each other (eg. address inputs) should be grouped inside a <pre class="pre--inline">&lt;fieldset&gt;</pre> tag with a <pre class="pre--inline">&lt;legend&gt;</pre> tag describing the group</li>
+        <li class="list-item">All form <pre class="pre--inline">&lt;input&gt;</pre>, <pre class="pre--inline">&lt;select&gt;</pre> or <pre class="pre--inline">&lt;textarea&gt;</pre> elements must have a matching <pre class="pre--inline">&lt;label&gt;</pre> elements or <pre class="pre--inline">aria-label</pre></li>
+        <li class="list-item">Any inputs that are related to each other (eg. address inputs) should be grouped inside a <pre class="pre--inline">&lt;fieldset&gt;</pre> element with a <pre class="pre--inline">&lt;legend&gt;</pre> element describing the group</li>
         <li class="list-item">Error messages should <em>not</em> have <pre class="pre--inline">role="alert"</pre> or <pre class="pre--inline">aria-live</pre> attributes</li>
         <li class="list-item">Error messages should be associated with an input. The invalid <pre class="pre--inline">&lt;input&gt;</pre>, <pre class="pre--inline">&lt;select&gt;</pre> or <pre class="pre--inline">&lt;textarea&gt;</pre> should have an <pre class="pre--inline">aria-describedby</pre> attribute which matches the ID of the error message to achieve this</li>
-        <li class="list-item">Required <pre class="pre--inline">&lt;input&gt;</pre>, <pre class="pre--inline">&lt;select&gt;</pre> or <pre class="pre--inline">&lt;textarea&gt;</pre> tags should have an <pre class="pre--inline">aria-required</pre> attribute</li>
-        <li class="list-item">Any invalid <pre class="pre--inline">&lt;input&gt;</pre>, <pre class="pre--inline">&lt;select&gt;</pre> or <pre class="pre--inline">&lt;textarea&gt;</pre> tags should have an <pre class="pre--inline">aria-invalid="true"</pre> attribute</li>
+        <li class="list-item">Required <pre class="pre--inline">&lt;input&gt;</pre>, <pre class="pre--inline">&lt;select&gt;</pre> or <pre class="pre--inline">&lt;textarea&gt;</pre> elements should have an <pre class="pre--inline">aria-required</pre> attribute</li>
+        <li class="list-item">Any invalid <pre class="pre--inline">&lt;input&gt;</pre>, <pre class="pre--inline">&lt;select&gt;</pre> or <pre class="pre--inline">&lt;textarea&gt;</pre> elements should have an <pre class="pre--inline">aria-invalid="true"</pre> attribute</li>
     </ul>
 
     <h3 class="push-bottom--half plus-1 medium">For visual validation</h3>
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">All form inputs should have a clearly visible focus style which meets accessibility contrast requirements</li>
-        <li class="list-item">Required and optional fields should be visibly indicated and announced to a screenreader as such</li>
-        <li class="list-item">Error messages must be visible and heard via screenreader</li>
+        <li class="list-item">Required and optional fields should be visibly indicated and announced to a screen reader as such</li>
+        <li class="list-item">Error messages must be visible and announced via screen reader</li>
     </ul>
 
     <h3 class="push-bottom--half plus-1 medium">For functional validation</h3>
