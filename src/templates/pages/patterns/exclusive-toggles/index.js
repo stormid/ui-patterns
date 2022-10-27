@@ -8,8 +8,10 @@ import { STATUS } from '@constants';
 
 export const title = 'Exclusive toggles';
 
+export const status = STATUS.RELEASE;
+
 const ExclusiveToggles = () => <PatternLayout>
-    <PatternTitle status={STATUS.DEVELOPMENT}>Exclusive toggles</PatternTitle>
+    <PatternTitle status={status}>Exclusive toggles</PatternTitle>
     <p class="push-bottom--double">Mutually exclusive toggled sections.</p>
     
     <h2 class="push-bottom--half plus-2 medium">Guidance</h2>

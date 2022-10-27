@@ -8,8 +8,10 @@ import { STATUS } from '@constants';
 
 export const title = 'Expandable search';
 
+export const status = STATUS.RELEASE;
+
 const ExpandableSearch = () => <PatternLayout>
-    <PatternTitle status={STATUS.DEVELOPMENT}>Expandable search</PatternTitle>
+    <PatternTitle status={status}>Expandable search</PatternTitle>
     <p class="push-bottom--double">Show and hide inline search with a button.</p>
     
     <h2 class="push-bottom--half plus-2 medium">Guidance</h2>

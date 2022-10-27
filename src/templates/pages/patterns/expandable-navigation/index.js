@@ -8,8 +8,10 @@ import { STATUS } from '@constants';
 
 export const title = 'Expandable navigation';
 
+export const status = STATUS.RELEASE;
+
 const ExpandableNavigation = () => <PatternLayout>
-    <PatternTitle status={STATUS.DEVELOPMENT}>Expandable navigation</PatternTitle>
+    <PatternTitle status={status}>Expandable navigation</PatternTitle>
     <p class="push-bottom--double">Show and hide navigation with a button.</p>
     
     <h2 class="push-bottom--half plus-2 medium">Guidance</h2>

@@ -8,8 +8,10 @@ import { STATUS } from '@constants';
 
 export const title = 'Expandable section';
 
+export const status = STATUS.RELEASE;
+
 const ExpandableSection = () => <PatternLayout>
-    <PatternTitle status={STATUS.DEVELOPMENT}>Expandable section</PatternTitle>
+    <PatternTitle status={status}>Expandable section</PatternTitle>
     <p class="push-bottom--double">Show and hide a section of content</p>
     
     <h2 class="push-bottom--half plus-2 medium">Guidance</h2>

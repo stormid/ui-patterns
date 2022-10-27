@@ -8,8 +8,10 @@ import { STATUS } from '@constants';
 
 export const title = 'Full screen navigation';
 
+export const status = STATUS.RELEASE;
+
 const FullScreenNavigation = () => <PatternLayout>
-    <PatternTitle status={STATUS.DEVELOPMENT}>Full screen navigation</PatternTitle>
+    <PatternTitle status={status}>Full screen navigation</PatternTitle>
     <p class="push-bottom--double">Show and hide full screen navigation.</p>
     
     <h2 class="push-bottom--half plus-2 medium">Guidance</h2>
