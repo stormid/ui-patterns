@@ -15,7 +15,7 @@ const ExpandableNavigation = () => <PatternLayout>
     <p class="push-bottom--double">Show and hide navigation with a button.</p>
     
     <h2 class="push-bottom--half plus-2 medium">Guidance</h2>
-    <p class="push-bottom--double">Use this pattern for hamburger-type navigation that expands and collapses in the document flow. In contrast full-screen navigation takes over the whole screen and prevents interaction with the rest of the page. The expandable navigation pattern remains open when the focus moves out of the navigation.</p>
+    <p class="push-bottom--double">Use this pattern for hamburger-type navigation that expands and collapses in the document flow. The expandable navigation pattern remains open when the focus moves out of the navigation and allows interaction with the rest of the page while it is open.</p>
 
     <h2 class="push-bottom--half plus-2 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example Expandable navigation" src={'/example/expandable-navigation'}></iframe>
@@ -35,7 +35,7 @@ toggle('.js-expandable-nav', { focus: false });`}</code></pre>
     <h3 class="push-bottom--half plus-1 medium">For validation in developer tools / web inspector</h3>
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">An HTML <pre class="pre--inline">&lt;button&gt;</pre> element is used to open/close the navigation</li>
-        <li class="list-item">The navigation should be contained within an HTML <pre class="pre--inline">&lt;nav&gt;</pre> element</li> 
+        <li class="list-item">The navigation should be contained within an HTML <pre class="pre--inline">&lt;nav&gt;</pre> element</li>
         <li class="list-item">The navigation should be labelled appropriately to describe its function (e.g. 'Primary Navigation').  This can be done by an HTML heading element being the first item in the navigation, or an <pre class="pre--inline">aria-label</pre> on the <pre class="pre--inline">&lt;nav&gt;</pre> element itself</li>
         <li class="list-item">Buttons should be contained within the <pre class="pre--inline">&lt;nav&gt;</pre> element</li>
         <li class="list-item">An <pre class="pre--inline">aria-expanded</pre> attribute should be present on the toggle <pre class="pre--inline">&lt;button&gt;</pre>.  The value of this should be 'true' when the navigation is visible, and false when the navigation is hidden.</li>
@@ -52,7 +52,7 @@ toggle('.js-expandable-nav', { focus: false });`}</code></pre>
         <li class="list-item">Navigation links should be visible, available for keyboard access and read by screenreaders when the menu is opened</li>
         <li class="list-item">Navigation links should push down, not overlay, any page content when opened</li>
         <li class="list-item">Moving page focus to outside of the navigation via mouse, keyboard or any other means should leave the navigation open</li>
-        <li class="list-item">Navigation link text should accurately describe the link destination to meet accessibility requirements</li> 
+        <li class="list-item">Navigation link text should accurately describe the link destination to meet accessibility requirements</li>
     </ul>
 
     <h3 class="push-bottom--half plus-1 medium">For functional validation</h3>
@@ -61,7 +61,7 @@ toggle('.js-expandable-nav', { focus: false });`}</code></pre>
         <li class="list-item">Navigation links should be available to be tabbed to and activated via keyboard</li>
         <li class="list-item">The first navigation link should receive visible focus when navigation is opened</li>
         <li class="list-item">When open, the navigation should not trap the tab key - a user should be able to tab out of the menu to page content below</li>
-        {/* <li class="list-item">The navigation should be usable without JavaScript</li> */}     
+        {/* <li class="list-item">The navigation should be usable without JavaScript</li> */}
     </ul>
     <h2 class="push-bottom--half plus-1 medium">References</h2>
     <ul class="list push-bottom--double">
