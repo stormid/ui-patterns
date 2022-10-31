@@ -1,6 +1,6 @@
 # UI Patterns
 
-A catalogue of accessible, design agnostic best, practical user interface patterns.
+A catalogue of accessible, design agnostic best practice user interface patterns.
 
 ## Development
 
