@@ -29,7 +29,7 @@ import toggle from '@stormid/toggle';
 const config = {
     name: '.Patterns.Consent', //name of the consent cookie
     tid: '', //tid of GA account anonymously measuring interactions with the banner 
-    policyURL: '#', //url of cookie policy page
+    policyURL: '', //url of cookie policy page
     hideBannerOnFormPage: true,
     types: {
         performance: {
@@ -40,7 +40,9 @@ const config = {
                 yes: 'You agree to us using cookies to improve the service',
                 no: 'You do not agree to us using cookies to improve the service'
             },
-            fns: [] //array of functions that set performance cookies, usually including the Google Analytics performance container initialisation
+            fns: [ //array of functions that set performance cookies
+                state => state.utils.gtmSnippet('UA-1234-5678') // example, inject Google Tag Manager snippet using utility function
+            ] 
         },
         thirdParty: {
             title: 'Third-party services and advertising',
@@ -50,23 +52,8 @@ const config = {
                 no: 'You do not agree to third-party and advertising cookies'
             },
             fns: [ //array of functions that set third-party cookies
-                () => {
-                    //render all iframes
-                    [].slice.call(document.querySelectorAll('[data-iframe-src]')).forEach(node => {
-                        const iframe = document.createElement('iframe');
-                        iframe.src = node.getAttribute('data-iframe-src');
-                        iframe.setAttribute('title', node.getAttribute('data-iframe-title') || 'iFrame embed');
-                        iframe.style.width =  node.getAttribute('data-iframe-width' || '100%');
-                        iframe.setAttribute('tabindex', '0');
-                        iframe.setAttribute('frameborder', '0');
-                        iframe.setAttribute('webkitallowfullscreen', 'webkitallowfullscreen');
-                        iframe.setAttribute('mozallowfullscreen', 'mozallowfullscreen');
-                        iframe.setAttribute('allowfullscreen', 'allowfullscreen');
-                        iframe.setAttribute('scrolling', 'no');
-                        node.parentNode.appendChild(iframe);
-                        node.parentNode.removeChild(node);
-                    });
-                }
+                state => state.utils.renderIframe(), //example, render all iframes from placeholders using utility function
+                state => state.utils.gtmSnippet('UA-1234-5678') // example, inject Google Tag Manager snippet using utility function
             ]
         }
     },
@@ -140,8 +127,8 @@ const config = {
 };
 
 let bannerToggle;
-document.addEventListener('banner.show', _ => [ bannerToggle ] = toggle('.js-toggle-banner'));
-document.addEventListener('banner.hide', _ => bannerToggle.startToggle());
+document.addEventListener('banner.show', () => [ bannerToggle ] = toggle('.js-toggle-banner'));
+document.addEventListener('banner.hide', () => bannerToggle.startToggle());
 
 const banner = cookieBanner(config);
 
