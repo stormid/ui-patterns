@@ -43,7 +43,7 @@
     .tabs__tab {
 
         &:focus {
-            outline: 1px solid transparent;
+            border: 1px solid transparent;
         }
 
         &.is--active:after {
