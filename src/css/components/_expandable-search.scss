@@ -3,6 +3,7 @@
     background-color: var(--off-black);
     height: 95px;
 }
+
 .expandable-search__header {
     display: flex;
     justify-content: flex-end;
@@ -14,42 +15,48 @@
     font-weight: var(--medium-weight);
     padding: calc(var(--baseline)/2) calc(var(--gutter)/3);
     color: white;
-        &:focus {
-            outline: 1px solid var(--highlight);
-        }
+
+    &:focus {
+        outline: 1px solid var(--highlight);
+    }
 }
+
 .expandable-search__btn-icon {
     margin-right: calc(var(--gutter)/6);
     display: block;
-    fill: white ;
+    fill: white;
 }
 
-.expandable-search__container {
-}
+.expandable-search__container {}
+
 .expandable-search__form {
     display: none;
 }
+
 .expandable-search__label {
     @include visuallyhidden;
 }
+
 .expandable-search__input {
-    width:100%;
+    width: 100%;
     display: block;
     padding: 0 calc(var(--gutter)/2);
     // background-color: rgba(255,255,255,.1);
     border: 1px solid var(--light-grey-3);
     appearance: none;
     -moz-appearance: textfield;
-    height:40px;
-    line-height:36px;
+    height: 40px;
+    line-height: 36px;
     min-width: 250px;
     border-radius: 0;
     color: var(--off-black);
-        &:focus {
-            outline: 0 none;
-            border: 1px solid var(--off-black);
-            box-shadow: 0 0 0 1px var(--highlight);;
-        }
+
+    &:focus {
+        outline: 0 none;
+        border: 1px solid var(--off-black);
+        box-shadow: 0 0 0 1px var(--highlight);
+        ;
+    }
 }
 
 .expandable-search__submit {
@@ -58,13 +65,16 @@
     padding: 0 6px;
     border-radius: 0;
     min-width: 70px;
-    margin-left:1px;
-        &:focus {
-            outline: 0 none;
-            border: 1px solid var(--highlight);;
-            border-radius: 0;
-        }
+    margin-left: 1px;
+
+    &:focus {
+        outline: 0 none;
+        border: 1px solid var(--highlight);
+        ;
+        border-radius: 0;
+    }
 }
+
 .on--expandable-search {
     .expandable-search {
         display: block;
@@ -77,10 +87,25 @@
         padding: calc(var(--baseline)/2) calc(var(--gutter)/2);
         border-top: 1px solid var(--dark-grey-3);
     }
+
     .expandable-search__form {
         display: block;
         display: flex;
         max-width: 500px;
         margin: 0 auto;
+    }
+}
+
+// windows high contrast support 
+
+@media screen and (forced-colors: active) {
+
+    // adjusts svg icons to be visible on light mode 
+
+    @media (prefers-color-scheme: light) {
+
+        .expandable-search__btn-icon {
+            fill: CanvasText;
+        }
     }
 }

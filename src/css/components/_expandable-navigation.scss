@@ -2,7 +2,7 @@
     background-color: var(--off-black);
 }
 
-.expandable-nav__nav{
+.expandable-nav__nav {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -15,24 +15,30 @@
     margin: 0 var(--gutter);
     padding: var(--baseline) 0;
     color: white;
-        &:focus {
-            outline: 1px solid var(--highlight);
-        }
+
+    &:focus {
+        outline: 1px solid var(--highlight);
+    }
 }
+
 .expandable-nav__btn-icon {
     margin-right: calc(var(--gutter)/6);
     display: block;
     fill: white;
 }
+
 .expandable-nav__display-wrap {
     display: none;
 }
+
 .expandable-nav__item {
     display: block;
-        &:first-child {
-            border-top: 1px solid var(--dark-grey-3);
-        }
+
+    &:first-child {
+        border-top: 1px solid var(--dark-grey-3);
+    }
 }
+
 .expandable-nav__link {
     display: block;
     color: white;
@@ -42,17 +48,20 @@
     border-bottom: 1px solid var(--dark-grey-3);
     transition: background-color 120ms ease;
     text-decoration: none;
-        &.is--active {
-            background-color: var(--dark-grey-3);
-        }
-        &:focus {
-            border: 1px solid var(--highlight);
-            outline: 0 none;
-        }
-        &:hover {
-            background-color: var(--dark-grey-2);
-        }
+
+    &.is--active {
+        background-color: var(--dark-grey-3);
+    }
+
+    &:focus {
+        border: 1px solid var(--highlight);
+    }
+
+    &:hover {
+        background-color: var(--dark-grey-2);
+    }
 }
+
 .expandable-nav__close {
     display: none;
 }
@@ -61,7 +70,8 @@
     .expandable-nav__display-wrap {
         display: block;
         align-self: stretch;
-    }   
+    }
+
     .expandable-nav__list {
         display: block;
         max-width: none;
@@ -75,11 +85,39 @@
         top: calc(var(--baseline)/2);
         right: calc(var(--gutter)/2);
         background-color: transparent;
-            &:focus {
-                outline-color: var(--highlight);
-            }
+
+        &:focus {
+            outline-color: var(--highlight);
+        }
     }
+
     .expandable-nav__close-icon {
         display: block;
     }
+}
+
+// windows high contrast support 
+
+@media screen and (forced-colors: active) {
+
+    // adjusts svg icons to be visible on light mode 
+
+    @media (prefers-color-scheme: light) {
+
+        .expandable-nav__btn-icon {
+            fill: CanvasText;
+        }
+    }
+
+    // adjusts expandable nav and exclusive toggles focus outlines
+
+    .expandable-nav__link {
+        border: 1px solid Canvas;
+        border-bottom: 1px solid LinkText;
+
+        &:focus {
+            outline: 3px solid transparent;
+        }
+    }
+
 }
