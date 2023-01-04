@@ -2,12 +2,13 @@
 @import 'abstracts/functions';
 @import 'abstracts/mixins';
 
+@import 'base/contrast';
 @import 'base/normalise';
 @import 'base/grid';
 @import 'base/typography';
 @import 'base/spacing';
 @import 'base/visibility';
- 
+
 @import 'components/skip';
 @import 'components/header';
 @import 'components/main';

@@ -1,0 +1,64 @@
+@media screen and (forced-colors: active) {
+
+    //adds a visible outline to submit button in Form Validation component
+
+    .btn {
+        outline: 1px solid ButtonText;
+    }
+
+    //adds a visible outline when focusing on tabs in Tabs component
+
+    .tabs__tab:focus {
+        outline: 1px solid transparent;
+    }
+
+    // adds a visible outline when tabbing through radio buttons in Cookie Banner component
+
+    .privacy-banner__field:focus+.privacy-banner__label-text {
+        &:before {
+            outline: 4px solid LinkText !important;
+        }
+    }
+
+    // visually adjusts radio button for high contrast modes
+
+    .privacy-banner__field:checked~.privacy-banner__label-text {
+        &:before {
+            background-color: CanvasText !important;
+            forced-color-adjust: none;
+
+            @media (prefers-color-scheme: dark) {
+                background-color: Canvas;
+            }
+        }
+    }
+
+    // adjusts contrast for Cookie Banner submit button
+
+    .privacy-banner__submit:disabled {
+        opacity: 1 !important;
+    }
+
+    // adjusts svg icons to be visible on light mode 
+
+    @media (prefers-color-scheme: light) {
+
+        .full-screen-nav__btn-icon,
+        .expandable-nav__btn-icon,
+        .expandable-search__btn-icon,
+        .exclusive-search__btn-icon,
+        .modal-search__btn-icon,
+        .modal__close-icon {
+            fill: CanvasText !important;
+        }
+    }
+
+    // adjusts expandable nav and exclusive toggles focus outlines
+
+    .expandable-nav__link:focus-visible,
+    .exclusive-nav__link:focus-visible {
+        outline: 3px solid ButtonText;
+    }
+
+
+}
