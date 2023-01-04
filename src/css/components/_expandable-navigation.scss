@@ -55,7 +55,6 @@
 
     &:focus {
         border: 1px solid var(--highlight);
-        // outline: 0 none;
     }
 
     &:hover {
@@ -95,4 +94,30 @@
     .expandable-nav__close-icon {
         display: block;
     }
+}
+
+// windows high contrast support 
+
+@media screen and (forced-colors: active) {
+
+    // adjusts svg icons to be visible on light mode 
+
+    @media (prefers-color-scheme: light) {
+
+        .expandable-nav__btn-icon {
+            fill: CanvasText;
+        }
+    }
+
+    // adjusts expandable nav and exclusive toggles focus outlines
+
+    .expandable-nav__link {
+        border: 1px solid Canvas;
+        border-bottom: 1px solid LinkText;
+
+        &:focus {
+            outline: 3px solid transparent;
+        }
+    }
+
 }

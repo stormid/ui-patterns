@@ -212,3 +212,15 @@
         outline: 4px solid var(--highlight);
     }
 }
+
+// windows high contrast support 
+
+@media screen and (forced-colors: active) {
+
+    //adds a visible outline to submit button
+
+    .btn {
+        border: 1px solid transparent;
+    }
+
+}
