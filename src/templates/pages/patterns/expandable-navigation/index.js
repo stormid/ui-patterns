@@ -59,7 +59,7 @@ toggle('.js-expandable-nav', { focus: false });`}</code></pre>
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">Navigation toggle buttons should be available to be tabbed to and activated via keyboard</li>
         <li class="list-item">Navigation links should be available to be tabbed to and activated via keyboard</li>
-        <li class="list-item">The first navigation link should receive visible focus when navigation is opened</li>
+        <li class="list-item">The close button should receive visible focus when navigation is opened</li>
         <li class="list-item">When open, the navigation should not trap tab - a user should be able to tab out of the menu to page content below</li>
     </ul>
     <h2 class="push-bottom--half plus-1 medium">References</h2>
