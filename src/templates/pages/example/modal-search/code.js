@@ -8,7 +8,7 @@ const Code = () => <Fragment>
     <div id="modal-search" class="js-modal-search modal-container" data-modal-toggle="js-modal-search__btn" hidden>
         <div class="modal" role="dialog" aria-labelledby="modal-title">
             <h2 id="modal-title" class="modal__title">Search this site</h2>
-            <form class="modal__form" action="#">
+            <form class="modal__form" action="#" role="search">
                 <label class="modal__label" for="q">Your search</label>
                 <input class="modal__input" type="search" id="q" name="q" />
                 <button class="modal__search-btn">search</button>
