@@ -1,7 +1,9 @@
 import toggle from '@stormid/toggle';
 const SELECTOR = '.js-expandable-nav';
-const SHOW_LABEL = 'data-show-label';
-const HIDE_LABEL = 'data-hide-label';
+const SHOW_LABEL_ATTRIBUTE = 'data-show-label';
+const HIDE_LABEL_ATTRIBUTE = 'data-hide-label';
+const SHOW_LABEL_DEFAULT = "Show navigation menu";
+const HIDE_LABEL_DEFAULT = "Hide navigation menu";
 
 export const init = () => {
     if (document.querySelector(SELECTOR)) {
@@ -9,9 +11,11 @@ export const init = () => {
 
         const toggleAriaLabel = e => {
             const { toggles } = e.detail.getState();
+
             toggles.forEach((btn) => {
-                let newLabel = (btn.getAttribute('aria-expanded') === "true") ? btn.getAttribute(HIDE_LABEL) : btn.getAttribute(SHOW_LABEL);
-                if(newLabel) btn.setAttribute('aria-label', newLabel);
+                const isExpanded = btn.getAttribute('aria-expanded') === "true";
+                let newLabel = (isExpanded) ? btn.getAttribute(HIDE_LABEL_ATTRIBUTE) : btn.getAttribute(SHOW_LABEL_ATTRIBUTE);
+                btn.setAttribute('aria-label', (newLabel) ? newLabel : (isExpanded) ? HIDE_LABEL_DEFAULT : SHOW_LABEL_DEFAULT);
             });
         }
     
