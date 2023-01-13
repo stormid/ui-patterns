@@ -2,7 +2,7 @@ import { h, Fragment } from 'preact';
 
 const Code = () => <Fragment>
     <button type="button" class="modal-confirmation__btn js-modal-confirmation__btn">Delete</button>
-    <div id="modal-confirmation" class="js-modal-confirmation modal-confirmation modal-container" data-modal-toggle="js-modal-confirmation__btn">
+    <div id="modal-confirmation" role="region" class="js-modal-confirmation modal-confirmation modal-container" data-modal-toggle="js-modal-confirmation__btn">
         <div class="modal" role="alertdialog" aria-labelledby="modal-label" aria-describedby="modal-description">
             <h1 class="modal-confirmation__title" id="modal-label">Are you sure?</h1>
             <form class="modal__form modal-confirmation__form" action="#">

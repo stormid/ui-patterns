@@ -33,7 +33,7 @@ describe('Expandable navigation > mark up', () => {
 
     it('Buttons should be appropriately labelled', () => {
         const toggleButton = document.querySelector('.expandable-nav__btn');
-        expect(toggleButton.getAttribute('aria-label')).toEqual('Show or hide navigation menu');
+        expect(toggleButton.getAttribute('aria-label')).toEqual('Show navigation menu');
     });
 
     it('Active navigation link should have ARIA current attribute', () => {
@@ -127,9 +127,16 @@ describe('Expandable navigation > axe > ARIA', () => {
 
     it('ARIA expanded attribute should correctly describe shown/hidden state', () => {
         const [ toggle ] = instance.getState().toggles;
-        expect(toggle.getAttribute('aria-expanded')).toEqual("false");
+        expect(toggle.getAttribute('aria-expanded')).toEqual('false');
         instance.toggle();
-        expect(toggle.getAttribute('aria-expanded')).toEqual("true");
+        expect(toggle.getAttribute('aria-expanded')).toEqual('true');
+    });
+
+    it('ARIA label attribute should correctly describe shown/hidden statec', () => {
+        const [ toggle ] = instance.getState().toggles;
+        if (toggle.hasAttribute('data-show-label')) expect(toggle.getAttribute('aria-label')).toEqual(toggle.getAttribute('data-show-label'));
+        instance.toggle();
+        if (toggle.hasAttribute('data-hide-label')) expect(toggle.getAttribute('aria-label')).toEqual(toggle.getAttribute('data-hide-label'));
     });
 
 });
