@@ -35,7 +35,7 @@ export const OffCanvasSearch = () => <div class="exclusive-search__container">
     </button>
     <div class="exclusive-search js-exclusive-search" id="exclusive-search" data-toggle="js-exclusive-search__btn">
         <form class="exclusive-search__form" action="#">
-            <label class="exclusive-search__label" for="q">Your search</label>
+            <label class="exclusive-search__label" for="q">Input your search term</label>
             <input class="exclusive-search__input" type="search" id="q" name="q" />
             <button class="exclusive-search__submit">search</button>
         </form>
