@@ -5,7 +5,7 @@ const SELECTOR = {
 };
 
 export const init = () => {
-    const navNode = document.querySelector(SELECTOR.NAV);
+    const navNode = document.querySelector(SELECTOR.NAV, { focus: false });
     const searchNode = document.querySelector(SELECTOR.SEARCH);
     if (navNode && searchNode) {
         const [ nav ] = toggle(navNode);
