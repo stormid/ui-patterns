@@ -48,11 +48,6 @@
     border-bottom: 1px solid var(--dark-grey-3);
     transition: background-color 120ms ease;
     text-decoration: none;
-
-    &.is--active {
-        background-color: var(--dark-grey-3);
-    }
-
     &:focus {
         border: 1px solid var(--highlight);
     }

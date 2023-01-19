@@ -28,7 +28,22 @@ const ExpandableNavigation = () => <PatternLayout>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
     <pre class="pre"><code class="code">{`import toggle from '@stormid/toggle';
 
-toggle('.js-expandable-nav', { focus: false });`}</code></pre>
+const toggleInstances = toggle('.js-expandable-nav', { focus: false });
+
+//to change the aria-label when navigation is toggled
+const SHOW_LABEL_ATTRIBUTE = 'data-show-label';
+const HIDE_LABEL_ATTRIBUTE = 'data-hide-label';
+const toggleAriaLabel = e => {
+    const { toggles } = e.detail.getState();
+    toggles.forEach(btn => {
+        if (!btn.hasAttribute(SHOW_LABEL_ATTRIBUTE) && !!btn.hasAttribute(SHOW_LABEL_ATTRIBUTE)) return;
+        btn.setAttribute('aria-label', (btn.getAttribute('aria-expanded') === 'true') ? btn.getAttribute(HIDE_LABEL_ATTRIBUTE) : btn.getAttribute(SHOW_LABEL_ATTRIBUTE));
+    });
+};
+toggleInstances.forEach(instance => {
+    instance.getState().node.addEventListener('toggle.open', toggleAriaLabel);
+    instance.getState().node.addEventListener('toggle.close', toggleAriaLabel);
+});`}</code></pre>
     <h2 class="push-bottom plus-2 medium">Acceptance criteria</h2>
     <p class="push-bottom--double">The following is a list of example acceptance criteria to test against when using this pattern.  These critera should test that the specific markup requirements are met, and that the navigation behaves visually and functionally as expected.</p>
 
@@ -39,14 +54,15 @@ toggle('.js-expandable-nav', { focus: false });`}</code></pre>
         <li class="list-item">The navigation should be labelled appropriately to describe its function (e.g. 'Primary Navigation').  This can be done by an HTML heading element being the first item in the navigation, or an <pre class="pre--inline">aria-label</pre> on the <pre class="pre--inline">&lt;nav&gt;</pre> element itself</li>
         <li class="list-item">Buttons should be contained within the <pre class="pre--inline">&lt;nav&gt;</pre> element</li>
         <li class="list-item">An <pre class="pre--inline">aria-expanded</pre> attribute should be present on the toggle <pre class="pre--inline">&lt;button&gt;</pre>.  The value of this should be 'true' when the navigation is visible, and 'false' when the navigation is hidden.</li>
-        <li class="list-item">The toggle <pre class="pre--inline">&lt;button&gt;</pre> element should have an <pre class="pre--inline">aria-controls</pre> attribute.  The value of this should match the ID of the element being shown/hidden.</li>
+        <li class="list-item">The toggle <pre class="pre--inline">&lt;button&gt;</pre> element should have an <pre class="pre--inline">aria-controls</pre> attribute. The value of this should match the ID of the element being shown/hidden.</li>
         <li class="list-item">The currently active navigation link should have <pre class="pre--inline">aria-current</pre> attribute with its value set to 'page'</li>
+        <li class="list-item">Navigation toggle button labels that describe the state of the navigationshould update when toggled, e.g. 'Open' should change to 'Close'.</li>
     </ul>
 
     <h3 class="push-bottom--half plus-1 medium">For visual validation</h3>
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">Navigation toggle buttons should have a clearly visible focus style which meets accessibility contrast requirements</li>
-        <li class="list-item">Navigation toggle buttons should be appropriately labelled to describe their functionality.  If the design requires no visible text, a label should be added as an <pre class="pre--inline">aria-label</pre> attribute on the <pre class="pre--inline">&lt;button&gt;</pre> element</li>
+        <li class="list-item">Navigation toggle buttons should be appropriately labelled to describe their functionality. If the design requires no visible text, a label should be added as an <pre class="pre--inline">aria-label</pre> attribute on the <pre class="pre--inline">&lt;button&gt;</pre> element</li>
         <li class="list-item">Navigation toggle buttons should be no less than 44px x 44px in size</li>
         <li class="list-item">Navigation links should be hidden visually, hidden from keyboard access, and not read by screenreaders when the menu is closed</li>
         <li class="list-item">Navigation links should be visible, available for keyboard access, and read by screenreaders when the menu is opened</li>
