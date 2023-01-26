@@ -6,7 +6,7 @@ const Code = () => <div class="expandable-search__container">
     </button>
     <div class="expandable-search js-expandable-search" id="expandable-search" data-toggle="js-expandable-search__btn">
         <form class="expandable-search__form" action="#" role="search">
-            <label class="expandable-search__label" for="q">Your search</label>
+            <label class="expandable-search__label" for="q">Input your search term</label>
             <input class="expandable-search__input" type="search" id="q" name="q" />
             <button class="expandable-search__submit">search</button>
         </form>
