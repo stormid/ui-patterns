@@ -77,7 +77,7 @@
   "dependencies": {
     "@stormid/cookie-banner": "^1.0.0-alpha.24",
     "@stormid/modal": "^1.0.0-alpha.15",
-    "@stormid/tabs": "^1.0.0-alpha.11",
+    "@stormid/tabs": "^1.0.0-alpha.12",
     "@stormid/toggle": "^1.0.0-alpha.18",
     "@stormid/validate": "^1.0.0-alpha.25",
     "es6-object-assign": "^1.1.0",
