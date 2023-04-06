@@ -14,7 +14,7 @@ const Tabs = () => <PatternLayout>
     <PatternTitle status={status}>Tabs</PatternTitle>
     <p class="push-bottom--double">Automatically activated tabs display their panel when they receive focus.</p>
     <h2 class="push-bottom--half plus-2 medium">Guidance</h2>
-    <p class="push-bottom--double">Automatic activation should be used when the tabpanel content is immediately available and present in the DOM. Manual activation (requiring a click or enter/space keydown event) should be used if the content is not immediately present, for example if it requires a network request to retrieve it. Automatic activation can be enabled by setting <pre class="pre--inline">activation: true</pre> when initialising the tabs.</p>
+    <p class="push-bottom--double">Automatic activation should be used when the tabpanel content is immediately available and present in the DOM. Manual activation (requiring a click or enter/space keydown event) should be used if the content is not immediately present, for example if it requires a network request to retrieve it. Automatic activation can be enabled by setting <code>activation: true</code> when initialising the tabs.</p>
     
     <h2 class="push-bottom--half plus-2 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example tabs" src={'/example/tabs'}></iframe>
