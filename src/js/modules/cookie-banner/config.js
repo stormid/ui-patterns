@@ -7,7 +7,6 @@ export default {
     hideBannerOnFormPage: true,
     types: {
         performance: {
-            suggested: true, //set as pre-checked on consent form as a suggested response
             title: 'Performance',
             description: 'Performance cookies are used to measure the performance of our website and make improvements.  Your personal data is not used. For example, we will measure the links you click, but we will not know that it was you that clicked them.',
             labels: {
