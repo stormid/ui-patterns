@@ -1,6 +1,5 @@
 import { h } from 'preact';
 import DefaultLayout from '@layouts/default';
-import { STATUS } from '@constants';
 import Status from '@components/status';
 import { status as cookieBannerStatus } from './patterns/cookie-banner';
 import { status as expandableNavigationStatus } from './patterns/expandable-navigation';
@@ -12,6 +11,7 @@ import { status as exclusiveTogglesStatus } from './patterns/exclusive-toggles';
 import { status as modalConfirmationStatus } from './patterns/modal-confirmation';
 import { status as tabsStatus } from './patterns/tabs';
 import { status as formValidationStatus } from './patterns/form-validation';
+import { status as datePickerStatus } from './patterns/date-picker';
 
 export const title = 'Home';
 
@@ -31,6 +31,7 @@ const PATTERNS = [
     { title: 'Cookie banner', url: '/patterns/cookie-banner', status: cookieBannerStatus },
     { title: 'Tabs', url: '/patterns/tabs', status: tabsStatus },
     { title: 'Form validation', url: '/patterns/form-validation', status: formValidationStatus },
+    { title: 'Date picker', url: '/patterns/date-picker', status: datePickerStatus },
     // { title: 'Modal gallery', url: '/patterns/modal-gallery' },
 ];
 
