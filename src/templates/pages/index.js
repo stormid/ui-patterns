@@ -40,6 +40,7 @@ const PATTERNS = [
     { title: 'Full screen navigation', url: '/patterns/full-screen-navigation', status: fullScreenNavigationStatus },
     { title: 'Heading with subheading', url: '/patterns/heading-subheading', status: headingSubheadingStatus },
     { title: 'Modal confirmation', url: '/patterns/modal-confirmation', status: modalConfirmationStatus },
+    { title: 'Date picker', url: '/patterns/date-picker', status: datePickerStatus },
     // { title: 'Modal gallery', url: '/patterns/modal-gallery' },
     { title: 'Modal search', url: '/patterns/modal-search', status: modalSearchStatus },
     { title: 'Table with scrolling overflow', url: '/patterns/table-overflow', status: tablesOverflowStatus },
