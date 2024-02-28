@@ -1,6 +1,5 @@
 .table__container {
-    padding-top: var(--baseline);
-    margin: 0 var(--gutter);
+    padding-top: calc(var(--baseline)/2);
 }
 .table {
     width:100%;
