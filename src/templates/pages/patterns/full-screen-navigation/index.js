@@ -51,7 +51,7 @@ toggle('.js-full-screen-navigation');
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">Navigation open and close buttons should have a clearly visible focus style which meets accessibility contrast requirements</li>
         <li class="list-item">Navigation open and close buttons should be appropriately labelled to describe their functionality. If the design requires no visible text, a label should be added as an <pre class="pre--inline">aria-label</pre> attribute on the <pre class="pre--inline">&lt;button&gt;</pre> element</li>
-        <li class="list-item">Navigation toggle buttons should be no less than 44px x 44px in size</li>
+        <li class="list-item">Navigation toggle buttons should be no less than 44px x 44px in size (unless any of the allowed <a href="https://www.w3.org/TR/WCAG22/#target-size-enhanced">WCAG exceptions apply</a>)</li>
         <li class="list-item">Navigation links should be hidden visually, hidden from keyboard access and not read by screenreaders when the menu is closed</li>
         <li class="list-item">Navigation links should be visible, available for keyboard access and read by screen readers when the menu is opened</li>
         <li class="list-item">Navigation link text should accurately describe the link destination</li>
