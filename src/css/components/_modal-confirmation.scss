@@ -1,19 +1,18 @@
 .modal-confirmation__btn {
     display: inline-block;
     padding: calc(var(--baseline)/2) var(--gutter);
-    background-color: var(--off-black);
+    background-color: var(--light-grey-2);
     border: 1px solid var(--off-black);
-    color: white;
+    color: var(--off-black);
     margin:2px;
         &:hover,
         &:focus {
             transition: background-color 120ms ease;
             background-color: white;
-            color: var(--off-black);
         }
 }
 .modal-confirmation {
-    color: white
+    color: var(--off-black);
 }
 .modal-confirmation__title {
     font-size: var(--font-size-plus-1);
@@ -30,15 +29,19 @@
     padding: calc(var(--baseline)/2) var(--gutter);
     background-color: transparent;
     border: 1px solid transparent;
-    color: white;
+    color: var(--off-black);
 }
 .modal-confirmation__confirm {
-    border: 1px solid white;
-        &:hover,
-        &:focus {
+    border: 1px solid var(--off-black);
+    background-color: var(--light-grey-2);
+        &:hover{
             transition: background-color 120ms ease;
-            background-color: white;
-            color: var(--off-black)
+            background-color: var(--off-black);
+            color: white;
+        }
+
+        &:focus{
+            outline: 4px solid var(--highlight);
         }
 }
 .modal-confirmation__cancel {
