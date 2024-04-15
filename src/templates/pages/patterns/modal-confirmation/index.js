@@ -36,8 +36,9 @@ modal('.js-modal-confirmation);
     <h3 class="push-bottom--half plus-1 medium">For validation in developer tools / web inspector</h3>
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">An HTML <pre class="pre--inline">&lt;button&gt;</pre> element is used to open the confirmation modal</li>
+        <li class="list-item">The opening <pre class="pre--inline">&lt;button&gt;</pre> element should have an <pre class="pre--inline">aria-haspopup="dialog"</pre> attribute</li>
         <li class="list-item">An HTML <pre class="pre--inline">&lt;button&gt;</pre> element is used to close the confirmation modal</li>
-        <li class="list-item">The confirmation modal should be an HTML element with a <pre class="pre--inline">role="alertdialog"</pre> attribute. This element must contain everything that's visible within the modal when it opens</li>
+        <li class="list-item">The confirmation modal should be an HTML element with a <pre class="pre--inline">role="dialog"</pre> attribute. This element must contain everything that's visible within the modal when it opens</li>
         <li class="list-item">The confirmation modal element should either have an <pre class="pre--inline">aria-describedby</pre> attribute which describes the content, or an <pre class="pre--inline">aria-labelledby</pre> attribute that points to a visible <pre class="pre--inline">&lt;h2&gt;</pre> element with a matching ID</li>
         <li class="list-item">The confirmation modal element should have an <pre class="pre--inline">aria-describedby</pre> attribute that points to a visible element with a matching ID that describes the modal content</li>
         <li class="list-item">The element containing the modal should have a role="region" attribute (or be another valid landmark element), so that the modal can be contained within a valid page landmark when moved into position</li>
