@@ -1,6 +1,7 @@
 .expandable-search__header {
     padding: var(--baseline) var(--gutter);
-    background-color: var(--off-black);
+    background-color: white;
+    border-bottom: 1px solid var(--off-black);
     height: 95px;
 }
 
@@ -14,7 +15,7 @@
     background-color: transparent;
     font-weight: var(--medium-weight);
     padding: calc(var(--baseline)/2) calc(var(--gutter)/3);
-    color: white;
+    color: var(--off-black);
 
     &:focus {
         outline: 1px solid var(--highlight);
@@ -24,10 +25,8 @@
 .expandable-search__btn-icon {
     margin-right: calc(var(--gutter)/6);
     display: block;
-    fill: white;
+    fill: var(--off-black);
 }
-
-.expandable-search__container {}
 
 .expandable-search__form {
     display: none;
@@ -41,7 +40,6 @@
     width: 100%;
     display: block;
     padding: 0 calc(var(--gutter)/2);
-    // background-color: rgba(255,255,255,.1);
     border: 1px solid var(--light-grey-3);
     appearance: none;
     -moz-appearance: textfield;
@@ -55,13 +53,12 @@
         outline: 0 none;
         border: 1px solid var(--off-black);
         box-shadow: 0 0 0 1px var(--highlight);
-        ;
     }
 }
 
 .expandable-search__submit {
     background-color: transparent;
-    color: white;
+    color: var(--off-black);
     padding: 0 6px;
     border-radius: 0;
     min-width: 70px;
@@ -70,12 +67,14 @@
     &:focus {
         outline: 0 none;
         border: 1px solid var(--highlight);
-        ;
         border-radius: 0;
     }
 }
 
 .on--expandable-search {
+    .expandable-search__header {
+        border-bottom-color: transparent;
+    }
     .expandable-search {
         display: block;
         position: fixed;
@@ -83,9 +82,9 @@
         top: 95px;
         right: 0;
         left: 0;
-        background-color: var(--off-black);
-        padding: calc(var(--baseline)/2) calc(var(--gutter)/2);
-        border-top: 1px solid var(--dark-grey-3);
+        background-color: white;
+        padding: 0 calc(var(--gutter)/2) calc(var(--baseline)/2) calc(var(--gutter)/2);
+        border-bottom: 1px solid var(--dark-grey-3);
     }
 
     .expandable-search__form {

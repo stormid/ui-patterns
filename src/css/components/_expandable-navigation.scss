@@ -1,5 +1,6 @@
 .expandable-nav__container {
-    background-color: var(--off-black);
+    background-color: var(--white);
+    border-bottom: 1px solid var(--off-black);
 }
 
 .expandable-nav__nav {
@@ -14,7 +15,7 @@
     font-weight: var(--medium-weight);
     margin: 0 var(--gutter);
     padding: var(--baseline) 0;
-    color: white;
+    color: var(--off-black);
 
     &:focus {
         outline: 1px solid var(--highlight);
@@ -24,7 +25,7 @@
 .expandable-nav__btn-icon {
     margin-right: calc(var(--gutter)/6);
     display: block;
-    fill: white;
+    fill: var(--off-black);
 }
 
 .expandable-nav__display-wrap {
@@ -41,8 +42,8 @@
 
 .expandable-nav__link {
     display: block;
-    color: white;
-    background-color: var(--off-black);
+    color: var(--off-black);
+    background-color: white;
     padding: calc(var(--baseline)/2) var(--gutter);
     border: 1px solid transparent;
     border-bottom: 1px solid var(--dark-grey-3);

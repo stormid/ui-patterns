@@ -188,7 +188,7 @@
 
 .btn {
     line-height: 1;
-    background-color: var(--off-black);
+    background-color: var(--light-grey-2);
     border: 0;
     display: inline-block;
     font-weight: var(--medium-weight);
@@ -196,7 +196,7 @@
     text-align: center;
     text-decoration: none;
     transition: background-color 0.15s ease;
-    color: white;
+    color: black;
 
     &:hover {
         background-color: var(--highlight);
