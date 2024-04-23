@@ -8,7 +8,7 @@ const Code = () => <nav aria-label={'Primary navigation'}>
         </svg>
         menu
     </button>
-    <div id="full-screen-navigation" class="js-full-screen-nav full-screen-nav" data-toggle="js-full-screen-nav__toggle" aria-role="menu">
+    <div id="full-screen-navigation" class="js-full-screen-nav full-screen-nav" data-toggle="js-full-screen-nav__toggle" role="menu">
         <ul class="wrap full-screen-nav__list">
             <li class="full-screen-nav__item">
                 <a class={`full-screen-nav__link`} href={'#'} >Item 1</a>
