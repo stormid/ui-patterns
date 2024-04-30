@@ -20,17 +20,17 @@ const FormPatterns = () => <PatternLayout>
     <p class="push-bottom--double">If you’re asking more than one question on the page, do not set the contents of the as the page heading.  Instead, this should be a title which summarises the form.</p>
 
     <h2 class="push-bottom--half plus-2 medium">Example - single question, single input</h2>
-    <iframe style="--height: 375px" class="example" title="Example form validation section" src={'/example/form-patterns/form-patterns-single'}></iframe>
+    <iframe style="--height: 375px" class="example" title="Example form with single question" src={'/example/form-patterns/form-patterns-single'}></iframe>
     <p class="push-bottom align-right"><a href="/example/form-patterns/form-patterns-single" rel="noopener" target="_blank">Open in a new tab</a></p>
     <pre class="pre"><code class="code">{`${render(<CodeSingle />, null, { pretty: true })}`}</code></pre>
     
     <h2 class="push-bottom--half plus-2 medium">Example - single question, multiple choice</h2>
-    <iframe style="--height: 375px" class="example" title="Example form validation section" src={'/example/form-patterns/form-patterns-single-multi'}></iframe>
+    <iframe style="--height: 375px" class="example" title="Example form with multiple choice" src={'/example/form-patterns/form-patterns-single-multi'}></iframe>
     <p class="push-bottom align-right"><a href="/example/form-patterns/form-patterns-single-multi" rel="noopener" target="_blank">Open in a new tab</a></p>
     <pre class="pre"><code class="code">{`${render(<CodeSingleMulti />, null, { pretty: true })}`}</code></pre>
 
     <h2 class="push-bottom--half plus-2 medium">Example - multiple questions</h2>
-    <iframe style="--height: 375px" class="example" title="Example form validation section" src={'/example/form-patterns/form-patterns-multiple'}></iframe>
+    <iframe style="--height: 375px" class="example" title="Example form with multiple questions" src={'/example/form-patterns/form-patterns-multiple'}></iframe>
     <p class="push-bottom align-right"><a href="/example/form-patterns/form-patterns-multiple" rel="noopener" target="_blank">Open in a new tab</a></p>
     <pre class="pre"><code class="code">{`${render(<CodeMultiple />, null, { pretty: true })}`}</code></pre>
 
