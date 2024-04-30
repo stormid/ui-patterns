@@ -1,6 +1,7 @@
 import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
-import { CodeHeader, CodeCard } from '../../example/heading-subheading/code';
+import CodeHero from '../../example/heading-subheading/hero/code';
+import CodeCard from '../../example/heading-subheading/card/code';
 import { render } from 'preact-render-to-string';
 import PatternTitle from '@components/pattern-title';
 import { STATUS } from '@constants';
@@ -15,14 +16,14 @@ const ExpandableSearch = () => <PatternLayout>
     
     <h2 class="push-bottom--half plus-2 medium">Guidance</h2>
     <p class="push-bottom--double"></p>
-    <h2 class="push-bottom--half plus-2 medium">Examples</h2>
-    <iframe style="--height: 375px" class="example" title="Example expandable search" src={'/example/heading-subheading'}></iframe>
-    <p class="push-bottom align-right"><a href="/example/heading-subheading" rel="noopener" target="_blank">Open in a new tab</a></p>
-    
-    <h2 class="push-bottom--half plus-2 medium">Code for hero or header area</h2>
-    <pre class="pre"><code class="code">{`${render(<CodeHeader />, null, { pretty: true })}`}</code></pre>
+    <h2 class="push-bottom--half plus-2 medium">Example page hero</h2>
+    <iframe style="--height: 375px" class="example" title="Example peage header with subheading" src={'/example/heading-subheading/hero'}></iframe>
+    <p class="push-bottom align-right"><a href="/example/heading-subheading/hero" rel="noopener" target="_blank">Open in a new tab</a></p>
+    <pre class="pre"><code class="code">{`${render(<CodeHero />, null, { pretty: true })}`}</code></pre>
 
-    <h2 class="push-bottom--half plus-2 medium">Code for card</h2>
+    <h2 class="push-bottom--half plus-2 medium">Example card</h2>
+    <iframe style="--height: 375px" class="example" title="Example peage header with subheading" src={'/example/heading-subheading/card'}></iframe>
+    <p class="push-bottom align-right"><a href="/example/heading-subheading/card" rel="noopener" target="_blank">Open in a new tab</a></p>
     <pre class="pre"><code class="code">{`${render(<CodeCard />, null, { pretty: true })}`}</code></pre>
 
 

@@ -1,15 +1,6 @@
 import { h, Fragment } from 'preact';
 
-export const CodeHeader = () => <Fragment>
-    <header>
-        <hgroup>
-            <h1>Lorem ipsum dolor sit amet</h1>
-            <p aria-roledescription="subtitle">Mauris consectetur varius ullamcorper. Aliquam erat volutpat.</p>
-        </hgroup>
-    </header>
-</Fragment>;
-
-export const CodeCard = () => <Fragment>
+const Card = () => <Fragment>
     <article class="card">
         <hgroup class="card__header">
             <h1 class="card__title">Lorem ipsum dolor sit amet</h1>
@@ -21,4 +12,6 @@ export const CodeCard = () => <Fragment>
         </div>
     </article>
 </Fragment>;
+
+export default Card;
 
