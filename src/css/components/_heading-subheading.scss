@@ -1,0 +1,44 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--baseline);
+    min-height: 300px;
+    background-color: var(--light-grey-1);
+    color: #000;
+
+
+    &__title {
+        font-size: var(--font-size-plus-3);
+        margin-bottom: calc(var(--baseline)/2);
+    }
+
+    &__subtitle {
+        font-size: var(--font-size-plus-1);
+    }
+}
+
+.card {
+    width: 33%;
+    padding: var(--baseline);
+    background-color: var(--light-grey-1);
+    color: #000;
+
+    &__title {
+        font-size: var(--font-size-plus-2);
+        font-weight: 700;
+        margin-bottom: calc(var(--baseline)/2);
+    }
+
+    &__subtitle {
+        font-weight: 700;
+    }
+
+    &__header {
+        margin-bottom: var(--baseline);
+    }
+
+    &__btn {
+        margin-top: calc(var(--baseline)/2);
+    }
+}
