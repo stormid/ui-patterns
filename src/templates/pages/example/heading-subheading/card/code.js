@@ -3,7 +3,7 @@ import { h, Fragment } from 'preact';
 const Card = () => <Fragment>
     <article class="card">
         <hgroup class="card__header">
-            <h1 class="card__title">Lorem ipsum dolor sit amet</h1>
+            <h2 class="card__title">Lorem ipsum dolor sit amet</h2>
             <p class="card__subtitle" aria-roledescription="subtitle">Mauris consectetur varius ullamcorper. Aliquam erat volutpat.</p>
         </hgroup>
         <div class="card__body">

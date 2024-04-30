@@ -1,8 +1,9 @@
 .hero {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     padding: var(--baseline);
-    min-height: 200px;
+    min-height: 300px;
     background-color: var(--light-grey-1);
     color: #000;
 
