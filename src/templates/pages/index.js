@@ -12,6 +12,7 @@ import { status as exclusiveTogglesStatus } from "./patterns/exclusive-toggles";
 import { status as modalConfirmationStatus } from "./patterns/modal-confirmation";
 import { status as tabsStatus } from "./patterns/tabs";
 import { status as formValidationStatus } from "./patterns/form-validation";
+import { status as headingSubheadingStatus } from "./patterns/heading-subheading";
 
 export const title = "Home";
 
@@ -21,17 +22,18 @@ export const title = "Home";
 // }];
 
 const PATTERNS = [
-	{ title: "Expandable navigation", url: "/patterns/expandable-navigation", status: expandableNavigationStatus },
-	{ title: "Full screen navigation", url: "/patterns/full-screen-navigation", status: fullScreenNavigationStatus },
-	{ title: "Expandable search", url: "/patterns/expandable-search", status: expandableSearchStatus },
-	{ title: "Modal search", url: "/patterns/modal-search", status: modalSearchStatus },
-	{ title: "Expandable section", url: "/patterns/expandable-section", status: expandableSectionStatus },
-	{ title: "Exclusive toggles", url: "/patterns/exclusive-toggles", status: exclusiveTogglesStatus },
-	{ title: "Modal confirmation", url: "/patterns/modal-confirmation", status: modalConfirmationStatus },
 	{ title: "Cookie banner", url: "/patterns/cookie-banner", status: cookieBannerStatus },
-	{ title: "Tabs", url: "/patterns/tabs", status: tabsStatus },
+	{ title: "Exclusive toggles", url: "/patterns/exclusive-toggles", status: exclusiveTogglesStatus },
+	{ title: "Expandable navigation", url: "/patterns/expandable-navigation", status: expandableNavigationStatus },
+	{ title: "Expandable search", url: "/patterns/expandable-search", status: expandableSearchStatus },
+	{ title: "Expandable section", url: "/patterns/expandable-section", status: expandableSectionStatus },
 	{ title: "Form validation", url: "/patterns/form-validation", status: formValidationStatus },
+	{ title: "Full screen navigation", url: "/patterns/full-screen-navigation", status: fullScreenNavigationStatus },
+	{ title: "Heading with subheading", url: "/patterns/heading-subheading", status: headingSubheadingStatus },
+	{ title: "Modal confirmation", url: "/patterns/modal-confirmation", status: modalConfirmationStatus },
 	// { title: 'Modal gallery', url: '/patterns/modal-gallery' },
+	{ title: "Modal search", url: "/patterns/modal-search", status: modalSearchStatus },
+	{ title: "Tabs", url: "/patterns/tabs", status: tabsStatus },
 ];
 
 const HomePage = () => (
