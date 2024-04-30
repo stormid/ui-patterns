@@ -10,7 +10,7 @@ export const title = 'Heading with subheading';
 
 export const status = STATUS.DEVELOPMENT;
 
-const ExpandableSearch = () => <PatternLayout>
+const HeadingSubheading = () => <PatternLayout>
     <PatternTitle status={status}>Heading with subheading</PatternTitle>
     <p class="push-bottom--double">Markup for use when displaying a heading with a subheading or tagline.</p>
     
@@ -60,4 +60,4 @@ const ExpandableSearch = () => <PatternLayout>
     </ul>
 </PatternLayout>;
 
-export default ExpandableSearch;
+export default HeadingSubheading;
