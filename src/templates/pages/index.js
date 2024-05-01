@@ -13,6 +13,7 @@ import { status as modalConfirmationStatus } from "./patterns/modal-confirmation
 import { status as tabsStatus } from "./patterns/tabs";
 import { status as formValidationStatus } from "./patterns/form-validation";
 import { status as headingSubheadingStatus } from "./patterns/heading-subheading";
+import { status as showMoreStatus } from "./patterns/show-more";
 
 export const title = "Home";
 
@@ -33,6 +34,7 @@ const PATTERNS = [
 	{ title: "Modal confirmation", url: "/patterns/modal-confirmation", status: modalConfirmationStatus },
 	// { title: 'Modal gallery', url: '/patterns/modal-gallery' },
 	{ title: "Modal search", url: "/patterns/modal-search", status: modalSearchStatus },
+	{ title: "Show more", url: "/patterns/show-more", status: showMoreStatus },
 	{ title: "Tabs", url: "/patterns/tabs", status: tabsStatus },
 ];
 

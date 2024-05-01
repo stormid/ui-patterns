@@ -1,0 +1,21 @@
+.show-more {
+    padding-bottom: var(--baseline);
+
+    > * {
+        margin-bottom: calc(var(--baseline)/2);
+    }
+
+    &__heading {
+        font-size: var(--font-size-plus-2);
+        font-weight: 600;
+        margin-bottom: var(--baseline);
+    }
+
+    &__bd, &__btn--hide, &.is--active &__btn {
+        display: none;
+    }
+
+    &.is--active &__bd, &.is--active &__btn--hide {
+        display: block;
+    }
+}
