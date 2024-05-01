@@ -1,6 +1,5 @@
 import { h } from "preact";
 import DefaultLayout from "@layouts/default";
-import { STATUS } from "@constants";
 import Status from "@components/status";
 import { status as cookieBannerStatus } from "./patterns/cookie-banner";
 import { status as expandableNavigationStatus } from "./patterns/expandable-navigation";
@@ -12,7 +11,7 @@ import { status as exclusiveTogglesStatus } from "./patterns/exclusive-toggles";
 import { status as modalConfirmationStatus } from "./patterns/modal-confirmation";
 import { status as tabsStatus } from "./patterns/tabs";
 import { status as formValidationStatus } from "./patterns/form-validation";
-import { status as formPatternStatus } from "./patterns/form-patterns";
+import { status as formHeadingStatus } from "./patterns/form-headings";
 import { status as headingSubheadingStatus } from "./patterns/heading-subheading";
 
 export const title = "Home";
@@ -28,7 +27,7 @@ const PATTERNS = [
 	{ title: "Expandable navigation", url: "/patterns/expandable-navigation", status: expandableNavigationStatus },
 	{ title: "Expandable search", url: "/patterns/expandable-search", status: expandableSearchStatus },
 	{ title: "Expandable section", url: "/patterns/expandable-section", status: expandableSectionStatus },
-	{ title: "Form patterns", url: "/patterns/form-patterns", status: formPatternStatus },
+	{ title: "Form page headings", url: "/patterns/form-headings", status: formHeadingStatus },
 	{ title: "Form validation", url: "/patterns/form-validation", status: formValidationStatus },
 	{ title: "Full screen navigation", url: "/patterns/full-screen-navigation", status: fullScreenNavigationStatus },
 	{ title: "Heading with subheading", url: "/patterns/heading-subheading", status: headingSubheadingStatus },

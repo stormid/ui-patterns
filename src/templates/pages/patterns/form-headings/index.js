@@ -1,37 +1,39 @@
 import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
-import CodeSingle from '../../example/form-patterns/form-patterns-single/code';
-import CodeSingleMulti from '../../example/form-patterns/form-patterns-single-multi/code';
-import CodeMultiple from '../../example/form-patterns/form-patterns-multiple/code';
+import CodeSingle from '../../example/form-headings/form-headings-single/code';
+import CodeSingleMulti from '../../example/form-headings/form-headings-single-multi/code';
+import CodeMultiple from '../../example/form-headings/form-headings-multiple/code';
 import { render } from 'preact-render-to-string';
 import PatternTitle from '@components/pattern-title';
 import { STATUS } from '@constants';
 
-export const title = 'Form patterns';
+export const title = 'Form page headings';
 
 export const status = STATUS.DEVELOPMENT;
 
-const FormPatterns = () => <PatternLayout>
-    <PatternTitle status={status}>Form patterns</PatternTitle>
-    <p class="push-bottom--double">Markup examples when asking single or multiple questions per form page.</p>
+const FormHeadings = () => <PatternLayout>
+    <PatternTitle status={status}>Form page headings</PatternTitle>
+    <p class="push-bottom--double">Titling pages containing a single form</p>
     
     <h2 class="push-bottom--half plus-2 medium">Guidance</h2>
-    <p class="push-bottom">If you are asking just one question per page of a form, you can set the contents of the as the page heading. This is good practice as it means that users of screen readers will only hear the contents once. </p>
-    <p class="push-bottom--double">If you’re asking more than one question on the page, do not set the contents of the as the page heading.  Instead, this should be a title which summarises the form.</p>
+    <p class="push-bottom">In transactional services it is common to have a page containing a single form as the main action. This pattern describes how to mark-up the page heading (h1) depending whether the page contains a form with a single question, a form with single question or fieldset with multiple answers, or a form with multiple questions.</p>
+    <p class="push-bottom">Pages with a form asking a single question with a single answer should combine the label with the h1. </p>
+    <p class="push-bottom">Pages with a form asking a single question with multiple answers (such as checkbox or radio groups), or multiple questions that are related under the a single fieldset, should combine the fieldset legend and the h1.</p>
+    <p class="push-bottom--double">Pages with more complex forms with multiple questions or multiple fieldsets should use the page heading to title the form.</p>
 
     <h2 class="push-bottom--half plus-2 medium">Example - single question, single input</h2>
-    <iframe style="--height: 375px" class="example" title="Example form with single question" src={'/example/form-patterns/form-patterns-single'}></iframe>
-    <p class="push-bottom align-right"><a href="/example/form-patterns/form-patterns-single" rel="noopener" target="_blank">Open in a new tab</a></p>
+    <iframe style="--height: 375px" class="example" title="Example form with single question" src={'/example/form-headings/form-headings-single'}></iframe>
+    <p class="push-bottom align-right"><a href="/example/form-headings/form-headings-single" rel="noopener" target="_blank">Open in a new tab</a></p>
     <pre class="pre"><code class="code">{`${render(<CodeSingle />, null, { pretty: true })}`}</code></pre>
     
     <h2 class="push-bottom--half plus-2 medium">Example - single question, multiple choice</h2>
-    <iframe style="--height: 375px" class="example" title="Example form with multiple choice" src={'/example/form-patterns/form-patterns-single-multi'}></iframe>
-    <p class="push-bottom align-right"><a href="/example/form-patterns/form-patterns-single-multi" rel="noopener" target="_blank">Open in a new tab</a></p>
+    <iframe style="--height: 375px" class="example" title="Example form with multiple choice" src={'/example/form-headings/form-headings-single-multi'}></iframe>
+    <p class="push-bottom align-right"><a href="/example/form-headings/form-headings-single-multi" rel="noopener" target="_blank">Open in a new tab</a></p>
     <pre class="pre"><code class="code">{`${render(<CodeSingleMulti />, null, { pretty: true })}`}</code></pre>
 
     <h2 class="push-bottom--half plus-2 medium">Example - multiple questions</h2>
-    <iframe style="--height: 375px" class="example" title="Example form with multiple questions" src={'/example/form-patterns/form-patterns-multiple'}></iframe>
-    <p class="push-bottom align-right"><a href="/example/form-patterns/form-patterns-multiple" rel="noopener" target="_blank">Open in a new tab</a></p>
+    <iframe style="--height: 375px" class="example" title="Example form with multiple questions" src={'/example/form-headings/form-headings-multiple'}></iframe>
+    <p class="push-bottom align-right"><a href="/example/form-headings/form-headings-multiple" rel="noopener" target="_blank">Open in a new tab</a></p>
     <pre class="pre"><code class="code">{`${render(<CodeMultiple />, null, { pretty: true })}`}</code></pre>
 
     <h2 class="push-bottom plus-2 medium">Acceptance criteria</h2>
@@ -64,4 +66,4 @@ const FormPatterns = () => <PatternLayout>
     </ul>
 </PatternLayout>;
 
-export default FormPatterns;
+export default FormHeadings;

@@ -1,7 +1,7 @@
 import { h } from 'preact';
-import FormPatternsSingle from '../../../src/templates/pages/example/form-patterns/form-patterns-single';
-import FormPatternsSingleMulti from '../../../src/templates/pages/example/form-patterns/form-patterns-single-multi';
-import FormPatternsMultiple from '../../../src/templates/pages/example/form-patterns/form-patterns-multiple';
+import FormPatternsSingle from '../../../src/templates/pages/example/form-headings/form-headings-single';
+import FormPatternsSingleMulti from '../../../src/templates/pages/example/form-headings/form-headings-single-multi';
+import FormPatternsMultiple from '../../../src/templates/pages/example/form-headings/form-headings-multiple';
 import { render } from 'preact-render-to-string';
 
 describe('Form validation > Single > mark up', () => {

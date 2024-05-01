@@ -2,12 +2,12 @@ import { h } from 'preact';
 import ExampleLayout from '@layouts/example';
 import Code from './code';
 
-export const title = 'Form patterns - single question multi choice';
+export const title = 'Form page headings - multiple question example';
 
-const FormPatternSingleMulti = () => <ExampleLayout>
+const FormPatternMultiple = () => <ExampleLayout>
     <main class="soft-top">
         <Code />
     </main>
 </ExampleLayout>;
 
-export default FormPatternSingleMulti;
+export default FormPatternMultiple;
