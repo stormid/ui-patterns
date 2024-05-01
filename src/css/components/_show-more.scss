@@ -11,11 +11,31 @@
         margin-bottom: var(--baseline);
     }
 
+    &__btn, &__btn--hide {
+        line-height: 44px;      
+    }
+
     &__bd, &__btn--hide, &.is--active &__btn {
         display: none;
     }
 
-    &.is--active &__bd, &.is--active &__btn--hide {
+    &__bd {
+        opacity: 0;
+    }
+
+    &.is--active &__bd,  &.is--active &__btn--hide {
         display: block;
+        animation-name: fadein;
+        animation-duration: 0.75s;
+        animation-fill-mode: forwards; 
     }
 }
+
+@keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }

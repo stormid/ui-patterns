@@ -18,13 +18,7 @@ export const init = () => {
             focus: false, 
             local: true,
             callback: (tog) => {
-                if (tog.isOpen) {
-                    currentBlock.setAttribute('tabindex', '-1');
-                    currentBlock.focus();
-                } else {
-                    currentBlock.removeAttribute('tabindex', '-1');
-                    currentShowMore.focus();
-                }
+                if (!tog.isOpen) currentShowMore.focus();
             }
         });
     })
