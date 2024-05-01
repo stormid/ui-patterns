@@ -5,9 +5,20 @@ const SELECTORS = {
     MORE_BTN: '.js-show-more__btn',
 }
 
+export const showMoreFocus = (isOpen, currentBlock, currentShowMore) => {
+    if (isOpen) {
+        currentBlock.setAttribute('tabindex', '-1');
+        currentBlock.focus();
+    } else {
+        currentBlock.removeAttribute('tabindex', '-1');
+        currentShowMore.focus();
+    }
+}
+
 export const init = () => {
 
     const nodes = Array.from(document.querySelectorAll(SELECTORS.NODE));
+    const initialised = [];
 
     nodes.forEach((node) => {
         const currentBlock = node.querySelector(SELECTORS.BLOCK);
@@ -17,12 +28,12 @@ export const init = () => {
         const showMoreToggle = toggle(currentBlock, { 
             focus: false, 
             local: true,
-            callback: (tog) => {
-                if (!tog.isOpen) currentShowMore.focus();
-            }
+            callback: (tog) => showMoreFocus(tog.isOpen, currentBlock, currentShowMore)
         });
+        initialised.push(showMoreToggle);
     })
 
+    return initialised;
 };
 
 init();
