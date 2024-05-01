@@ -46,9 +46,11 @@ modal('.js-modal-search');
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">Search toggle buttons should have a clearly visible focus style which meets accessibility contrast requirements</li>
         <li class="list-item">Search toggle buttons should be appropriately labelled to describe their functionality.  If the design requires no visible text, a label should be added as an <pre class="pre--inline">aria-label</pre> attribute on the <pre class="pre--inline">&lt;button&gt;</pre> element</li>
+        <li class="list-item">Search toggle buttons should have an <pre class="pre--inline">aria-haspopup="dialog"</pre> attribute on the <pre class="pre--inline">&lt;button&gt;</pre> element</li>
         <li class="list-item">Search toggle buttons should be no less than 44px x 44px in size (unless any of the the allowed <a href="https://www.w3.org/TR/WCAG22/#target-size-enhanced">WCAG exceptions apply</a>)</li>
         <li class="list-item">The search form should be hidden visually, hidden from keyboard access, and not read by screen readers when the search is closed</li>
         <li class="list-item">The search form should be visible, available for keyboard access and read by screen readers when the search is opened</li>
+        <li class="list-item">The search modal should be an HTML element with a <pre class="pre--inline">role="dialog"</pre> attribute. This element must contain everything that's visible within the modal when it opens</li>
         <li class="list-item">Any form inputs within the search form should have a matching label describing its functionality. If the design does not use a visible label (for example, it may only ask for a placholder in the input itself) then the input should still be labelled either with an <pre class="pre--inline">aria-label</pre> attribute, or a visually hidden label</li>
         <li class="list-item">Any form inputs within the search form should have a clearly visible focus style which meets accessibility contrast requirements</li>
     </ul>

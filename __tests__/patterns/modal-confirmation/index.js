@@ -43,9 +43,9 @@ describe('Modal confirmation > mark up', () => {
         expect(toggleButton.textContent).toEqual('Delete');
     });
 
-    it('Modal should have a role of alertdialog', () => {
+    it('Modal should have a role of dialog', () => {
         const modal = document.querySelector('.modal');
-        expect(modal.getAttribute('role')).toEqual('alertdialog');
+        expect(modal.getAttribute('role')).toEqual('dialog');
     });
 
     it('Modal should be labelled with either an aria-label or an aria-labelledby that points to a visible title', () => {
