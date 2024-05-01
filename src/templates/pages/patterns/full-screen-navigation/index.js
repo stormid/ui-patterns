@@ -42,7 +42,7 @@ toggle('.js-full-screen-navigation');
         <li class="list-item">The open and close <pre class="pre--inline">&lt;button&gt;</pre> elements should have an <pre class="pre--inline">aria-controls</pre> attribute.  The value of this should match the ID of the element being shown/hidden.</li>
         <li class="list-item">The navigation should be contained within an HTML <pre class="pre--inline">&lt;nav&gt;</pre> element</li>
         <li class="list-item">Buttons should be contained within the <pre class="pre--inline">&lt;nav&gt;</pre> element</li>
-        <li class="list-item">The <pre class="pre--inline">&lt;nav&gt;</pre> element should <em>not</em> have a <pre class="pre--inline">role=dialog</pre> attribute</li>
+        <li class="list-item">The <pre class="pre--inline">&lt;div&gt;</pre> element containing the popup menu elements should <em>not</em> have a <pre class="pre--inline">role=menu</pre> attribute</li>
         <li class="list-item">The navigation should be labelled appropriately to describe its function (e.g. 'Primary Navigation').  This can be done by an HTML heading element being the first item in the navigation, or an <pre class="pre--inline">aria-label</pre> on the <pre class="pre--inline">&lt;nav&gt;</pre> element itself</li>
         <li class="list-item">The currently active navigation link should have <pre class="pre--inline">aria-current</pre> attribute with its value set to 'page'</li>
     </ul>
