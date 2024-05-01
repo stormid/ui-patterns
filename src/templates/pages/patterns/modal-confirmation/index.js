@@ -67,8 +67,7 @@ modal('.js-modal-confirmation);
     <h2 class="push-bottom--half plus-2 medium">References</h2>
     <ul class="list push-bottom--double">
         <li class="list-item"><a href="https://www.smashingmagazine.com/2018/01/friction-ux-design-tool/" rel="noopener nofollow">https://www.smashingmagazine.com/2018/01/friction-ux-design-tool/</a></li>
-        <li class="list-item"><a href="https://www.w3.org/TR/wai-aria-practices-1.1/#alertdialog" rel="noopener nofollow">https://www.w3.org/TR/wai-aria-practices-1.1/#alertdialog</a></li>
-        <li class="list-item"><a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/alertdialog.html" rel="noopener nofollow">https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/alertdialog.html</a></li>
+        <li class="list-item"><a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/" rel="noopener nofollow">https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/</a></li>
         <li class="list-item"><a href="https://webaim.org/standards/wcag/checklist" rel="noopener nofollow">https://webaim.org/standards/wcag/checklist</a></li>
     </ul>
 </PatternLayout>;
