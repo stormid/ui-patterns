@@ -102,23 +102,27 @@ init();
 
     <h3 class="push-bottom--half plus-1 medium">For validation in developer tools / web inspector</h3>
     <ul class="list list--tick push-bottom--double">
-        <li class="list-item">An HTML <pre class="pre--inline">&lt;button&gt;</pre> element is used to expand/collapse the section</li>
-        <li class="list-item">An <pre class="pre--inline">aria-expanded</pre> attribute should be present on the toggle <pre class="pre--inline">&lt;button&gt;</pre>.  The value of this should be 'true' when the section is expanded, and false when the section is collapsed.</li>
-        <li class="list-item">The toggle <pre class="pre--inline">&lt;button&gt;</pre> element should have an <pre class="pre--inline">aria-controls</pre> attribute.  The value of this should match the ID of the section being expanded/collapsed.</li>
+        <li class="list-item">An HTML <pre class="pre--inline">&lt;button&gt;</pre> element is used to expand/collapse the sections</li>
+        <li class="list-item">An <pre class="pre--inline">aria-expanded</pre> attribute should be present on all toggle <pre class="pre--inline">&lt;button&gt;</pre> elements, including View/Hide all.  The value of this should be 'true' when the section(s) are expanded, and false when a section is collapsed.</li>
+        <li class="list-item">Individual toggle <pre class="pre--inline">&lt;button&gt;</pre> elements should have an <pre class="pre--inline">aria-controls</pre> attribute.  The value of this should match the ID of the section being expanded/collapsed.  This does not apply to the View/hide all button.</li>
+        <li class="list-item">The View/Hide button have accessible text, either through an aria label or screenreader only content</li>
     </ul>
 
     <h3 class="push-bottom--half plus-1 medium">For visual validation</h3>
     <ul class="list list--tick push-bottom--double">
-        <li class="list-item">Section toggle buttons should have a clearly visible focus style which meets accessibility contrast requirements</li>
-        <li class="list-item">Section toggle buttons should be no less than 44px x 44px in size (unless any of the allowed <a href="https://www.w3.org/TR/WCAG22/#target-size-enhanced">WCAG exceptions apply</a>)</li>
+        <li class="list-item">All toggle buttons should have a clearly visible focus style which meets accessibility contrast requirements</li>
+        <li class="list-item">All toggle buttons should be no less than 44px x 44px in size (unless any of the allowed <a href="https://www.w3.org/TR/WCAG22/#target-size-enhanced">WCAG exceptions apply</a>)</li>
         <li class="list-item">Section toggle buttons should be appropriately labelled to describe their functionality. If the design requires no visible text, a label should be added as an <pre class="pre--inline">aria-label</pre> attribute on the <pre class="pre--inline">&lt;button&gt;</pre> element</li>
-        <li class="list-item">The collapsed section should be hidden visually, hidden from keyboard access, and not read by screen readers</li>
-        <li class="list-item">The expanded section should be visible, available for keyboard access, and read by screen readers</li>
+        <li class="list-item">Each collapsed section should be hidden visually, hidden from keyboard access, and not read by screen readers</li>
+        <li class="list-item">Each expanded section should be visible, available for keyboard access, and read by screen readers</li>
+        <li class="list-item">The text of the View/Hide button should update to show the current state of the accordion once used.</li>
     </ul>
 
     <h3 class="push-bottom--half plus-1 medium">For functional validation</h3>
     <ul class="list list--tick push-bottom--double">
-        <li class="list-item">Section toggle buttons should be available to be tabbed to and activated via keyboard</li>
+        <li class="list-item">Activating the view/hide all button should expand or collapse all of the associated sections.</li>
+        <li class="list-item">All toggle buttons should be available to be tabbed to and activated via keyboard</li>
+        <li class="list-item">If all section toggles are opened manually, the 'View all' button should change to a 'Hide all' message</li>
     </ul>
 
     <h2 class="push-bottom--half plus-2 medium">References</h2>
