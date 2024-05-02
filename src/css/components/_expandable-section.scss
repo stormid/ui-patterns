@@ -3,6 +3,9 @@
         border-top: 1px solid var(--light-grey-3);
     }
 }
+.expand-all .expandable-section:first-of-type {
+    border-top: 1px solid var(--light-grey-3);
+}
 .expandable-section__btn {
     position: relative;
     width: 100%;
