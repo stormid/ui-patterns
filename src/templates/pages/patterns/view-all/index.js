@@ -28,8 +28,53 @@ const ExpandableSectionViewAll = () => <PatternLayout>
     <h2 class="push-bottom--half plus-2 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
     <pre class="pre"><code class="code">{`import toggle from '@stormid/toggle';
+const SELECTORS = {
+    NODE: '.js-expand-all',
+    TOGGLES: '.js-expandable-section-all',
+    BTN: '.js-expandable-section__btn-all'
+}
+const CLASSES = {
+    OPEN: 'is--open'
+}
 
-toggle('.js-expandable-section, { focus: false, local: true });
+export const init = () => {
+
+    const nodes = Array.from(document.querySelectorAll(SELECTORS.NODE));
+    const initialised = []
+
+    nodes.forEach((node) => {
+        if(!node.querySelector(SELECTORS.TOGGLES)) return;
+        const state = {
+            allOpen: false,
+            toggles: toggle(Array.from(node.querySelectorAll(SELECTORS.TOGGLES)), { focus: false, local: true }),
+            btns: Array.from(node.querySelectorAll(SELECTORS.BTN))
+        }
+
+        if(state.toggles.length) {
+            state.btns.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    state.allOpen = !state.allOpen;
+                    btn.setAttribute('aria-expanded', state.allOpen);
+                    btn.classList.toggle(CLASSES.OPEN);
+                    state.toggles.forEach((tog) => {
+                        if(tog.getState().isOpen !== state.allOpen) tog.toggle();
+                    })
+                })
+            })
+        };  
+
+        initialised.push({
+            node: node,
+            getState: () => {
+                return state;
+            }
+        })
+    })
+
+    return initialised;
+};
+
+init();
 `}</code></pre>
     <h2 class="push-bottom plus-2 medium">Acceptance criteria</h2>
     <p class="push-bottom--double">The following is a list of example acceptance criteria to test against when using this pattern.  These critera should test that the specific markup requirements are met, and that the expanding section behaves visually and functionally as expected.</p>
