@@ -15,7 +15,7 @@ const ExpandableSectionViewAll = () => <PatternLayout>
     <p class="push-bottom--double">An example showing how to view or hide all sections of an accordion at the same time.</p>
     
     <h2 class="push-bottom--half plus-2 medium">Guidance</h2>
-    <p class="push-bottom--double">Use this pattern is very similar to the expandable section pattern, but with the addition of a button to show and hide all of the sections at once.  This is a useful shortcut for keyboard and screen reader users and follows a pattern currently in use in the <a href="https://design-system.service.gov.uk/components/accordion/" rel="nofollow noopener">GOV.UK design system</a>.</p>
+    <p class="push-bottom--double">This pattern is very similar to the expandable section pattern, but with the addition of a button to show and hide all of the sections at once.  This is a useful shortcut for keyboard and screen reader users and follows a pattern currently in use in the <a href="https://design-system.service.gov.uk/components/accordion/" rel="nofollow noopener">GOV.UK design system</a>.</p>
     
     <h2 class="push-bottom--half plus-2 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example expandable section" src={'/example/view-all'}></iframe>
