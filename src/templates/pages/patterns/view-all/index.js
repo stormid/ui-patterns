@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
-import Code from '../../example/expandable-section/code';
+import Code from '../../example/view-all/code';
 import { render } from 'preact-render-to-string';
 import PatternTitle from '@components/pattern-title';
 import DependencyTable from '@components/dependency-table';
