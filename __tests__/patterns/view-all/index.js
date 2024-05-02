@@ -45,7 +45,7 @@ describe('View all > mark up', () => {
 
 describe('View all > functionality', () => {
     let instance;
-    beforeAll(() => {
+    beforeEach(() => {
         document.body.innerHTML = render(<ViewAll />);
         [ instance ] = initViewAll();
     });
@@ -64,14 +64,26 @@ describe('View all > functionality', () => {
         const allClosed = toggles.reduce((acc, tog) => {
             return acc && !tog.getState().isOpen;
         }, true);
-        expect(allClosed).toBeTruthy;
+        expect(allClosed).toBeTruthy();
 
         btn.click();
 
         const allOpen = toggles.reduce((acc, tog) => {
             return acc && tog.getState().isOpen;
         }, true);
-        expect(allOpen).toBeTruthy;
+        expect(allOpen).toBeTruthy();
+    });
+
+    it('View all button should update when all toggles are manually opened', () => {
+        const [ btn ] = instance.getState().btns;
+        const toggles = instance.getState().toggles;
+        
+        toggles.forEach((toggle) => {
+            toggle.getState().toggles[0].click();
+        });
+        expect(btn.textContent).toMatch(/(Hide all)/i);
+        expect(btn.classList.contains('is--open')).toBeTruthy();
+        expect(btn.getAttribute('aria-expanded')).toEqual("true");
     });
 
 });
@@ -79,7 +91,7 @@ describe('View all > functionality', () => {
 
 describe('Expandable search > axe > ARIA', () => {
     let instance;
-    beforeAll(() => {
+    beforeEach(() => {
         document.body.innerHTML = render(<ViewAll />);
         [ instance ] = initViewAll();
     });
