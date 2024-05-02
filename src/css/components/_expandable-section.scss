@@ -48,3 +48,36 @@
         display: none;
     }
 }
+
+.expandable-section__btn-all {
+    margin-bottom: var(--baseline);
+    background: none;
+    font-size: var(--font-size-plus-1);
+    font-weight: 500;
+
+    &:before {
+        content: "";
+        display: inline-block;
+        position: relative;
+        top: 2px;
+        width: 19px;
+        margin-right: calc(var(--baseline)/2);
+        aspect-ratio: 1;
+        background: conic-gradient(from 90deg at 2px 2px, #0000 90deg,#000 0) calc(100% + 1px) calc(100% + 1px) / calc(50%  + 2px) calc(50%  + 2px);
+    }
+
+    &.is--open {
+        &:before {
+            top: 9px;
+            background: conic-gradient(from 90deg at 0px 3px, rgba(0, 0, 0, 0) 90deg, #000 0) calc(100% + 1px) calc(100% + 1px)
+        }
+    }
+}
+
+.is--open .expandable-section__btn-all-view, .expandable-section__btn-all-hide {
+    display: none;
+}
+
+.is--open .expandable-section__btn-all-hide {
+    display: inline;
+}
