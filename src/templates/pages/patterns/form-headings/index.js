@@ -42,8 +42,8 @@ const FormHeadings = () => <PatternLayout>
     <h3 class="push-bottom--half plus-1 medium">For validation in developer tools / web inspector</h3>
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">Only one <pre class="pre--inline">h1</pre> element should exist per page</li>
-        <li class="list-item">For form pages asking a single question with multiple choices, the <pre class="pre--inline">h1</pre> should be inside the <pre class="pre--inline">legend</pre> tag.</li>
         <li class="list-item">For form pages asking a single question with a single input, the <pre class="pre--inline">h1</pre> tag should contain the appropriate <pre class="pre--inline">label</pre>.</li>
+        <li class="list-item">For form pages asking a single question with multiple choices, the <pre class="pre--inline">h1</pre> should be inside the <pre class="pre--inline">legend</pre> tag.</li>
         <li class="list-item">For form pages asking multiple questions, the <pre class="pre--inline">h1</pre> tag should be above all form inputs and summarise the entire form</li>
     </ul>
 
