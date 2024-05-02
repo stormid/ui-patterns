@@ -13,7 +13,7 @@ export const status = STATUS.DEVELOPMENT;
 
 const FormHeadings = () => <PatternLayout>
     <PatternTitle status={status}>Form page headings</PatternTitle>
-    <p class="push-bottom--double">Titling pages containing a single form</p>
+    <p class="push-bottom--double">Titling pages that contain a single form</p>
     
     <h2 class="push-bottom--half plus-2 medium">Guidance</h2>
     <p class="push-bottom">In transactional services it is common to have a page containing a single form as the main action. This pattern describes how to mark-up the page heading (h1) depending whether the page contains a form with a single question, a form with single question or fieldset with multiple answers, or a form with multiple questions.</p>
