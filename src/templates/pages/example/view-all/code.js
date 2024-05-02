@@ -3,8 +3,8 @@ import { h, Fragment } from 'preact';
 const Code = () => <Fragment>
     <div class="expand-all js-expand-all">
         <button type="button" class="expandable-section__btn-all js-expandable-section__btn-all" aria-expanded="false">
-            <span class="expandable-section__btn-all-view">View all</span>
-            <span class="expandable-section__btn-all-hide">Hide all</span>
+            <span class="expandable-section__btn-all-view">View all <span class="visually-hidden">sections about Lorem Ipsum</span></span>
+            <span class="expandable-section__btn-all-hide">Hide all <span class="visually-hidden">sections about Lorem Ipsum</span></span>
         </button>
         <div class="expandable-section">
             <h2 class="expandable-section__heading">

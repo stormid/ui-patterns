@@ -10,7 +10,7 @@ export const title = 'Expandable section - with view/hide all';
 
 export const status = STATUS.DEVELOPMENT;
 
-const ExpandableSection = () => <PatternLayout>
+const ExpandableSectionViewAll = () => <PatternLayout>
     <PatternTitle status={status}>Expandable section with view/hide all</PatternTitle>
     <p class="push-bottom--double">An example showing how to view or hide all sections of an accordion at the same time.</p>
     
@@ -67,4 +67,4 @@ toggle('.js-expandable-section, { focus: false, local: true });
     </ul>
 </PatternLayout>;
 
-export default ExpandableSection;
+export default ExpandableSectionViewAll;
