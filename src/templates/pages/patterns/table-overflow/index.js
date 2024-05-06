@@ -37,21 +37,26 @@ const Tables = () => <PatternLayout>
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">There should be an HTML <pre class="pre--inline">div</pre> element with a container class as the immediate parent of the table</li>
         <li class="list-item">The container <pre class="pre--inline">div</pre> element should have a <pre class="pre--inline">tabindex="0"</pre> attribute to allow for keyboard access</li>
-        <li class="list-item">The table should contain a <pre class="pre--inline">thead</pre> element which wraps a row containing all <pre class="pre--inline">th</pre> tags</li>
-        <li class="list-item">Each <pre class="pre--inline">th</pre> tag should have an appropriate scope attribute</li>
-        <li class="list-item">The table should contain a <pre class="pre--inline">tbody</pre> element which wraps all subsequent rows</li>
-        <li class="list-item">The table should contain a <pre class="pre--inline">caption</pre> element to summarise the table data</li>
+        <li class="list-item">The container <pre class="pre--inline">div</pre> element should have an <pre class="pre--inline">aria-describedby</pre> attribute which matches the id of the table caption</li>
+        <li class="list-item">The table should contain a <pre class="pre--inline">&lt;thead&gt;</pre> element which wraps a row containing all <pre class="pre--inline">&lt;th&gt;</pre> tags</li>
+        <li class="list-item">Each <pre class="pre--inline">&lt;th&gt;</pre> tag should have an appropriate scope attribute</li>
+        <li class="list-item">The table should contain a <pre class="pre--inline">&lt;tbody&gt;</pre> element which wraps all subsequent rows</li>
+        <li class="list-item">The table should contain a <pre class="pre--inline">&lt;caption&gt;</pre> element to summarise the table data</li>
+        <li class="list-item">The <pre class="pre--inline">&lt;caption&gt;</pre> element should have an id which matches the <pre class="pre--inline">aria-describedby</pre> attribute on the scrollable container</li>
     </ul>
 
     <h3 class="push-bottom--half plus-1 medium">For visual validation</h3>
     <ul class="list list--tick push-bottom--double">
-        <li class="list-item">At mobile breakpoints, the table rows and cells should convert to vertically stacked cards</li>
-        <li class="list-item">Appropriate headings should be visible above each data element</li>
+        <li class="list-item">At mobile breakpoints the table cells should continue to have a comfortable amount of whitespace</li>
+        <li class="list-item">At mobile breakpoints the table container should have a visual indication that the area is scrollable, such as a shadow, scrollbar or icon</li>
     </ul>
 
     <h2 class="push-bottom--half plus-1 medium">References</h2>
     <ul class="list push-bottom--double">
-        <li class="list-item"></li>
+        <li class="list-item"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table" rel="noopener nofollow">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table</a></li>
+        <li class="list-item"><a href="https://www.w3.org/WAI/tutorials/tables/" rel="noopener nofollow">https://www.w3.org/WAI/tutorials/tables/</a></li>
+        <li class="list-item"><a href="https://www.w3.org/WAI/standards-guidelines/act/rules/0ssw9k/" rel="noopener nofollow">https://www.w3.org/WAI/standards-guidelines/act/rules/0ssw9k/</a></li>
+        <li class="list-item"><a href="https://design-system.w3.org/styles/tables.html#responsive-tables" rel="noopener nofollow">https://design-system.w3.org/styles/tables.html#responsive-tables</a></li>
     </ul>
 </PatternLayout>;
 

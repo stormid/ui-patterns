@@ -37,17 +37,19 @@ const Tables = () => <PatternLayout>
 
     <h3 class="push-bottom--half plus-1 medium">For visual validation</h3>
     <ul class="list list--tick push-bottom--double">
-        <li class="list-item"></li>
+        <li class="list-item">At mobile breakpoints, the table rows and cells should convert to vertically stacked cards</li>
+        <li class="list-item">Appropriate headings should be visible above each data element</li>
     </ul>
 
     <h3 class="push-bottom--half plus-1 medium">For functional validation</h3>
     <ul class="list list--tick push-bottom--double">
-        <li class="list-item"></li>
+        <li class="list-item">When using a screenreader, the table should not be surfaced any differently between layouts.  The markup should still be available to all table based navigation methods and shortcuts</li>
     </ul>
 
     <h2 class="push-bottom--half plus-1 medium">References</h2>
     <ul class="list push-bottom--double">
-        <li class="list-item"></li>
+        <li class="list-item"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table" rel="noopener nofollow">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table</a></li>
+        <li class="list-item"><a href="https://www.w3.org/WAI/tutorials/tables/" rel="noopener nofollow">https://www.w3.org/WAI/tutorials/tables/</a></li>
     </ul>
 </PatternLayout>;
 

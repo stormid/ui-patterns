@@ -1,9 +1,9 @@
 import { h } from 'preact';
 import Th from './th';
 
-const Table =  ({ className, caption, head, rows = [], emptyMessage = 'No data available', tabindex }) => <div class={`table__container${className ? ` ${className}` : ''}`} tabindex={tabindex}>
+const Table =  ({ className, caption, head, rows = [], emptyMessage = 'No data available', tabindex, id }) => <div class={`table__container${className ? ` ${className}` : ''}`} tabindex={tabindex} aria-labelledby={id}>
     <table class={`table${caption ? ` table--has-caption` : ``}`}>
-        {caption && <caption class="table__caption">{caption}</caption>}
+        {caption && <caption id={id} class="table__caption">{caption}</caption>}
         <thead class="table__head">
             <tr class="table__row">
                 {
