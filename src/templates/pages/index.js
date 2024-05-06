@@ -69,7 +69,7 @@ const HomePage = () => (
 				<a href="https://stormid.sharepoint.com/sites/Test/SitePages/Browsers-and-devices.aspx">Storm standard browser list</a>.{" "}
 			</p>
 			<p>
-				An accessibility review was carried out against Windows Desktop NVDA in Chrome and Firefox, VoiceOver on iOS and Android Talkback in December 2022.
+				Patterns marked as 'release' have been accessibility tested against Windows Desktop NVDA in Chrome and Firefox, VoiceOver on iOS and Android Talkback in December 2022.
 			</p>
 		</div>
 	</DefaultLayout>
