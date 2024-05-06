@@ -11,12 +11,13 @@ export const status = STATUS.DEVELOPMENT;
 
 const Tables = () => <PatternLayout>
     <PatternTitle status={status}>Table with scrolling overflow</PatternTitle>
-    <p class="push-bottom--double"></p>
+    <p class="push-bottom--double">An example of markup and styling for a scrollable table wrapper</p>
     
     <h2 class="push-bottom--half plus-2 medium">Guidance</h2>
-    <p class="push-bottom"></p>
-    <p class="push-bottom--double"></p>
-
+    <p class="push-bottom">Tabular data can be difficult to display at smaller breakpoints.  The reduced width of mobile screens does not allow space for table rows to stretch out and data can end up looking very compressed, or cutting off on the right of the screen.</p>
+    <p class="push-bottom">One option to handle this is to wrap the table in a container. This container is styled to scroll horizontally when it needs to, while keeping the rest of the page contained within the screen width.</p>
+    <p class="push-bottom">This pattern is best used when the tabular data needs to be scanned by the user in the context of the other rows around it.  It allows for easier visual comparison between table entries.</p>
+    <p class="push-bottom--double">If this is not necessary, you may want to consider the alterntative <a href="/patterns/table-responsive">responsive table</a> pattern.</p>
     
     <h2 class="push-bottom--half plus-2 medium">Example with scrolling overflow</h2>
     <iframe style="--height: 375px" class="example" title="Example table with scrolling overflow" src={'/example/tables/overflow'}></iframe>

@@ -38,7 +38,7 @@ const PATTERNS = [
 	// { title: 'Modal gallery', url: '/patterns/modal-gallery' },
 	{ title: "Modal search", url: "/patterns/modal-search", status: modalSearchStatus },
 	{ title: "Table with scrolling overflow", url: "/patterns/table-overflow", status: tablesOverflowStatus },
-	{ title: "Table with responsive layout", url: "/patterns/table-responsive", status: tablesResponsiveStatus },
+	{ title: "Table with responsive card layout", url: "/patterns/table-responsive", status: tablesResponsiveStatus },
 	{ title: "Table with linked rows", url: "/patterns/table-row-links", status: tablesRowLinksStatus },
 	{ title: "Tabs", url: "/patterns/tabs", status: tabsStatus },
 ];

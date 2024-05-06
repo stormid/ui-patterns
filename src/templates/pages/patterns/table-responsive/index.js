@@ -10,12 +10,14 @@ export const title = 'Table patterns';
 export const status = STATUS.DEVELOPMENT;
 
 const Tables = () => <PatternLayout>
-    <PatternTitle status={status}>Table with responsive layout</PatternTitle>
-    <p class="push-bottom--double"></p>
+    <PatternTitle status={status}>Table with responsive card layout</PatternTitle>
+    <p class="push-bottom--double">An example of how to convert table rows to data cards for smaller devices</p>
     
     <h2 class="push-bottom--half plus-2 medium">Guidance</h2>
-    <p class="push-bottom"></p>
-    <p class="push-bottom--double"></p>
+    <p class="push-bottom">Tabular data can be difficult to display at smaller breakpoints.  The reduced width of mobile screens does not allow space for table rows to stretch out and data can end up looking very compressed, or cutting off on the right of the screen.</p>
+    <p class="push-bottom">One option to handle this is to convert the table rows to data cards for smaller devices.  When the correct breakpoint is hit, each table row is displayed as a card instead with the matching table headers being placed appropriately using the CSS 'content' property.</p>
+    <p class="push-bottom">This pattern is good for displaying data without the user having to scroll horizontally - something that isn't naturally instinctive for a user to do.  It also allows for more of the data entry to be visible on screen at one time, as the vertical space is almost always much larger on a handheld device.</p>
+    <p class="push-bottom--double">This pattern only works in a use case where the user does not need to scan a table and make direct visual comparison between the rows. If this is a requirement, you should consider the alterntative <a href="/patterns/table-overflow">overflow table</a> pattern.</p>
 
     <h2 class="push-bottom--half plus-2 medium">Example responsive table</h2>
     <iframe style="--height: 375px" class="example" title="Example responsive table" src={'/example/tables/responsive'}></iframe>
