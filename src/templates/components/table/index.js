@@ -1,7 +1,7 @@
 import { h } from 'preact';
 import Th from './th';
 
-const Table =  ({ className, caption, head, rows = [], emptyMessage = 'No data available' }) => <div class={`table__container${className ? ` ${className}` : ''}`}>
+const Table =  ({ className, caption, head, rows = [], emptyMessage = 'No data available', tabindex }) => <div class={`table__container${className ? ` ${className}` : ''}`} tabindex={tabindex}>
     <table class={`table${caption ? ` table--has-caption` : ``}`}>
         {caption && <caption class="table__caption">{caption}</caption>}
         <thead class="table__head">

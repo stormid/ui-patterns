@@ -1,54 +1,68 @@
 .table__container {
     width: 100%;
-    margin-bottom:calc(var(--baseline));
-    overflow-y: hidden;/* HACK/FIX FOR SAFARI, CANNOT POSITION RELATIVE A TABLE ROW*/
+    margin-bottom: calc(var(--baseline));
+    overflow-y: hidden;
+    /* HACK/FIX FOR SAFARI, CANNOT POSITION RELATIVE A TABLE ROW*/
     overflow-x: auto;
 }
 
 .table__container--overflow {
     background:
 
-    linear-gradient(
-      white 10%,
-      rgba(255, 255, 255, 0)
-    ) left top,
+        linear-gradient(white 10%,
+            rgba(255, 255, 255, 0)) left top,
 
-    linear-gradient(
-    rgba(255, 255, 255, 0) 50%,
-      white,
-    ) left bottom,
+        linear-gradient(rgba(255, 255, 255, 0) 50%,
+            white,
+        ) left bottom,
 
-    linear-gradient(
-      90deg,
-      white 30%,
-      rgba(255, 255, 255, 0)
-    ) left top,
-    
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0), 
-      white 70%
-    ) right center,
-    
-    linear-gradient(
-      270deg,
-      rgba(0, 0, 0, 0),
-      rgba(0, 0, 0, 0.2)
-    ) left center,
-    
-    linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0),
-      rgba(0, 0, 0, 0.2)
-    ) right center;
-  
+        linear-gradient(90deg,
+            white 30%,
+            rgba(255, 255, 255, 0)) left top,
+
+        linear-gradient(90deg,
+            rgba(255, 255, 255, 0),
+            white 70%) right center,
+
+        linear-gradient(270deg,
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.2)) left center,
+
+        linear-gradient(90deg,
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.2)) right center;
+
     background-repeat: no-repeat;
     background-size: 100% 40px, 100% 100px, 40px 100%, 40px 100%, 14px 100%, 14px 100%;
     background-attachment: local, local, local, local, scroll, scroll;
 }
 
+.table__container--overflow-sticky {
+    background:
+
+        linear-gradient(white 10%,
+            rgba(255, 255, 255, 0)) left top,
+
+        linear-gradient(rgba(255, 255, 255, 0) 50%,
+            white,
+        ) left bottom,
+
+        linear-gradient(90deg,
+            rgba(255, 255, 255, 0),
+            white 70%) right center,
+
+        linear-gradient(90deg,
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.2)) right center;
+
+    background-repeat: no-repeat;
+    background-size: 100% 40px, 100% 100px, 40px 100%, 14px 100%;
+    background-attachment: local, local, local, scroll;
+}
+
+
 .table {
-    width:100%;
+    width: 100%;
     position: relative;
     padding-bottom: 2rem;
 }
@@ -60,19 +74,20 @@
 .table--has-caption {
     margin-bottom: calc(var(--baseline)*3.5);
 }
-    
+
 .table__caption {
     text-align: right;
     position: absolute;
-    bottom:calc(var(--baseline)*-2);
-    width:100%
+    bottom: calc(var(--baseline)*-2);
+    width: 100%
 }
 
 .table__container--flush {
     margin-bottom: 0;
-        .table {
-            padding-bottom: 0;
-        }
+
+    .table {
+        padding-bottom: 0;
+    }
 }
 
 .table__row {
@@ -83,29 +98,31 @@
 
 .table__row--link {
     position: relative;
-    transform: scale(1,1);/* HACK/FIX FOR SAFARI, CANNOT POSITION RELATIVE A TABLE ROW*/
+    transform: scale(1, 1);
+    /* HACK/FIX FOR SAFARI, CANNOT POSITION RELATIVE A TABLE ROW*/
 
-        &:hover {
-            background-color: var(--light-grey-1);
-            transition: background-color 60ms ease;
-        }
-        .table__td:nth-last-child(2) {
-            position: relative;
-            padding-right: 25px;
+    &:hover {
+        background-color: var(--light-grey-1);
+        transition: background-color 60ms ease;
+    }
 
-            &:after {
-                position: absolute;
-                right: calc(var(--gutter)/2);
-                top: 50%;
-                display: inline-block;
-                content: '';
-                width: 10px;
-                height: 10px;
-                border-right: 1px solid currentColor;
-                border-top: 1px solid currentColor;
-                transform: translateY(-50%) rotate(45deg);
-            }
+    .table__td:nth-last-child(2) {
+        position: relative;
+        padding-right: 25px;
+
+        &:after {
+            position: absolute;
+            right: calc(var(--gutter)/2);
+            top: 50%;
+            display: inline-block;
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-right: 1px solid currentColor;
+            border-top: 1px solid currentColor;
+            transform: translateY(-50%) rotate(45deg);
         }
+    }
 }
 
 .table__th {
@@ -147,15 +164,29 @@
 .table__td--link,
 .table__link {
     position: fixed;
-    left:0;
-    top:0;
-    right:0;
-    bottom:0;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
     border-bottom: 0 none;
 }
 
+.table__container--overflow-sticky {
 
-@media(max-width: map-get($mq-breakpoints,  xs)){
+    .table__td:first-child,
+    .table__th:first-child {
+        position: sticky;
+        left: 0;
+        background: linear-gradient(90deg, #d1d1d1 1px, white 1px);
+        background-color: white;
+        background-position: 100% 0;
+        background-repeat: repeat-y;
+        background-size: 1px;
+    }
+}
+
+
+@media(max-width: map-get($mq-breakpoints, xs)) {
 
     .table__container:not(.table__container--overflow) {
         display: block;
@@ -167,55 +198,59 @@
         .table__td {
             display: block;
         }
+
         .table__th {
             border: 0 none;
         }
-    
+
         .table__row {
             position: relative;
-                &:last-child:after {
-                    content: '';
-                    display: block;
-                    margin-bottom: calc(var(--baseline)/2);
-                    border-bottom: 1px solid var(--light-grey-2);
-                    width:100%;
-                    position: absolute;
-                    bottom: calc(var(--baseline)*-.5);
-                }
+
+            &:last-child:after {
+                content: '';
+                display: block;
+                margin-bottom: calc(var(--baseline)/2);
+                border-bottom: 1px solid var(--light-grey-2);
+                width: 100%;
+                position: absolute;
+                bottom: calc(var(--baseline)*-.5);
+            }
         }
-        
+
         .table__th {
             display: none;
         }
-        
+
         .table__td {
             padding: 0;
             border-bottom: 0 none;
-    
+
             &.align-right {
                 text-align: right;
             }
-    
+
             &:first-child {
                 padding-top: calc(var(--baseline)/2);
             }
-    
+
             &:last-child {
                 margin-bottom: 0;
                 padding-bottom: calc(var(--baseline)/2);
                 border-bottom: 1px solid var(--light-grey-2);
             }
         }
+
         .table__row--link {
             .table__td:nth-last-child(2) {
                 padding-bottom: calc(var(--baseline)/2);
             }
         }
+
         .table__td--link:last-child {
             border-bottom: 0 none;
         }
-    
-        
+
+
         [data-th]:before {
             font-size: var(--font-size-minus-2);
             content: attr(data-th);
@@ -223,11 +258,11 @@
             display: block;
             color: var(--dark-grey-1);
         }
-    
+
         .table__caption {
             text-align: left;
         }
     }
 
-    
+
 }

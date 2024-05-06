@@ -29,7 +29,10 @@ const Tables = () => <PatternLayout>
 
     <h3 class="push-bottom--half plus-1 medium">For validation in developer tools / web inspector</h3>
     <ul class="list list--tick push-bottom--double">
-        <li class="list-item"></li>
+        <li class="list-item">The table should contain a <pre class="pre--inline">thead</pre> element which wraps a row containing all <pre class="pre--inline">th</pre> tags</li>
+        <li class="list-item">Each <pre class="pre--inline">th</pre> tag should have an appropriate scope attribute</li>
+        <li class="list-item">The table should contain a <pre class="pre--inline">tbody</pre> element which wraps all subsequent rows</li>
+        <li class="list-item">The table should contain a <pre class="pre--inline">caption</pre> element to summarise the table data</li>
     </ul>
 
     <h3 class="push-bottom--half plus-1 medium">For visual validation</h3>
