@@ -1,97 +1,233 @@
 .table__container {
-    padding-top: calc(var(--baseline)/2);
+    width: 100%;
+    margin-bottom:calc(var(--baseline));
+    overflow-y: hidden;/* HACK/FIX FOR SAFARI, CANNOT POSITION RELATIVE A TABLE ROW*/
+    overflow-x: auto;
 }
+
+.table__container--overflow {
+    background:
+
+    linear-gradient(
+      white 10%,
+      rgba(255, 255, 255, 0)
+    ) left top,
+
+    linear-gradient(
+    rgba(255, 255, 255, 0) 50%,
+      white,
+    ) left bottom,
+
+    linear-gradient(
+      90deg,
+      white 30%,
+      rgba(255, 255, 255, 0)
+    ) left top,
+    
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0), 
+      white 70%
+    ) right center,
+    
+    linear-gradient(
+      270deg,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.2)
+    ) left center,
+    
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.2)
+    ) right center;
+  
+    background-repeat: no-repeat;
+    background-size: 100% 40px, 100% 100px, 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+    background-attachment: local, local, local, local, scroll, scroll;
+}
+
 .table {
     width:100%;
-    margin: 0 auto;
-}
-.tr {
     position: relative;
-    background-color: white;
-        &:hover {
-            background-color: transparent;
-            transition: background-color 120ms ease;
+    padding-bottom: 2rem;
+}
+
+.table__container--overflow .table {
+    table-layout: fixed;
+}
+
+.table--has-caption {
+    margin-bottom: calc(var(--baseline)*3.5);
+}
+    
+.table__caption {
+    text-align: right;
+    position: absolute;
+    bottom:calc(var(--baseline)*-2);
+    width:100%
+}
+
+.table__container--flush {
+    margin-bottom: 0;
+        .table {
+            padding-bottom: 0;
         }
 }
-.th {
-    font-weight: normal;
-    text-align: left;
-    font-size: var(--font-size-minus-1);
-    padding: calc(var(--gutter)/2) calc(var(--gutter)/2);
-    margin-bottom: calc(var(--baseline)/4);
-    border-bottom: 8px solid rgba(0,0,0, 0);
-}
-.td {
-    color: currentColor;
-    padding: calc(var(--gutter)/2) calc(var(--gutter)/2);
-    border-bottom: 8px solid rgba(0,0,0, 0);
-}
-.th--tight {
-    padding: calc(var(--gutter)/8) 0;
-    vertical-align: middle;
-}
-.td--tight {
-    padding: calc(var(--gutter)/8) 0;
-    border-top: 1px solid rgba(0,0,0, .1);
-    border-bottom: 0 none;
-        a {
-            text-decoration: underline;
-                &:hover,
-                &:focus {
-                    text-decoration: none;
-                }
-        }
-}
-.td--status {
-    text-align: right;
-    padding-right: 50px;
-}
-.th--status {
-    text-align: right;
-    padding-right: 72px;
-}
-.td__link {
-    text-decoration: none;
-    &:focus,
-    &:focus-visible {
-        outline: 0 none;
-        box-shadow: none;
-    }
-    &:before {
-        content: '';
-        position: absolute;
-        top: 4px;
-        right: 0;
-        bottom: 4px;
-        left: 0;
-    }
-    &:after {
-        position: absolute;
-        right: calc(var(--gutter)/1.5);
-        top:52%;
-        display: inline-block;
-        content: '';
-        width: 10px;
-        height: 10px;
-        border-right: 1px solid currentColor;
-        border-top: 1px solid currentColor;
-        transform: translateY(-50%) rotate(45deg);
-    }
-   
-    &:focus:before {
-        outline: 2px solid var(--highlight)
+
+.table__row {
+    &:last-child .table__td {
+        border-bottom: 0 none;
     }
 }
 
-//Dirty safari hack since it doesn't support relative positioning on tr
-//https://stackoverflow.com/questions/16348489/is-there-a-css-hack-to-affect-safari-only-not-chrome
-@media not all and (min-resolution:.001dpcm)
-{ @supports (-webkit-appearance:none) {
-    .td__link {
-        text-decoration: underline;
+.table__row--link {
+    position: relative;
+    transform: scale(1,1);/* HACK/FIX FOR SAFARI, CANNOT POSITION RELATIVE A TABLE ROW*/
+
+        &:hover {
+            background-color: var(--light-grey-1);
+            transition: background-color 60ms ease;
+        }
+        .table__td:nth-last-child(2) {
+            position: relative;
+            padding-right: 25px;
+
+            &:after {
+                position: absolute;
+                right: calc(var(--gutter)/2);
+                top: 50%;
+                display: inline-block;
+                content: '';
+                width: 10px;
+                height: 10px;
+                border-right: 1px solid currentColor;
+                border-top: 1px solid currentColor;
+                transform: translateY(-50%) rotate(45deg);
+            }
+        }
+}
+
+.table__th {
+    font-size: var(--font-size-minus-1);
+    display: table-cell;
+    border-bottom: 1px solid var(--light-grey-2);
+    padding: calc(var(--baseline)/6) var(--gutter) calc(var(--baseline)/2) var(--gutter);
+    text-align: left;
+    font-weight: var(--regular-weight);
+    color: var(--dark-grey-1);
+
+    &:first-child {
+        padding-left: 0;
     }
-    .td__link:before,
-    .td__link:after  {
-        display: none;
+
+    &.align-right {
+        text-align: right;
     }
-}}
+}
+
+.table__container--overflow .table__th {
+    width: 150px;
+}
+
+.table__th--hidden {
+    @include visuallyhidden;
+}
+
+.table__td {
+    padding: var(--baseline) var(--gutter) var(--baseline) var(--gutter);
+    border-bottom: 1px solid var(--light-grey-2);
+    vertical-align: top;
+
+    &:first-child {
+        padding-left: 0;
+    }
+}
+
+.table__td--link,
+.table__link {
+    position: fixed;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    border-bottom: 0 none;
+}
+
+
+@media(max-width: map-get($mq-breakpoints,  xs)){
+
+    .table__container:not(.table__container--overflow) {
+        display: block;
+
+        .table__head,
+        .table__header,
+        .table__bd,
+        .table__row,
+        .table__td {
+            display: block;
+        }
+        .table__th {
+            border: 0 none;
+        }
+    
+        .table__row {
+            position: relative;
+                &:last-child:after {
+                    content: '';
+                    display: block;
+                    margin-bottom: calc(var(--baseline)/2);
+                    border-bottom: 1px solid var(--light-grey-2);
+                    width:100%;
+                    position: absolute;
+                    bottom: calc(var(--baseline)*-.5);
+                }
+        }
+        
+        .table__th {
+            display: none;
+        }
+        
+        .table__td {
+            padding: 0;
+            border-bottom: 0 none;
+    
+            &.align-right {
+                text-align: right;
+            }
+    
+            &:first-child {
+                padding-top: calc(var(--baseline)/2);
+            }
+    
+            &:last-child {
+                margin-bottom: 0;
+                padding-bottom: calc(var(--baseline)/2);
+                border-bottom: 1px solid var(--light-grey-2);
+            }
+        }
+        .table__row--link {
+            .table__td:nth-last-child(2) {
+                padding-bottom: calc(var(--baseline)/2);
+            }
+        }
+        .table__td--link:last-child {
+            border-bottom: 0 none;
+        }
+    
+        
+        [data-th]:before {
+            font-size: var(--font-size-minus-2);
+            content: attr(data-th);
+            padding-top: calc(var(--baseline)/2);
+            display: block;
+            color: var(--dark-grey-1);
+        }
+    
+        .table__caption {
+            text-align: left;
+        }
+    }
+
+    
+}
