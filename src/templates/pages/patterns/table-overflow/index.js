@@ -15,10 +15,10 @@ const Tables = () => <PatternLayout>
     <p class="push-bottom--double">An example of markup and styling for a scrollable table wrapper</p>
     
     <h2 class="push-bottom--half plus-2 medium">Guidance</h2>
-    <p class="push-bottom">Tabular data can be difficult to display at smaller breakpoints.  The reduced width of mobile screens does not allow space for table rows to stretch out and data can end up looking very compressed, or cutting off on the right of the screen.</p>
+    <p class="push-bottom">Tabular data can be difficult to display at smaller breakpoints.  The reduced width of mobile screens does not allow space for table rows to stretch out and data can end up looking very compressed, or cutting off to the right of the screen.</p>
     <p class="push-bottom">One option to handle this is to wrap the table in a container. This container is styled to scroll horizontally when it needs to, while keeping the rest of the page contained within the screen width.</p>
-    <p class="push-bottom">This pattern is best used when the tabular data needs to be scanned by the user in the context of the other rows around it.  It allows for easier visual comparison between table entries.</p>
-    <p class="push-bottom--double">If this is not necessary, you may want to consider the alterntative <a href="/patterns/table-responsive">responsive table</a> pattern.</p>
+    <p class="push-bottom">This pattern is best used when the tabular data needs to be scanned by the user in the context of the other rows around it.  It allows for easier visual comparison between table row entries.</p>
+    <p class="push-bottom--double">If this is not necessary, you may wish to consider the alterntative <a href="/patterns/table-responsive">responsive card table</a> pattern.</p>
     
     <h2 class="push-bottom--half plus-2 medium">Example with scrolling overflow</h2>
     <iframe style="--height: 500px" class="example" title="Example table with scrolling overflow" src={'/example/tables/overflow'}></iframe>
@@ -35,20 +35,20 @@ const Tables = () => <PatternLayout>
 
     <h3 class="push-bottom--half plus-1 medium">For validation in developer tools / web inspector</h3>
     <ul class="list list--tick push-bottom--double">
-        <li class="list-item">There should be an HTML <pre class="pre--inline">div</pre> element with a container class as the immediate parent of the table</li>
-        <li class="list-item">The container <pre class="pre--inline">div</pre> element should have a <pre class="pre--inline">tabindex="0"</pre> attribute to allow for keyboard access</li>
-        <li class="list-item">The container <pre class="pre--inline">div</pre> element should have an <pre class="pre--inline">aria-describedby</pre> attribute which matches the id of the table caption</li>
-        <li class="list-item">The table should contain a <pre class="pre--inline">&lt;thead&gt;</pre> element which wraps a row containing all <pre class="pre--inline">&lt;th&gt;</pre> tags</li>
+        <li class="list-item">There should be an HTML <pre class="pre--inline">&lt;div&gt;</pre> element with a container class as the immediate parent of the table</li>
+        <li class="list-item">The container <pre class="pre--inline">&lt;div&gt;</pre> element should have a <pre class="pre--inline">tabindex="0"</pre> attribute to allow for keyboard access</li>
+        <li class="list-item">The container <pre class="pre--inline">div</pre> element should have an <pre class="pre--inline">aria-labelledby</pre> attribute which matches the id of the table caption</li>
+        <li class="list-item">The table should contain a <pre class="pre--inline">&lt;thead&gt;</pre> element which wraps a row containing <pre class="pre--inline">&lt;th&gt;</pre> tags</li>
         <li class="list-item">Each <pre class="pre--inline">&lt;th&gt;</pre> tag should have an appropriate scope attribute</li>
         <li class="list-item">The table should contain a <pre class="pre--inline">&lt;tbody&gt;</pre> element which wraps all subsequent rows</li>
-        <li class="list-item">The table should contain a <pre class="pre--inline">&lt;caption&gt;</pre> element to summarise the table data</li>
-        <li class="list-item">The <pre class="pre--inline">&lt;caption&gt;</pre> element should have an id which matches the <pre class="pre--inline">aria-describedby</pre> attribute on the scrollable container</li>
+        <li class="list-item">The table should contain a <pre class="pre--inline">&lt;caption&gt;</pre> element to summarise the and title the table</li>
+        <li class="list-item">The <pre class="pre--inline">&lt;caption&gt;</pre> element should have an id which matches the <pre class="pre--inline">aria-labelledby</pre> attribute on the scrollable container</li>
     </ul>
 
     <h3 class="push-bottom--half plus-1 medium">For visual validation</h3>
     <ul class="list list--tick push-bottom--double">
-        <li class="list-item">At mobile breakpoints the table cells should continue to have a comfortable amount of whitespace</li>
-        <li class="list-item">At mobile breakpoints the table container should have a visual indication that the area is scrollable, such as a shadow, scrollbar or icon</li>
+        <li class="list-item">At mobile breakpoints the table cells should continue to have a comfortable amount of whitespace and not become too compressed</li>
+        <li class="list-item">At mobile breakpoints the table container should have some visual indication that the area is scrollable, such as a scrollbar, shadow or icon</li>
     </ul>
 
     <h2 class="push-bottom--half plus-1 medium">References</h2>
