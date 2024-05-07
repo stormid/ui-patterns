@@ -3,6 +3,7 @@ import ExampleLayout from '@layouts/example';
 import Code from './code';
 
 export const title = 'Expandable navigation example';
+export const bodyClass = 'example-body';
 
 const OffCanvasNav = () => <ExampleLayout>
     <header class="expandable-nav__container">

@@ -3,6 +3,7 @@ import ExampleLayout from '@layouts/example';
 import Code from './code';
 
 export const title = 'Modal search example';
+export const bodyClass = 'example-body';
 
 const ModalSearch = () => <ExampleLayout>
     <header class="modal-search__container">

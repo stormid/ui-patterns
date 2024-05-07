@@ -3,6 +3,7 @@ import ExampleLayout from '@layouts/example';
 import Code from './code';
 
 export const title = 'Table example - responsive';
+export const bodyClass = 'example-body';
 
 const TableResponsive = () => <ExampleLayout>
     <main class="soft-top soft-sides">

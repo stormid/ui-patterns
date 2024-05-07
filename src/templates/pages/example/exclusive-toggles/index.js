@@ -3,6 +3,7 @@ import ExampleLayout from '@layouts/example';
 import Code from './code';
 
 export const title = 'Exclusive toggles example';
+export const bodyClass = 'example-body';
 
 const ExclusiveToggles = () => <ExampleLayout>
     <Code />

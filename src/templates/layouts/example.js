@@ -1,7 +1,7 @@
-import { h } from 'preact';
+import { h, Fragment } from 'preact';
 
-const Example = ({ children }) => <body style="background-color: white">
+const Example = ({ children }) => <Fragment>
     { children }
-</body>;
+</Fragment>;
 
 export default Example;

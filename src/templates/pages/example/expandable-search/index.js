@@ -3,6 +3,7 @@ import ExampleLayout from '@layouts/example';
 import Code from './code';
 
 export const title = 'Expandable search example';
+export const bodyClass = 'example-body';
 
 const ExpandableSearch = () => <ExampleLayout>
     <header class="expandable-search__header">
