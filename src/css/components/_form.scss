@@ -214,6 +214,18 @@
     &:focus {
         outline: 4px solid var(--highlight);
     }
+
+    &--text {
+        padding: 0;
+        background: transparent;
+        font-size: var(--font-size-baseline);
+        font-weight: bold;
+
+        &:hover {
+            background-color: transparent;
+            text-decoration: underline;
+        }
+    }
 }
 
 // windows high contrast support 
