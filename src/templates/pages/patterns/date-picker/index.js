@@ -44,6 +44,7 @@ return datepicker.init();
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">The text <pre class="pre--inline">&lt;input&gt;</pre> element must have a matching <pre class="pre--inline">&lt;label&gt;</pre> element or <pre class="pre--inline">aria-label</pre></li>
         <li class="list-item">All buttons should use an HTML <pre class="pre--inline">&lt;button&gt;</pre> element</li>
+        <li class="list-item">Each day in the calendar should have an accessible label describing the full date</li>
     </ul>
 
     <h3 class="push-bottom--half plus-1 medium">For visual validation</h3>
