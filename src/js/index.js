@@ -8,6 +8,7 @@ import './modules/modal-confirmation';
 import './modules/cookie-banner';
 import './modules/form-validation';
 import './modules/tabs';
+import './modules/show-more';
 
 // Importer(`tabs`)()
 // import(/* webpackChunkName: "toggle" */`./features/toggle`).then(module => module.default());

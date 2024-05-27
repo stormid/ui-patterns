@@ -5,11 +5,11 @@ import Code from './code';
 export const title = 'Expandable section example';
 export const bodyClass = 'example-body';
 
-const ModalSearch = () => <ExampleLayout>
+const ExpandableSection = () => <ExampleLayout>
     <main class="wrap soft-top">
         <h1 class="visuallyhidden">Expandable section example</h1>
         <Code />
     </main>
 </ExampleLayout>;
 
-export default ModalSearch;
+export default ExpandableSection;

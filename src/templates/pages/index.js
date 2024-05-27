@@ -13,9 +13,13 @@ import { status as tabsStatus } from "./patterns/tabs";
 import { status as formValidationStatus } from "./patterns/form-validation";
 import { status as formHeadingStatus } from "./patterns/form-headings";
 import { status as headingSubheadingStatus } from "./patterns/heading-subheading";
+<<<<<<< feature/69-tables
 import { status as tablesOverflowStatus } from "./patterns/table-overflow";
 import { status as tablesResponsiveStatus } from "./patterns/table-responsive";
 import { status as tablesRowLinksStatus } from "./patterns/table-row-links";
+=======
+import { status as showMoreStatus } from "./patterns/show-more";
+>>>>>>> main
 
 export const title = "Home";
 
@@ -37,9 +41,13 @@ const PATTERNS = [
 	{ title: "Modal confirmation", url: "/patterns/modal-confirmation", status: modalConfirmationStatus },
 	// { title: 'Modal gallery', url: '/patterns/modal-gallery' },
 	{ title: "Modal search", url: "/patterns/modal-search", status: modalSearchStatus },
+<<<<<<< feature/69-tables
 	{ title: "Table with scrolling overflow", url: "/patterns/table-overflow", status: tablesOverflowStatus },
 	{ title: "Table with responsive card layout", url: "/patterns/table-responsive", status: tablesResponsiveStatus },
 	{ title: "Table with linked rows", url: "/patterns/table-row-links", status: tablesRowLinksStatus },
+=======
+	{ title: "Show more", url: "/patterns/show-more", status: showMoreStatus },
+>>>>>>> main
 	{ title: "Tabs", url: "/patterns/tabs", status: tabsStatus },
 ];
 
