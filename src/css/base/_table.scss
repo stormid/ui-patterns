@@ -1,0 +1,98 @@
+.table__container--base {
+    padding-top: calc(var(--baseline)/2);
+
+    .table {
+        width:100%;
+        margin: 0 auto;
+    }
+    .tr {
+        position: relative;
+        background-color: white;
+            &:hover {
+                background-color: transparent;
+                transition: background-color 120ms ease;
+            }
+    }
+    .th {
+        font-weight: normal;
+        text-align: left;
+        font-size: var(--font-size-minus-1);
+        padding: calc(var(--gutter)/2) calc(var(--gutter)/2);
+        margin-bottom: calc(var(--baseline)/4);
+        border-bottom: 8px solid rgba(0,0,0, 0);
+    }
+    .td {
+        color: currentColor;
+        padding: calc(var(--gutter)/2) calc(var(--gutter)/2);
+        border-bottom: 8px solid rgba(0,0,0, 0);
+    }
+    .th--tight {
+        padding: calc(var(--gutter)/8) 0;
+        vertical-align: middle;
+    }
+    .td--tight {
+        padding: calc(var(--gutter)/8) 0;
+        border-top: 1px solid rgba(0,0,0, .1);
+        border-bottom: 0 none;
+            a {
+                text-decoration: underline;
+                    &:hover,
+                    &:focus {
+                        text-decoration: none;
+                    }
+            }
+    }
+    .td--status {
+        text-align: right;
+        padding-right: 50px;
+    }
+    .th--status {
+        text-align: right;
+        padding-right: 72px;
+    }
+    .td__link {
+        text-decoration: none;
+        &:focus,
+        &:focus-visible {
+            outline: 0 none;
+            box-shadow: none;
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            right: 0;
+            bottom: 4px;
+            left: 0;
+        }
+        &:after {
+            position: absolute;
+            right: calc(var(--gutter)/1.5);
+            top:52%;
+            display: inline-block;
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-right: 1px solid currentColor;
+            border-top: 1px solid currentColor;
+            transform: translateY(-50%) rotate(45deg);
+        }
+       
+        &:focus:before {
+            outline: 2px solid var(--highlight)
+        }
+    }
+    
+    //Dirty safari hack since it doesn't support relative positioning on tr
+    //https://stackoverflow.com/questions/16348489/is-there-a-css-hack-to-affect-safari-only-not-chrome
+    @media not all and (min-resolution:.001dpcm)
+    { @supports (-webkit-appearance:none) {
+        .td__link {
+            text-decoration: underline;
+        }
+        .td__link:before,
+        .td__link:after  {
+            display: none;
+        }
+    }}
+}

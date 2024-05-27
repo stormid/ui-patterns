@@ -3,6 +3,7 @@ import ExampleLayout from '@layouts/example';
 import Code from './code';
 
 export const title = 'Full screen navigation example';
+export const bodyClass = 'example-body';
 
 const ModalFullScreenNav = () => <ExampleLayout>
     <header class="full-screen-nav__header">

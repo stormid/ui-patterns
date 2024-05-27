@@ -3,6 +3,7 @@ import ExampleLayout from '@layouts/example';
 import Code from './code';
 
 export const title = 'Expandable section example';
+export const bodyClass = 'example-body';
 
 const ExpandableSection = () => <ExampleLayout>
     <main class="wrap soft-top">

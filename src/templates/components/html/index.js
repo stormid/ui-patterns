@@ -8,10 +8,11 @@ const Html = ({
     meta,
     css,
     basePath,
-    children
+    children,
+    bodyClass
 }) => <html lang={lang}>
     <Head title={title} meta={meta} css={css} />
-    <Body>
+    <Body bodyClass={bodyClass}>
         {children}
         <script nomodule src={`${basePath}/polyfills.js`} />
         <script src={`${basePath}/index.js`} />

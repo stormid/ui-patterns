@@ -14,13 +14,14 @@ module.exports = function(locals) {
         const assets = Object.keys(locals.webpackStats.compilation.assets);
         const css = assets.filter(value => value.match(/\.css$/));
         const title = require(`../../../src/templates/pages/${locals.path}`).title || '';
+        const bodyClass = require(`../../../src/templates/pages/${locals.path}`).bodyClass || null;
         const meta = require(`../../../src/templates/pages/${locals.path}`).meta || '';
         return new Promise((resolve, reject) => {
             if (body.then) {
                 body.then(Res => {
-                    resolve(`<!DOCTYPE html>${render(<Html css={css} htmlBody={Res} title={title} meta={meta} />)}`);
+                    resolve(`<!DOCTYPE html>${render(<Html css={css} htmlBody={Res} bodyClass={bodyClass} title={title} meta={meta} />)}`);
                 });
-            } else resolve(`<!DOCTYPE html>${render(<Html css={css} htmlBody={body} title={title} meta={meta} />)}`);
+            } else resolve(`<!DOCTYPE html>${render(<Html css={css} htmlBody={body} bodyClass={bodyClass} title={title} meta={meta} />)}`);
         });
     } catch (e){
         return Promise.reject(`HTML render error: ${e}`);

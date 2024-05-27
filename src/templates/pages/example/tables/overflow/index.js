@@ -2,13 +2,13 @@ import { h } from 'preact';
 import ExampleLayout from '@layouts/example';
 import Code from './code';
 
-export const title = 'Form page headings - single question example';
+export const title = 'Table example with scrollable overflow';
 export const bodyClass = 'example-body';
 
-const FormPatternSingle = () => <ExampleLayout>
-    <main class="soft-top">
+const TableOverflow = () => <ExampleLayout>
+    <main class="soft-top soft-sides">
         <Code />
     </main>
 </ExampleLayout>;
 
-export default FormPatternSingle;
+export default TableOverflow;
