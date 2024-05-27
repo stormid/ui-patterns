@@ -17,6 +17,7 @@ import { status as tablesOverflowStatus } from './patterns/table-overflow';
 import { status as tablesResponsiveStatus } from './patterns/table-responsive';
 import { status as tablesRowLinksStatus } from './patterns/table-row-links';
 import { status as showMoreStatus } from './patterns/show-more';
+import { status as viewAllStatus } from './patterns/view-all';
 
 export const title = 'Home';
 
@@ -31,6 +32,7 @@ const PATTERNS = [
     { title: 'Expandable navigation', url: '/patterns/expandable-navigation', status: expandableNavigationStatus },
     { title: 'Expandable search', url: '/patterns/expandable-search', status: expandableSearchStatus },
     { title: 'Expandable section', url: '/patterns/expandable-section', status: expandableSectionStatus },
+    { title: 'Expandable section - view/hide all', url: '/patterns/view-all', status: viewAllStatus },
     { title: 'Form page headings', url: '/patterns/form-headings', status: formHeadingStatus },
     { title: 'Form validation', url: '/patterns/form-validation', status: formValidationStatus },
     { title: 'Full screen navigation', url: '/patterns/full-screen-navigation', status: fullScreenNavigationStatus },

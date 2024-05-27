@@ -1,0 +1,14 @@
+import { h } from 'preact';
+import ExampleLayout from '@layouts/example';
+import Code from './code';
+
+export const title = 'Expandable section example with view/hide all';
+
+const ExpandableSectionViewAll = () => <ExampleLayout>
+    <main class="wrap soft-top">
+        <h1 class="visuallyhidden">Expandable section example with view/hide all</h1>
+        <Code />
+    </main>
+</ExampleLayout>;
+
+export default ExpandableSectionViewAll;

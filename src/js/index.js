@@ -9,6 +9,7 @@ import './modules/cookie-banner';
 import './modules/form-validation';
 import './modules/tabs';
 import './modules/show-more';
+import './modules/view-all';
 
 // Importer(`tabs`)()
 // import(/* webpackChunkName: "toggle" */`./features/toggle`).then(module => module.default());
