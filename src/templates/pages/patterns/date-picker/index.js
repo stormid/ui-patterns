@@ -25,7 +25,7 @@ const DatePicker = () => <PatternLayout>
     <p class="push-bottom--double">Full documentation of all options for the date picker component, including date ranges, min and max dates, and disabling dates is available on the <a rel="noopener nofollow" href="https://designsystem.gov.scot/components/date-picker">Scottish Government Design System website</a>.</p>
     
     <h2 class="push-bottom--half plus-2 medium">Example</h2>
-    <iframe style="--height: 375px" class="example" title="Example date input" src={'/example/date-picker'} />
+    <iframe style="--height: 375px" class="example" title="Example date picker" src={'/example/date-picker'} />
     <p class="push-bottom align-right"><a href="/example/date-picker" rel="noopener" target="_blank">Open in a new tab</a></p>
     
     <h2 class="push-bottom--half plus-2 medium">Code</h2>
