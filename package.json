@@ -15,6 +15,7 @@
   "author": "stormid",
   "license": "MIT",
   "jest": {
+    "transformIgnorePatterns": ["/node_modules/(?!@scottish-government/pattern-library).+\\.js$"],
     "moduleNameMapper": {
       "^@constants(.*)$": "<rootDir>/src/templates/constants$1",
       "^@templates(.*)$": "<rootDir>/src/templates$1",
