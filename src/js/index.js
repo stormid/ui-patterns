@@ -11,6 +11,7 @@ import './modules/tabs';
 import './modules/show-more';
 import './modules/view-all';
 import './modules/date-picker';
+import './modules/slider';
 
 // Importer(`tabs`)()
 // import(/* webpackChunkName: "toggle" */`./features/toggle`).then(module => module.default());

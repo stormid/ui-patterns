@@ -17,10 +17,11 @@ import { status as tablesOverflowStatus } from './patterns/table-overflow';
 import { status as tablesResponsiveStatus } from './patterns/table-responsive';
 import { status as tablesRowLinksStatus } from './patterns/table-row-links';
 import { status as showMoreStatus } from './patterns/show-more';
+import { status as slider } from './patterns/slider';
 import { status as viewAllStatus } from './patterns/view-all';
 import { status as datePickerStatus } from './patterns/date-picker';
 
-export const title = 'Home';
+export const title = 'UI Patterns';
 
 // export const meta = [{
 //     name: 'description',
@@ -46,6 +47,7 @@ const PATTERNS = [
     { title: 'Table with responsive card layout', url: '/patterns/table-responsive', status: tablesResponsiveStatus },
     { title: 'Table with linked rows', url: '/patterns/table-row-links', status: tablesRowLinksStatus },
     { title: 'Show more', url: '/patterns/show-more', status: showMoreStatus },
+    { title: 'Slider', url: '/patterns/slider', status: slider },
     { title: 'Tabs', url: '/patterns/tabs', status: tabsStatus },
 ];
 
