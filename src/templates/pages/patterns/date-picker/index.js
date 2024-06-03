@@ -12,7 +12,7 @@ export const status = STATUS.DEVELOPMENT;
 
 const DatePicker = () => <PatternLayout>
     <PatternTitle status={status}>Date picker</PatternTitle>
-    <p class="push-bottom--double">Help users enter a date into a form with a calendar interface using the SCottish Government Design System date picker.</p>
+    <p class="push-bottom--double">Help users enter a date into a form with a calendar interface using the Scottish Government Design System date picker.</p>
     <h2 class="push-bottom--half plus-2 medium">Guidance</h2>
     <p class="push-bottom">This pattern progressively enhances a text input that a user can enter a date into by adding a selectable calendar interface. The date picker pattern is suitable for date fields that require a user to:</p>
     <ul class="list push-bottom">
@@ -60,7 +60,7 @@ datepicker.init();
     <h3 class="push-bottom--half plus-1 medium">For functional validation</h3>
         <ul class="list list--tick push-bottom--double">
             <li class="list-item">The input must allow the user to enter a date manually without using the calendar interface</li>
-            <li class="list-item">The calendar must not be able to interact with the calendar unless they open it</li>
+            <li class="list-item">The user must not be able to interact with the calendar unless they open it</li>
             <li class="list-item">The calendar interface should be reachable and operable using the keyboard only</li>
             <li class="list-item">Focus should move to the selected date or current date if none selected when the calendar opens</li>
             <li class="list-item">The current date, selected date, and focused date should be visually distinguishable from each other</li>
