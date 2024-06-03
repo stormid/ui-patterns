@@ -171,6 +171,28 @@
         }
     }
 }
+.ds_input__wrapper,
+.ds_datepicker__input-wrapper {
+    .ds_button  {
+        height: 40px;
+        max-width: 40px;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        padding:0 8px;
+        background-color: var(--off-black);
+        .ds_icon {
+            height: 24px;
+            width: 24px;
+            fill: white;
+        }
+    }
+}
+.ds_datepicker__input-wrapper {
+    .ds_button  {
+        align-self: flex-end;
+    }
+}
 .ds_input__wrapper {
     display: flex;
     margin-top: calc(var(--baseline) / 6);
@@ -179,20 +201,15 @@
             margin-top: 0;
             margin-right: -40px;
             padding-right: 40px;
-        } 
+        }
 }
-.ds_input__wrapper > .ds_button  {
-    max-width: 40px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    padding:0 8px;
-    background-color: var(--off-black);
-    .ds_icon {
-        height: 24px;
-        width: 24px;
-        fill: white;
-    }
+
+.ds_input--day,
+.ds_input--month {
+    max-width: 60px;
+}
+.ds_input--year {
+    max-width: 90px;
 }
 
 @media(min-width: 768px) {

@@ -25,6 +25,7 @@
     margin-bottom: calc(var(--baseline)/2);
     font-size: var(--font-size-plus-2);
     &__hint {
+        display: block;
         font-size: var(--font-size-baseline);
     }
 }

@@ -1,6 +1,7 @@
 import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
 import Code from '../../example/date-picker/code';
+import ThreeInputCode from '../../example/date-picker/three-input/code';
 import { render } from 'preact-render-to-string';
 import PatternTitle from '@components/pattern-title';
 import DependencyTable from '@components/dependency-table';
@@ -30,6 +31,18 @@ const DatePicker = () => <PatternLayout>
     
     <h2 class="push-bottom--half plus-2 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
+    <pre class="pre"><code class="code">{`import DSDatePicker from '@scottish-government/pattern-library/src/components/date-picker/date-picker';
+
+const datepicker = new DSDatePicker(document.querySelector('.js-date-picker'), { imagePath: '/static/img/' });
+datepicker.init();    
+`}</code></pre>
+
+    <h2 class="push-bottom--half plus-2 medium">Three input example</h2>
+    <iframe style="--height: 375px" class="example" title="Example three input date picker" src={'/example/date-picker/three-input'} />
+    <p class="push-bottom align-right"><a href="/example/date-picker/three-input" rel="noopener" target="_blank">Open in a new tab</a></p>
+    
+    <h2 class="push-bottom--half plus-2 medium">Code</h2>
+    <pre class="pre"><code class="code">{`${render(<ThreeInputCode />, null, { pretty: true })}`}</code></pre>
     <pre class="pre"><code class="code">{`import DSDatePicker from '@scottish-government/pattern-library/src/components/date-picker/date-picker';
 
 const datepicker = new DSDatePicker(document.querySelector('.js-date-picker'), { imagePath: '/static/img/' });
