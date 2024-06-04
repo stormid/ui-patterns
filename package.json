@@ -15,6 +15,9 @@
   "author": "stormid",
   "license": "MIT",
   "jest": {
+    "transformIgnorePatterns": [
+      "/node_modules/(?!@scottish-government/pattern-library).+\\.js$"
+    ],
     "moduleNameMapper": {
       "^@constants(.*)$": "<rootDir>/src/templates/constants$1",
       "^@templates(.*)$": "<rootDir>/src/templates$1",
@@ -75,6 +78,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "@scottish-government/pattern-library": "0.0.381",
     "@stormid/cookie-banner": "^1.0.0-alpha.24",
     "@stormid/modal": "^1.0.0-alpha.15",
     "@stormid/tabs": "^1.0.0-alpha.12",

@@ -1,0 +1,243 @@
+.ds_datepicker {
+    position: relative;
+
+    &__input-wrapper {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    &__dialog {
+        background-color: white;
+        clear: both;
+        display: none;
+        padding: 8px;
+        outline: 1px solid var(--light-grey-1);
+        outline-offset: -1px;
+        position: static;
+        top: 0;
+        transition: background-color 0.2s, outline-color 0.2s;
+        width: 296px;
+        z-index: 2;
+
+        &--open {
+            display: block;
+        }
+
+        &__header {
+            position: relative;
+            text-align: center;
+
+            > :nth-child(1) {
+                position: absolute;
+                left: 0;
+                top: -2px;
+            }
+
+            > :nth-child(3) {
+                position: absolute;
+                right: 0;
+                top: -2px;
+            }
+        }
+
+        &__title {
+            margin: 0 !important;
+            text-transform: uppercase;
+        }
+
+        &__navbuttons {
+            button {
+                background-color: transparent;
+                font-weight: var(--regular-weight);
+                min-height: 40px;
+                margin: 0;
+                padding: 4px;
+                min-width:  32px;
+
+                display: inline-block;
+
+                &:hover {
+                    color: currentColor;
+                }
+
+                .ds_icon {
+                    height: 32px;
+                    padding: 0;
+                    position: static;
+                    width: 24px;
+                }
+            }
+        }
+
+        &__table {
+
+            td {
+                border: 0;
+                margin: 0;
+                outline: 0;
+                padding: 0;
+            }
+
+            th {
+                font-weight: var(--regular-weight);
+            }
+
+            button {
+                background-color: transparent;
+                border-width: 0;
+                font-weight: var(--regular-weight);
+                min-height: 40px;
+                margin: 0;
+                padding: 0;
+                min-width: 40px;
+
+                &:focus {
+                    transition-duration: 0s;
+                }
+
+                &[disabled="true"],
+                &[aria-disabled="true"] {
+                    background-color: var(--light-grey-1);
+                    pointer-events: none;
+                }
+
+                &.ds_datepicker__current {
+                    background-color: var(--off-black);
+                    color: white;
+                }
+
+                &.ds_datepicker__today {
+                    font-weight: var(--bold-weight);
+                    position: relative;
+
+                    &::after {
+                        background-color: currentColor;
+                        border-radius: 4px;
+                        bottom: 6px;
+                        content: '';
+                        height: 4px;
+                        left: 50%;
+                        margin-left: -2px;
+                        position: absolute;
+                        width: 4px;
+                    }
+                }
+
+                &.ds_selected {
+                    outline: 4px solid transparent;
+                    box-shadow: 0px 0px 0px 4px var(--highlight);
+                }
+                &:focus {
+                    position: relative;
+                    z-index: 2; // [1]
+                }
+            }
+        }
+
+        &__table-caption {
+            font-size: var(--font-size-minus-1);
+            caption-side: bottom;
+            line-height: 2;
+            margin-top: 8px;
+        }
+
+        &__buttongroup {
+            overflow: visible;
+            padding-top: 8px;
+
+            // non-grid
+            button {
+                display: block;
+                float: left;
+                margin: 0;
+                background-color: var(--off-black);
+                color: white;
+                padding: 4px 0;
+            }
+            .ds_button--cancel {
+                color: currentColor;
+                background-color: transparent;
+                outline: 1px solid currentColor;
+                outline-offset: -1px;
+            }
+
+
+            @supports (display: grid) {
+                grid-template-columns: 1fr 1fr;
+                gap: 4px;
+                display: grid;
+            }
+        }
+    }
+}
+.ds_input__wrapper,
+.ds_datepicker__input-wrapper {
+    .ds_button  {
+        height: 40px;
+        max-width: 40px;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        padding:0 8px;
+        background-color: var(--off-black);
+        .ds_icon {
+            height: 24px;
+            width: 24px;
+            fill: white;
+        }
+    }
+}
+.ds_datepicker__input-wrapper {
+    .ds_button  {
+        align-self: flex-end;
+    }
+}
+.ds_input__wrapper {
+    display: flex;
+    margin-top: calc(var(--baseline) / 6);
+    max-width: 150px;
+        .input {
+            margin-top: 0;
+            margin-right: -40px;
+            padding-right: 40px;
+        }
+}
+
+.ds_input--day,
+.ds_input--month {
+    max-width: 60px;
+}
+.ds_input--year {
+    max-width: 90px;
+}
+
+@media(min-width: 768px) {
+    .ds_datepicker {
+        &__dialog {
+            position: absolute;
+
+            &__title {
+                padding: 8px 0;
+            }
+
+            &__header {
+                > :nth-child(1) {
+                    // left: 8px;
+                    top: 0;
+                }
+
+                > :nth-child(3) {
+                    // right: 8px;
+                    top: 0;
+                }
+            }
+
+            &__table th {
+            }
+
+            &__table-caption {
+            }
+        }
+    }
+}

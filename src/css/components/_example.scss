@@ -24,3 +24,7 @@
 html { 
     overflow-y: scroll;
 }
+
+html:has(.example-body) {
+    background-color: white;
+}

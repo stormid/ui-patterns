@@ -18,6 +18,7 @@ import { status as tablesResponsiveStatus } from './patterns/table-responsive';
 import { status as tablesRowLinksStatus } from './patterns/table-row-links';
 import { status as showMoreStatus } from './patterns/show-more';
 import { status as viewAllStatus } from './patterns/view-all';
+import { status as datePickerStatus } from './patterns/date-picker';
 
 export const title = 'Home';
 
@@ -28,6 +29,7 @@ export const title = 'Home';
 
 const PATTERNS = [
     { title: 'Cookie banner', url: '/patterns/cookie-banner', status: cookieBannerStatus },
+    { title: 'Date picker', url: '/patterns/date-picker', status: datePickerStatus },
     { title: 'Exclusive toggles', url: '/patterns/exclusive-toggles', status: exclusiveTogglesStatus },
     { title: 'Expandable navigation', url: '/patterns/expandable-navigation', status: expandableNavigationStatus },
     { title: 'Expandable search', url: '/patterns/expandable-search', status: expandableSearchStatus },
