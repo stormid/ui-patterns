@@ -1,0 +1,53 @@
+@import '~swiper/swiper';
+@import '~swiper/modules/a11y';
+@import '~swiper/modules/free-mode';
+@import '~swiper/modules/navigation';
+@import '~swiper/modules/pagination';
+.swiper-button-prev,
+.swiper-button-next {
+    position: static;
+    width: 44px;
+    height: 44px;
+    margin-top: 0;
+    background-color: transparent
+}
+.swiper-button-next {
+    margin-left: calc(var(--gutter)/4);
+}
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    display: none;
+}
+.slider__heading {
+    font-size: var(--font-size-plus-3);
+}
+.slider__navigation {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: calc(var(--baseline)/2);
+    margin-top: 4px;
+    margin-right: 4px;
+}
+.slider__card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.slider__card-img {
+    max-width: 100%;
+    height: auto;
+}
+.slider__card-bd {
+    padding: var(--baseline) var(--gutter);
+    background-color: #fff;
+}
+.slider__link:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 1;    
+}

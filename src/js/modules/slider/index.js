@@ -21,8 +21,8 @@ export const init = () => {
             slideLabelMessage: 'slide {{index}} of {{slidesLength}}'
         },
         navigation: {
-            nextEl: node.previousElementSibling.querySelector('.swiper-next'),
-            prevEl: node.previousElementSibling.querySelector('.swiper-previous'),
+            nextEl: node.querySelector('.swiper-button-next'),
+            prevEl: node.querySelector('.swiper-button-prev'),
         },
         slidesPerView: 1,
         spaceBetween: 24,

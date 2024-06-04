@@ -12,11 +12,12 @@ export const status = STATUS.DEVELOPMENT;
 
 const Slider = () => <PatternLayout>
     <PatternTitle status={status}>Slider</PatternTitle>
-    <p class="push-bottom--double">Content slider, aka carousel, for a list of items that can move in and out of view using the Swiper.js package.</p>
+    <p class="push-bottom--double">AKA carousel, a list of content items that can move in and out of view using Swiper.js.</p>
     
     <h2 class="push-bottom--half plus-2 medium">Guidance</h2>
-    <p class="push-bottom">Sliders are disputed from a usability perspective because their content can be hard to discover. </p>
-    <p class="push-bottom--double">Full documentation of all options for the slider, including pagination, autoplay, and effects modules, and setting the number of slides in view at breakpoints is available on the <a rel="noopener nofollow" href="https://swiperjs.com">Swiper.js website</a>.</p>
+    <p class="push-bottom">Disputed from a usability perspective because content can be hard to discover and can be skipped by users, sliders should be used with caution.</p>
+    <p class="push-bottom">If the user is provided with sufficient context, sliders can be a useful pattern to maximize information density.</p>
+    <p class="push-bottom--double">Full documentation of all options for the slider, including pagination and setting the number of slides in view at breakpoints is available on the <a rel="noopener nofollow" href="https://swiperjs.com">Swiper.js website</a>.</p>
     
     <h2 class="push-bottom--half plus-2 medium">Example</h2>
     <iframe style="--height: 375px" class="example" title="Example slider" src={'/example/slider'}></iframe>
@@ -38,17 +39,18 @@ const Slider = () => <PatternLayout>
 
     <h3 class="push-bottom--half plus-1 medium">For visual validation</h3>
     <ul class="list list--tick push-bottom--double">
-        <li class="list-item">Do not autoplay the slider. Provide stop/start controls if you must.</li>
+        <li class="list-item">Do not autoplay the slider.</li>
         <li class="list-item">Ensure sufficient contrast between the foreground and the background of text, links, and buttons.</li>
-        <li class="list-item">Pagaintion buttons must indicate button status</li>
+        <li class="list-item">Pagination buttons must indicate button status</li>
     </ul>
 
     <h3 class="push-bottom--half plus-1 medium">For functional validation</h3>
     <ul class="list list--tick push-bottom--double">
         <li class="list-item">All functionality, including navigating between carousel items, must be operable by keyboard.</li>
-        <li class="list-item">Changes to carousel items must be communicated to all users, including screen reader users - announce the current item.</li>
-        <li class="list-item">The keyboard position (“focus”) is managed in a reasonable and comprehensible fashion - allow the user to maintain control of the keyboard focus - focus the selected carousel item</li>
-        <li class="list-item">Use appropriately sized buttons and links, and provide whitespace around them, to allow people with reduced dexterity to use the carousel more easily. This also benefits people using touch screens, such as on mobile devices. Buttons and links that are not inline in a block of text should be at least 44 × 44 CSS pixels.</li>
+        <li class="list-item">Swipe gestures on touch screen devices can move the slider back and forwards.</li>
+        <li class="list-item">Changes to carousel items must be communicated to users.</li>
+        <li class="list-item">The user controls keyboard focus, focus the selected carousel item</li>
+        {/* <li class="list-item">Buttons and links that are not inline in a block of text should be at least 44 x 44 CSS pixels.</li> */}
     </ul>
 
     <h2 class="push-bottom--half plus-2 medium">References</h2>
@@ -58,6 +60,8 @@ const Slider = () => <PatternLayout>
         <li class="list-item"><a href="https://www.w3.org/WAI/tutorials/carousels/" rel="noopener nofollow">https://www.w3.org/WAI/tutorials/carousels</a></li>
         <li class="list-item"><a href="https://www.w3.org/WAI/ARIA/apg/patterns/carousel/" rel="noopener nofollow">https://www.w3.org/WAI/ARIA/apg/patterns/carousel</a></li>
         <li class="list-item"><a href="https://swiperjs.com/" rel="noopener nofollow">https://swiperjs.com</a></li>
+        <li class="list-item"><a href="https://www.smashingmagazine.com/2015/02/carousel-usage-exploration-on-mobile-e-commerce-websites/" rel="noopener nofollow">https://www.smashingmagazine.com/2015/02/carousel-usage-exploration-on-mobile-e-commerce-websites/</a></li>
+        <li class="list-item"><a href="https://erikrunyon.com/2013/01/carousel-interaction-stats/" rel="noopener nofollow">https://erikrunyon.com/2013/01/carousel-interaction-stats/</a></li>
     </ul>
 </PatternLayout>;
 
