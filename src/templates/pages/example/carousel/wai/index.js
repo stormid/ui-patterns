@@ -2,13 +2,13 @@ import { h } from 'preact';
 import ExampleLayout from '@layouts/example';
 import Code from './code';
 
-export const title = 'Slider example';
+export const title = 'WAI Carousel example';
 
-const Slider = () => <ExampleLayout>
+const Carousel = () => <ExampleLayout>
     <main class="wrap soft-top">
-        <h1 class="visuallyhidden">Slider example</h1>
+        <h1 class="visuallyhidden">WAI Carousel example</h1>
         <Code />
     </main>
 </ExampleLayout>;
 
-export default Slider;
+export default Carousel;
