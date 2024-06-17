@@ -7,12 +7,12 @@ export const Code = () => <form class="form js-validate" action="#">
         <div class="form-row">
             <label for="fname" class="label">First Name</label>
             <span class="error-message" data-valmsg-for="fname" />
-            <input data-val="true" data-val-required="First name must not be empty" autocomplete="given-name" class="input" id="fname" name="fname" aria-required="true" />
+            <input data-val="true" data-val-required="First name must not be empty" autocomplete="given-name" class="input" id="fname" name="fname" />
         </div>
         <div class="form-row">
             <label for="lname" class="label">Last Name</label>
             <span class="error-message" data-valmsg-for="lname" />
-            <input data-val="true" data-val-required="Last name must not be empty" autocomplete="family-name" class="input" id="lname" name="lname" aria-required="true" />
+            <input data-val="true" data-val-required="Last name must not be empty" autocomplete="family-name" class="input" id="lname" name="lname"/>
         </div>
         <div class="form-row">
             <label for="aka" class="label">Also known as <span class="label__hint">Optional</span></label>

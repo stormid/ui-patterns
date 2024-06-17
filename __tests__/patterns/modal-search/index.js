@@ -39,14 +39,6 @@ describe('Modal search > mark up', () => {
 
 });
 
-describe('Modal search > behaviour > keyboard', () => {
-    let instance;
-    beforeAll(() => {
-        document.body.innerHTML = render(<ModalSearch />);
-        [ instance ] = initModalSearch();
-    });
-});
-
 describe('Modal search > behaviour > focus', () => {
     let instance;
     beforeAll(() => {

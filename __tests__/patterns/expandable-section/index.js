@@ -27,16 +27,6 @@ describe('Expandable section > mark up', () => {
 
 });
 
-describe('Expandable search > behaviour > keyboard', () => {
-    let instance;
-    beforeAll(() => {
-        document.body.innerHTML = render(<ExpandableSection />);
-        [ instance ] = initExpandableSection();
-    });
-    afterEach(() => {
-        if (instance.getState().isOpen === true) instance.toggle();
-    });
-});
 
 describe('Expandable search > axe > ARIA', () => {
     let instance;
