@@ -34,17 +34,6 @@ describe('Expandable search > mark up', () => {
 
 });
 
-describe('expandable search > behaviour > keyboard', () => {
-    let instance;
-    beforeAll(() => {
-        document.body.innerHTML = render(<ExpandableSearch />);
-        [ instance ] = initExpandableSearch();
-    });
-    afterEach(() => {
-        if (instance.getState().isOpen === true) instance.toggle();
-    });
-});
-
 describe('expandable search > focus order', () => {
     let instance;
     beforeAll(() => {
@@ -67,16 +56,6 @@ describe('expandable search > focus order', () => {
 
 });
 
-describe('expandable search > behaviour > keyboard', () => {
-    let instance;
-    beforeAll(() => {
-        document.body.innerHTML = render(<ExpandableSearch />);
-        [ instance ] = initExpandableSearch();
-    });
-    afterEach(() => {
-        if (instance.getState().isOpen === true) instance.toggle();
-    });
-});
 
 describe('expandable search > axe > ARIA', () => {
     let instance;

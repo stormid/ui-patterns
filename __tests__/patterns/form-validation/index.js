@@ -18,11 +18,9 @@ describe('Form validation > mark up', () => {
     });
 
     it('Required inputs should have an aria-required attribute', () => {
-        const inputs = Array.from(document.querySelectorAll('input'));
+        const inputs = Array.from(document.querySelectorAll('[data-val-required]:not([type="checkbox"])'));
         for (const input of inputs) {
-            if (input.hasAttribute('data-val-required')){
-                expect(input.hasAttribute('aria-required')).toEqual(true);
-            }
+            expect(input.hasAttribute('aria-required')).toEqual(true);
         }
     });
 

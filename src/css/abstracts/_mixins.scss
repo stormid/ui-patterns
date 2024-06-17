@@ -1,11 +1,12 @@
-@mixin column($num) {
-	width: column-calc($num);
+@mixin wrap {
+    width: 100%;
+    max-width: var(--max-container-width);
+    margin: 0 auto;
+    padding: 0 calc(var(--gutter)/2);
 }
 
-@mixin wrap {
-    max-width: var(--max-container-width);
-    margin:0 auto;
-    padding: 0 calc(var(--gutter)/2);
+@mixin column($num) {
+	grid-column: auto / span $num;
 }
 
 @mixin visuallyhidden {
