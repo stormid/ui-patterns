@@ -6,7 +6,7 @@ module.exports = {
     entry: {
         index: path.join(process.cwd(), `${paths.src.js}/index.js`)
     },
-    target: 'web',
+    target: 'browserslist',
     stats: {
         modules: false,
         entrypoints: false

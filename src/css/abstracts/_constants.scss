@@ -21,16 +21,15 @@
     --dark-grey-1: hsl(0, 0%, 46%); //lightest AA accessible grey on white
     --dark-grey-2: hsl(0, 0%, 30%);
     --dark-grey-3: hsl(0, 0%, 20%);
-    --off-black: hsl(0, 0%, 9%);
-    --red: hsl(0, 25%, 57%);
+    --off-black: hsl(0, 0%, 10%);
+    --highlight: hsl(49, 98%, 56%);
+    --default-color: hsl(0, 0%, 10%);
 
     --light-weight: 300;
     --regular-weight: 400;
     --medium-weight: 500;
     --semibold-weight: 600;
     --bold-weight: 700;
-
-    --highlight: hsl(49, 98%, 56%);
 
     --measure: 40em;
     
@@ -56,6 +55,15 @@ $grid-names: (
     md: md,
     lg: lg
 );
+
+// selection of column utility classes for each breakpoint
+$grid-classes: (
+    xs: (12, 6),
+    sm: (12, 8, 6, 4),
+    md: (12, 9, 8, 6, 4, 3),
+    lg: (12, 10, 9, 8, 6, 4, 3, 2)
+)
+
 
 
 
