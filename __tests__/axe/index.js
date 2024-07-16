@@ -3,9 +3,9 @@ const { axe, toHaveNoViolations } = require('jest-axe');
 expect.extend(toHaveNoViolations);
 const h = require(`preact`).h;
 const render = require('preact-render-to-string').render;
-const Html = require(`../../tools/webpack/plugins/default-html`);
+const Html = require(`../../../tools/webpack/plugins/default-html`);
 const path = require('path');
-const walker = require('../../tools/utils').walker;
+const walker = require('../../../tools/utils').walker;
 
 expect.extend(toHaveNoViolations);
 
