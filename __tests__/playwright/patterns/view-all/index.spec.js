@@ -1,5 +1,4 @@
 const { test, expect } = require("@playwright/test");
-import { h } from "preact";
 
 test.beforeEach(async ({ page }) => {
 	await page.goto("/example/view-all/");
@@ -10,9 +9,19 @@ test("View all > Should use a button element for the expandable section trigger"
 	await expect(locator).toHaveRole("button");
 });
 
+test("View all > Buttons should be appropriately labelled", async ({ page }) => {
+	const locator = page.locator(".js-expandable-section__btn-1");
+	await expect(locator).toContainText(/Section title/);
+});
+
 test("View all > Should use a button element for the view all trigger", async ({ page }) => {
 	const locator = page.locator(".js-expandable-section__btn-all");
 	await expect(locator).toHaveRole("button");
+});
+
+test("View all > View all button should be appropriately labelled", async ({ page }) => {
+	const locator = page.locator(".js-expandable-section__btn-all .visually-hidden").first();
+	await expect(locator).toContainText(/sections about Lorem Ipsum/);
 });
 
 test("View all > Buttons should be focusable", async ({ page }) => {
@@ -24,46 +33,6 @@ test("View all > Buttons should be focusable", async ({ page }) => {
 	await expect(focusedElement).toHaveRole("button");
 	await expect(focusedElement).toHaveClass(/js-expandable-section__btn-1/);
 });
-
-// describe('View all > mark up', () => {
-//     beforeAll(() => {
-//         document.body.innerHTML = render(<ViewAll />);
-//         initViewAll();
-//     });
-
-//     it('Should use a button element for the expandable section trigger', () => {
-//         const toggleButton = document.querySelector('.js-expandable-section__btn-1');
-//         expect(toggleButton.tagName).toEqual('BUTTON');
-//     });
-
-//     it('Should use a button element for the view all trigger', () => {
-//         const toggleButton = document.querySelector('.js-expandable-section__btn-all');
-//         expect(toggleButton.tagName).toEqual('BUTTON');
-//     });
-
-//     it('Buttons should be focusable', () => {
-//         const toggleButton = document.querySelector('.js-expandable-section__btn-1');
-//         toggleButton.focus();
-//         expect(document.activeElement).toEqual(toggleButton);
-//     });
-
-//     it('View all button should be focusable', () => {
-//         const toggleButton = document.querySelector('.js-expandable-section__btn-all');
-//         toggleButton.focus();
-//         expect(document.activeElement).toEqual(toggleButton);
-//     });
-
-//     it('Buttons should be appropriately labelled', () => {
-//         const toggleButton = document.querySelector('.js-expandable-section__btn-1');
-//         expect(toggleButton.textContent).toEqual('Section title');
-//     });
-
-//     it('View all button should be appropriately labelled', () => {
-//         const toggleButtonDetail = document.querySelector('.js-expandable-section__btn-all .visually-hidden');
-//         expect(toggleButtonDetail.textContent).toEqual('sections about Lorem Ipsum');
-//     });
-
-// });
 
 // describe('View all > functionality', () => {
 //     let instance;
