@@ -9,7 +9,7 @@ const walker = require('../../../tools/utils').walker;
 
 expect.extend(toHaveNoViolations);
 
-walker(__dirname, `../../src/templates/pages`)
+walker(__dirname, `../../../src/templates/pages`)
     .forEach(link => {
         if (link.name === 'code.js') return;
         const url = `${link.path ? `/${link.path}` : ''}/${link.name}`;
