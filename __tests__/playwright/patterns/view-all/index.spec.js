@@ -46,6 +46,10 @@ test.describe("View all > Functionality", () => {
 		await expect(toggleBtn).toHaveText(/(Hide all)/i);
 		await toggleBtn.click();
 		await expect(toggleBtn).toHaveText(/(View all)/i);
+		await page.keyboard.press('Enter');
+		await expect(toggleBtn).toHaveText(/(Hide all)/i);
+		await page.keyboard.press('Enter');
+		await expect(toggleBtn).toHaveText(/(View all)/i);
 	});
 
 	test('View all button should toggle all inner expandable sections when used', async ({ page }) => {
@@ -56,13 +60,21 @@ test.describe("View all > Functionality", () => {
 
 		const toggleBtn = page.locator(".js-expandable-section__btn-all");
 		await toggleBtn.click();
-
 		for (const toggle of await page.locator(".js-expandable-section-all").all()) {
 			await expect(toggle).toBeVisible();
 		}
 
 		await toggleBtn.click();
+		for (const toggle of await page.locator(".js-expandable-section-all").all()) {
+			await expect(toggle).toBeHidden();
+		}
 
+		await page.keyboard.press('Enter');
+		for (const toggle of await page.locator(".js-expandable-section-all").all()) {
+			await expect(toggle).toBeVisible();
+		}
+
+		await page.keyboard.press('Enter');
 		for (const toggle of await page.locator(".js-expandable-section-all").all()) {
 			await expect(toggle).toBeHidden();
 		}
