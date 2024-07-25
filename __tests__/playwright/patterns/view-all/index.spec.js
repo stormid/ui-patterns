@@ -6,38 +6,6 @@ test.beforeEach(async ({ page }) => {
 	await page.goto("/example/view-all/");
 });
 
-test.describe("View all > Markup tests", () => {
-	test("Should use a button element for the expandable section trigger", async ({ page }) => {
-		const locator = page.locator(".js-expandable-section__btn-1");
-		await expect(locator).toHaveRole("button");
-	});
-	
-	test("Buttons should be appropriately labelled", async ({ page }) => {
-		const locator = page.locator(".js-expandable-section__btn-1");
-		await expect(locator).toContainText(/Section title/);
-	});
-	
-	test("Should use a button element for the view all trigger", async ({ page }) => {
-		const locator = page.locator(".js-expandable-section__btn-all");
-		await expect(locator).toHaveRole("button");
-	});
-	
-	test("View all button should be appropriately labelled", async ({ page }) => {
-		const locator = page.locator(".js-expandable-section__btn-all .visually-hidden").first();
-		await expect(locator).toContainText(/sections about Lorem Ipsum/);
-	});
-	
-	test("Buttons should be focusable", async ({ page }) => {
-		await page.keyboard.press('Tab');
-		const focusedElement = page.locator(':focus');
-		await expect(focusedElement).toHaveRole("button");
-		await expect(focusedElement).toHaveClass(/js-expandable-section__btn-all/);
-		await page.keyboard.press('Tab');
-		await expect(focusedElement).toHaveRole("button");
-		await expect(focusedElement).toHaveClass(/js-expandable-section__btn-1/);
-	});
-});
-
 test.describe("View all > Functionality", () => {
 	test('Should update the visible text on the button when toggled', async ({ page }) => {
 		const toggleBtn = page.locator(".js-expandable-section__btn-all");
@@ -45,10 +13,6 @@ test.describe("View all > Functionality", () => {
 		await toggleBtn.click();
 		await expect(toggleBtn).toHaveText(/(Hide all)/i);
 		await toggleBtn.click();
-		await expect(toggleBtn).toHaveText(/(View all)/i);
-		await page.keyboard.press('Enter');
-		await expect(toggleBtn).toHaveText(/(Hide all)/i);
-		await page.keyboard.press('Enter');
 		await expect(toggleBtn).toHaveText(/(View all)/i);
 	});
 
@@ -65,16 +29,6 @@ test.describe("View all > Functionality", () => {
 		}
 
 		await toggleBtn.click();
-		for (const toggle of await page.locator(".js-expandable-section-all").all()) {
-			await expect(toggle).toBeHidden();
-		}
-
-		await page.keyboard.press('Enter');
-		for (const toggle of await page.locator(".js-expandable-section-all").all()) {
-			await expect(toggle).toBeVisible();
-		}
-
-		await page.keyboard.press('Enter');
 		for (const toggle of await page.locator(".js-expandable-section-all").all()) {
 			await expect(toggle).toBeHidden();
 		}
@@ -103,7 +57,99 @@ test.describe("View all > Functionality", () => {
     });
 });
 
+test.describe("View all > Keyboard", () => {
+	test("Buttons should be focusable", async ({ page }) => {
+		await page.keyboard.press('Tab');
+		const focusedElement = page.locator(':focus');
+		await expect(focusedElement).toHaveRole("button");
+		await expect(focusedElement).toHaveClass(/js-expandable-section__btn-all/);
+		await page.keyboard.press('Tab');
+		await expect(focusedElement).toHaveRole("button");
+		await expect(focusedElement).toHaveClass(/js-expandable-section__btn-1/);
+	});
+
+	test('Enter key should update the trigger the view all button', async ({ page }) => {
+		const toggleBtn = page.locator(".js-expandable-section__btn-all");
+		await expect(toggleBtn).toHaveText(/(View all)/i);
+		await page.keyboard.press('Enter');
+		await expect(toggleBtn).toHaveText(/(Hide all)/i);
+		await page.keyboard.press('Enter');
+		await expect(toggleBtn).toHaveText(/(View all)/i);
+	});
+
+	test('View all button should toggle all inner expandable sections when used via keyboard', async ({ page }) => {
+		for (const toggle of await page.locator(".js-expandable-section-all").all()) {
+			await expect(toggle).toBeHidden();
+		}
+		
+		const toggleBtn = page.locator(".js-expandable-section__btn-all");
+		await toggleBtn.focus();
+		await page.keyboard.press('Enter');
+		for (const toggle of await page.locator(".js-expandable-section-all").all()) {
+			await expect(toggle).toBeVisible();
+		}
+
+		await page.keyboard.press('Enter');
+		for (const toggle of await page.locator(".js-expandable-section-all").all()) {
+			await expect(toggle).toBeHidden();
+		}
+	});
+
+	test('Keyboard focus should not move into toggles if they are not open', async ({ page }) => {
+		const toggleBtn = page.locator(".js-expandable-section__btn-1");
+		const toggleBlock = page.locator("#section-1");
+		await expect(toggleBlock).toBeHidden();
+
+		await toggleBtn.focus();
+		await page.keyboard.press('Tab');
+		const focusedElement = page.locator(':focus');
+		await expect(focusedElement).toHaveRole("button");
+		await expect(focusedElement).toHaveClass(/js-expandable-section__btn-2/);
+	});
+
+	test('Keyboard focus should move into toggles if they are open', async ({ page }) => {
+		const toggleBtn = page.locator(".js-expandable-section__btn-1");
+		const toggleBlock = page.locator("#section-1");
+		await expect(toggleBlock).toBeHidden();
+
+		await toggleBtn.focus();
+		await page.keyboard.press('Enter');
+		await expect(toggleBlock).toBeVisible();
+		await expect(toggleBtn).toBeFocused();
+		
+		//Created test button in content.  Links are currently ignored by tabbing in Playwright webkit
+		//see https://github.com/microsoft/playwright/issues/29820
+		await page.keyboard.press('Tab');
+		const testButton = page.locator('#testfocus');
+		await expect(testButton).toBeFocused();
+	});
+
+});
+
 test.use({ projects: reducedProjects });
+
+test.describe("View all > Markup tests", () => {
+	test("Should use a button element for the expandable section trigger", async ({ page }) => {
+		const locator = page.locator(".js-expandable-section__btn-1");
+		await expect(locator).toHaveRole("button");
+	});
+	
+	test("Buttons should be appropriately labelled", async ({ page }) => {
+		const locator = page.locator(".js-expandable-section__btn-1");
+		await expect(locator).toContainText(/Section title/);
+	});
+	
+	test("Should use a button element for the view all trigger", async ({ page }) => {
+		const locator = page.locator(".js-expandable-section__btn-all");
+		await expect(locator).toHaveRole("button");
+	});
+	
+	test("View all button should be appropriately labelled", async ({ page }) => {
+		const locator = page.locator(".js-expandable-section__btn-all .visually-hidden").first();
+		await expect(locator).toContainText(/sections about Lorem Ipsum/);
+	});
+	
+});
 
 test.describe("View all > Axe", () => {
 	test('Should not have any automatically detectable accessibility issues', async ({ page }) => {	
