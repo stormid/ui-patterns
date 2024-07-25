@@ -1,5 +1,38 @@
 const { defineConfig, devices } = require('@playwright/test');
 
+
+export const reducedProjects = [
+  {
+    name: 'chromium', 
+    use: { ...devices['Desktop Chrome'] }
+  }
+];
+
+export const fullProjects = [
+  {
+    name: 'chromium',
+    use: { ...devices['Desktop Chrome'] },
+  },
+
+  {
+    name: 'firefox',
+    use: { ...devices['Desktop Firefox'] },
+  },
+
+  {
+    name: 'webkit',
+    use: { ...devices['Desktop Safari'] },
+  },
+  {
+    name: 'Mobile Chrome',
+    use: { ...devices['Pixel 5'] },
+  },
+  {
+    name: 'Mobile Safari',
+    use: { ...devices['iPhone 13'] },
+  },
+]
+
 module.exports = defineConfig({
   testDir: './__tests__/playwright/',
   fullyParallel: true,
@@ -11,34 +44,12 @@ module.exports = defineConfig({
     baseURL: 'http://127.0.0.1:8081',
     trace: 'on-first-retry',
   },
-  projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
-
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
-    {
-      name: 'Mobile Chrome',
-      use: { ...devices['Pixel 5'] },
-    },
-    {
-      name: 'Mobile Safari',
-      use: { ...devices['iPhone 13'] },
-    },
-  ],
+  projects: fullProjects,
   webServer: {
     command: 'webpack serve --config tools/webpack/config/build --port 8081 --hot --no-open',
     url: 'http://127.0.0.1:8081',
     reuseExistingServer: !process.env.CI,
   },
 });
+
 

@@ -69,6 +69,7 @@
     "webpack-merge": "^5.10.0"
   },
   "dependencies": {
+    "@axe-core/playwright": "^4.9.1",
     "@scottish-government/pattern-library": "0.0.381",
     "@stormid/cookie-banner": "^1.0.0-alpha.24",
     "@stormid/modal": "^1.0.0-alpha.15",
