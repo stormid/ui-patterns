@@ -27,17 +27,6 @@ describe('Show more > mark up', () => {
 
 });
 
-describe('Show more > behaviour > keyboard', () => {
-    let instance;
-    beforeAll(() => {
-        document.body.innerHTML = render(<ShowMore />);
-        [ instance ] = initShowMore()[0];
-    });
-    afterEach(() => {
-        if (instance.getState().isOpen === true) instance.toggle();
-    });
-});
-
 describe('Show more > behaviour > focus management', () => {
     let instance;
     beforeAll(() => {

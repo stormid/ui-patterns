@@ -62,13 +62,6 @@ describe('Modal confirmation > mark up', () => {
 
 });
 
-describe('Modal search > behaviour > keyboard', () => {
-    let instance;
-    beforeAll(() => {
-        document.body.innerHTML = render(<ModalConfirmation />);
-        [ instance ] = initModalConfirmation();
-    });
-});
 
 describe('Modal search > behaviour > focus', () => {
     let instance;

@@ -1,60 +1,69 @@
-const RawSource = require('webpack-sources/lib/RawSource');
+const RawSource = require('webpack-sources').RawSource;
 const evaluate = require('eval');
 const path = require('path');
-const Promise = require('bluebird');
+const { Compilation } = require('webpack');
 
-function StaticSiteGeneratorWebpackPlugin(options) {
-    options = options || {};
+class StaticSiteGeneratorWebpackPlugin {
+    constructor(options) {
+        options = options || {};
+        this.entry = options.entry;
+        this.paths = Array.isArray(options.paths) ? options.paths : [options.paths || '/'];
+        this.locals = options.locals;
+        this.globals = options.globals;
+    }
 
-    this.entry = options.entry;
-    this.paths = Array.isArray(options.paths) ? options.paths : [options.paths || '/'];
-    this.locals = options.locals;
-    this.globals = options.globals;
+    apply(compiler) {
+        const pluginName = 'StaticSiteGeneratorWebpackPlugin';
+
+        compiler.hooks.thisCompilation.tap(pluginName, compilation => {
+            compilation.hooks.processAssets.tapPromise(
+                {
+                    name: pluginName,
+                    stage: Compilation.PROCESS_ASSETS_STAGE_ADDITIONAL,
+                },
+                async () => {
+                    const webpackStats = compilation.getStats();
+                    const webpackStatsJson = webpackStats.toJson();
+
+                    try {
+                        const asset = findAsset(this.entry, compilation, webpackStatsJson);
+
+                        if (asset === null) {
+                            throw new Error('Source file not found: "' + this.entry + '"');
+                        }
+
+                        const assets = getAssetsFromCompilation(compilation, webpackStatsJson);
+
+                        const source = asset.source();
+                        let render = evaluate(source, /* filename: */ this.entry, /* scope: */ this.globals, /* includeGlobals: */ true);
+
+                        if (Object.prototype.hasOwnProperty.call(render, 'default')) {
+                            render = render.default;
+                        }
+
+                        if (typeof render !== 'function') {
+                            throw new Error(
+                                'Export from "' +
+                                    this.entry +
+                                    '" must be a function that returns an HTML string. Is output.libraryTarget in the configuration set to "umd"?'
+                            );
+                        }
+                        await renderPaths(this.locals, this.paths, render, assets, webpackStats, compilation);
+                    } catch (err) {
+                        compilation.errors.push(err.stack);
+                    }
+                }
+            );
+        });
+    }
 }
 
-StaticSiteGeneratorWebpackPlugin.prototype.apply = function(compiler) {
-    let self = this;
-    addThisCompilationHandler(compiler, compilation => {
-        addOptimizeAssetsHandler(compilation, (_, done) => {
-            const webpackStats = compilation.getStats();
-            const webpackStatsJson = webpackStats.toJson();
-
-            try {
-                const asset = findAsset(self.entry, compilation, webpackStatsJson);
-
-                if (asset === null) {
-                    throw new Error('Source file not found: "' + self.entry + '"');
-                }
-
-                const assets = getAssetsFromCompilation(compilation, webpackStatsJson);
-
-                const source = asset.source();
-                let render = evaluate(source, /* filename: */ self.entry, /* scope: */ self.globals, /* includeGlobals: */ true);
-                
-                if (Object.prototype.hasOwnProperty.call(render, 'default')) {
-                    render = render.default;
-                }
-
-                if (typeof render !== 'function') {
-                    throw new Error('Export from "' + self.entry + '" must be a function that returns an HTML string. Is output.libraryTarget in the configuration set to "umd"?');
-                }
-
-                renderPaths(self.locals, self.paths, render, assets, webpackStats, compilation)
-                    .nodeify(done);
-            } catch (err) {
-                compilation.errors.push(err.stack);
-                done();
-            }
-        });
-    });
-};
-
-function renderPaths(userLocals, paths, render, assets, webpackStats, compilation) {
-    const renderPromises = paths.map(outputPath => {
+async function renderPaths(userLocals, paths, render, assets, webpackStats, compilation) {
+    const renderPromises = paths.map(async outputPath => {
         const locals = {
             path: outputPath,
             assets,
-            webpackStats
+            webpackStats,
         };
 
         for (const prop in userLocals) {
@@ -63,12 +72,11 @@ function renderPaths(userLocals, paths, render, assets, webpackStats, compilatio
             }
         }
 
-        const renderPromise = render.length < 2
-            ? Promise.resolve(render(locals))
-            : Promise.fromNode(render.bind(null, locals));
-
-        return renderPromise
-            .then(output => {
+        try {
+            const renderPromise = render.length < 2
+                ? Promise.resolve(render(locals))
+                : Promise.fromNode(render.bind(null, locals));
+            return renderPromise.then(output => {
                 const outputByPath = typeof output === 'object' ? output : makeObject(outputPath, output);
                 const assetGenerationPromises = Object.keys(outputByPath).map(key => {
                     const rawSource = outputByPath[key];
@@ -81,13 +89,15 @@ function renderPaths(userLocals, paths, render, assets, webpackStats, compilatio
                 });
 
                 return Promise.all(assetGenerationPromises);
-            })
-            .catch(err => {
-                compilation.errors.push(err.stack);
             });
+
+           
+        } catch (err) {
+            compilation.errors.push(err.stack);
+        }
     });
 
-    return Promise.all(renderPromises);
+    return await Promise.all(renderPromises);
 }
 
 const findAsset = (src, compilation, webpackStatsJson) => {
@@ -149,23 +159,5 @@ const makeObject = (key, value) => {
     obj[key] = value;
     return obj;
 };
-
-const addThisCompilationHandler = (compiler, callback) => {
-    if (compiler.hooks) {
-        /* istanbul ignore next */
-        compiler.hooks.thisCompilation.tap('static-site-generator-webpack-plugin', callback);
-    } else {
-        compiler.plugin('this-compilation', callback);
-    }
-};
-
-function addOptimizeAssetsHandler(compilation, callback) {
-    if (compilation.hooks) {
-        /* istanbul ignore next */
-        compilation.hooks.optimizeAssets.tapAsync('static-site-generator-webpack-plugin',callback);
-    } else {
-        compilation.plugin('optimize-assets', callback);
-    }
-}
 
 module.exports = StaticSiteGeneratorWebpackPlugin;
