@@ -8,7 +8,7 @@ import {
 export const init = () => {
     const node = document.querySelector('.js-carousel');
     const waiNode = document.querySelector('.js-carousel-wai');
-    if (!node && !waiNode) return;
+    const liveNode = document.querySelector('.js-carousel-live');
     if (node) {
         const instance = new Swiper(node, {
             modules: [ Navigation, FreeMode, A11y ],
@@ -86,6 +86,46 @@ export const init = () => {
                 return message + `${instance.slides[curr].getAttribute('aria-label')}`;
             }, '');
             liveRegion.textContent = message;
+        });
+    }
+    if (liveNode) {
+        const instance = new Swiper(liveNode, {
+            modules: [ Navigation, FreeMode, A11y ],
+            watchSlidesProgress: true,
+            freeMode: {
+                enabled: true,
+                sticky: true,
+            },
+            a11y: {
+                enabled: true,
+                slideLabelMessage: false,
+                prevSlideMessage: 'Scroll carousel left',
+                nextSlideMessage: 'Scroll carousel right'
+            },
+            navigation: {
+                nextEl: liveNode.previousElementSibling.querySelector('.swiper-button-next'),
+                prevEl: liveNode.previousElementSibling.querySelector('.swiper-button-prev'),
+            },
+            slidesPerView: 1,
+            spaceBetween: 24,
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                1500: { slidesPerView: 3 },
+            }
+        });
+        instance.wrapperEl.removeAttribute('aria-live');
+        instance.wrapperEl.parentNode.setAttribute('aria-live', 'polite');
+        instance.wrapperEl.parentNode.setAttribute('aria-atomic', 'true');
+        instance.wrapperEl.parentNode.setAttribute('aria-busy', 'false');
+        instance.on('beforeTransitionStart sliderMove', () => liveNode.classList.add('is-sliding'));
+        instance.on('slideChangeTransitionEnd', () => {
+            liveNode.classList.remove('is-sliding');
+            instance.slides.forEach((slide, idx) => {
+                if (instance.visibleSlides.includes(idx)) slide.setAttribute('aria-hidden', 'false');
+                else slide.setAttribute('aria-hidden', 'true');
+            });
+            instance.wrapperEl.parentNode.setAttribute('aria-busy', 'true');
+            window.setTimeout(() => instance.wrapperEl.parentNode.setAttribute('aria-busy', 'false'), 90);
         });
     }
 

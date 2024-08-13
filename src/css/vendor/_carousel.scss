@@ -20,7 +20,8 @@
     .swiper-slide-visible {
         visibility: visible;
     }
-    &.is-sliding {
+    &.is-sliding,
+    .is-sliding {
         .swiper-slide {
             visibility: visible;
         }
