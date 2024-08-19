@@ -2,6 +2,7 @@ import { h } from 'preact';
 
 export const Code = () => <form class="form" novalidate>
     <fieldset>
+        <h1 class="visuallyhidden">Accessible date picker</h1>
         <legend class="legend">
             Start date
             <span class="legend__hint">For example, 31 01 2023</span>
