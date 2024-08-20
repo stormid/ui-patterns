@@ -41,13 +41,13 @@ module.exports = defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'line',
   use: {
-    baseURL: 'http://127.0.0.1:8081',
+    baseURL: 'http://127.0.0.1:8082',
     trace: 'on-first-retry',
   },
   projects: fullProjects,
   webServer: {
-    command: 'webpack serve --config tools/webpack/config/build --port 8081 --hot --no-open',
-    url: 'http://127.0.0.1:8081',
+    command: 'webpack serve --config tools/webpack/config/build --port 8082 --hot --no-open',
+    url: 'http://127.0.0.1:8082',
     reuseExistingServer: !process.env.CI,
   },
 });

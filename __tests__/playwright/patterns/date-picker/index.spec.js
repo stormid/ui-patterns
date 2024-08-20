@@ -6,6 +6,12 @@ const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Fri
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const zeropad = num => num.toString().padStart(2, '0');
 
+const today = new Date();
+const day = today.getDate();
+const month = today.getMonth();
+const year = today.getFullYear();
+const dayOfWeek = today.getDay();
+
 test.beforeEach(async ({ page }) => {
 	await page.goto("/example/date-picker/");
 });
@@ -30,15 +36,10 @@ test.describe("Date picker single input > Functionality", () => {
 		const focusedElement = page.locator(':focus');
 		await expect(focusedElement).toHaveRole("button");
 		await expect(focusedElement).toHaveClass(/ds_datepicker__today/);
-        await calendarButton.click();
     });
 
 	test('Should populate input value with selected date and update accessible text of button', async ({ page }) => {
-		const today = new Date();
-        const day = today.getDate();
-        const month = today.getMonth();
-        const year = today.getFullYear();
-		const dayOfWeek = today.getDay();
+
 		let textContentString = new RegExp(String.raw`Choose date. Selected date is ${daysOfWeek[dayOfWeek]} ${day} ${months[month]} ${year}`, "g");
 
 		const dateInput = page.locator('input');
@@ -47,19 +48,85 @@ test.describe("Date picker single input > Functionality", () => {
 
 		await dateInput.fill("");
 
+		await calendarButton.click();
 		await todayButton.click();
 		await expect(calendarButton).toContainText(textContentString);
-		await expect(dateInput).toHaveValue(`${zeropad(day)}/${zeropad(month+1)}/${year}`);
-		await calendarButton.click();
-        
+		await expect(dateInput).toHaveValue(`${zeropad(day)}/${zeropad(month+1)}/${year}`);        
+    });
+
+	test('It should be possible to close the calendar without selecting a date', async ({ page }) => {
+		const dateInput = page.locator('input');
+		await dateInput.fill("");
+
+		const calendarButton  = page.locator('.js-calendar-button');
+        await calendarButton.click();
+
+		const cancelButton  = page.locator('.js-datepicker-cancel');
+        await cancelButton.click();
+
+		await expect(dateInput).toHaveValue("");
     });
 
 });
 
-// test.describe("Date picker > Keyboard", () => {
-	
+test.describe("Date picker > Keyboard", () => {
 
-// });
+	test('It should be possible to open the calendar via keyboard', async ({ page }) => {
+		const calendarButton = page.locator(".js-calendar-button");
+		const dialog = page.locator(".ds_datepicker__dialog");
+
+		await calendarButton.focus();
+		await page.keyboard.press('Enter');
+		await expect(dialog).toBeVisible();
+	});
+
+	test('It should be possible select a date and populate the input via keyboard', async ({ page }) => {
+		const calendarButton = page.locator(".js-calendar-button");
+		const dateInput = page.locator('input');
+
+		await calendarButton.focus();
+		await page.keyboard.press('Enter');
+		await page.keyboard.press('Enter');
+		await expect(dateInput).toHaveValue(`${zeropad(day)}/${zeropad(month+1)}/${year}`);
+
+		const focusedElement = page.locator(':focus');
+		await expect(focusedElement).toHaveRole("button");
+		await expect(focusedElement).toHaveClass(/js-calendar-button/);
+	});
+
+	test('It should be possible to move through dates in the calendar via keyboard', async ({ page }) => {
+		const calendarButton = page.locator(".js-calendar-button");
+		const dateInput = page.locator('input');
+
+		await calendarButton.focus();
+		await page.keyboard.press('Enter');
+		await page.keyboard.press('ArrowRight');
+		await page.keyboard.press('Enter');
+
+		var tomorrowsDate = new Date();
+		tomorrowsDate.setUTCDate(tomorrowsDate.getUTCDate() + 1);
+
+		var lastWeeksDate = new Date();
+		lastWeeksDate.setUTCDate(lastWeeksDate.getUTCDate() - 7);
+
+		await expect(dateInput).toHaveValue(`${zeropad(tomorrowsDate.getDate())}/${zeropad(tomorrowsDate.getMonth()+1)}/${tomorrowsDate.getFullYear()}`);
+
+		await page.keyboard.press('Enter');
+		await page.keyboard.press('ArrowLeft');
+		await page.keyboard.press('Enter');
+		await expect(dateInput).toHaveValue(`${zeropad(day)}/${zeropad(month+1)}/${year}`);
+
+		await page.keyboard.press('Enter');
+		await page.keyboard.press('ArrowUp');
+		await page.keyboard.press('Enter');
+		await expect(dateInput).toHaveValue(`${zeropad(lastWeeksDate.getDate())}/${zeropad(lastWeeksDate.getMonth()+1)}/${lastWeeksDate.getFullYear()}`);
+
+		await page.keyboard.press('Enter');
+		await page.keyboard.press('ArrowDown');
+		await page.keyboard.press('Enter');
+		await expect(dateInput).toHaveValue(`${zeropad(day)}/${zeropad(month+1)}/${year}`);
+	});
+});
 
 test.use({ projects: reducedProjects });
 
@@ -107,11 +174,6 @@ test.describe("Date picker single input > Aria", () => {
     });
 
 	test('Should have an accurate aria label for date buttons', async ({ page }) => {
-		const today = new Date();
-        const dayOfWeek = today.getDay();
-        const day = today.getDate();
-        const month = today.getMonth();
-        const year = today.getFullYear();
 
 		const calendarButton  = page.locator('.js-calendar-button');
         await calendarButton.click();
