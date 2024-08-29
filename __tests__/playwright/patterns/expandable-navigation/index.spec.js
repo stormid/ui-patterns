@@ -10,7 +10,8 @@ test.describe("Expandable navigation > Functionality", () => {
     test('Button should expand and make navigation visible', async ({ page }) => {	
         const button = page.locator('.expandable-nav__btn');
         await button.click();
-        expect(page.locator("body.on--expandable-nav")).not.toBeNull();
+        const classChange = page.locator(".on--expandable-nav")
+        await expect(classChange).toHaveCount(1);
         await expect(page.locator('#expandable-nav')).toBeVisible();
     });
 
@@ -45,7 +46,7 @@ test.describe("Expandable navigation > Markup tests", () => {
 
     test('Buttons should be within the nav element', async ({ page }) => {	
         const locator = page.locator("nav .expandable-nav__btn");
-        expect(locator).not.toBeNull();
+        await expect(locator).not.toHaveCount(0);
     });
 
     test('Either the first item in the navigation should be the next in the focus order after the button, or the first item should programmatically receive focus when navigation is opened', async ({ page }) => {	

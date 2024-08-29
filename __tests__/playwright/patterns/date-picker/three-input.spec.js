@@ -106,7 +106,7 @@ test.describe("Date picker mulitple input > Keyboard", () => {
 
 	test('It should be possible to move through dates in the calendar via keyboard', async ({ page }) => {
 		const calendarButton = page.locator(".js-calendar-button");
-		const dateInputs = await page.locator('input');
+		const dateInputs = page.locator('input');
 
 		await calendarButton.focus();
 		await page.keyboard.press('Enter');
@@ -153,7 +153,7 @@ test.describe("Date picker mulitple input > Markup tests", () => {
 		for (const input of await page.locator("input").all()) {
 			const inputID = await input.getAttribute('id');
 			const label = page.locator(`[for=${inputID}]`);
-			expect(label).not.toBeNull();
+			await expect(label).toHaveCount(1);
 		}
 	});
 

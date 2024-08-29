@@ -1,6 +1,5 @@
 const { defineConfig, devices } = require('@playwright/test');
 
-
 export const reducedProjects = [
   {
     name: 'chromium', 

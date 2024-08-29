@@ -135,7 +135,7 @@ test.describe("Date picker single input > Markup tests", () => {
 		for (const input of await page.locator("input").all()) {
 			const inputID = await input.getAttribute('id');
 			const label = page.locator(`[for=${inputID}]`);
-			expect(label).not.toBeNull();
+			await expect(label).toHaveCount(1);
 		}
 	});
 
