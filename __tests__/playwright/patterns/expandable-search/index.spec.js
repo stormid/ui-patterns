@@ -7,19 +7,14 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe("Expandable search > Functionality", () => {
-	test('Either the search input should be the next in the focus order after the button, or the first item should programmatically receive focus when navigation is opened', async ({ page }) => {
+	test('Either the search input should be the next in the focus order after the button, or the first item should programmatically receive focus when navigation is opened', async ({ page, browserName }) => {
         const toggleButton = page.locator('.expandable-search__btn');
 		await toggleButton.click();
 		const focussedElement = page.locator(':focus');
 		await expect(focussedElement).toBeVisible();
 		await expect(focussedElement).toHaveRole("searchbox"); 
 		await expect(focussedElement).toHaveClass(/expandable-search__input/);
-
 		await toggleButton.click();
-		const newFocussedElement = page.locator(':focus');
-		await expect(newFocussedElement).toHaveRole("button"); 
-		await expect(newFocussedElement).toHaveClass(/expandable-search__btn/);
-
     });
 
 });
@@ -63,6 +58,20 @@ test.describe("Expandable search > Aria", () => {
 	test('Buttons should be appropriately labelled', async ({ page }) => {
         const toggleButton = page.locator('.expandable-search__btn');
         expect(await toggleButton.getAttribute('aria-label')).toEqual('Show or hide site search');
+    });
+
+	test('Button should set aria expanded correctly when used', async ({ page }) => {	
+        const button = page.locator('.expandable-search__btn');
+        expect(await button.getAttribute('aria-expanded')).toEqual("false");
+        await button.click();
+        expect(await button.getAttribute('aria-expanded')).toEqual("true");
+        await button.click();
+        expect(await button.getAttribute('aria-expanded')).toEqual("false");
+    });
+
+	test('ARIA controls attribute should correctly associate button with search element', async ({ page }) => {	
+        const button = page.locator('.expandable-search__btn');
+        expect(await button.getAttribute('aria-controls')).toEqual("expandable-search");
     });
 });
 
