@@ -7,6 +7,7 @@
     }
     .tr {
         position: relative;
+        transform: translate(0);
         background-color: white;
             &:hover {
                 background-color: transparent;
@@ -83,16 +84,4 @@
         }
     }
     
-    //Dirty safari hack since it doesn't support relative positioning on tr
-    //https://stackoverflow.com/questions/16348489/is-there-a-css-hack-to-affect-safari-only-not-chrome
-    @media not all and (min-resolution:.001dpcm)
-    { @supports (-webkit-appearance:none) {
-        .td__link {
-            text-decoration: underline;
-        }
-        .td__link:before,
-        .td__link:after  {
-            display: none;
-        }
-    }}
 }
