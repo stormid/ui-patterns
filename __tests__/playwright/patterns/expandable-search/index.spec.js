@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe("Expandable search > Functionality", () => {
-	test('Either the search input should be the next in the focus order after the button, or the first item should programmatically receive focus when navigation is opened', async ({ page, browserName }) => {
+	test('The first available form input, button or link within the search form should receive visible focus when the search is opened', async ({ page, browserName }) => {
         const toggleButton = page.locator('.expandable-search__btn');
 		await toggleButton.click();
 		const focussedElement = page.locator(':focus');
@@ -16,6 +16,19 @@ test.describe("Expandable search > Functionality", () => {
 		await expect(focussedElement).toHaveClass(/expandable-search__input/);
 		await toggleButton.click();
     });
+
+	test('Search button should be at least 44 x 44px', async ({ page }) => {
+    	const toggleButton = page.locator('.expandable-search__btn');
+		const buttonDimensions = await toggleButton.boundingBox()
+		expect(buttonDimensions.height).toBeGreaterThanOrEqual(44);
+		expect(buttonDimensions.width).toBeGreaterThanOrEqual(44);
+    });
+
+	test('Search form should be initially hidden from view', async ({ page }) => {
+    	const searchInput = page.locator('.expandable-search__input');
+		await expect(searchInput).not.toBeVisible();
+    });
+
 
 });
 
@@ -26,6 +39,24 @@ test.describe("Expandable search > Keyboard", () => {
 
         await expect(focussedElement).toHaveRole("button"); 
         await expect(focussedElement).toHaveClass(/expandable-search__btn/);
+    });
+
+	test('Search form should not be focusable when not open', async ({ page }) => {
+    	await page.keyboard.press('Tab');
+		await page.keyboard.press('Tab');
+        const focussedElement = page.locator(':focus');
+
+        await expect(focussedElement).not.toHaveClass(/expandable-search__input/);
+    });
+
+    
+    test('Search form should not trap tab', async ({ page }) => {
+    	const toggleButton = page.locator('.expandable-search__btn');
+		await toggleButton.click();
+        await page.keyboard.press('Tab');
+		await page.keyboard.press('Tab');
+        const focussedElement = page.locator(':focus');
+        await expect(focussedElement).toHaveText(/(Fusce gravida)/i);
     });
 
 });
