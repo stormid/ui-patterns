@@ -26,7 +26,7 @@ test.describe("Expandable search > Functionality", () => {
 
 	test('Search form should be initially hidden from view', async ({ page }) => {
     	const searchInput = page.locator('.expandable-search__input');
-		await expect(searchInput).not.toBeVisible();
+		await expect(searchInput).toBeHidden();
     });
 
 

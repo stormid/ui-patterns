@@ -18,14 +18,14 @@ test.beforeEach(async ({ page }) => {
 test.describe("Date picker mulitple input > Functionality", () => {
 	test('Should not allow a user to interact with the calendar until opened', async ({ page }) => {
 		const dialog = page.locator(".ds_datepicker__dialog");
-        await expect(dialog).not.toBeVisible();
+        await expect(dialog).toBeHidden();
 
 		const calendarButton = page.locator(".js-calendar-button");
 		await calendarButton.click();
 		await expect(dialog).toBeVisible();
 
 		await calendarButton.click();
-		await expect(dialog).not.toBeVisible();
+		await expect(dialog).toBeHidden();
     });
 
 	test('Should focus on todays date when opened', async ({ page }) => {
