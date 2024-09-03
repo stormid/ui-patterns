@@ -3,7 +3,7 @@ import { h } from 'preact';
 export const Code = () => <form class="form js-validate" action="#">
     <p class="push-bottom">All fields are required unless marked as optional.</p>
     <fieldset class="fieldset">
-        <legend class="legend">Your details</legend>
+        <legend class="legend"><h1>Your details</h1></legend>
         <div class="form-row">
             <label for="fname" class="label">First Name</label>
             <span class="error-message" data-valmsg-for="fname" />

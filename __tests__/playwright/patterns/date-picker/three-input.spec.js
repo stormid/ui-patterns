@@ -175,8 +175,7 @@ test.describe("Date picker mulitple input > Aria", () => {
 	
 	test('Should use have an accessible label for each day button in the calendar', async ({ page }) => {	
         for (const day of await page.locator(".js-datepicker-grid button").all()) {
-			const label = await day.getAttribute('aria-label')
-            expect(label).not.toBeNull();
+			await expect(day).toHaveAttribute('aria-label');
         }
     });
 

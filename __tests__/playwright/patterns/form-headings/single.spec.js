@@ -12,23 +12,23 @@ test.describe("Form headings > Single > Markup tests", () => {
 	test("All inputs must have associated labels", async ({ page }) => {
 		for (const input of await page.locator("input").all()) {
 			const matchingLabel = page.locator(`[for=${await input.getAttribute('id')}]`)
-			expect(await matchingLabel.count()).toEqual(1);
+			await expect(matchingLabel).toHaveCount(1);  
 		}
 	});
 	
 	test('There should be only one h1 per page', async ({ page }) => {
         const headings = page.locator('h1');
-        expect(await headings.count()).toEqual(1);   
+        await expect(headings).toHaveCount(1);  
     });
 
 	test('There should be only one label', async ({ page }) => {
         const labels = page.locator('label');
-        expect(await labels.count()).toEqual(1);   
+        await expect(labels).toHaveCount(1);  
     });
 
 	test('The h1 should contain the label', async ({ page }) => {
         const headings = page.locator('h1 label');
-        expect(await headings.count()).toEqual(1);   
+        await expect(headings).toHaveCount(1);  
     });
 	
 });

@@ -90,7 +90,7 @@ test.describe("Expandable section > Aria", () => {
 			const controls = await toggle.getAttribute('aria-controls');
 			expect(controls).not.toBeNull();
 			const panel = page.locator('#'+ controls);
-			expect(await panel.count()).toEqual(1);
+			await expect(panel).toHaveCount(1);
 		}		
 	});
 	
