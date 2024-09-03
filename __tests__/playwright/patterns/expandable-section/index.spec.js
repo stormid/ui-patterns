@@ -6,15 +6,6 @@ test.beforeEach(async ({ page }) => {
 	await page.goto("/example/expandable-section/");
 });
 
-test.describe("Expandable section > Markup", () => {
-	test("Trigger should be a button element", async ({ page }) => {
-		for (const toggle of await page.locator(".expandable-section__btn").all()) {
-			await expect(toggle).toHaveRole("button");
-		}
-	});
-
-});
-
 test.describe("Expandable section > Keyboard", () => {
 	test("Buttons should be focusable", async ({ page }) => {
 		await page.keyboard.press('Tab');
@@ -76,6 +67,12 @@ test.describe("Expandable section > Markup tests", () => {
 		const locator = page.locator(".js-expandable-section__btn-1");
 		await expect(locator).toContainText(/Section title/);
 	});
+
+	test("Trigger should be a button element", async ({ page }) => {
+		for (const toggle of await page.locator(".expandable-section__btn").all()) {
+			await expect(toggle).toHaveRole("button");
+		}
+	});
 	
 });
 
@@ -93,12 +90,12 @@ test.describe("Expandable section > Aria", () => {
 			const controls = await toggle.getAttribute('aria-controls');
 			expect(controls).not.toBeNull();
 			const panel = page.locator('#'+ controls);
-			await expect(panel).count(1);
+			expect(await panel.count()).toEqual(1);
 		}		
 	});
 	
 	test('ARIA expanded attribute should correctly describe shown/hidden state of toggles', async ({ page }) => {
-		for (const toggle of await page.locator(".expandable-section__btn").all()) {
+		for (const toggle of await page.locator(".expandable-section__bd").all()) {
 			const toggleBtn = page.locator("."+ await toggle.getAttribute("data-toggle")).first();
 			expect(await toggleBtn.getAttribute('aria-expanded')).toEqual('false');
 			await toggleBtn.click();
