@@ -117,8 +117,8 @@ test.describe("View all > Keyboard", () => {
 		await expect(toggleBlock).toBeVisible();
 		await expect(toggleBtn).toBeFocused();
 		
-		//Created test button in content.  Links are currently ignored by tabbing in Playwright webkit
-		//see https://github.com/microsoft/playwright/issues/29820
+		//Created test button in content.  
+		//Workaround for webkit tab to links not being default behaviour: https://github.com/microsoft/playwright/issues/2114#issuecomment-1517642401
 		await page.keyboard.press('Tab');
 		const testButton = page.locator('#testfocus');
 		await expect(testButton).toBeFocused();

@@ -20,6 +20,7 @@ export const fullProjects = [
 
   {
     name: 'webkit',
+    userAgent: 'Safari',
     use: { ...devices['Desktop Safari'] },
   },
   {
@@ -28,6 +29,7 @@ export const fullProjects = [
   },
   {
     name: 'Mobile Safari',
+    userAgent: 'Safari',
     use: { ...devices['iPhone 13'] },
   },
 ]
