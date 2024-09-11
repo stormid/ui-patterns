@@ -65,18 +65,17 @@ test.describe("Full screen navigation > Keyboard", () => {
 
         await expect(mainElement).toBeHidden();
 
+        //After a number of tab presses that exceeds the number of
+        //elements in the nav, focus should remain within the 
+        //full screen overlay and not move to the main body
         for(let i = 0; i<=7; i++) {
             await page.keyboard.press('Tab');
         }
 
         await expect(mainElement).toBeHidden();
-        let focussedElement = await page.locator(':focus').first().innerHTML();
-        //Tabbing behaviour in Chrome is different, but focus should not end up in the main page
-        if(browserName.includes('chromium')) {
-            expect(focussedElement).toEqual('Item 2');
-        } else {
-            expect(focussedElement).toEqual('close');
-        }
+        let focussedElement = page.locator(':focus').first();
+        const containerEl = page.locator('#full-screen-navigation').filter({has: focussedElement});
+        await expect(containerEl).toHaveCount(1);
 
     });
 });
