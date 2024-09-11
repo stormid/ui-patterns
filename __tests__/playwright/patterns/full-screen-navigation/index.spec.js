@@ -48,24 +48,36 @@ test.describe("Full screen navigation > Keyboard", () => {
         await expect(focussedElement).toHaveId('test-focus');
     });
 
-    test.only('Navigation elements should be focusable when nav is open', async ({ page, browserName }) => {
-
+    test('The first navigation link should receive visible focus when navigation is opened', async ({ page }) => {
 
         await page.keyboard.press('Tab');
 		await page.keyboard.press('Enter');
         let focussedElement = page.locator(':focus');
 
         await expect(focussedElement).toHaveText(/Item 1/);
-        
-        //Workaround for tab key behaviour in webkit
-        //https://github.com/microsoft/playwright/issues/2114#issuecomment-1517642401
+    });
 
-        // const keyToPress = (browserName.includes('webkit')) ? 'Alt+Tab' : 'Tab';
-        // console.log(keyToPress)
-        // await page.keyboard.press(keyToPress);
+    test.only('When the navigation is open, it should not be possible to access the page content underneith via mouse, keyboard or any other means', async ({ page, browserName }) => {
 
-        // focussedElement = page.locator(':focus');
-        // await expect(focussedElement).toHaveText(/Item 2/);
+        await page.keyboard.press('Tab');
+		await page.keyboard.press('Enter');
+        let mainElement = page.locator('.main');
+
+        await expect(mainElement).toBeHidden();
+
+        for(let i = 0; i<=7; i++) {
+            await page.keyboard.press('Tab');
+        }
+
+        await expect(mainElement).toBeHidden();
+        let focussedElement = await page.locator(':focus').first().innerHTML();
+        //Tabbing behaviour in Chrome is different, but focus should not end up in the main page
+        if(browserName.includes('chromium')) {
+            expect(focussedElement).toEqual('Item 2');
+        } else {
+            expect(focussedElement).toEqual('close');
+        }
+
     });
 });
 
