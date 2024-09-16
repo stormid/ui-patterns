@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe("Expandable search > Functionality", () => {
-	test('The first available form input, button or link within the search form should receive visible focus when the search is opened', async ({ page, browserName }) => {
+	test('The first available form input, button or link within the search form should receive visible focus when the search is opened', async ({ page }) => {
         const toggleButton = page.locator('.expandable-search__btn');
 		await toggleButton.click();
 		const focussedElement = page.locator(':focus');

@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
 
 test.use({ projects: reducedProjects });
 
-test.describe("Heading with subtitle > Markup tests", () => {
+test.describe("Heading with subtitle > Hero >Markup tests", () => {
 	test("There must be one hgroup tag in the page", async ({ page }) => {
 		const hgroups = page.locator('hgroup');
 		await expect(hgroups).toHaveCount(1);
@@ -30,7 +30,7 @@ test.describe("Heading with subtitle > Markup tests", () => {
     });	
 });
 
-test.describe("Heading with subtitle > Single > Axe", () => {
+test.describe("Heading with subtitle > Hero > Axe", () => {
 	test('Should not have any automatically detectable accessibility issues', async ({ page }) => {	
 		const accessibilityScanResults = await new AxeBuilder({ page }).analyze(); 
 		expect(accessibilityScanResults.violations).toEqual([]);

@@ -57,7 +57,7 @@ test.describe("Full screen navigation > Keyboard", () => {
         await expect(focussedElement).toHaveText(/Item 1/);
     });
 
-    test('When the navigation is open, it should not be possible to access the page content underneith via mouse, keyboard or any other means', async ({ page, browserName }) => {
+    test('When the navigation is open, it should not be possible to access the page content underneith via mouse, keyboard or any other means', async ({ page }) => {
 
         await page.keyboard.press('Tab');
 		await page.keyboard.press('Enter');
