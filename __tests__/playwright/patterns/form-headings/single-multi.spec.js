@@ -1,14 +1,12 @@
 const { test, expect } = require("@playwright/test");
-import { reducedProjects } from 'playwright.config';
 import AxeBuilder from '@axe-core/playwright';
 
 test.beforeEach(async ({ page }) => {
 	await page.goto("/example/form-headings/form-headings-single-multi/");
 });
 
-test.use({ projects: reducedProjects });
 
-test.describe("Form headings > Single with multiple choice > Markup tests", () => {
+test.describe("Form headings > Single with multiple choice > Markup tests", { tag: '@reduced'}, () => {
 	test("All inputs must have associated labels", async ({ page }) => {
 		for (const input of await page.locator("input").all()) {
 			const matchingLabel = page.locator(`[for=${await input.getAttribute('id')}]`)
@@ -33,7 +31,7 @@ test.describe("Form headings > Single with multiple choice > Markup tests", () =
 	
 });
 
-test.describe("Form headings > Single with multiple choice > Axe", () => {
+test.describe("Form headings > Single with multiple choice > Axe", { tag: '@reduced'}, () => {
 	test('Should not have any automatically detectable accessibility issues', async ({ page }) => {	
 		const accessibilityScanResults = await new AxeBuilder({ page }).analyze(); 
 		expect(accessibilityScanResults.violations).toEqual([]);

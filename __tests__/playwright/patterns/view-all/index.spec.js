@@ -1,12 +1,11 @@
 const { test, expect } = require("@playwright/test");
-import { reducedProjects } from 'playwright.config';
 import AxeBuilder from '@axe-core/playwright';
 
 test.beforeEach(async ({ page }) => {
 	await page.goto("/example/view-all/");
 });
 
-test.describe("View all > Functionality", () => {
+test.describe("View all > Functionality", { tag: '@all'}, () => {
 	test('Should update the visible text on the button when toggled', async ({ page }) => {
 		const toggleBtn = page.locator(".js-expandable-section__btn-all");
 		await expect(toggleBtn).toHaveText(/(View all)/i);
@@ -57,7 +56,7 @@ test.describe("View all > Functionality", () => {
     });
 });
 
-test.describe("View all > Keyboard", () => {
+test.describe("View all > Keyboard", { tag: '@all'}, () => {
 	test("Buttons should be focusable", async ({ page }) => {
 		await page.keyboard.press('Tab');
 		const focusedElement = page.locator(':focus');
@@ -126,9 +125,8 @@ test.describe("View all > Keyboard", () => {
 
 });
 
-test.use({ projects: reducedProjects });
 
-test.describe("View all > Markup tests", () => {
+test.describe("View all > Markup tests", { tag: '@reduced'}, () => {
 	test("Should use a button element for the expandable section trigger", async ({ page }) => {
 		const locator = page.locator(".js-expandable-section__btn-1");
 		await expect(locator).toHaveRole("button");
@@ -151,14 +149,14 @@ test.describe("View all > Markup tests", () => {
 	
 });
 
-test.describe("View all > Axe", () => {
+test.describe("View all > Axe", { tag: '@reduced'}, () => {
 	test('Should not have any automatically detectable accessibility issues', async ({ page }) => {	
 		const accessibilityScanResults = await new AxeBuilder({ page }).analyze(); 
 		expect(accessibilityScanResults.violations).toEqual([]);
 	});
 });
 
-test.describe("View all > Aria", () => {
+test.describe("View all > Aria", { tag: '@reduced'}, () => {
 	test('ARIA controls attribute should correctly associate button with search container element', async ({ page }) => {
 		for (const toggle of await page.locator(".js-expandable-section-all").all()) {
 			const toggleID = await toggle.getAttribute('id');

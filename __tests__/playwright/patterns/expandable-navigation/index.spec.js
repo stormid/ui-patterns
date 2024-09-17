@@ -1,12 +1,11 @@
 const { test, expect } = require("@playwright/test");
-import { reducedProjects } from 'playwright.config';
 import AxeBuilder from '@axe-core/playwright';
 
 test.beforeEach(async ({ page }) => {
 	await page.goto("/example/expandable-navigation/");
 });
 
-test.describe("Expandable navigation > Functionality", () => {
+test.describe("Expandable navigation > Functionality", { tag: '@all'}, () => {
     test('Button should expand and make navigation visible', async ({ page }) => {	
         const button = page.locator('.expandable-nav__btn');
         await button.click();
@@ -16,7 +15,7 @@ test.describe("Expandable navigation > Functionality", () => {
     });
 
 
-	test('Focus outside navigation should not hide navigation', async ({ page }) => {	
+	test('Focus outside navigation should not hide navigation', { tag: '@all'}, async ({ page }) => {	
         const button = page.locator('.expandable-nav__btn');
         const navigation = page.locator('#expandable-nav');
         await button.click();
@@ -27,7 +26,7 @@ test.describe("Expandable navigation > Functionality", () => {
     });
 });
 
-test.describe("Expandable navigation > Keyboard", () => {
+test.describe("Expandable navigation > Keyboard", { tag: '@all'}, () => {
 	test('Buttons should be focusable', async ({ page }) => {	
         await page.keyboard.press('Tab');
         const focussedElement = page.locator(':focus');
@@ -36,9 +35,8 @@ test.describe("Expandable navigation > Keyboard", () => {
     });
 });
 
-test.use({ projects: reducedProjects });
 
-test.describe("Expandable navigation > Markup tests", () => {
+test.describe("Expandable navigation > Markup tests", { tag: '@reduced'}, () => {
 	test('Should use a button element for the navigation triggers', async ({ page }) => {	
         const button = page.locator('.expandable-nav__btn');
         await expect(button).toHaveRole("button");
@@ -77,14 +75,14 @@ test.describe("Expandable navigation > Markup tests", () => {
     });
 });
 
-test.describe("Expandable navigation > Axe", () => {
+test.describe("Expandable navigation > Axe", { tag: '@reduced'}, () => {
 	test('Should not have any automatically detectable accessibility issues', async ({ page }) => {	
 		const accessibilityScanResults = await new AxeBuilder({ page }).analyze(); 
 		expect(accessibilityScanResults.violations).toEqual([]);
 	});
 });
 
-test.describe("Expandable navigation > Aria", () => {
+test.describe("Expandable navigation > Aria", { tag: '@reduced'}, () => {
 	test("Navigation should be nav element should be appropriately labelled", async ({ page }) => {
 		const locator = page.locator("nav");
 		expect(await locator.getAttribute('aria-label')).toEqual('Primary navigation');

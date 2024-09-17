@@ -1,14 +1,12 @@
 const { test, expect } = require("@playwright/test");
-import { reducedProjects } from 'playwright.config';
 import AxeBuilder from '@axe-core/playwright';
 
 test.beforeEach(async ({ page }) => {
 	await page.goto("/example/heading-subheading/hero");
 });
 
-test.use({ projects: reducedProjects });
 
-test.describe("Heading with subtitle > Hero >Markup tests", () => {
+test.describe("Heading with subtitle > Hero >Markup tests", { tag: '@reduced'}, () => {
 	test("There must be one hgroup tag in the page", async ({ page }) => {
 		const hgroups = page.locator('hgroup');
 		await expect(hgroups).toHaveCount(1);
@@ -30,7 +28,7 @@ test.describe("Heading with subtitle > Hero >Markup tests", () => {
     });	
 });
 
-test.describe("Heading with subtitle > Hero > Axe", () => {
+test.describe("Heading with subtitle > Hero > Axe", { tag: '@reduced'}, () => {
 	test('Should not have any automatically detectable accessibility issues', async ({ page }) => {	
 		const accessibilityScanResults = await new AxeBuilder({ page }).analyze(); 
 		expect(accessibilityScanResults.violations).toEqual([]);

@@ -1,12 +1,11 @@
 const { test, expect } = require("@playwright/test");
-import { reducedProjects } from 'playwright.config';
 import AxeBuilder from '@axe-core/playwright';
 
 test.beforeEach(async ({ page }) => {
 	await page.goto("/example/full-screen-navigation/");
 });
 
-test.describe("Full screen navigation > Functionality", () => {
+test.describe("Full screen navigation > Functionality", { tag: '@all'}, () => {
     test('Button should expand and make navigation visible', async ({ page }) => {	
         const button = page.locator('.js-full-screen-nav__toggle').first();
         await button.click();
@@ -32,7 +31,7 @@ test.describe("Full screen navigation > Functionality", () => {
 
 });
 
-test.describe("Full screen navigation > Keyboard", () => {
+test.describe("Full screen navigation > Keyboard", { tag: '@all'}, () => {
 	test('Toggle buttons should be focusable', async ({ page }) => {	
         await page.keyboard.press('Tab');
         const focussedElement = page.locator(':focus');
@@ -80,9 +79,8 @@ test.describe("Full screen navigation > Keyboard", () => {
     });
 });
 
-test.use({ projects: reducedProjects });
 
-test.describe("Full screen navigation > Markup tests", () => {
+test.describe("Full screen navigation > Markup tests", { tag: '@reduced'}, () => {
 	test('Should use a button element for the navigation triggers', async ({ page }) => {	
         const buttons = page.locator('.js-full-screen-nav__toggle');
         for (let button of await buttons.all()){
@@ -97,14 +95,14 @@ test.describe("Full screen navigation > Markup tests", () => {
 
 });
 
-test.describe("Full screen navigation > Axe", () => {
+test.describe("Full screen navigation > Axe", { tag: '@reduced'}, () => {
 	test('Should not have any automatically detectable accessibility issues', async ({ page }) => {	
 		const accessibilityScanResults = await new AxeBuilder({ page }).analyze(); 
 		expect(accessibilityScanResults.violations).toEqual([]);
 	});
 });
 
-test.describe("Full screen navigation > Aria", () => {
+test.describe("Full screen navigation > Aria", { tag: '@reduced'}, () => {
 	test("Navigation should be nav element should be appropriately labelled", async ({ page }) => {
 		const locator = page.locator("nav");
 		expect(await locator.getAttribute('aria-label')).toEqual('Primary navigation');

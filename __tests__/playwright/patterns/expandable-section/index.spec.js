@@ -1,12 +1,11 @@
 const { test, expect } = require("@playwright/test");
-import { reducedProjects } from 'playwright.config';
 import AxeBuilder from '@axe-core/playwright';
 
 test.beforeEach(async ({ page }) => {
 	await page.goto("/example/expandable-section/");
 });
 
-test.describe("Expandable section > Keyboard", () => {
+test.describe("Expandable section > Keyboard", { tag: '@all'}, () => {
 	test("Buttons should be focusable", async ({ page }) => {
 		await page.keyboard.press('Tab');
 		const focusedElement = page.locator(':focus');
@@ -55,9 +54,8 @@ test.describe("Expandable section > Keyboard", () => {
 
 });
 
-test.use({ projects: reducedProjects });
 
-test.describe("Expandable section > Markup tests", () => {
+test.describe("Expandable section > Markup tests", { tag: '@reduced'}, () => {
 	test("Should use a button element for the expandable section trigger", async ({ page }) => {
 		const locator = page.locator(".js-expandable-section__btn-1");
 		await expect(locator).toHaveRole("button");
@@ -76,14 +74,14 @@ test.describe("Expandable section > Markup tests", () => {
 	
 });
 
-test.describe("Expandable section > Axe", () => {
+test.describe("Expandable section > Axe", { tag: '@reduced'}, () => {
 	test('Should not have any automatically detectable accessibility issues', async ({ page }) => {	
 		const accessibilityScanResults = await new AxeBuilder({ page }).analyze(); 
 		expect(accessibilityScanResults.violations).toEqual([]);
 	});
 });
 
-test.describe("Expandable section > Aria", () => {
+test.describe("Expandable section > Aria", { tag: '@reduced'}, () => {
 
 	test('Toggle buttons should have matching aria controls', async ({ page }) => {
 		for (const toggle of await page.locator(".expandable-section__btn").all()) {

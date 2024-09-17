@@ -6,7 +6,7 @@ test.beforeEach(async ({ page }) => {
 	await page.goto("/example/tables/row-links");
 });
 
-test.describe("Table with row links > Keyboard", () => {
+test.describe("Table with row links > Keyboard", { tag: '@all'}, () => {
 	test("Links inside tables should be keyboard accessible", async ({ page, browserName }) => {
 		test.fail(browserName === 'webkit', 'webkit will not tab between links');
 
@@ -21,9 +21,8 @@ test.describe("Table with row links > Keyboard", () => {
 	});
 });
 
-test.use({ projects: reducedProjects });
 
-test.describe("Table with row links > Markup tests", () => {
+test.describe("Table with row links > Markup tests", { tag: '@reduced'}, () => {
 	test("Tables should have a table caption", async ({ page }) => {
 		const tables = await page.locator("table").all();
 		for (const table of tables) {
@@ -60,7 +59,7 @@ test.describe("Table with row links > Markup tests", () => {
 	});
 });
 
-test.describe("Table with row links > Axe", () => {
+test.describe("Table with row links > Axe", { tag: '@reduced'}, () => {
 	test("Should not have any automatically detectable accessibility issues", async ({ page }) => {
 		const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
 		expect(accessibilityScanResults.violations).toEqual([]);

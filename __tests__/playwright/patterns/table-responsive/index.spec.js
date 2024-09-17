@@ -1,5 +1,4 @@
 const { test, expect } = require("@playwright/test");
-import { reducedProjects } from "playwright.config";
 import AxeBuilder from "@axe-core/playwright";
 
 test.beforeEach(async ({ page }) => {
@@ -7,12 +6,27 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe("Table with responsive cards > Functionality", () => {
-	
+	test("Traditional table headers should be visible on desktop", { tag: '@desktop'}, async ({ page }) => {
+		const cells = await page.locator("tbody td").all();
+		for (const cell of cells) {
+			expect(await cell.evaluate((node) => window.getComputedStyle(node, "::before").content)).toEqual("none");
+		}
+
+		const tableHeader = page.locator("thead");
+		await expect(tableHeader).toBeVisible();
+	});
+
+	test("Table headers should turn to titles at reduced viewport sizes", { tag: '@mobile'}, async ({ page }) => {
+		const cells = await page.locator("tbody td").all();
+		for (const cell of cells) {
+			const dataVal = await cell.getAttribute('data-th');
+			expect(await cell.evaluate((node) => window.getComputedStyle(node, "::before").content)).toEqual('\"' + dataVal+'\"');
+		}
+	});
 });
 
-test.use({ projects: reducedProjects });
 
-test.describe("Table with responsive cards > Markup tests", () => {
+test.describe("Table with responsive cards > Markup tests", { tag: '@reduced'}, () => {
 	test("Tables should have a table caption", async ({ page }) => {
 		const tables = await page.locator("table").all();
 		for (const table of tables) {
@@ -66,7 +80,7 @@ test.describe("Table with responsive cards > Markup tests", () => {
 	});
 });
 
-test.describe("Table with responsive cards > Axe", () => {
+test.describe("Table with responsive cards > Axe", { tag: '@reduced'}, () => {
 	test("Should not have any automatically detectable accessibility issues", async ({ page }) => {
 		const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
 		expect(accessibilityScanResults.violations).toEqual([]);

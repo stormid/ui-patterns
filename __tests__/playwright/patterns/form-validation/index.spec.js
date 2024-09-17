@@ -1,12 +1,11 @@
 const { test, expect } = require("@playwright/test");
-import { reducedProjects } from 'playwright.config';
 import AxeBuilder from '@axe-core/playwright';
 
 test.beforeEach(async ({ page }) => {
 	await page.goto("/example/form-validation/");
 });
 
-test.describe("Form validation > Errors", () => {
+test.describe("Form validation > Errors", { tag: '@all'}, () => {
 	test("Error messages should not be live regions", async ({ page }) => {
 		const submit = page.getByText('Submit');
 		await submit.click();
@@ -17,7 +16,7 @@ test.describe("Form validation > Errors", () => {
 	})
 });
 
-test.describe("Form validation > Keyboard", () => {
+test.describe("Form validation > Keyboard", { tag: '@all'}, () => {
 	test("Inputs should be focusable", async ({ page }) => {
 		await page.keyboard.press('Tab');
 		let focusedElement = page.locator(':focus');
@@ -32,9 +31,8 @@ test.describe("Form validation > Keyboard", () => {
 	});
 });
 
-test.use({ projects: reducedProjects });
 
-test.describe("Form validation > Markup tests", () => {
+test.describe("Form validation > Markup tests", { tag: '@reduced'}, () => {
 	test("All inputs must have associated labels", async ({ page }) => {
 		for (const input of await page.locator("input").all()) {
 			const matchingLabel = page.locator(`[for=${await input.getAttribute('id')}]`)
@@ -62,14 +60,14 @@ test.describe("Form validation > Markup tests", () => {
 	
 });
 
-test.describe("Form validation > Axe", () => {
+test.describe("Form validation > Axe", { tag: '@reduced'}, () => {
 	test('Should not have any automatically detectable accessibility issues', async ({ page }) => {	
 		const accessibilityScanResults = await new AxeBuilder({ page }).analyze(); 
 		expect(accessibilityScanResults.violations).toEqual([]);
 	});
 });
 
-test.describe("Form validation > Aria", () => {
+test.describe("Form validation > Aria", { tag: '@reduced'}, () => {
 
 	test("All inputs must have aria required attributes", async ({ page }) => {
 		for (const input of await page.locator('[data-val-required]:not([type="checkbox"])').all()) {

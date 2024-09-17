@@ -1,12 +1,11 @@
 const { test, expect } = require("@playwright/test");
-import { reducedProjects } from 'playwright.config';
 import AxeBuilder from '@axe-core/playwright';
 
 test.beforeEach(async ({ page }) => {
 	await page.goto("/example/expandable-search/");
 });
 
-test.describe("Expandable search > Functionality", () => {
+test.describe("Expandable search > Functionality", { tag: '@all'}, () => {
 	test('The first available form input, button or link within the search form should receive visible focus when the search is opened', async ({ page }) => {
         const toggleButton = page.locator('.expandable-search__btn');
 		await toggleButton.click();
@@ -32,7 +31,7 @@ test.describe("Expandable search > Functionality", () => {
 
 });
 
-test.describe("Expandable search > Keyboard", () => {
+test.describe("Expandable search > Keyboard", { tag: '@all'}, () => {
 	test('Search button should be focusable', async ({ page }) => {
     	await page.keyboard.press('Tab');
         const focussedElement = page.locator(':focus');
@@ -61,9 +60,8 @@ test.describe("Expandable search > Keyboard", () => {
 
 });
 
-test.use({ projects: reducedProjects });
 
-test.describe("Expandable search > Markup tests", () => {
+test.describe("Expandable search > Markup tests", { tag: '@reduced'}, () => {
 	test('Should use a button element for the search triggers', async ({ page }) => {
         const toggleButton = page.locator('.expandable-search__btn');
         await expect(toggleButton).toHaveRole("button");
@@ -78,14 +76,14 @@ test.describe("Expandable search > Markup tests", () => {
 	
 });
 
-test.describe("Expandable search > Axe", () => {
+test.describe("Expandable search > Axe", { tag: '@reduced'}, () => {
 	test('Should not have any automatically detectable accessibility issues', async ({ page }) => {	
 		const accessibilityScanResults = await new AxeBuilder({ page }).analyze(); 
 		expect(accessibilityScanResults.violations).toEqual([]);
 	});
 });
 
-test.describe("Expandable search > Aria", () => {
+test.describe("Expandable search > Aria", { tag: '@reduced'}, () => {
 	test('Buttons should be appropriately labelled', async ({ page }) => {
         const toggleButton = page.locator('.expandable-search__btn');
         expect(await toggleButton.getAttribute('aria-label')).toEqual('Show or hide site search');

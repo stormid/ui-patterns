@@ -1,5 +1,4 @@
 const { test, expect } = require("@playwright/test");
-import { reducedProjects } from 'playwright.config';
 import AxeBuilder from '@axe-core/playwright';
 
 const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -16,7 +15,7 @@ test.beforeEach(async ({ page }) => {
 	await page.goto("/example/date-picker/");
 });
 
-test.describe("Date picker single input > Functionality", () => {
+test.describe("Date picker single input > Functionality", { tag: '@all'}, () => {
 	test('Should not allow a user to interact with the calendar until opened', async ({ page }) => {
 		const dialog = page.locator(".ds_datepicker__dialog");
         await expect(dialog).toBeHidden();
@@ -69,7 +68,7 @@ test.describe("Date picker single input > Functionality", () => {
 
 });
 
-test.describe("Date picker > Keyboard", () => {
+test.describe("Date picker > Keyboard", { tag: '@all'}, () => {
 
 	test('It should be possible to open the calendar via keyboard', async ({ page }) => {
 		const calendarButton = page.locator(".js-calendar-button");
@@ -128,9 +127,7 @@ test.describe("Date picker > Keyboard", () => {
 	});
 });
 
-test.use({ projects: reducedProjects });
-
-test.describe("Date picker single input > Markup tests", () => {
+test.describe("Date picker single input > Markup tests", { tag: '@reduced'} , () => {
 	test('Should have an accessibly labelled input', async ({ page }) => {
 		for (const input of await page.locator("input").all()) {
 			const inputID = await input.getAttribute('id');
@@ -146,14 +143,14 @@ test.describe("Date picker single input > Markup tests", () => {
 	
 });
 
-test.describe("Date picker single input > Axe", () => {
+test.describe("Date picker single input > Axe", { tag: '@reduced'}, () => {
 	test('Should not have any automatically detectable accessibility issues', async ({ page }) => {	
 		const accessibilityScanResults = await new AxeBuilder({ page }).analyze(); 
 		expect(accessibilityScanResults.violations).toEqual([]);
 	});
 });
 
-test.describe("Date picker single input > Aria", () => {
+test.describe("Date picker single input > Aria", { tag: '@reduced'}, () => {
 	
 	test('Should use have an accessible label for each day button in the calendar', async ({ page }) => {	
         for (const day of await page.locator(".js-datepicker-grid button").all()) {
