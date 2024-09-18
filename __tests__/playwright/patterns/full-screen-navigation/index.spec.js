@@ -110,13 +110,13 @@ test.describe("Full screen navigation > Aria", { tag: '@reduced'}, () => {
 
     test('Active navigation link should have ARIA current attribute', async ({ page }) => {
         const activeLink = page.locator('.is--active');
-        await expect(locator).toHaveAttribute('aria-current','page');
+        await expect(activeLink).toHaveAttribute('aria-current','page');
     });
 
     test('ARIA controls attribute should correctly associate button with list element', async ({ page }) => {	
         const buttons = page.locator('.js-full-screen-nav__toggle');
         for (let button of await buttons.all()){
-            await expect(locator).toHaveAttribute('aria-controls','full-screen-navigation');
+            await expect(button).toHaveAttribute('aria-controls','full-screen-navigation');
         }
     });
 

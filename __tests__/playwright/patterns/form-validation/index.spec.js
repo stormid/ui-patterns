@@ -10,8 +10,8 @@ test.describe("Form validation > Errors", { tag: '@all'}, () => {
 		const submit = page.getByText('Submit');
 		await submit.click();
 		for (const message of await page.locator(".error-message").all()) {
-			await expect(message).toHaveAttribute('role');
-            await expect(message).toHaveAttribute('aria-live');
+			await expect(message).not.toHaveAttribute('role');
+            await expect(message).not.toHaveAttribute('aria-live');
 		}
 	})
 });

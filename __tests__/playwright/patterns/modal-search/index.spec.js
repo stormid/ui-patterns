@@ -25,6 +25,35 @@ test.describe("Modal search > Functionality", { tag: '@all'}, () => {
         await closeButton.click();
         await expect(modal).toBeHidden();
     });
+
+    test('Content in main page should not be visible when search modal is open', async ({ page }) => {
+		const showButton = page.locator(".modal-search__btn");
+		const hideButton = page.locator('.modal__close');
+		const main = page.getByRole('main');
+
+		await expect(main).toBeVisible();
+		await showButton.click();
+		await expect(main).toBeHidden();
+		await hideButton.click();
+		await expect(main).toBeVisible();
+	});
+
+    test('Page should not be scrollable when modal search is open', async ({ page }) => {
+		const showButton = page.locator(".modal-search__btn");
+		const hideButton = page.locator('.modal__close');
+
+		const canScroll = () => {
+			return (document.documentElement.clientHeight < document.documentElement.scrollHeight) && (window.getComputedStyle(document.documentElement)['overflow']!=='hidden');
+		};
+
+        expect(await showButton.evaluate(canScroll)).toBeTruthy();
+		await showButton.click();
+		expect(await hideButton.evaluate(canScroll)).toBeFalsy();
+
+		await hideButton.click();
+		expect(await showButton.evaluate(canScroll)).toBeTruthy();
+	});
+
 });
 
 test.describe("Modal search > Keyboard", { tag: '@all'}, () => {
@@ -65,6 +94,18 @@ test.describe("Modal search > Keyboard", { tag: '@all'}, () => {
         await page.keyboard.press('Tab');
         await expect(searchInput).not.toBeFocused();
     });
+
+    test('Content of page should not be reachable when search open', async ({ page }) => {
+        const testButton = page.locator('#test-focus');
+        await page.keyboard.press('Tab');
+        await page.keyboard.press('Enter');
+
+        for(let i = 0; i<=2; i++) {
+            await page.keyboard.press('Tab');
+        }
+
+        await expect(testButton).not.toBeFocused();
+    });
 });
 
 
@@ -74,7 +115,7 @@ test.describe("Modal search > Markup tests", { tag: '@reduced'}, () => {
         const closeButton = page.locator('.modal__close');
 
         await openButton.click();
-        buttonDimensions = await closeButton.boundingBox();
+        const buttonDimensions = await closeButton.boundingBox();
         expect(buttonDimensions.width).toBeGreaterThanOrEqual(44);
         expect(buttonDimensions.height).toBeGreaterThanOrEqual(44);
     });

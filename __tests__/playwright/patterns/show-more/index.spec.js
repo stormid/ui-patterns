@@ -46,8 +46,7 @@ test.describe("Show more > Keyboard", { tag: '@all'}, () => {
 
 		await hideButton.click();
 		await expect(showMoreBlock).not.toHaveAttribute('tabindex');
-		let toggleBtn = page.locator(".js-show-more__toggle");
-		await expect(toggleBtn).toBeFocused();
+		await expect(showButton).toBeFocused();
 	});
 
 	test('Focus should not move inside block when closed', async ({ page }) => {
@@ -67,6 +66,7 @@ test.describe("Show more > Keyboard", { tag: '@all'}, () => {
 		const hideButton = page.locator('.js-show-more__btn-hide');
 		await expect(hideButton).toBeFocused();
 	});
+	
 });
 
 
