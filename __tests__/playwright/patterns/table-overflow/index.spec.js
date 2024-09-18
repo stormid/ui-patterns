@@ -54,13 +54,13 @@ test.describe("Table with scrolling overflow > Markup tests", { tag: '@reduced'}
 	test("Tables headers should have a scope", async ({ page }) => {
 		const headings = await page.locator("th").all();
 		for (const header of headings) {
-			expect(await header.getAttribute("scope")).not.toBeNull();
+			await expect(header).toHaveAttribute("scope");
 		}
 	});
 
 	test("Table container should have a tabindex to allow for keyboard focus", async ({ page }) => {
 		const container = page.locator(".table__container--overflow");
-		expect(await container.getAttribute('tabindex')).toEqual("0");
+		await expect(container).toHaveAttribute('tabindex','0');
 	});
 
 });

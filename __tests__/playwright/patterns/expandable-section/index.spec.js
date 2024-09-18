@@ -95,11 +95,11 @@ test.describe("Expandable section > Aria", { tag: '@reduced'}, () => {
 	test('ARIA expanded attribute should correctly describe shown/hidden state of toggles', async ({ page }) => {
 		for (const toggle of await page.locator(".expandable-section__bd").all()) {
 			const toggleBtn = page.locator("."+ await toggle.getAttribute("data-toggle")).first();
-			expect(await toggleBtn.getAttribute('aria-expanded')).toEqual('false');
+			await expect(toggleBtn).toHaveAttribute('aria-expanded', 'false');
 			await toggleBtn.click();
-			expect(await toggleBtn.getAttribute('aria-expanded')).toEqual('true');
+			await expect(toggleBtn).toHaveAttribute('aria-expanded', 'true');
 			await toggleBtn.click();
-			expect(await toggleBtn.getAttribute('aria-expanded')).toEqual('false');
+			await expect(toggleBtn).toHaveAttribute('aria-expanded', 'false');
 		}
     });
 

@@ -47,7 +47,7 @@ test.describe("Table with row links > Markup tests", { tag: '@reduced'}, () => {
 	test("Tables headers should have a scope", async ({ page }) => {
 		const headings = await page.locator("th").all();
 		for (const header of headings) {
-			expect(await header.getAttribute("scope")).not.toBeNull();
+			await expect(header).toHaveAttribute("scope");
 		}
 	});
 

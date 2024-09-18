@@ -86,21 +86,21 @@ test.describe("Expandable search > Axe", { tag: '@reduced'}, () => {
 test.describe("Expandable search > Aria", { tag: '@reduced'}, () => {
 	test('Buttons should be appropriately labelled', async ({ page }) => {
         const toggleButton = page.locator('.expandable-search__btn');
-        expect(await toggleButton.getAttribute('aria-label')).toEqual('Show or hide site search');
+        await expect(toggleButton).toHaveAttribute('aria-label', 'Show or hide site search');
     });
 
 	test('Button should set aria expanded correctly when used', async ({ page }) => {	
         const button = page.locator('.expandable-search__btn');
-        expect(await button.getAttribute('aria-expanded')).toEqual("false");
+        await expect(button).toHaveAttribute('aria-expanded', 'false');
         await button.click();
-        expect(await button.getAttribute('aria-expanded')).toEqual("true");
+        await expect(button).toHaveAttribute('aria-expanded', 'true');
         await button.click();
-        expect(await button.getAttribute('aria-expanded')).toEqual("false");
+        await expect(button).toHaveAttribute('aria-expanded', 'false');
     });
 
 	test('ARIA controls attribute should correctly associate button with search element', async ({ page }) => {	
         const button = page.locator('.expandable-search__btn');
-        expect(await button.getAttribute('aria-controls')).toEqual("expandable-search");
+        await expect(button).toHaveAttribute("aria-controls", "expandable-search");
     });
 });
 

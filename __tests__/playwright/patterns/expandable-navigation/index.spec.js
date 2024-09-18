@@ -85,31 +85,31 @@ test.describe("Expandable navigation > Axe", { tag: '@reduced'}, () => {
 test.describe("Expandable navigation > Aria", { tag: '@reduced'}, () => {
 	test("Navigation should be nav element should be appropriately labelled", async ({ page }) => {
 		const locator = page.locator("nav");
-		expect(await locator.getAttribute('aria-label')).toEqual('Primary navigation');
+		await expect(locator).toHaveAttribute('aria-label', 'Primary navigation');
 	});
 
     test('Buttons should be appropriately labelled', async ({ page }) => {
         const locator = page.locator('.expandable-nav__btn');
-        expect(await locator.getAttribute('aria-label')).toEqual('Show navigation menu');
+        await expect(locator).toHaveAttribute('aria-label', 'Show navigation menu');
     });
 
     test('Active navigation link should have ARIA current attribute', async ({ page }) => {
         const locator = page.locator('.is--active');
-        expect(await locator.getAttribute('aria-current')).toEqual('page');
+        await expect(locator).toHaveAttribute('aria-current', 'page');
     });
 
     test('Button should set aria expanded correctly when used', async ({ page }) => {	
         const button = page.locator('.expandable-nav__btn');
-        expect(await button.getAttribute('aria-expanded')).toEqual("false");
+        await expect(button).toHaveAttribute('aria-expanded', 'false');
         await button.click();
-        expect(await button.getAttribute('aria-expanded')).toEqual("true");
+        await expect(button).toHaveAttribute('aria-expanded', 'true');
         await button.click();
-        expect(await button.getAttribute('aria-expanded')).toEqual("false");
+        await expect(button).toHaveAttribute('aria-expanded', 'false');
     });
 
     test('ARIA controls attribute should correctly associate button with list element', async ({ page }) => {	
         const button = page.locator('.expandable-nav__btn');
-        expect(await button.getAttribute('aria-controls')).toEqual("expandable-nav");
+        await expect(button).toHaveAttribute('aria-controls', 'expandable-nav');
     });
 
     test('ARIA label attribute should correctly describe shown/hidden state', async ({ page }) => {
@@ -117,9 +117,9 @@ test.describe("Expandable navigation > Aria", { tag: '@reduced'}, () => {
         const showLabel = await button.getAttribute('data-show-label');
         const hideLabel = await button.getAttribute('data-hide-label');
 
-        expect(await button.getAttribute('aria-label')).toEqual(showLabel);
+        await expect(button).toHaveAttribute('aria-label', showLabel);
         await button.click();
-        expect(await button.getAttribute('aria-label')).toEqual(hideLabel);
+        await expect(button).toHaveAttribute('aria-label', hideLabel);
     });
 
 });

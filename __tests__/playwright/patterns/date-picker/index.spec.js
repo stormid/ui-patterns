@@ -163,21 +163,18 @@ test.describe("Date picker single input > Aria", { tag: '@reduced'}, () => {
 		const todayButton = page.locator('.ds_datepicker__today');
 
         await calendarButton.click();
-		expect(await calendarButton.getAttribute('aria-expanded')).toEqual('true');
+		await expect(calendarButton).toHaveAttribute('aria-expanded', 'true');
 
         await todayButton.click();
-		expect(await calendarButton.getAttribute('aria-expanded')).toEqual('false');
+		await expect(calendarButton).toHaveAttribute('aria-expanded', 'false');
     });
 
 	test('Should have an accurate aria label for date buttons', async ({ page }) => {
-
 		const calendarButton  = page.locator('.js-calendar-button');
         await calendarButton.click();
         
 		const focusedElement = page.locator(':focus');
-		const focusedAria = await focusedElement.getAttribute('aria-label')
-        expect(focusedAria).toEqual(`${daysOfWeek[dayOfWeek]} ${day} ${months[month]} ${year}`);
-        await calendarButton.click();
+		await expect(focusedElement).toHaveAttribute('aria-label', `${daysOfWeek[dayOfWeek]} ${day} ${months[month]} ${year}`)
     });
 });
 

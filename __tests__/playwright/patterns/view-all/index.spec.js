@@ -44,7 +44,7 @@ test.describe("View all > Functionality", { tag: '@all'}, () => {
 
 		await expect(toggleBtn).toHaveText(/(Hide all)/i);
 		await expect(toggleBtn).toHaveClass(/is--open/);
-		expect(await toggleBtn.getAttribute('aria-expanded')).toEqual("true");
+		await expect(toggleBtn).toHaveAttribute('aria-expanded', 'true');
 
 		const toggle = page.locator(".js-expandable-section-all").first();
 		const toggleBtnSingle = page.locator("."+ await toggle.getAttribute("data-toggle")).first();
@@ -52,7 +52,7 @@ test.describe("View all > Functionality", { tag: '@all'}, () => {
 
 		await expect(toggleBtn).toHaveText(/(View all)/i);
 		await expect(toggleBtn).not.toHaveClass(/is--open/);
-		expect(await toggleBtn.getAttribute('aria-expanded')).toEqual("false");
+		await expect(toggleBtn).toHaveAttribute('aria-expanded', 'false');
     });
 });
 
@@ -161,7 +161,7 @@ test.describe("View all > Aria", { tag: '@reduced'}, () => {
 		for (const toggle of await page.locator(".js-expandable-section-all").all()) {
 			const toggleID = await toggle.getAttribute('id');
 			for (const toggleBtn of await page.locator("."+ await toggle.getAttribute("data-toggle")).all()) {
-				expect(await toggleBtn.getAttribute('aria-controls')).toEqual(toggleID);
+				await expect(toggleBtn).toHaveAttribute('aria-controls', toggleID);
 			}
 		}	
 	});
@@ -170,21 +170,21 @@ test.describe("View all > Aria", { tag: '@reduced'}, () => {
 
 		for (const toggle of await page.locator(".js-expandable-section-all").all()) {
 			const toggleBtn = page.locator("."+ await toggle.getAttribute("data-toggle")).first();
-			expect(await toggleBtn.getAttribute('aria-expanded')).toEqual('false');
+			await expect(toggleBtn).toHaveAttribute('aria-expanded','false');
 			await toggleBtn.click();
-			expect(await toggleBtn.getAttribute('aria-expanded')).toEqual('true');
+			await expect(toggleBtn).toHaveAttribute('aria-expanded','true');
 			await toggleBtn.click();
-			expect(await toggleBtn.getAttribute('aria-expanded')).toEqual('false');
+			await expect(toggleBtn).toHaveAttribute('aria-expanded','false');
 		}
     });
 
 	test('ARIA expanded attribute should correctly describe shown/hidden state of View all toggle', async ({ page }) => {
 			const toggleBtn = page.locator(".js-expandable-section__btn-all");
-			expect(await toggleBtn.getAttribute('aria-expanded')).toEqual('false');
+			await expect(toggleBtn).toHaveAttribute('aria-expanded','false');
 			await toggleBtn.click();
-			expect(await toggleBtn.getAttribute('aria-expanded')).toEqual('true');
+			await expect(toggleBtn).toHaveAttribute('aria-expanded','true');
 			await toggleBtn.click();
-			expect(await toggleBtn.getAttribute('aria-expanded')).toEqual('false');
+			await expect(toggleBtn).toHaveAttribute('aria-expanded','false');
     });
 });
 

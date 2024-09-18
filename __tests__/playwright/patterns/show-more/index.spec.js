@@ -37,17 +37,17 @@ test.describe("Show more > Keyboard", { tag: '@all'}, () => {
 		const showButton = page.locator(".js-show-more__btn");
 		const hideButton = page.locator('.js-show-more__btn-hide');
 
-		expect(await showMoreBlock.getAttribute('tabindex')).toBeNull();
+		await expect(showMoreBlock).not.toHaveAttribute('tabindex');
 
 		await showButton.click();
-		expect(await showMoreBlock.getAttribute('tabindex')).toEqual("-1");
-		let focussed = page.locator(":focus");
-		await expect(focussed).toHaveClass(/js-show-more__block/);
+		await expect(showMoreBlock).toHaveAttribute('tabindex', '-1');
+		let block = page.locator(".js-show-more__block");
+		await expect(block).toBeFocused();
 
 		await hideButton.click();
-		expect(await showMoreBlock.getAttribute('tabindex')).toBeNull();
-		focussed = page.locator(":focus");
-		await expect(focussed).toHaveClass(/js-show-more__toggle/);
+		await expect(showMoreBlock).not.toHaveAttribute('tabindex');
+		let toggleBtn = page.locator(".js-show-more__toggle");
+		await expect(toggleBtn).toBeFocused();
 	});
 
 	test('Focus should not move inside block when closed', async ({ page }) => {
@@ -91,8 +91,8 @@ test.describe("Show more > Aria", { tag: '@reduced'}, () => {
 		const showButton = page.locator(".js-show-more__btn");
 		const hideButton = page.locator('.js-show-more__btn-hide');
 
-		expect(await showButton.getAttribute('aria-label')).toEqual("Show more about Lorem ipsum dolor sit amet");
-		expect(await hideButton.getAttribute('aria-label')).toEqual("Show less about Lorem ipsum dolor sit amet");
+		await expect(showButton).toHaveAttribute('aria-label','Show more about Lorem ipsum dolor sit amet');
+		await expect(hideButton).toHaveAttribute('aria-label','Show less about Lorem ipsum dolor sit amet');
 	});
 
 	test("ARIA controls attribute should correctly associate button with search container element", async ({ page }) => {
@@ -101,7 +101,7 @@ test.describe("Show more > Aria", { tag: '@reduced'}, () => {
 		const blockID = await showMoreBlock.getAttribute('id');
 
 		for(const button of toggleButtons) {
-			expect(await button.getAttribute('aria-controls')).toEqual(blockID);
+			await expect(button).toHaveAttribute('aria-controls', blockID);
 		}
 	});
 
@@ -111,16 +111,16 @@ test.describe("Show more > Aria", { tag: '@reduced'}, () => {
 		const hideButton = page.locator('.js-show-more__btn-hide');
 
 		for(const button of toggleButtons) {
-			expect(await button.getAttribute('aria-expanded')).toEqual("false");
+			await expect(button).toHaveAttribute('aria-expanded','false');
 		}
 
 		await showButton.click();
 		for(const button of toggleButtons) {
-			expect(await button.getAttribute('aria-expanded')).toEqual("true");
+			await expect(button).toHaveAttribute('aria-expanded','true');
 		}
 		await hideButton.click();
 		for(const button of toggleButtons) {
-			expect(await button.getAttribute('aria-expanded')).toEqual("false");
+			await expect(button).toHaveAttribute('aria-expanded','false');
 		}
 	});
 });

@@ -105,18 +105,18 @@ test.describe("Full screen navigation > Axe", { tag: '@reduced'}, () => {
 test.describe("Full screen navigation > Aria", { tag: '@reduced'}, () => {
 	test("Navigation should be nav element should be appropriately labelled", async ({ page }) => {
 		const locator = page.locator("nav");
-		expect(await locator.getAttribute('aria-label')).toEqual('Primary navigation');
+		await expect(locator).toHaveAttribute('aria-label','Primary navigation');
 	});
 
     test('Active navigation link should have ARIA current attribute', async ({ page }) => {
         const activeLink = page.locator('.is--active');
-        expect(await activeLink.getAttribute('aria-current')).toEqual('page');
+        await expect(locator).toHaveAttribute('aria-current','page');
     });
 
     test('ARIA controls attribute should correctly associate button with list element', async ({ page }) => {	
         const buttons = page.locator('.js-full-screen-nav__toggle');
         for (let button of await buttons.all()){
-            expect(await button.getAttribute('aria-controls')).toEqual("full-screen-navigation");
+            await expect(locator).toHaveAttribute('aria-controls','full-screen-navigation');
         }
     });
 
@@ -127,8 +127,8 @@ test.describe("Full screen navigation > Aria", { tag: '@reduced'}, () => {
 
     test('Should use a button element for the navigation triggers', async ({ page }) => {	
         const buttons = page.locator('.js-full-screen-nav__toggle');
-        expect(await buttons.first().getAttribute('aria-label')).toEqual('Open menu');
-        expect(await buttons.last().getAttribute('aria-label')).toEqual('Close menu');
+        await expect(buttons.first()).toHaveAttribute('aria-label','Open menu');
+        await expect(buttons.last()).toHaveAttribute('aria-label','Close menu');
     });
 });
 

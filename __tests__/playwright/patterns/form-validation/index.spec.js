@@ -10,8 +10,8 @@ test.describe("Form validation > Errors", { tag: '@all'}, () => {
 		const submit = page.getByText('Submit');
 		await submit.click();
 		for (const message of await page.locator(".error-message").all()) {
-			expect(await message.getAttribute('role')).toBeNull();
-            expect(await message.getAttribute('aria-live')).toBeNull();
+			await expect(message).toHaveAttribute('role');
+            await expect(message).toHaveAttribute('aria-live');
 		}
 	})
 });
@@ -53,9 +53,9 @@ test.describe("Form validation > Markup tests", { tag: '@reduced'}, () => {
 		const lastName = page.getByLabel('Last Name');
 		const email = page.getByLabel('Email');
 
-		expect(await firstName.getAttribute('autocomplete')).toEqual("given-name");
-		expect(await lastName.getAttribute('autocomplete')).toEqual("family-name");
-		expect(await email.getAttribute('autocomplete')).toEqual("email");
+		await expect(firstName).toHaveAttribute('autocomplete', 'given-name');
+		await expect(lastName).toHaveAttribute('autocomplete', 'family-name');
+		await expect(email).toHaveAttribute('autocomplete', 'email');
 	});
 	
 });
@@ -95,7 +95,7 @@ test.describe("Form validation > Aria", { tag: '@reduced'}, () => {
 		await submit.click();
 
         for (const input of await page.locator('input[aria-required="true"]').all()) {
-            expect(await input.getAttribute('aria-invalid')).toEqual('true');
+            await expect(input).toHaveAttribute('aria-invalid','true');
         }
     });
 
