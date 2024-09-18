@@ -7,9 +7,7 @@
     "ci": "webpack --config tools/webpack/config/integration",
     "dev": "webpack serve --config tools/webpack/config/dev --hot",
     "start": "npm run dev",
-    "test": "npm run jest & npm run playwright",
-    "jest": "jest ./__tests__/jest",
-    "playwright": "npx playwright test",
+    "test": "npx playwright test",
     "watch": "npm run watch-dev",
     "watch-dev": "webpack --config tools/webpack/config/integration --watch"
   },
