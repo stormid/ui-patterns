@@ -1,6 +1,7 @@
 import { h, Fragment } from 'preact';
 
 const Card = () => <Fragment>
+    <h1 class="visually-hidden">Example for cards</h1>
     <article class="card">
         <hgroup class="card__header">
             <h2 class="card__title">Lorem ipsum dolor sit amet</h2>

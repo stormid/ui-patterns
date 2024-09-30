@@ -1,7 +1,7 @@
 import { h } from 'preact';
 import Table from '@components/table';
 
-export const Code = () => (<Table caption="Example table" 
+export const Code = () => (<Table caption="Example table" tabindex={0}
     rows={[
         { cells: [ {"value": "Joe Example"},{"value": "Web developer"},{"value": "1 Jan 1970"} ] },
         { cells: [ {"value": "Joe Example"},{"value": "Web developer"},{"value": "1 Jan 1970"} ] },

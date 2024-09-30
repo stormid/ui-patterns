@@ -8,7 +8,7 @@ const Code = () => <Fragment>
             </button>
         </h2>
         <div id="section-1" class="expandable-section__bd js-expandable-section" data-toggle="js-expandable-section__btn-1">
-            <p>Aenean id posuere nunc. Donec diam nisl, rhoncus vel faucibus sed, porttitor sit amet ipsum. Donec at venenatis augue. Phasellus consequat lectus non augue vestibulum, at varius diam sagittis. Morbi nec purus augue. Etiam rutrum ullamcorper arcu vitae sollicitudin. Aliquam bibendum suscipit risus, at lacinia tortor efficitur ac.</p>
+            <p>Aenean id posuere nunc. Donec diam nisl, rhoncus vel faucibus sed, porttitor sit amet ipsum. Donec at venenatis augue. Phasellus consequat lectus non augue vestibulum, at varius diam sagittis. Morbi nec purus augue. Etiam rutrum ullamcorper <button id="testfocus" type="button">arcu vitae</button> sollicitudin. Aliquam bibendum suscipit risus, at lacinia tortor efficitur ac.</p>
             <p>Praesent vitae mi nec mauris vehicula ultricies nec ut felis. Nam vel nisi id nunc efficitur fermentum. Vestibulum mollis enim nec ultrices mattis. Curabitur placerat sed nisl lobortis iaculis. Fusce porttitor massa augue, sit amet faucibus enim finibus nec. Maecenas hendrerit metus in justo commodo viverra.</p>
         </div>
     </div>
