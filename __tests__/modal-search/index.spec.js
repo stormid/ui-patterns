@@ -1,8 +1,13 @@
 const { test, expect } = require("@playwright/test");
 import AxeBuilder from '@axe-core/playwright';
 
-test.beforeEach(async ({ page }) => {
+let tabKey;
+
+test.beforeEach(async ({ page }, testInfo) => {
 	await page.goto("/example/modal-search/");
+    tabKey = testInfo.project.use.defaultBrowserType === 'webkit'
+        ? "Alt+Tab"
+        : "Tab";
 });
 
 test.describe("Modal search > Functionality", { tag: '@all'}, () => {
@@ -56,16 +61,16 @@ test.describe("Modal search > Keyboard", { tag: '@all'}, () => {
         const searchInput = page.locator('.modal__input');
         const searchButton = page.locator('.modal__search-btn');
 
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(tabKey);
         await expect(openButton).toBeFocused();
 
         await page.keyboard.press('Enter');
         await expect(searchInput).toBeFocused();
 
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(tabKey);
         await expect(searchButton).toBeFocused();
 
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(tabKey);
         await expect(closeButton).toBeFocused();
     });
 
@@ -73,7 +78,7 @@ test.describe("Modal search > Keyboard", { tag: '@all'}, () => {
         const modal = page.locator('.modal');
         await expect(modal).toBeHidden();
 
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(tabKey);
         await page.keyboard.press('Enter');
         await expect(modal).toBeVisible();
 
@@ -83,18 +88,18 @@ test.describe("Modal search > Keyboard", { tag: '@all'}, () => {
 
     test('Content of dialog should not be reachable while closed', async ({ page }) => {
         const searchInput = page.locator('.modal__input');
-        await page.keyboard.press('Tab');
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(tabKey);
+        await page.keyboard.press(tabKey);
         await expect(searchInput).not.toBeFocused();
     });
 
     test('Content of page should not be reachable when search open', async ({ page }) => {
         const testButton = page.locator('#test-focus');
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(tabKey);
         await page.keyboard.press('Enter');
 
         for(let i = 0; i<=2; i++) {
-            await page.keyboard.press('Tab');
+            await page.keyboard.press(tabKey);
         }
 
         await expect(testButton).not.toBeFocused();

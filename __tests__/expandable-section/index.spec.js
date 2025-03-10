@@ -1,13 +1,18 @@
 const { test, expect } = require("@playwright/test");
 import AxeBuilder from '@axe-core/playwright';
 
-test.beforeEach(async ({ page }) => {
+let tabKey;
+
+test.beforeEach(async ({ page }, testInfo) => {
 	await page.goto("/example/expandable-section/");
+	tabKey = testInfo.project.use.defaultBrowserType === 'webkit'
+        ? "Alt+Tab"
+        : "Tab";
 });
 
 test.describe("Expandable section > Keyboard", { tag: '@all'}, () => {
 	test("Buttons should be focusable", async ({ page }) => {
-		await page.keyboard.press('Tab');
+		await page.keyboard.press(tabKey);
 		const focusedElement = page.locator(':focus');
 		await expect(focusedElement).toHaveRole("button");
 		await expect(focusedElement).toHaveClass(/js-expandable-section__btn-1/);
@@ -29,7 +34,7 @@ test.describe("Expandable section > Keyboard", { tag: '@all'}, () => {
 		await expect(panel).toBeHidden();
 
 		await toggleBtn.focus();
-		await page.keyboard.press('Tab');
+		await page.keyboard.press(tabKey);
 		const focusedElement = page.locator(':focus');
 		await expect(focusedElement).toHaveRole("button");
 		await expect(focusedElement).toHaveClass(/js-expandable-section__btn-2/);
@@ -47,7 +52,7 @@ test.describe("Expandable section > Keyboard", { tag: '@all'}, () => {
 		
 		//Created test button in content.  Links are currently ignored by tabbing in Playwright webkit
 		//see https://github.com/microsoft/playwright/issues/29820
-		await page.keyboard.press('Tab');
+		await page.keyboard.press(tabKey);
 		const testButton = page.locator('#testfocus');
 		await expect(testButton).toBeFocused();
 	});

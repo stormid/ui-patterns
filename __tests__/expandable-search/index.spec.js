@@ -1,8 +1,13 @@
 const { test, expect } = require("@playwright/test");
 import AxeBuilder from '@axe-core/playwright';
 
-test.beforeEach(async ({ page }) => {
+let tabKey;
+
+test.beforeEach(async ({ page }, testInfo) => {
 	await page.goto("/example/expandable-search/");
+    tabKey = testInfo.project.use.defaultBrowserType === 'webkit'
+        ? "Alt+Tab"
+        : "Tab";
 });
 
 test.describe("Expandable search > Functionality", { tag: '@all'}, () => {
@@ -27,13 +32,11 @@ test.describe("Expandable search > Functionality", { tag: '@all'}, () => {
     	const searchInput = page.locator('.expandable-search__input');
 		await expect(searchInput).toBeHidden();
     });
-
-
 });
 
 test.describe("Expandable search > Keyboard", { tag: '@all'}, () => {
 	test('Search button should be focusable', async ({ page }) => {
-    	await page.keyboard.press('Tab');
+    	await page.keyboard.press(tabKey);
         const focussedElement = page.locator(':focus');
 
         await expect(focussedElement).toHaveRole("button"); 
@@ -41,25 +44,23 @@ test.describe("Expandable search > Keyboard", { tag: '@all'}, () => {
     });
 
 	test('Search form should not be focusable when not open', async ({ page }) => {
-    	await page.keyboard.press('Tab');
-		await page.keyboard.press('Tab');
+    	await page.keyboard.press(tabKey);
+		await page.keyboard.press(tabKey);
         const focussedElement = page.locator(':focus');
 
         await expect(focussedElement).not.toHaveClass(/expandable-search__input/);
     });
-
     
     test('Search form should not trap tab', async ({ page }) => {
     	const toggleButton = page.locator('.expandable-search__btn');
 		await toggleButton.click();
-        await page.keyboard.press('Tab');
-		await page.keyboard.press('Tab');
+        await page.keyboard.press(tabKey);
+		await page.keyboard.press(tabKey);
         const focussedElement = page.locator(':focus');
         await expect(focussedElement).toHaveText(/(Fusce gravida)/i);
     });
 
 });
-
 
 test.describe("Expandable search > Markup tests", { tag: '@reduced'}, () => {
 	test('Should use a button element for the search triggers', async ({ page }) => {
