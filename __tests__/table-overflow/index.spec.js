@@ -1,8 +1,13 @@
 const { test, expect } = require("@playwright/test");
 import AxeBuilder from "@axe-core/playwright";
 
-test.beforeEach(async ({ page }) => {
+let tabKey;
+
+test.beforeEach(async ({ page }, testInfo) => {
 	await page.goto("/example/tables/overflow");
+    tabKey = testInfo.project.use.defaultBrowserType === 'webkit'
+        ? "Alt+Tab"
+        : "Tab";
 });
 
 test.describe("Table with scrolling overflow > Functionality", () => {
@@ -22,7 +27,7 @@ test.describe("Table with scrolling overflow > Functionality", () => {
 
 test.describe("Table with scrolling overflow > Keyboard", { tag: '@all'}, () => {
 	test("The container element should be focusable", async ({ page }) => {
-		await page.keyboard.press('Tab');
+		await page.keyboard.press(tabKey);
 		let focusedElement = page.locator(':focus');
 		await expect(focusedElement).toHaveClass(/table__container--overflow/);
 	});

@@ -1,8 +1,13 @@
 const { test, expect } = require("@playwright/test");
 import AxeBuilder from '@axe-core/playwright';
 
-test.beforeEach(async ({ page }) => {
+let tabKey;
+
+test.beforeEach(async ({ page }, testInfo) => {
 	await page.goto("/example/modal-confirmation/");
+    tabKey = testInfo.project.use.defaultBrowserType === 'webkit'
+        ? "Alt+Tab"
+        : "Tab";
 });
 
 test.describe("Modal search > Functionality", { tag: '@all'}, () => {
@@ -55,13 +60,13 @@ test.describe("Modal search > Keyboard", { tag: '@all'}, () => {
         const closeButton = page.locator('.modal-confirmation__cancel.js-modal-confirmation__btn');
         const confirmButton = page.locator('.modal-confirmation__confirm');
 
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(tabKey);
         await expect(openButton).toBeFocused();
 
         await page.keyboard.press('Enter');
         await expect(confirmButton).toBeFocused();
 
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(tabKey);
         await expect(closeButton).toBeFocused();
     });
 
@@ -69,7 +74,7 @@ test.describe("Modal search > Keyboard", { tag: '@all'}, () => {
         const modal = page.locator('.modal');
         await expect(modal).toBeHidden();
 
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(tabKey);
         await page.keyboard.press('Enter');
         await expect(modal).toBeVisible();
 
@@ -79,18 +84,18 @@ test.describe("Modal search > Keyboard", { tag: '@all'}, () => {
 
     test('Content of dialog should not be reachable while closed', async ({ page }) => {
         const confirmButton = page.locator('.modal-confirmation__confirm');
-        await page.keyboard.press('Tab');
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(tabKey);
+        await page.keyboard.press(tabKey);
         await expect(confirmButton).not.toBeFocused();
     });
 
     test('Content of page should not be reachable when search open', async ({ page }) => {
         const testButton = page.locator('#test-focus');
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(tabKey);
         await page.keyboard.press('Enter');
 
         for(let i = 0; i<=3; i++) {
-            await page.keyboard.press('Tab');
+            await page.keyboard.press(tabKey);
         }
 
         await expect(testButton).not.toBeFocused();

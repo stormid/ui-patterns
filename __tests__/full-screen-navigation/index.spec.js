@@ -1,8 +1,13 @@
 const { test, expect } = require("@playwright/test");
 import AxeBuilder from '@axe-core/playwright';
 
-test.beforeEach(async ({ page }) => {
-	await page.goto("/example/full-screen-navigation/");
+let tabKey;
+
+test.beforeEach(async ({ page }, testInfo) => {
+    await page.goto("/example/full-screen-navigation/");
+    tabKey = testInfo.project.use.defaultBrowserType === 'webkit'
+        ? "Alt+Tab"
+        : "Tab";
 });
 
 test.describe("Full screen navigation > Functionality", { tag: '@all'}, () => {
@@ -33,15 +38,15 @@ test.describe("Full screen navigation > Functionality", { tag: '@all'}, () => {
 
 test.describe("Full screen navigation > Keyboard", { tag: '@all'}, () => {
 	test('Toggle buttons should be focusable', async ({ page }) => {	
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(tabKey);
         const focussedElement = page.locator(':focus');
         await expect(focussedElement).toHaveRole("button"); 
         await expect(focussedElement).toHaveClass(/js-full-screen-nav__toggle/);
     });
 
     test('Navigation elements should not be focusable when not open', async ({ page }) => {
-    	await page.keyboard.press('Tab');
-		await page.keyboard.press('Tab');
+    	await page.keyboard.press(tabKey);
+		await page.keyboard.press(tabKey);
         const focussedElement = page.locator(':focus');
 
         await expect(focussedElement).toHaveId('test-focus');
@@ -49,7 +54,7 @@ test.describe("Full screen navigation > Keyboard", { tag: '@all'}, () => {
 
     test('The first navigation link should receive visible focus when navigation is opened', async ({ page }) => {
 
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(tabKey);
 		await page.keyboard.press('Enter');
         let focussedElement = page.locator(':focus');
 
@@ -58,7 +63,7 @@ test.describe("Full screen navigation > Keyboard", { tag: '@all'}, () => {
 
     test('When the navigation is open, it should not be possible to access the page content underneith via mouse, keyboard or any other means', async ({ page }) => {
 
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(tabKey);
 		await page.keyboard.press('Enter');
         let mainElement = page.locator('.main');
 
@@ -68,7 +73,7 @@ test.describe("Full screen navigation > Keyboard", { tag: '@all'}, () => {
         //elements in the nav, focus should remain within the 
         //full screen overlay and not move to the main body
         for(let i = 0; i<=7; i++) {
-            await page.keyboard.press('Tab');
+            await page.keyboard.press(tabKey);
         }
 
         await expect(mainElement).toBeHidden();

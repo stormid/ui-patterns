@@ -1,8 +1,13 @@
 const { test, expect } = require("@playwright/test");
 import AxeBuilder from '@axe-core/playwright';
 
-test.beforeEach(async ({ page }) => {
+let tabKey;
+
+test.beforeEach(async ({ page }, testInfo) => {
 	await page.goto("/example/show-more/");
+    tabKey = testInfo.project.use.defaultBrowserType === 'webkit'
+        ? "Alt+Tab"
+        : "Tab";
 });
 
 test.describe("Show more > Functionality", { tag: '@all'}, () => {
@@ -26,7 +31,7 @@ test.describe("Show more > Functionality", { tag: '@all'}, () => {
 
 test.describe("Show more > Keyboard", { tag: '@all'}, () => {
 	test("Buttons should be focusable", async ({ page }) => {
-       await page.keyboard.press('Tab');
+       await page.keyboard.press(tabKey);
 	   const locator = page.locator(":focus");
 	   await expect(locator).toHaveRole('button');
 	   await expect(locator).toHaveClass(/js-show-more__toggle/);
@@ -50,19 +55,19 @@ test.describe("Show more > Keyboard", { tag: '@all'}, () => {
 	});
 
 	test('Focus should not move inside block when closed', async ({ page }) => {
-		await page.keyboard.press('Tab');
-		await page.keyboard.press('Tab');
+		await page.keyboard.press(tabKey);
+		await page.keyboard.press(tabKey);
 		const testButton = page.locator('#test-focus');
 		await expect(testButton).not.toBeFocused();
 	});
 
 	test('Focus should move inside block when open', async ({ page }) => {
-		await page.keyboard.press('Tab');
+		await page.keyboard.press(tabKey);
 		await page.keyboard.press('Enter');
-		await page.keyboard.press('Tab');
+		await page.keyboard.press(tabKey);
 		const testButton = page.locator('#test-focus');
 		await expect(testButton).toBeFocused();
-		await page.keyboard.press('Tab');
+		await page.keyboard.press(tabKey);
 		const hideButton = page.locator('.js-show-more__btn-hide');
 		await expect(hideButton).toBeFocused();
 	});
