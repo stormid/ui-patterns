@@ -3,7 +3,7 @@ export const initIFrame = () => {
         const iframe = document.createElement('iframe');
         iframe.src = node.getAttribute('data-iframe-src');
         iframe.setAttribute('title', node.getAttribute('data-iframe-title') || 'iFrame embed');
-        iframe.style.width =  node.getAttribute('data-iframe-width' || '100%');
+        iframe.style.width =  node.getAttribute('data-iframe-width') || '100%';
         iframe.setAttribute('tabindex', '0');
         iframe.setAttribute('frameborder', '0');
         iframe.setAttribute('webkitallowfullscreen', 'webkitallowfullscreen');

@@ -1,4 +1,3 @@
-import { h } from 'preact';
 
 const Code = () => <nav class="expandable-nav__nav" aria-label={'Primary navigation'}>
     <button type="button" class="expandable-nav__btn js-expandable-nav__toggle" aria-label="Show navigation menu" aria-controls="expandable-nav" aria-expanded="false" data-show-label="Show navigation menu" data-hide-label="Hide navigation menu">

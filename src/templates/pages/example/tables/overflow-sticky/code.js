@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import Table from '@components/table';
 
 export const Code = () => (<Table tabindex="0" id="scrolltableStickyCaption" caption="Example table" className={"table__container--overflow table__container--overflow-sticky"}

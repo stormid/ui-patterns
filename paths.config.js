@@ -22,6 +22,7 @@ const dest = {
 const webpackPublicPath = `/${dest.js}/`;
 
 module.exports = {
+    source,
     output,
     src,
     dest,

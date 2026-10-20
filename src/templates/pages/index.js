@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import DefaultLayout from '@layouts/default';
 import Status from '@components/status';
 import { status as cookieBannerStatus } from './patterns/cookie-banner';
@@ -62,7 +61,7 @@ const HomePage = () => (
 					</thead>
 					<tbody>
 						{PATTERNS.map(pattern => (
-							<tr class="tr">
+							<tr key={pattern.url} class="tr">
 								<td class="td">
 									<a class="td__link" href={pattern.url}>
 										{pattern.title}

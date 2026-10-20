@@ -1,4 +1,3 @@
-import { h } from 'preact';
 
 const DependencyTable = ({ dependencies }) => <div class="table__container--base">
     <table class="table push-bottom--double">
@@ -10,7 +9,7 @@ const DependencyTable = ({ dependencies }) => <div class="table__container--base
         </thead>
         <tbody>
             {
-                dependencies.map(dependency => <tr>
+                dependencies.map(dependency => <tr key={dependency.package}>
                     <td class="td td--tight"><a href={`https://www.npmjs.com/package/${dependency.package}`} rel="noopener nofollow">{dependency.package}</a></td>
                     <td class="td td--tight"><pre class="pre pre--inline"><code class="code">{dependency.installation}</code></pre></td>
                 </tr>)

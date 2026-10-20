@@ -1,4 +1,4 @@
-import { Fragment, h } from 'preact';
+import { Fragment } from 'preact';
 import Header from '@components/header';
 import Main from '@components/main';
 import LogoLink from '@components/logo-link';

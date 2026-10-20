@@ -1,4 +1,4 @@
-import { h, Fragment } from 'preact';
+import { Fragment } from 'preact';
 
 const Card = () => <Fragment>
     <h1 class="visually-hidden">Example for cards</h1>

@@ -1,4 +1,3 @@
-import { h } from 'preact';
 
 const Code = () => <div class="tabs js-tabs">
     <div class="tabs__tabslist" role="tablist">

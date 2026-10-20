@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import Table from '@components/table';
 
 export const Code = () => (<Table caption="Example table" tabindex={0}

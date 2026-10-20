@@ -112,10 +112,10 @@ test.describe("Date picker mulitple input > Keyboard", { tag: '@all'}, () => {
 		await page.keyboard.press('ArrowRight');
 		await page.keyboard.press('Enter');
 
-		var tomorrowsDate = new Date();
+		const tomorrowsDate = new Date();
 		tomorrowsDate.setUTCDate(tomorrowsDate.getUTCDate() + 1);
 
-		var lastWeeksDate = new Date();
+		const lastWeeksDate = new Date();
 		lastWeeksDate.setUTCDate(lastWeeksDate.getUTCDate() - 7);
 
 		await expect(dateInputs.first()).toHaveValue(`${tomorrowsDate.getDate()}`);

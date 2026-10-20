@@ -1,4 +1,3 @@
-import { h } from 'preact';
 
 const Code = () => <div class="expandable-search__container">
     <button class="expandable-search__btn js-expandable-search__btn" aria-label="Show or hide site search">

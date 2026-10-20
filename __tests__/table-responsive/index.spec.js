@@ -20,7 +20,7 @@ test.describe("Table with responsive cards > Functionality", () => {
 		const cells = await page.locator("tbody td").all();
 		for (const cell of cells) {
 			const dataVal = await cell.getAttribute('data-th');
-			expect(await cell.evaluate((node) => window.getComputedStyle(node, "::before").content)).toEqual('\"' + dataVal+'\"');
+			expect(await cell.evaluate((node) => window.getComputedStyle(node, "::before").content)).toEqual('"' + dataVal + '"');
 		}
 	});
 });

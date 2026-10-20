@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
 import Code from '../../example/date-picker/code';
 import ThreeInputCode from '../../example/date-picker/three-input/code';

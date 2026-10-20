@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
 import Code from '../../example/exclusive-toggles/code';
 import { render } from 'preact-render-to-string';

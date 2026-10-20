@@ -1,4 +1,4 @@
-import { h, Fragment } from 'preact';
+import { Fragment } from 'preact';
 
 export const ExpandableNav = () => <nav class="exclusive-nav__container" aria-label={'Primary navigation'}>
     <button class="exclusive-nav__btn js-exclusive-nav__toggle" aria-label="Show or hide navigation menu" aria-controls="exclusive-nav" aria-expanded="false">

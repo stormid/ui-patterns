@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
 import Code from '../../example/modal-search/code';
 import { render } from 'preact-render-to-string';

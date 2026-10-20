@@ -1,5 +1,4 @@
 const { test, expect } = require("@playwright/test");
-import { reducedProjects } from "playwright.config";
 import AxeBuilder from "@axe-core/playwright";
 
 test.beforeEach(async ({ page }) => {

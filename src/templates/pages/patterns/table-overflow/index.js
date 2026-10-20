@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
 import Code from '../../example/tables/overflow/code';
 import CodeSticky from '../../example/tables/overflow-sticky/code';

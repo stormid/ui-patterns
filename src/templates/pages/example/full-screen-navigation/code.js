@@ -1,4 +1,3 @@
-import { h } from 'preact';
 
 const Code = () => <nav aria-label={'Primary navigation'}>
     <button type="button" class="full-screen-nav__btn js-full-screen-nav__toggle" aria-label="Open menu" aria-controls="full-screen-navigation" aria-expanded="false">

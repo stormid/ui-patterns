@@ -1,4 +1,3 @@
-import { h } from 'preact';
 
 export const Code = () => <form class="form js-validate" action="#">
     <h1><label for="fname" class="label plus-3 push-bottom--half">First Name</label></h1>

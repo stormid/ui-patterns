@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
 import CodeHero from '../../example/heading-subheading/hero/code';
 import CodeCard from '../../example/heading-subheading/card/code';

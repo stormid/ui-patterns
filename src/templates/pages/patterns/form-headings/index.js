@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
 import CodeSingle from '../../example/form-headings/form-headings-single/code';
 import CodeSingleMulti from '../../example/form-headings/form-headings-single-multi/code';

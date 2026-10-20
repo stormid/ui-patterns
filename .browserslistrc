@@ -1,1 +1,6 @@
-> 5%
+# Browser support targets — drives SWC (JavaScript) and Lightning CSS (CSS).
+# https://browsersl.ist/  ·  this is the browserslist "defaults" set.
+> 0.5%
+last 2 versions
+Firefox ESR
+not dead

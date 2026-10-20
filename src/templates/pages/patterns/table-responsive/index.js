@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
 import CodeResponsive from '../../example/tables/responsive/code';
 import { render } from 'preact-render-to-string';

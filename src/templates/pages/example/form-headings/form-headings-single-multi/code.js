@@ -1,4 +1,3 @@
-import { h } from 'preact';
 
 export const Code = () => <form class="form js-validate" action="#">
     <fieldset class="fieldset">

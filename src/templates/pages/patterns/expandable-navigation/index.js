@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
 import Code from '../../example/expandable-navigation/code';
 import { render } from 'preact-render-to-string';

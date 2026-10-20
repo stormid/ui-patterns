@@ -43,7 +43,7 @@ module.exports = defineConfig({
     },
   ],
   webServer: {
-    command: 'webpack serve --config tools/webpack/config/build --port 8082 --hot --no-open',
+    command: 'rspack serve --config tools/rspack/config/dev/index.js --port 8082 --no-open',
     url: 'http://127.0.0.1:8082',
     reuseExistingServer: !process.env.CI,
   },

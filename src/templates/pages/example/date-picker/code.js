@@ -1,4 +1,3 @@
-import { h } from 'preact';
 
 export const Code = () => <form class="form" novalidate>
     <div class="ds_datepicker js-date-picker">

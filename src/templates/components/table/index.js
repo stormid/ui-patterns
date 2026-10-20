@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import Th from './th';
 
 const Table =  ({ className, caption, head, rows = [], emptyMessage = 'No data available', tabindex, id }) => <div class={`table__container${className ? ` ${className}` : ''}`} tabindex={tabindex} aria-labelledby={id}>
@@ -8,6 +7,7 @@ const Table =  ({ className, caption, head, rows = [], emptyMessage = 'No data a
             <tr class="table__row">
                 {
                     head.map((cell, idx) => <Th
+                        key={idx}
                         scope={cell.scope}
                         isNumeric={cell.isNumeric}
                     >
@@ -21,8 +21,8 @@ const Table =  ({ className, caption, head, rows = [], emptyMessage = 'No data a
         <tbody class="table__bd">
             {
                 rows.length > 0
-                    ? rows.map(row => <tr class={`table__row${row.link ? ` table__row--link` : ''}`}>
-                        {row.cells.map((cell, idx) => <td data-th={head[idx].value} class={`table__td${cell.className ? ` ${cell.className}` : ''}${cell.isNumeric ? ' table__td--right' : ''}${cell.status ? ` table__td--status` : ``}`}>
+                    ? rows.map((row, rowIdx) => <tr key={rowIdx} class={`table__row${row.link ? ` table__row--link` : ''}`}>
+                        {row.cells.map((cell, idx) => <td key={idx} data-th={head[idx].value} class={`table__td${cell.className ? ` ${cell.className}` : ''}${cell.isNumeric ? ' table__td--right' : ''}${cell.status ? ` table__td--status` : ``}`}>
                             {cell.value}
                         </td>)}
                         {row.link && <td class="table__td table__td--link"><a class="table__link" href={row.link.href}><span class="visually-hidden">{row.link.label || row.link.href}</span></a></td>}

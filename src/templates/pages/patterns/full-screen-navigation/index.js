@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
 import Code from '../../example/full-screen-navigation/code';
 import PatternTitle from '@components/pattern-title';

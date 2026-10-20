@@ -1,4 +1,3 @@
-import { h } from 'preact';
 
 export const Code = () => <form class="form js-validate" action="#">
     <h1 class="plus-3 medium">Contact us</h1>

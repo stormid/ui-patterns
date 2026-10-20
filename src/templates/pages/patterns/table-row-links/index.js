@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
 import CodeRowLinks from '../../example/tables/row-links/code';
 import { render } from 'preact-render-to-string';

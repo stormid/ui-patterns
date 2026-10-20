@@ -1,4 +1,4 @@
-import { h, Fragment } from 'preact';
+import { Fragment } from 'preact';
 import Table from '@components/table'
 
 export const Code = () => <Fragment>

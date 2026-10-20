@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
 import PatternTitle from '@components/pattern-title';
 import DependencyTable from '@components/dependency-table';
