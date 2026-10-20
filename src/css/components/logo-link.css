@@ -1,0 +1,8 @@
+.logo-link {
+    padding: 4px;
+    margin: -4px;
+}
+
+.logo-link:focus {
+    outline: 1px solid var(--highlight);
+}

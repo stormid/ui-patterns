@@ -34,7 +34,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.s?css$/,
+                test: /\.css$/,
                 use: [
                     {
                         loader: rspack.CssExtractRspackPlugin.loader
@@ -45,13 +45,16 @@ module.exports = {
                             url: false
                         }
                     },
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            implementation: require('sass-embedded'),
-                            api: 'modern-compiler'
-                        }
-                    }
+                    //for sass/scss support
+                    // {
+                    //     loader: 'sass-loader',
+                    //     options: {
+                    //         implementation: require('sass-embedded'),
+                    //         sassOptions: {
+                    //             api: 'legacy'
+                    //         }
+                    //     }
+                    // }
                 ],
                 type: 'javascript/auto'
             },

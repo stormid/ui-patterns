@@ -1,0 +1,224 @@
+.table__container {
+    width: 100%;
+    margin-bottom: calc(var(--baseline));
+    overflow-y: hidden;
+    /* HACK/FIX FOR SAFARI, CANNOT POSITION RELATIVE A TABLE ROW*/
+    overflow-x: auto;
+}
+
+.table__container--overflow {
+    background: linear-gradient(white 10%, rgba(255, 255, 255, 0)) left top, linear-gradient(rgba(255, 255, 255, 0) 50%, white) left bottom, linear-gradient(90deg, white 30%, rgba(255, 255, 255, 0)) left top, linear-gradient(90deg, rgba(255, 255, 255, 0), white 70%) right center, linear-gradient(270deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)) left center, linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)) right center;
+    background-repeat: no-repeat;
+    background-size: 100% 40px, 100% 100px, 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+    background-attachment: local, local, local, local, scroll, scroll;
+}
+
+.table__container--overflow-sticky {
+    background: linear-gradient(white 10%, rgba(255, 255, 255, 0)) left top, linear-gradient(rgba(255, 255, 255, 0) 50%, white) left bottom, linear-gradient(90deg, rgba(255, 255, 255, 0), white 70%) right center, linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)) right center;
+    background-repeat: no-repeat;
+    background-size: 100% 40px, 100% 100px, 40px 100%, 14px 100%;
+    background-attachment: local, local, local, scroll;
+}
+
+.table {
+    width: 100%;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.table__container--overflow .table {
+    table-layout: fixed;
+}
+
+.table--has-caption {
+    margin-bottom: calc(var(--baseline) * 3.5);
+}
+
+.table__caption {
+    text-align: right;
+    position: absolute;
+    bottom: calc(var(--baseline) * -2);
+    width: 100%;
+}
+
+.table__container--flush {
+    margin-bottom: 0;
+}
+
+.table__container--flush .table {
+    padding-bottom: 0;
+}
+
+.table__row:last-child .table__td {
+    border-bottom: 0 none;
+}
+
+.table__row--link {
+    position: relative;
+    transform: scale(1, 1);
+    /* HACK/FIX FOR SAFARI, CANNOT POSITION RELATIVE A TABLE ROW*/
+}
+
+.table__row--link:hover {
+    background-color: var(--light-grey-1);
+    transition: background-color 60ms ease;
+}
+
+.table__row--link .table__td:nth-last-child(2) {
+    position: relative;
+    padding-right: 25px;
+}
+
+.table__row--link .table__td:nth-last-child(2):after {
+    position: absolute;
+    right: calc(var(--gutter) / 2);
+    top: 50%;
+    display: inline-block;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-right: 1px solid currentColor;
+    border-top: 1px solid currentColor;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.table__th {
+    font-size: var(--font-size-minus-1);
+    display: table-cell;
+    border-bottom: 1px solid var(--light-grey-2);
+    padding: calc(var(--baseline) / 6) var(--gutter) calc(var(--baseline) / 2) var(--gutter);
+    text-align: left;
+    font-weight: var(--regular-weight);
+    color: var(--dark-grey-1);
+}
+
+.table__th:first-child {
+    padding-left: 0;
+}
+
+.table__th.align-right {
+    text-align: right;
+}
+
+.table__container--overflow .table__th {
+    width: 150px;
+}
+
+.table__th--hidden {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    border: 0;
+}
+
+.table__td {
+    padding: var(--baseline) var(--gutter) var(--baseline) var(--gutter);
+    border-bottom: 1px solid var(--light-grey-2);
+    vertical-align: top;
+}
+
+.table__td:first-child {
+    padding-left: 0;
+}
+
+.table__td--link,
+.table__link {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-bottom: 0 none;
+    background: none;
+}
+
+.table__container--overflow-sticky .table__td:first-child,
+.table__container--overflow-sticky .table__th:first-child {
+    position: sticky;
+    left: 0;
+    background: linear-gradient(90deg, #d1d1d1 1px, white 1px);
+    background-color: white;
+    background-position: 100% 0;
+    background-repeat: repeat-y;
+    background-size: 1px;
+}
+
+@media (max-width: 480px) {
+    .table__container:not(.table__container--overflow) {
+        display: block;
+    }
+
+    .table__container:not(.table__container--overflow) .table__head,
+    .table__container:not(.table__container--overflow) .table__header,
+    .table__container:not(.table__container--overflow) .table__bd,
+    .table__container:not(.table__container--overflow) .table__row,
+    .table__container:not(.table__container--overflow) .table__td {
+        display: block;
+    }
+
+    .table__container:not(.table__container--overflow) .table__th {
+        border: 0 none;
+    }
+
+    .table__container:not(.table__container--overflow) .table__row {
+        position: relative;
+    }
+
+    .table__container:not(.table__container--overflow) .table__row:last-child:after {
+        content: "";
+        display: block;
+        margin-bottom: calc(var(--baseline) / 2);
+        border-bottom: 1px solid var(--light-grey-2);
+        width: 100%;
+        position: absolute;
+        bottom: calc(var(--baseline) * -0.5);
+    }
+
+    .table__container:not(.table__container--overflow) .table__th {
+        display: none;
+    }
+
+    .table__container:not(.table__container--overflow) .table__td {
+        padding: 0;
+        border-bottom: 0 none;
+    }
+
+    .table__container:not(.table__container--overflow) .table__td.align-right {
+        text-align: right;
+    }
+
+    .table__container:not(.table__container--overflow) .table__td:first-child {
+        padding-top: calc(var(--baseline) / 2);
+    }
+
+    .table__container:not(.table__container--overflow) .table__td:last-child {
+        margin-bottom: 0;
+        padding-bottom: calc(var(--baseline) / 2);
+        border-bottom: 1px solid var(--light-grey-2);
+    }
+
+    .table__container:not(.table__container--overflow) .table__row--link .table__td:nth-last-child(2) {
+        padding-bottom: calc(var(--baseline) / 2);
+    }
+
+    .table__container:not(.table__container--overflow) .table__td--link:last-child {
+        border-bottom: 0 none;
+    }
+
+    .table__container:not(.table__container--overflow) [data-th]:before {
+        font-size: var(--font-size-minus-2);
+        content: attr(data-th);
+        padding-top: calc(var(--baseline) / 2);
+        display: block;
+        color: var(--dark-grey-1);
+    }
+
+    .table__container:not(.table__container--overflow) .table__caption {
+        text-align: left;
+    }
+}

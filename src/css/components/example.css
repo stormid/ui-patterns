@@ -1,0 +1,30 @@
+.example {
+    width: 100%;
+    height: 350px;
+    height: var(--height);
+}
+
+.example__main {
+    padding: 24px;
+}
+
+.example__main h1 {
+    font-size: x-large;
+    margin-bottom: 24px;
+}
+
+.example__main p {
+    margin-bottom: 24px;
+}
+
+.example-body {
+    background-color: white;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+html:has(.example-body) {
+    background-color: white;
+}

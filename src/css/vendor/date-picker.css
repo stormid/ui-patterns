@@ -1,0 +1,232 @@
+.ds_datepicker {
+    position: relative;
+}
+
+.ds_datepicker__input-wrapper {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.ds_datepicker__dialog {
+    background-color: white;
+    clear: both;
+    display: none;
+    padding: 8px;
+    outline: 1px solid var(--light-grey-1);
+    outline-offset: -1px;
+    position: static;
+    top: 0;
+    transition: background-color 0.2s, outline-color 0.2s;
+    width: 296px;
+    z-index: 2;
+}
+
+.ds_datepicker__dialog--open {
+    display: block;
+}
+
+.ds_datepicker__dialog__header {
+    position: relative;
+    text-align: center;
+}
+
+.ds_datepicker__dialog__header > :nth-child(1) {
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+.ds_datepicker__dialog__header > :nth-child(3) {
+    position: absolute;
+    right: 0;
+    top: -2px;
+}
+
+.ds_datepicker__dialog__title {
+    margin: 0 !important;
+    text-transform: uppercase;
+}
+
+.ds_datepicker__dialog__navbuttons button {
+    background-color: transparent;
+    font-weight: var(--regular-weight);
+    min-height: 40px;
+    margin: 0;
+    padding: 4px;
+    min-width: 32px;
+    display: inline-block;
+}
+
+.ds_datepicker__dialog__navbuttons button:hover {
+    color: currentColor;
+}
+
+.ds_datepicker__dialog__navbuttons button .ds_icon {
+    height: 32px;
+    padding: 0;
+    position: static;
+    width: 24px;
+}
+
+.ds_datepicker__dialog__table td {
+    border: 0;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+}
+
+.ds_datepicker__dialog__table th {
+    font-weight: var(--regular-weight);
+}
+
+.ds_datepicker__dialog__table button {
+    background-color: transparent;
+    border-width: 0;
+    font-weight: var(--regular-weight);
+    min-height: 40px;
+    margin: 0;
+    padding: 0;
+    min-width: 40px;
+}
+
+.ds_datepicker__dialog__table button:focus {
+    transition-duration: 0s;
+}
+
+.ds_datepicker__dialog__table button[disabled=true], .ds_datepicker__dialog__table button[aria-disabled=true] {
+    background-color: var(--light-grey-1);
+    pointer-events: none;
+}
+
+.ds_datepicker__dialog__table button.ds_datepicker__current {
+    background-color: var(--off-black);
+    color: white;
+}
+
+.ds_datepicker__dialog__table button.ds_datepicker__today {
+    font-weight: var(--bold-weight);
+    position: relative;
+}
+
+.ds_datepicker__dialog__table button.ds_datepicker__today::after {
+    background-color: currentColor;
+    border-radius: 4px;
+    bottom: 6px;
+    content: "";
+    height: 4px;
+    left: 50%;
+    margin-left: -2px;
+    position: absolute;
+    width: 4px;
+}
+
+.ds_datepicker__dialog__table button.ds_selected {
+    outline: 4px solid transparent;
+    box-shadow: 0px 0px 0px 4px var(--highlight);
+}
+
+.ds_datepicker__dialog__table button:focus {
+    position: relative;
+    z-index: 2; /* [1] */
+}
+
+.ds_datepicker__dialog__table-caption {
+    font-size: var(--font-size-minus-1);
+    caption-side: bottom;
+    line-height: 2;
+    margin-top: 8px;
+}
+
+.ds_datepicker__dialog__buttongroup {
+    overflow: visible;
+    padding-top: 8px;
+    /* non-grid */
+}
+
+.ds_datepicker__dialog__buttongroup button {
+    display: block;
+    float: left;
+    margin: 0;
+    background-color: var(--off-black);
+    color: white;
+    padding: 4px 0;
+}
+
+.ds_datepicker__dialog__buttongroup .ds_button--cancel {
+    color: currentColor;
+    background-color: transparent;
+    outline: 1px solid currentColor;
+    outline-offset: -1px;
+}
+
+@supports (display: grid) {
+    .ds_datepicker__dialog__buttongroup {
+        grid-template-columns: 1fr 1fr;
+        gap: 4px;
+        display: grid;
+    }
+}
+
+.ds_input__wrapper .ds_button,
+.ds_datepicker__input-wrapper .ds_button {
+    height: 40px;
+    max-width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 8px;
+    background-color: var(--off-black);
+}
+
+.ds_input__wrapper .ds_button .ds_icon,
+.ds_datepicker__input-wrapper .ds_button .ds_icon {
+    height: 24px;
+    width: 24px;
+    fill: white;
+}
+
+.ds_datepicker__input-wrapper .ds_button {
+    align-self: flex-end;
+}
+
+.ds_input__wrapper {
+    display: flex;
+    margin-top: calc(var(--baseline) / 6);
+    max-width: 150px;
+}
+
+.ds_input__wrapper .input {
+    margin-top: 0;
+    margin-right: -40px;
+    padding-right: 40px;
+}
+
+.ds_input--day,
+.ds_input--month {
+    max-width: 60px;
+}
+
+.ds_input--year {
+    max-width: 90px;
+}
+
+@media (min-width: 768px) {
+    .ds_datepicker__dialog {
+        position: absolute;
+    }
+
+    .ds_datepicker__dialog__title {
+        padding: 8px 0;
+    }
+
+    .ds_datepicker__dialog__header > :nth-child(1) {
+        /* left: 8px; */
+        top: 0;
+    }
+
+    .ds_datepicker__dialog__header > :nth-child(3) {
+        /* right: 8px; */
+        top: 0;
+    }
+}

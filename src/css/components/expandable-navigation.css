@@ -1,0 +1,115 @@
+.expandable-nav__container {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--off-black);
+}
+
+.expandable-nav__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.expandable-nav__btn {
+    display: flex;
+    background-color: transparent;
+    font-weight: var(--medium-weight);
+    margin: 0 var(--gutter);
+    padding: var(--baseline) 0;
+    color: var(--off-black);
+}
+
+.expandable-nav__btn:focus {
+    outline: 1px solid var(--highlight);
+}
+
+.expandable-nav__btn-icon {
+    margin-right: calc(var(--gutter) / 6);
+    display: block;
+    fill: var(--off-black);
+}
+
+.expandable-nav__display-wrap {
+    display: none;
+}
+
+.expandable-nav__item {
+    display: block;
+}
+
+.expandable-nav__item:first-child {
+    border-top: 1px solid var(--dark-grey-3);
+}
+
+.expandable-nav__link {
+    display: block;
+    color: var(--off-black);
+    background-color: white;
+    padding: calc(var(--baseline) / 2) var(--gutter);
+    border: 1px solid transparent;
+    border-bottom: 1px solid var(--dark-grey-3);
+    transition: background-color 120ms ease;
+    text-decoration: none;
+}
+
+.expandable-nav__link:focus {
+    border: 1px solid var(--highlight);
+}
+
+.expandable-nav__link:hover {
+    background-color: var(--dark-grey-2);
+}
+
+.expandable-nav__close {
+    display: none;
+}
+
+.on--expandable-nav .expandable-nav__display-wrap {
+    display: block;
+    align-self: stretch;
+}
+
+.on--expandable-nav .expandable-nav__list {
+    display: block;
+    max-width: none;
+    overflow: hidden;
+    background-color: white;
+}
+
+.on--expandable-nav .expandable-nav__close {
+    display: block;
+    position: absolute;
+    top: calc(var(--baseline) / 2);
+    right: calc(var(--gutter) / 2);
+    background-color: transparent;
+}
+
+.on--expandable-nav .expandable-nav__close:focus {
+    outline-color: var(--highlight);
+}
+
+.on--expandable-nav .expandable-nav__close-icon {
+    display: block;
+}
+
+/* windows high contrast support  */
+@media screen and (forced-colors: active) {
+    /* adjusts svg icons to be visible on light mode  */
+}
+
+@media screen and (forced-colors: active) and (prefers-color-scheme: light) {
+    .expandable-nav__btn-icon {
+        fill: CanvasText;
+    }
+}
+
+@media screen and (forced-colors: active) {
+    /* adjusts expandable nav and exclusive toggles focus outlines */
+    .expandable-nav__link {
+        border: 1px solid Canvas;
+        border-bottom: 1px solid LinkText;
+    }
+
+    .expandable-nav__link:focus {
+        outline: 3px solid transparent;
+    }
+}

@@ -1,0 +1,142 @@
+.modal-search__container {
+    padding: var(--baseline) var(--gutter);
+    background-color: white;
+    border-bottom: 1px solid var(--off-black);
+    height: 95px;
+}
+
+.modal-search {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-search__btn {
+    display: flex;
+    background-color: transparent;
+    font-weight: var(--medium-weight);
+    padding: calc(var(--baseline) / 2) calc(var(--gutter) / 3);
+    color: var(--off-black);
+}
+
+.modal-search__btn:focus {
+    outline: 1px solid var(--highlight);
+}
+
+.modal-search__btn-icon {
+    margin-right: calc(var(--gutter) / 6);
+    display: block;
+    fill: var(--off-black);
+}
+
+.modal-container {
+    display: none;
+}
+
+.modal-container.is--active {
+    display: flex;
+    overflow: auto;
+    position: fixed;
+    justify-content: center;
+    padding-top: 30vh;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    width: auto;
+    height: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+}
+
+.modal__title,
+.modal__label {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    border: 0;
+}
+
+.modal__close {
+    position: fixed;
+    color: var(--off-black);
+    top: var(--baseline);
+    right: var(--gutter);
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: calc(var(--baseline) / 2) calc(var(--gutter) / 2);
+    font-weight: var(--medium-weight);
+}
+
+.modal__close:focus {
+    outline: 1px solid var(--highlight);
+    border-radius: 0;
+}
+
+.modal__close-icon {
+    display: block;
+    fill: var(--off-black);
+}
+
+.modal__form {
+    display: flex;
+    max-width: 500px;
+}
+
+.modal__input {
+    width: 100%;
+    display: block;
+    padding: 0 calc(var(--gutter) / 2);
+    border: 1px solid var(--light-grey-3);
+    appearance: none;
+    -moz-appearance: textfield;
+    height: 40px;
+    line-height: 36px;
+    min-width: 250px;
+    border-radius: 0;
+    color: var(--off-black);
+}
+
+.modal__input:focus {
+    outline: 0 none;
+    border: 1px solid var(--off-black);
+    box-shadow: 0 0 0 1px var(--highlight);
+}
+
+.modal__search-btn {
+    background-color: transparent;
+    color: var(--off-black);
+    padding: 0 6px;
+    border-radius: 0;
+    min-width: 70px;
+    margin-left: 1px;
+}
+
+.modal__search-btn:focus {
+    outline: 0 none;
+    border: 1px solid var(--highlight);
+    border-radius: 0;
+}
+
+.is--modal {
+    overflow: hidden;
+}
+
+/* windows high contrast support  */
+@media screen and (forced-colors: active) {
+    /* adjusts svg icons to be visible on light mode  */
+}
+
+@media screen and (forced-colors: active) and (prefers-color-scheme: light) {
+    .modal-search__btn-icon,
+    .modal__close-icon {
+        fill: CanvasText;
+    }
+}

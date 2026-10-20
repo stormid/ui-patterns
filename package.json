@@ -34,8 +34,6 @@
     "oxlint": "^1.89.0",
     "preact": "^11.0.1",
     "preact-render-to-string": "^6.8.1",
-    "sass-embedded": "^1.105.2",
-    "sass-loader": "^17.0.1",
     "sharp": "^0.35.5",
     "svgo": "^4.1.0"
   },
