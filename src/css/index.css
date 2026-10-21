@@ -34,5 +34,6 @@
 @import 'components/full-screen-navigation';
 @import 'components/heading-subheading';
 @import 'components/show-more';
+@import 'components/autocomplete';
 
 @import 'vendor/date-picker';

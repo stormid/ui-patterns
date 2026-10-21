@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@scottish-government/design-system": "^4.3.0",
+    "@stormid/autocomplete": "^1.1.1",
     "@stormid/cookie-banner": "^1.0.3",
     "@stormid/modal": "^1.1.0",
     "@stormid/tabs": "^2.0.1",
