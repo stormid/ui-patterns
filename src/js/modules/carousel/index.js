@@ -1,4 +1,5 @@
 import EmblaCarousel from 'embla-carousel';
+import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
 const SELECTORS = {
     NODE: '.js-carousel',
     VIEWPORT: '.js-carousel__viewport',
@@ -37,7 +38,8 @@ export const carousel = node => {
     viewport.scrollLeft = 0;
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const embla = EmblaCarousel(viewport, { ...OPTIONS, duration: reducedMotion ? 0 : OPTIONS.duration });
+    // Trackpad swipes are wheel events, which Embla ignores; the plugin only takes horizontal ones, so the page still scrolls
+    const embla = EmblaCarousel(viewport, { ...OPTIONS, duration: reducedMotion ? 0 : OPTIONS.duration }, [WheelGesturesPlugin()]);
 
     const update = () => {
         // Hide the controls when every item fits in view

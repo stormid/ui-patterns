@@ -75,6 +75,29 @@ test.describe("Carousel > Pointer", { tag: '@desktop'}, () => {
 
 		await expect(firstLink).not.toBeInViewport();
 	});
+
+	test('A horizontal trackpad swipe should move the carousel', async ({ page }) => {
+		const firstLink = page.getByRole('link', { name: 'Planning your visit' });
+		const box = await page.locator('.carousel__viewport').boundingBox();
+
+		await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+		for (let i = 0; i < 10; i++) await page.mouse.wheel(40, 0);
+
+		await expect(firstLink).not.toBeInViewport();
+	});
+
+	test('A vertical scroll over the carousel should scroll the page, not the carousel', async ({ page }) => {
+		await page.setViewportSize({ width: 1280, height: 300 });
+		const firstLink = page.getByRole('link', { name: 'Planning your visit' });
+		const box = await page.locator('.carousel__viewport').boundingBox();
+
+		await page.mouse.move(box.x + box.width / 2, box.y + 20);
+		await page.mouse.wheel(0, 200);
+
+		await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
+		await expect(page.getByRole('button', { name: 'Previous' })).toHaveAttribute('aria-disabled', 'true');
+		await expect(firstLink).toBeAttached();
+	});
 });
 
 test.describe("Carousel > Markup tests", { tag: '@reduced'}, () => {

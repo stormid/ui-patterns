@@ -18,7 +18,7 @@ const Carousel = () => <PatternLayout>
     <p class="push-bottom">This pattern does not use the common accessible carousel conventions: <code>aria-roledescription</code> values of 'carousel' and 'slide', 'slide 1 of 7' labels, hiding items that are out of view from screen readers and the tab order, and announcing changes in a live region. In our testing these confused screen reader users and made the content harder to navigate. Instead, the carousel is presented as a named region containing a simple list, in which every item can be reached by tabbing. When an item that is out of view receives focus, the carousel moves to show it.</p>
     <p class="push-bottom">The previous and next buttons come before the list in the source order, so keyboard users can use them without tabbing through every item. At the start and end of the list the buttons use <code>aria-disabled</code> rather than <code>disabled</code>, so focus stays on the button instead of being lost.</p>
     <p class="push-bottom">Do not autoplay a carousel. Movement that starts automatically distracts users and moves content away while they are reading it.</p>
-    <p class="push-bottom--double">The pattern progressively enhances a list that scrolls horizontally. Without JavaScript, users can scroll through the list and every item can be reached. With JavaScript, <a rel="noopener nofollow" href="https://www.embla-carousel.com">Embla Carousel</a> adds the buttons and moves the list, and movement is instant when the user prefers reduced motion.</p>
+    <p class="push-bottom--double">The pattern progressively enhances a list that scrolls horizontally. Without JavaScript, users can scroll through the list and every item can be reached. With JavaScript, <a rel="noopener nofollow" href="https://www.embla-carousel.com">Embla Carousel</a> adds the buttons and moves the list, and movement is instant when the user prefers reduced motion. Embla does not respond to trackpad swipes, which the browser sends as wheel events, so the <a rel="noopener nofollow" href="https://www.embla-carousel.com/plugins/wheel-gestures/">wheel gestures plugin</a> is used to add them. It only responds to horizontal gestures, so scrolling vertically over the carousel still scrolls the page.</p>
 
     <h2 class="push-bottom--half plus-2 medium">Example</h2>
     <iframe style="--height: 480px" class="example" title="Example carousel" src={'/example/carousel'} />
@@ -27,6 +27,7 @@ const Carousel = () => <PatternLayout>
     <h2 class="push-bottom--half plus-2 medium">Code</h2>
     <CodeSample><Code /></CodeSample>
     <pre class="pre"><code class="code">{`import EmblaCarousel from 'embla-carousel';
+import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
 
 const node = document.querySelector('.js-carousel');
 const viewport = node.querySelector('.js-carousel__viewport');
@@ -45,7 +46,7 @@ const embla = EmblaCarousel(viewport, {
     duration: reducedMotion ? 0 : 25,
     // Embla only follows focus that comes from the Tab key, so focus is handled below instead
     watchFocus: false
-});
+}, [WheelGesturesPlugin()]);
 
 const update = () => {
     controls.hidden = !embla.canScrollPrev() && !embla.canScrollNext();
@@ -108,7 +109,10 @@ update();
     <p class="push-bottom--double">The number of items in view at each breakpoint is set by the width of <code>.carousel__slide</code> in CSS. Full documentation of the options is available on the <a rel="noopener nofollow" href="https://www.embla-carousel.com/api/options/">Embla Carousel website</a>.</p>
 
     <h2 class="push-bottom--half plus-2 medium">Dependencies and installation</h2>
-    <DependencyTable dependencies={[{ package: 'embla-carousel', installation: 'npm i -S embla-carousel' }]} />
+    <DependencyTable dependencies={[
+        { package: 'embla-carousel', installation: 'npm i -S embla-carousel' },
+        { package: 'embla-carousel-wheel-gestures', installation: 'npm i -S embla-carousel-wheel-gestures' }
+    ]} />
 
     <h2 class="push-bottom plus-2 medium">Acceptance criteria</h2>
     <p class="push-bottom--double">The following is a list of example acceptance criteria to test against when using this pattern. These criteria should test that the specific markup requirements are met, and that the carousel behaves visually and functionally as expected.</p>
@@ -140,6 +144,7 @@ update();
         <li class="list-item">Focus should stay on a button when it is used, including when the start or end of the list is reached</li>
         <li class="list-item">Every item should be reachable by tabbing, and an item that is out of view should be moved into view when it receives focus</li>
         <li class="list-item">Swiping on a touch screen should move the carousel</li>
+        <li class="list-item">Swiping horizontally on a trackpad should move the carousel, and scrolling vertically over it should scroll the page</li>
         <li class="list-item">Movement should be instant when the user has set a preference for reduced motion</li>
         <li class="list-item">The buttons should be hidden when all items fit in view</li>
         <li class="list-item">Without JavaScript, the list should scroll horizontally and the buttons should be hidden</li>
