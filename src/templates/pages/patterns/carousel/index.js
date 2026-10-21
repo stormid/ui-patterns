@@ -60,6 +60,18 @@ const isInView = element => {
     return item.left >= Math.floor(view.left) && item.right <= Math.ceil(view.right);
 };
 
+const bringIntoView = element => {
+    // Instant scrolls render synchronously, so step towards the item until it's in view
+    for (let i = embla.scrollSnapList().length; i > 0 && !isInView(element); i--) {
+        const isBefore = element.getBoundingClientRect().left < viewport.getBoundingClientRect().left;
+        if (isBefore ? !embla.canScrollPrev() : !embla.canScrollNext()) break;
+        if (isBefore) embla.scrollPrev(true);
+        else embla.scrollNext(true);
+    }
+};
+const isMoving = () => Math.abs(embla.scrollProgress() - embla.scrollSnapList()[embla.selectedScrollSnap()]) > 0.001;
+let pendingFocus = null;
+
 prev.addEventListener('click', () => embla.scrollPrev());
 next.addEventListener('click', () => embla.scrollNext());
 viewport.addEventListener('focusin', e => {
@@ -67,14 +79,17 @@ viewport.addEventListener('focusin', e => {
     viewport.scrollLeft = 0;
     // Ignore focus from a pointer, so pressing on a partly visible item to drag doesn't move the carousel
     if (!e.target.matches(':focus-visible')) return;
-    // Instant scrolls render synchronously, so step towards the item until it's in view
-    for (let i = embla.scrollSnapList().length; i > 0 && !isInView(e.target); i--) {
-        const isBefore = e.target.getBoundingClientRect().left < viewport.getBoundingClientRect().left;
-        if (isBefore ? !embla.canScrollPrev() : !embla.canScrollNext()) break;
-        if (isBefore) embla.scrollPrev(true);
-        else embla.scrollNext(true);
-    }
+    bringIntoView(e.target);
+    // An item in view now may be moved out of view by a scroll that's still running, so check again when it stops
+    if (isMoving()) pendingFocus = e.target;
 });
+embla.on('settle', () => {
+    const element = pendingFocus;
+    pendingFocus = null;
+    if (element && element === document.activeElement) bringIntoView(element);
+});
+// The user has taken over, so don't move the carousel back to the focused item
+embla.on('pointerDown', () => { pendingFocus = null; });
 embla.on('select', update);
 embla.on('reInit', update);
 update();

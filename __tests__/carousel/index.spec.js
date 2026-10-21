@@ -37,6 +37,24 @@ test.describe("Carousel > Functionality", { tag: '@all'}, () => {
 		await expect(lastLink).toBeInViewport();
 		await expect(page.getByRole('button', { name: 'Next' })).toHaveAttribute('aria-disabled', 'true');
 	});
+
+	test('An item focused while the carousel is moving should be in view when it stops', async ({ page }) => {
+		// The third item is still in view when focused, but on desktop the carousel is moving it out of view
+		await page.evaluate(() => {
+			document.querySelector('.js-carousel__next').click();
+			document.querySelectorAll('.carousel__link')[2].focus();
+		});
+		const link = page.locator('.carousel__link').nth(2);
+		await expect(link).toBeFocused();
+
+		const isStill = () => page.evaluate(() => new Promise(resolve => {
+			const track = document.querySelector('.carousel__track');
+			const transform = track.style.transform;
+			requestAnimationFrame(() => requestAnimationFrame(() => resolve(track.style.transform === transform)));
+		}));
+		await expect.poll(isStill).toBe(true);
+		await expect(link).toBeInViewport({ ratio: 1 });
+	});
 });
 
 test.describe("Carousel > Keyboard", { tag: '@all'}, () => {
