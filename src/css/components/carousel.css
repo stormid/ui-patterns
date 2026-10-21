@@ -1,0 +1,138 @@
+.carousel {
+    --carousel-gap: var(--gutter);
+    padding-bottom: var(--baseline);
+}
+
+.carousel__hd {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: calc(var(--baseline) / 2) var(--gutter);
+    margin-bottom: calc(var(--baseline) / 2);
+}
+
+.carousel__heading {
+    font-size: var(--font-size-plus-2);
+    font-weight: var(--semibold-weight);
+}
+
+.carousel__controls {
+    display: flex;
+    gap: calc(var(--gutter) / 3);
+}
+
+.carousel__controls[hidden] {
+    display: none;
+}
+
+.carousel__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    color: var(--off-black);
+    background-color: white;
+    border: 2px solid var(--off-black);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.carousel__btn:hover {
+    background-color: var(--highlight);
+}
+
+/* aria-disabled buttons stay focusable, so keep the focus style but show they do nothing */
+.carousel__btn[aria-disabled="true"] {
+    color: var(--dark-grey-1);
+    border-color: var(--dark-grey-1);
+    background-color: white;
+    cursor: default;
+}
+
+/* Without JS the viewport scrolls natively, snapping to each item */
+.carousel__viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+}
+
+/* Once enhanced, Embla moves the track, so native scrolling would put it out of step */
+.carousel.is--enhanced .carousel__viewport {
+    overflow: hidden;
+    scroll-snap-type: none;
+}
+
+/* Gaps are slide padding offset by a negative margin, so Embla measures each slide including its gap */
+.carousel__track {
+    display: flex;
+    max-width: none;
+    margin-left: calc(var(--carousel-gap) * -1);
+    touch-action: pan-y pinch-zoom;
+}
+
+.carousel__slide {
+    flex: 0 0 85%;
+    min-width: 0;
+    padding-left: var(--carousel-gap);
+    scroll-snap-align: start;
+}
+
+@media (min-width: 768px) {
+    .carousel__slide {
+        flex-basis: 50%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .carousel__slide {
+        flex-basis: calc(100% / 3);
+    }
+}
+
+.carousel__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: var(--off-black);
+    background-color: var(--light-grey-1);
+}
+
+/* The viewport clips anything outside a slide, so draw the focus ring inside the card, above the image */
+.carousel__card:has(.carousel__link:focus-visible) {
+    outline: 4px solid var(--highlight);
+    outline-offset: -4px;
+}
+
+.carousel__card-img {
+    width: 100%;
+    height: auto;
+}
+
+.carousel__card-bd {
+    padding: calc(var(--baseline) / 2) calc(var(--gutter) / 1.5) var(--baseline);
+}
+
+.carousel__card-heading {
+    font-size: var(--font-size-plus-1);
+    font-weight: var(--semibold-weight);
+    margin-bottom: calc(var(--baseline) / 4);
+}
+
+.carousel__link {
+    color: inherit;
+}
+
+.carousel__link:focus-visible {
+    box-shadow: none;
+}
+
+/* Makes the whole card the link's click target */
+.carousel__link:after {
+    content: '';
+    position: absolute;
+    inset: 0;
+}
