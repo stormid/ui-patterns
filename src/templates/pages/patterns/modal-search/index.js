@@ -1,6 +1,6 @@
 import PatternLayout from '@layouts/pattern';
 import Code from '../../example/modal-search/code';
-import { render } from 'preact-render-to-string';
+import CodeSample from '@components/code-sample';
 import PatternTitle from '@components/pattern-title';
 import DependencyTable from '@components/dependency-table';
 import { STATUS } from '@constants';
@@ -24,7 +24,7 @@ const ModalSearch = () => <PatternLayout>
     <DependencyTable dependencies={[{ package: '@stormid/modal', installation: 'npm i -S @stormid/modal' }]} />
 
     <h2 class="push-bottom--half plus-2 medium">Code</h2>
-    <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
+    <CodeSample><Code /></CodeSample>
     <pre class="pre"><code class="code">{`import modal from '@stormid/modal';
 
 modal('.js-modal-search');

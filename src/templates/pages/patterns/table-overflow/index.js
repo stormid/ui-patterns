@@ -1,7 +1,7 @@
 import PatternLayout from '@layouts/pattern';
 import Code from '../../example/tables/overflow/code';
 import CodeSticky from '../../example/tables/overflow-sticky/code';
-import { render } from 'preact-render-to-string';
+import CodeSample from '@components/code-sample';
 import PatternTitle from '@components/pattern-title';
 import { STATUS } from '@constants';
 
@@ -22,12 +22,12 @@ const Tables = () => <PatternLayout>
     <h2 class="push-bottom--half plus-2 medium">Example with scrolling overflow</h2>
     <iframe style="--height: 500px" class="example" title="Example table with scrolling overflow" src={'/example/tables/overflow'}></iframe>
     <p class="push-bottom align-right"><a href="/example/tables/overflow" rel="noopener" target="_blank">Open in a new tab</a></p>
-    <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
+    <CodeSample><Code /></CodeSample>
 
     <h2 class="push-bottom--half plus-2 medium">Example with scrolling overflow and sticky column</h2>
     <iframe style="--height: 500px" class="example" title="Example table with scrolling overflow and sticky column" src={'/example/tables/overflow-sticky'}></iframe>
     <p class="push-bottom align-right"><a href="/example/tables/overflow-sticky" rel="noopener" target="_blank">Open in a new tab</a></p>
-    <pre class="pre"><code class="code">{`${render(<CodeSticky />, null, { pretty: true })}`}</code></pre>
+    <CodeSample><CodeSticky /></CodeSample>
 
     <h2 class="push-bottom plus-2 medium">Acceptance criteria</h2>
     <p class="push-bottom--double">The following is a list of example acceptance criteria to test against when using this pattern.  These critera should test that the specific markup requirements are met, and that the search behaves visually and functionally as expected.</p>

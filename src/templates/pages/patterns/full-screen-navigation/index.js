@@ -2,7 +2,7 @@ import PatternLayout from '@layouts/pattern';
 import Code from '../../example/full-screen-navigation/code';
 import PatternTitle from '@components/pattern-title';
 import DependencyTable from '@components/dependency-table';
-import { render } from 'preact-render-to-string';
+import CodeSample from '@components/code-sample';
 import { STATUS } from '@constants';
 
 export const title = 'Full screen navigation';
@@ -26,7 +26,7 @@ const FullScreenNavigation = () => <PatternLayout>
     <DependencyTable dependencies={[{ package: '@stormid/toggle', installation: 'npm i -S @stormid/toggle' }]} />
 
     <h2 class="push-bottom--half plus-1 medium">Code</h2>
-    <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
+    <CodeSample><Code /></CodeSample>
     <pre class="pre"><code class="code">{`import toggle from '@stormid/toggle';
 
 toggle('.js-full-screen-navigation');

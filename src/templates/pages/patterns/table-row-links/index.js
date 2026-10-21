@@ -1,6 +1,6 @@
 import PatternLayout from '@layouts/pattern';
 import CodeRowLinks from '../../example/tables/row-links/code';
-import { render } from 'preact-render-to-string';
+import CodeSample from '@components/code-sample';
 import PatternTitle from '@components/pattern-title';
 import { STATUS } from '@constants';
 
@@ -19,7 +19,7 @@ const Tables = () => <PatternLayout>
     <h2 class="push-bottom--half plus-2 medium">Example with linked rows</h2>
     <iframe style="--height: 375px" class="example" title="Example table with row links" src={'/example/tables/row-links'}></iframe>
     <p class="push-bottom align-right"><a href="/example/tables/row-links" rel="noopener" target="_blank">Open in a new tab</a></p>
-    <pre class="pre"><code class="code">{`${render(<CodeRowLinks />, null, { pretty: true })}`}</code></pre>
+    <CodeSample><CodeRowLinks /></CodeSample>
 
 
     <h2 class="push-bottom plus-2 medium">Acceptance criteria</h2>

@@ -1,6 +1,6 @@
 import PatternLayout from '@layouts/pattern';
 import Code from '../../example/show-more/code';
-import { render } from 'preact-render-to-string';
+import CodeSample from '@components/code-sample';
 import PatternTitle from '@components/pattern-title';
 import DependencyTable from '@components/dependency-table';
 import { STATUS } from '@constants';
@@ -26,7 +26,7 @@ const ExpandableSection = () => <PatternLayout>
 
     
     <h2 class="push-bottom--half plus-2 medium">Code</h2>
-    <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
+    <CodeSample><Code /></CodeSample>
     <pre class="pre"><code class="code">{`import toggle from '@stormid/toggle';
 const SELECTORS = {
     NODE: '.js-show-more',
