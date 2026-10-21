@@ -1,5 +1,5 @@
 
-export const Code = () => <form class="form" novalidate>
+const Code = () => <form class="form" novalidate>
     <div class="ds_datepicker js-date-picker">
         <h1 class="visuallyhidden">Accessible date picker</h1>
         <label class="label" for="date">

@@ -1,5 +1,5 @@
 
-export const Code = () => <form class="form js-validate" action="#">
+const Code = () => <form class="form js-validate" action="#">
     <p class="push-bottom">All fields are required unless marked as optional.</p>
     <fieldset class="fieldset">
         <legend class="legend"><h1>Your details</h1></legend>

@@ -1,6 +1,6 @@
 import Table from '@components/table';
 
-export const Code = () => (<Table tabindex="0" id="scrolltableCaption" caption="Example table" className={"table__container--overflow"}
+const Code = () => (<Table tabindex="0" id="scrolltableCaption" caption="Example table" className={"table__container--overflow"}
     rows={[
         { cells: [ {"value": "Joe Example"},{"value": "Web developer"},{"value": "1 Jan 1970"},{"value": "Online"} ] },
         { cells: [ {"value": "Joe Example"},{"value": "Web developer"},{"value": "1 Jan 1970"},{"value": "Online"} ] },

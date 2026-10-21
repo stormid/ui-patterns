@@ -1,4 +1,4 @@
-import render from 'preact-render-to-string/jsx';
+import { render } from 'preact-render-to-string/jsx';
 
 // Renders example markup as indented HTML source for display in a pattern page.
 // Pretty-printing lives in the /jsx entry point; the default renderer ignores it.
