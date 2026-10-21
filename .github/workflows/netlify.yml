@@ -23,4 +23,4 @@ jobs:
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        run: npx --yes netlify-cli deploy --dir=build --prod
+        run: npx --yes netlify-cli@27.14.0 deploy --dir=build --prod

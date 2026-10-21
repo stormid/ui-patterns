@@ -38,14 +38,6 @@ module.exports = [
         }
     }),
     merge(base.javascript, {
-        // Client-side telemetry, built for the server-rendered app only. The
-        // backend is responsible for referencing appinsights.js and rendering
-        // an element carrying the connection string in a `data-ai` attribute
-        // (see docs/making-websites/javascript.md); without that element the
-        // script initialises nothing.
-        entry: {
-            appinsights: path.join(process.cwd(), `${paths.src.js}/appinsights/index.js`)
-        },
         output: {
             filename: '[name].js',
             chunkFilename: `[name].[chunkhash].js`,

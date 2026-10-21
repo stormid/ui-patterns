@@ -59,7 +59,8 @@ module.exports = defineConfig({
     },
   ],
   webServer: {
-    command: 'rspack serve --config tools/rspack/config/dev/index.js --port 8082 --no-open',
+    // Test the production build, as deployed, rather than the dev server's unminified output
+    command: 'npm run build && node tools/testing/serve.mjs 8082',
     url: 'http://127.0.0.1:8082',
     reuseExistingServer: !process.env.CI,
   },
