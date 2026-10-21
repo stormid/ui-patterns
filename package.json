@@ -9,7 +9,8 @@
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "start": "npm run dev",
-    "test": "npx playwright test",
+    "test": "npm run test:unit && npm run test:e2e",
+    "test:e2e": "playwright test",
     "test:unit": "node --import ./tools/testing/register.mjs --test",
     "watch": "npm run watch-dev",
     "watch-dev": "rspack build --config tools/rspack/config/integration/index.js --watch"

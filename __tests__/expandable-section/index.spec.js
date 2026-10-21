@@ -1,5 +1,5 @@
 const { test, expect } = require("@playwright/test");
-import AxeBuilder from '@axe-core/playwright';
+import { AxeBuilder } from '@axe-core/playwright';
 
 let tabKey;
 
