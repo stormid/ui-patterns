@@ -45,6 +45,7 @@
     "@stormid/modal": "^1.1.0",
     "@stormid/tabs": "^2.0.1",
     "@stormid/toggle": "^1.1.1",
-    "@stormid/validate": "^2.2.0"
+    "@stormid/validate": "^2.2.0",
+    "embla-carousel": "^8.6.0"
   }
 }

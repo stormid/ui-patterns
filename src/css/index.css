@@ -35,5 +35,6 @@
 @import 'components/heading-subheading';
 @import 'components/show-more';
 @import 'components/autocomplete';
+@import 'components/carousel';
 
 @import 'vendor/date-picker';
