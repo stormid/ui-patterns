@@ -48,4 +48,4 @@ createServer((req, res) => {
 
     res.writeHead(200, { 'Content-Type': TYPES[extname(file).toLowerCase()] || 'application/octet-stream' });
     createReadStream(file).pipe(res);
-}).listen(PORT, '127.0.0.1', () => console.log(`Serving ${ROOT} at http://127.0.0.1:${PORT}`));
+}).listen(PORT, '127.0.0.1', () => process.stdout.write(`Serving ${ROOT} at http://127.0.0.1:${PORT}\n`));
