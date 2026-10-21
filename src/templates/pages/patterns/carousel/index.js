@@ -66,10 +66,14 @@ viewport.addEventListener('focusin', e => {
     // The browser scrolls the clipped viewport to show a focused item, which puts it out of step with Embla
     viewport.scrollLeft = 0;
     // Ignore focus from a pointer, so pressing on a partly visible item to drag doesn't move the carousel
-    if (!e.target.matches(':focus-visible') || isInView(e.target)) return;
-    const index = embla.slideNodes().findIndex(slide => slide.contains(e.target));
-    const snap = embla.internalEngine().slideRegistry.findIndex(group => group.includes(index));
-    if (snap > -1) embla.scrollTo(snap, true);
+    if (!e.target.matches(':focus-visible')) return;
+    // Instant scrolls render synchronously, so step towards the item until it's in view
+    for (let i = embla.scrollSnapList().length; i > 0 && !isInView(e.target); i--) {
+        const isBefore = e.target.getBoundingClientRect().left < viewport.getBoundingClientRect().left;
+        if (isBefore ? !embla.canScrollPrev() : !embla.canScrollNext()) break;
+        if (isBefore) embla.scrollPrev(true);
+        else embla.scrollNext(true);
+    }
 });
 embla.on('select', update);
 embla.on('reInit', update);
