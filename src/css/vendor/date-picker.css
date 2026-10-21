@@ -230,3 +230,248 @@
         top: 0;
     }
 }
+
+/*
+Dialog offset utilities from the Scottish Government Design System (base/overrides/offsets).
+The date picker positions its open dialog beside the input by adding ds_!_off-l-N, where N is
+the offset in 0.5rem (8px) steps, rather than an inline style.
+*/
+.ds_\!_off-l-1 {
+    left: 0.5rem !important;
+}
+
+.ds_\!_off-l-2 {
+    left: 1rem !important;
+}
+
+.ds_\!_off-l-3 {
+    left: 1.5rem !important;
+}
+
+.ds_\!_off-l-4 {
+    left: 2rem !important;
+}
+
+.ds_\!_off-l-5 {
+    left: 2.5rem !important;
+}
+
+.ds_\!_off-l-6 {
+    left: 3rem !important;
+}
+
+.ds_\!_off-l-7 {
+    left: 3.5rem !important;
+}
+
+.ds_\!_off-l-8 {
+    left: 4rem !important;
+}
+
+.ds_\!_off-l-9 {
+    left: 4.5rem !important;
+}
+
+.ds_\!_off-l-10 {
+    left: 5rem !important;
+}
+
+.ds_\!_off-l-11 {
+    left: 5.5rem !important;
+}
+
+.ds_\!_off-l-12 {
+    left: 6rem !important;
+}
+
+.ds_\!_off-l-13 {
+    left: 6.5rem !important;
+}
+
+.ds_\!_off-l-14 {
+    left: 7rem !important;
+}
+
+.ds_\!_off-l-15 {
+    left: 7.5rem !important;
+}
+
+.ds_\!_off-l-16 {
+    left: 8rem !important;
+}
+
+.ds_\!_off-l-17 {
+    left: 8.5rem !important;
+}
+
+.ds_\!_off-l-18 {
+    left: 9rem !important;
+}
+
+.ds_\!_off-l-19 {
+    left: 9.5rem !important;
+}
+
+.ds_\!_off-l-20 {
+    left: 10rem !important;
+}
+
+.ds_\!_off-l-21 {
+    left: 10.5rem !important;
+}
+
+.ds_\!_off-l-22 {
+    left: 11rem !important;
+}
+
+.ds_\!_off-l-23 {
+    left: 11.5rem !important;
+}
+
+.ds_\!_off-l-24 {
+    left: 12rem !important;
+}
+
+.ds_\!_off-l-25 {
+    left: 12.5rem !important;
+}
+
+.ds_\!_off-l-26 {
+    left: 13rem !important;
+}
+
+.ds_\!_off-l-27 {
+    left: 13.5rem !important;
+}
+
+.ds_\!_off-l-28 {
+    left: 14rem !important;
+}
+
+.ds_\!_off-l-29 {
+    left: 14.5rem !important;
+}
+
+.ds_\!_off-l-30 {
+    left: 15rem !important;
+}
+
+.ds_\!_off-l-31 {
+    left: 15.5rem !important;
+}
+
+.ds_\!_off-l-32 {
+    left: 16rem !important;
+}
+
+.ds_\!_off-l-33 {
+    left: 16.5rem !important;
+}
+
+.ds_\!_off-l-34 {
+    left: 17rem !important;
+}
+
+.ds_\!_off-l-35 {
+    left: 17.5rem !important;
+}
+
+.ds_\!_off-l-36 {
+    left: 18rem !important;
+}
+
+.ds_\!_off-l-37 {
+    left: 18.5rem !important;
+}
+
+.ds_\!_off-l-38 {
+    left: 19rem !important;
+}
+
+.ds_\!_off-l-39 {
+    left: 19.5rem !important;
+}
+
+.ds_\!_off-l-40 {
+    left: 20rem !important;
+}
+
+.ds_\!_off-l-41 {
+    left: 20.5rem !important;
+}
+
+.ds_\!_off-l-42 {
+    left: 21rem !important;
+}
+
+.ds_\!_off-l-43 {
+    left: 21.5rem !important;
+}
+
+.ds_\!_off-l-44 {
+    left: 22rem !important;
+}
+
+.ds_\!_off-l-45 {
+    left: 22.5rem !important;
+}
+
+.ds_\!_off-l-46 {
+    left: 23rem !important;
+}
+
+.ds_\!_off-l-47 {
+    left: 23.5rem !important;
+}
+
+.ds_\!_off-l-48 {
+    left: 24rem !important;
+}
+
+.ds_\!_off-l-49 {
+    left: 24.5rem !important;
+}
+
+.ds_\!_off-l-50 {
+    left: 25rem !important;
+}
+
+.ds_\!_off-l-51 {
+    left: 25.5rem !important;
+}
+
+.ds_\!_off-l-52 {
+    left: 26rem !important;
+}
+
+.ds_\!_off-l-53 {
+    left: 26.5rem !important;
+}
+
+.ds_\!_off-l-54 {
+    left: 27rem !important;
+}
+
+.ds_\!_off-l-55 {
+    left: 27.5rem !important;
+}
+
+.ds_\!_off-l-56 {
+    left: 28rem !important;
+}
+
+.ds_\!_off-l-57 {
+    left: 28.5rem !important;
+}
+
+.ds_\!_off-l-58 {
+    left: 29rem !important;
+}
+
+.ds_\!_off-l-59 {
+    left: 29.5rem !important;
+}
+
+.ds_\!_off-l-60 {
+    left: 30rem !important;
+}

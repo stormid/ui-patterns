@@ -39,11 +39,11 @@
     "svgo": "^4.1.0"
   },
   "dependencies": {
-    "@scottish-government/pattern-library": "0.0.381",
-    "@stormid/cookie-banner": "^1.0.0-alpha.24",
-    "@stormid/modal": "^1.0.0-alpha.15",
-    "@stormid/tabs": "^1.0.0-alpha.12",
-    "@stormid/toggle": "^1.0.0-alpha.18",
-    "@stormid/validate": "^1.0.0-alpha.25"
+    "@scottish-government/design-system": "^4.3.0",
+    "@stormid/cookie-banner": "^1.0.3",
+    "@stormid/modal": "^1.1.0",
+    "@stormid/tabs": "^2.0.1",
+    "@stormid/toggle": "^1.1.1",
+    "@stormid/validate": "^2.2.0"
   }
 }

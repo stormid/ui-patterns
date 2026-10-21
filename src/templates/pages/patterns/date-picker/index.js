@@ -30,9 +30,9 @@ const DatePicker = () => <PatternLayout>
     
     <h2 class="push-bottom--half plus-2 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
-    <pre class="pre"><code class="code">{`import DSDatePicker from '@scottish-government/pattern-library/src/components/date-picker/date-picker';
+    <pre class="pre"><code class="code">{`import DSDatePicker from '@scottish-government/design-system/dist/scripts/components/date-picker/date-picker';
 
-const datepicker = new DSDatePicker(document.querySelector('.js-date-picker'), { imagePath: '/static/img/' });
+const datepicker = new DSDatePicker(document.querySelector('.js-date-picker'));
 datepicker.init();    
 `}</code></pre>
 
@@ -42,14 +42,14 @@ datepicker.init();
     
     <h2 class="push-bottom--half plus-2 medium">Code</h2>
     <pre class="pre"><code class="code">{`${render(<ThreeInputCode />, null, { pretty: true })}`}</code></pre>
-    <pre class="pre"><code class="code">{`import DSDatePicker from '@scottish-government/pattern-library/src/components/date-picker/date-picker';
+    <pre class="pre"><code class="code">{`import DSDatePicker from '@scottish-government/design-system/dist/scripts/components/date-picker/date-picker';
 
-const datepicker = new DSDatePicker(document.querySelector('.js-date-picker'), { imagePath: '/static/img/' });
+const datepicker = new DSDatePicker(document.querySelector('.js-date-picker'));
 datepicker.init();    
 `}</code></pre>
     
     <h2 class="push-bottom--half plus-2 medium">Dependencies and installation</h2>
-    <DependencyTable dependencies={[{ package: '@scottish-government/pattern-library', installation: 'npm i -S @scottish-government/pattern-library' }]} />
+    <DependencyTable dependencies={[{ package: '@scottish-government/design-system', installation: 'npm i -S @scottish-government/design-system' }]} />
 
     <h2 class="push-bottom plus-2 medium">Acceptance criteria</h2>
     <p class="push-bottom--double">The following is a list of example acceptance criteria to test against when using this pattern. These critera should test that the specific markup requirements are met, and that the date picker behave visually and functionally as expected.</p>
