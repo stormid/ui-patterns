@@ -1,4 +1,3 @@
-import { h } from 'preact';
 
 const LogoLink = () => <a class="logo-link" href={'/'} aria-label="Storm ID UI Patterns home">
     <svg class="logo-link__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="140" height="29.6" viewBox="20 -2.2 240.8 51.2">

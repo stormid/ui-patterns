@@ -1,4 +1,4 @@
-import { h, Fragment } from 'preact';
+import { Fragment } from 'preact';
 import Status from '@components/status';
 
 const PatternTitle = ({ children, status = '' }) => <h1 class="pattern-title">

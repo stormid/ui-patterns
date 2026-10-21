@@ -1,22 +1,22 @@
 const { test, expect } = require("@playwright/test");
-import { reducedProjects } from "playwright.config";
-import AxeBuilder from "@axe-core/playwright";
+import { AxeBuilder } from "@axe-core/playwright";
 
-test.beforeEach(async ({ page }) => {
+let tabKey;
+
+test.beforeEach(async ({ page }, testInfo) => {
 	await page.goto("/example/tables/row-links");
+	tabKey = testInfo.project.use.defaultBrowserType === 'webkit'
+        ? "Alt+Tab"
+        : "Tab";
 });
 
 test.describe("Table with row links > Keyboard", { tag: '@all'}, () => {
-	test("Links inside tables should be keyboard accessible", async ({ page, browserName }) => {
-		test.fail(browserName === 'webkit', 'webkit will not tab between links');
-
-		//const keyPress = ((browserName.includes("webkit")) ? "Shift+Tab" : "Tab");
-		const keyPress = "Tab";
+	test("Links inside tables should be keyboard accessible", async ({ page }) => {
 		const link = page.locator("tr a").first();
 		const secondLink = page.locator("tr a").nth(1);
-		await page.keyboard.press(keyPress);
+		await page.keyboard.press(tabKey);
 		await expect(link).toBeFocused();
-		await page.keyboard.press(keyPress);
+		await page.keyboard.press(tabKey);
 		await expect(secondLink).toBeFocused();
 	});
 });

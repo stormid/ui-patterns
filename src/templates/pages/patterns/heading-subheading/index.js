@@ -1,8 +1,7 @@
-import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
 import CodeHero from '../../example/heading-subheading/hero/code';
 import CodeCard from '../../example/heading-subheading/card/code';
-import { render } from 'preact-render-to-string';
+import CodeSample from '@components/code-sample';
 import PatternTitle from '@components/pattern-title';
 import { STATUS } from '@constants';
 
@@ -23,12 +22,12 @@ const HeadingSubheading = () => <PatternLayout>
     <h2 class="push-bottom--half plus-2 medium">Example page hero</h2>
     <iframe style="--height: 375px" class="example" title="Example page header with subheading" src={'/example/heading-subheading/hero'}></iframe>
     <p class="push-bottom align-right"><a href="/example/heading-subheading/hero" rel="noopener" target="_blank">Open in a new tab</a></p>
-    <pre class="pre"><code class="code">{`${render(<CodeHero />, null, { pretty: true })}`}</code></pre>
+    <CodeSample><CodeHero /></CodeSample>
 
     <h2 class="push-bottom--half plus-2 medium">Example card</h2>
     <iframe style="--height: 375px" class="example" title="Example card header with subheading" src={'/example/heading-subheading/card'}></iframe>
     <p class="push-bottom align-right"><a href="/example/heading-subheading/card" rel="noopener" target="_blank">Open in a new tab</a></p>
-    <pre class="pre"><code class="code">{`${render(<CodeCard />, null, { pretty: true })}`}</code></pre>
+    <CodeSample><CodeCard /></CodeSample>
 
 
     <h2 class="push-bottom plus-2 medium">Acceptance criteria</h2>

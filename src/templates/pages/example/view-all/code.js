@@ -1,4 +1,4 @@
-import { h, Fragment } from 'preact';
+import { Fragment } from 'preact';
 
 const Code = () => <Fragment>
     <div class="expand-all js-expand-all">

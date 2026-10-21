@@ -1,5 +1,5 @@
 const { test, expect } = require("@playwright/test");
-import AxeBuilder from "@axe-core/playwright";
+import { AxeBuilder } from "@axe-core/playwright";
 
 test.beforeEach(async ({ page }) => {
 	await page.goto("/example/tables/responsive");
@@ -20,7 +20,7 @@ test.describe("Table with responsive cards > Functionality", () => {
 		const cells = await page.locator("tbody td").all();
 		for (const cell of cells) {
 			const dataVal = await cell.getAttribute('data-th');
-			expect(await cell.evaluate((node) => window.getComputedStyle(node, "::before").content)).toEqual('\"' + dataVal+'\"');
+			expect(await cell.evaluate((node) => window.getComputedStyle(node, "::before").content)).toEqual('"' + dataVal + '"');
 		}
 	});
 });

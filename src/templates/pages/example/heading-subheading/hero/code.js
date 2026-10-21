@@ -1,4 +1,4 @@
-import { h, Fragment } from 'preact';
+import { Fragment } from 'preact';
 
 const Hero = () => <Fragment>
     <section class="hero">

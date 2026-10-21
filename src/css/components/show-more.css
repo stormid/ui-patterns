@@ -1,0 +1,42 @@
+.show-more {
+    padding-bottom: var(--baseline);
+}
+
+.show-more > * {
+    margin-bottom: calc(var(--baseline) / 2);
+}
+
+.show-more__heading {
+    font-size: var(--font-size-plus-2);
+    font-weight: 600;
+    margin-bottom: var(--baseline);
+}
+
+.show-more__btn, .show-more__btn--hide {
+    line-height: 44px;
+}
+
+.show-more__bd, .show-more__btn--hide, .show-more.is--active .show-more__btn {
+    display: none;
+}
+
+.show-more__bd {
+    opacity: 0;
+}
+
+.show-more.is--active .show-more__bd, .show-more.is--active .show-more__btn--hide {
+    display: block;
+    animation-name: fadein;
+    animation-duration: 0.75s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

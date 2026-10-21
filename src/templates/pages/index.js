@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import DefaultLayout from '@layouts/default';
 import Status from '@components/status';
 import { status as cookieBannerStatus } from './patterns/cookie-banner';
@@ -18,6 +17,7 @@ import { status as tablesResponsiveStatus } from './patterns/table-responsive';
 import { status as tablesRowLinksStatus } from './patterns/table-row-links';
 import { status as showMoreStatus } from './patterns/show-more';
 import { status as viewAllStatus } from './patterns/view-all';
+import { status as autocompleteStatus } from './patterns/autocomplete';
 import { status as datePickerStatus } from './patterns/date-picker';
 
 export const title = 'Home';
@@ -28,6 +28,7 @@ export const title = 'Home';
 // }];
 
 const PATTERNS = [
+    { title: 'Autocomplete', url: '/patterns/autocomplete', status: autocompleteStatus },
     { title: 'Cookie banner', url: '/patterns/cookie-banner', status: cookieBannerStatus },
     { title: 'Date picker', url: '/patterns/date-picker', status: datePickerStatus },
     { title: 'Exclusive toggles', url: '/patterns/exclusive-toggles', status: exclusiveTogglesStatus },
@@ -62,7 +63,7 @@ const HomePage = () => (
 					</thead>
 					<tbody>
 						{PATTERNS.map(pattern => (
-							<tr class="tr">
+							<tr key={pattern.url} class="tr">
 								<td class="td">
 									<a class="td__link" href={pattern.url}>
 										{pattern.title}

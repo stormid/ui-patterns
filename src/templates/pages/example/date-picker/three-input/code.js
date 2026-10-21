@@ -1,6 +1,5 @@
-import { h } from 'preact';
 
-export const Code = () => <form class="form" novalidate>
+const Code = () => <form class="form" novalidate>
     <fieldset>
         <h1 class="visuallyhidden">Accessible date picker</h1>
         <legend class="legend">

@@ -1,7 +1,7 @@
-import { h, Fragment } from 'preact';
+import { Fragment } from 'preact';
 import Table from '@components/table'
 
-export const Code = () => <Fragment>
+const Code = () => <Fragment>
     <h1 class="visually-hidden">Tables with linked rows</h1>
     <Table caption="Example table" 
 rows={[

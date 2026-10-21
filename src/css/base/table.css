@@ -1,0 +1,98 @@
+.table__container--base {
+    padding-top: calc(var(--baseline) / 2);
+}
+
+.table__container--base .table {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.table__container--base .tr {
+    position: relative;
+    transform: translate(0);
+    background-color: white;
+}
+
+.table__container--base .tr:hover {
+    background-color: transparent;
+    transition: background-color 120ms ease;
+}
+
+.table__container--base .th {
+    font-weight: normal;
+    text-align: left;
+    font-size: var(--font-size-minus-1);
+    padding: calc(var(--gutter) / 2) calc(var(--gutter) / 2);
+    margin-bottom: calc(var(--baseline) / 4);
+    border-bottom: 8px solid rgba(0, 0, 0, 0);
+}
+
+.table__container--base .td {
+    color: currentColor;
+    padding: calc(var(--gutter) / 2) calc(var(--gutter) / 2);
+    border-bottom: 8px solid rgba(0, 0, 0, 0);
+}
+
+.table__container--base .th--tight {
+    padding: calc(var(--gutter) / 8) 0;
+    vertical-align: middle;
+}
+
+.table__container--base .td--tight {
+    padding: calc(var(--gutter) / 8) 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 0 none;
+}
+
+.table__container--base .td--tight a {
+    text-decoration: underline;
+}
+
+.table__container--base .td--tight a:hover, .table__container--base .td--tight a:focus {
+    text-decoration: none;
+}
+
+.table__container--base .td--status {
+    text-align: right;
+    padding-right: 50px;
+}
+
+.table__container--base .th--status {
+    text-align: right;
+    padding-right: 72px;
+}
+
+.table__container--base .td__link {
+    text-decoration: none;
+}
+
+.table__container--base .td__link:focus, .table__container--base .td__link:focus-visible {
+    outline: 0 none;
+    box-shadow: none;
+}
+
+.table__container--base .td__link:before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    right: 0;
+    bottom: 4px;
+    left: 0;
+}
+
+.table__container--base .td__link:after {
+    position: absolute;
+    right: calc(var(--gutter) / 1.5);
+    top: 52%;
+    display: inline-block;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-right: 1px solid currentColor;
+    border-top: 1px solid currentColor;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.table__container--base .td__link:focus:before {
+    outline: 2px solid var(--highlight);
+}

@@ -1,6 +1,5 @@
-import { h } from 'preact';
 
-export const Code = () => <form class="form js-validate" action="#">
+const Code = () => <form class="form js-validate" action="#">
     <fieldset class="fieldset">
         <legend class="legend">
             <h1 class="legend__title plus-3">Your preferences</h1>

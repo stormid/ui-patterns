@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import ExampleLayout from '@layouts/example';
 import Code from './code';
 

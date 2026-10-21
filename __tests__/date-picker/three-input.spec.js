@@ -1,5 +1,5 @@
 const { test, expect } = require("@playwright/test");
-import AxeBuilder from '@axe-core/playwright';
+import { AxeBuilder } from '@axe-core/playwright';
 
 const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -112,10 +112,10 @@ test.describe("Date picker mulitple input > Keyboard", { tag: '@all'}, () => {
 		await page.keyboard.press('ArrowRight');
 		await page.keyboard.press('Enter');
 
-		var tomorrowsDate = new Date();
+		const tomorrowsDate = new Date();
 		tomorrowsDate.setUTCDate(tomorrowsDate.getUTCDate() + 1);
 
-		var lastWeeksDate = new Date();
+		const lastWeeksDate = new Date();
 		lastWeeksDate.setUTCDate(lastWeeksDate.getUTCDate() - 7);
 
 		await expect(dateInputs.first()).toHaveValue(`${tomorrowsDate.getDate()}`);

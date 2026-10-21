@@ -1,0 +1,24 @@
+.push-bottom {
+    margin-bottom: var(--baseline) !important;
+}
+
+.push-bottom--half {
+    margin-bottom: calc(var(--baseline) / 2) !important;
+}
+
+.push-bottom--double {
+    margin-bottom: calc(var(--baseline) * 2) !important;
+}
+
+.soft-top {
+    padding-top: var(--baseline) !important;
+}
+
+.soft-sides {
+    padding-left: var(--baseline) !important;
+    padding-right: var(--baseline) !important;
+}
+
+.push-top {
+    margin-top: var(--baseline) !important;
+}

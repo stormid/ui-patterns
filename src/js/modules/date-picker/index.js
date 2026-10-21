@@ -1,9 +1,9 @@
-import DSDatePicker from '@scottish-government/pattern-library/src/components/date-picker/date-picker';
+import DSDatePicker from '@scottish-government/design-system/dist/scripts/components/date-picker/date-picker';
 
 export const init = () => {
     const basic = document.querySelector('.js-date-picker');
     if (basic) {
-        const datepicker = new DSDatePicker(basic, { imagePath: '/static/img/' });
+        const datepicker = new DSDatePicker(basic);
         return datepicker.init();
     }
 };

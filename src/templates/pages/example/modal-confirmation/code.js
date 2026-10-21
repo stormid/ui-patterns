@@ -1,4 +1,4 @@
-import { h, Fragment } from 'preact';
+import { Fragment } from 'preact';
 
 const Code = () => <Fragment>
     <button type="button" class="modal-confirmation__btn js-modal-confirmation__btn" aria-haspopup="dialog">Delete</button>

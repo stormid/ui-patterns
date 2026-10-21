@@ -1,7 +1,6 @@
-import { h } from 'preact';
 import PatternLayout from '@layouts/pattern';
 import Code from '../../example/form-validation/code';
-import { render } from 'preact-render-to-string';
+import CodeSample from '@components/code-sample';
 import PatternTitle from '@components/pattern-title';
 import DependencyTable from '@components/dependency-table';
 import { STATUS } from '@constants';
@@ -26,7 +25,7 @@ const FormValidation = () => <PatternLayout>
     <DependencyTable dependencies={[{ package: '@stormid/validate', installation: 'npm i -S @stormid/validate' }]} />
     
     <h2 class="push-bottom--half plus-2 medium">Code</h2>
-    <pre class="pre"><code class="code">{`${render(<Code />, null, { pretty: true })}`}</code></pre>
+    <CodeSample><Code /></CodeSample>
     <pre class="pre"><code class="code">{`import validate from '@stormid/validate';
 
 validate('.js-validate');

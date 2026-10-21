@@ -1,5 +1,5 @@
 const { test, expect } = require("@playwright/test");
-import AxeBuilder from '@axe-core/playwright';
+import { AxeBuilder } from '@axe-core/playwright';
 
 let tabKey;
 
@@ -24,16 +24,16 @@ test.describe("Modal search > Functionality", { tag: '@all'}, () => {
         await expect(modal).toBeHidden();
     });
 
-    test('Content in main page should not be visible when search modal is open', async ({ page }) => {
+    test('Content in main page should be inert when modal is open', async ({ page }) => {
 		const showButton = page.locator(".modal-search__btn");
 		const hideButton = page.locator('.modal__close');
-		const main = page.getByRole('main');
+		const main = page.locator('main');
 
-		await expect(main).toBeVisible();
+		await expect(main).not.toHaveAttribute('inert');
 		await showButton.click();
-		await expect(main).toBeHidden();
+		await expect(main).toHaveAttribute('inert');
 		await hideButton.click();
-		await expect(main).toBeVisible();
+		await expect(main).not.toHaveAttribute('inert');
 	});
 
     test('Page should not be scrollable when modal search is open', async ({ page }) => {
