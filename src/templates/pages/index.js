@@ -20,6 +20,7 @@ import { status as viewAllStatus } from './patterns/view-all';
 import { status as autocompleteStatus } from './patterns/autocomplete';
 import { status as carouselStatus } from './patterns/carousel';
 import { status as datePickerStatus } from './patterns/date-picker';
+import { status as galleryStatus } from './patterns/gallery';
 
 export const title = 'Home';
 
@@ -41,6 +42,7 @@ const PATTERNS = [
     { title: 'Form page headings', url: '/patterns/form-headings', status: formHeadingStatus },
     { title: 'Form validation', url: '/patterns/form-validation', status: formValidationStatus },
     { title: 'Full screen navigation', url: '/patterns/full-screen-navigation', status: fullScreenNavigationStatus },
+    { title: 'Gallery', url: '/patterns/gallery', status: galleryStatus },
     { title: 'Heading with subheading', url: '/patterns/heading-subheading', status: headingSubheadingStatus },
     { title: 'Modal confirmation', url: '/patterns/modal-confirmation', status: modalConfirmationStatus },
     // { title: 'Modal gallery', url: '/patterns/modal-gallery' },

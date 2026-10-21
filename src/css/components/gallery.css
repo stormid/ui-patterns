@@ -1,0 +1,99 @@
+/* A gallery is a carousel that shows one item at a time */
+.gallery .carousel__slide {
+    flex-basis: 100%;
+}
+
+.gallery__actions {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--gutter) / 3);
+}
+
+.gallery__count {
+    align-self: center;
+    margin-right: calc(var(--gutter) / 3);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+/* The carousel buttons' display would otherwise show the full screen button where it isn't supported */
+.gallery__fullscreen[hidden] {
+    display: none;
+}
+
+.gallery__figure {
+    margin: 0;
+}
+
+/* Images of any shape are shown whole within the same space, so the gallery doesn't change height as it moves */
+.gallery__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    max-height: 70vh;
+    object-fit: contain;
+    background-color: var(--light-grey-1);
+}
+
+.gallery__caption {
+    padding-top: calc(var(--baseline) / 2);
+}
+
+.gallery:fullscreen {
+    padding: var(--baseline) var(--gutter);
+    overflow: auto;
+    background-color: white;
+}
+
+.gallery:fullscreen .gallery__img {
+    aspect-ratio: auto;
+    height: calc(100vh - 10rem);
+    max-height: none;
+}
+
+.gallery-thumbs__heading {
+    font-size: var(--font-size-plus-2);
+    font-weight: var(--semibold-weight);
+    margin-bottom: calc(var(--baseline) / 2);
+}
+
+.gallery-thumbs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: calc(var(--gutter) / 2);
+    padding-left: 0;
+    list-style: none;
+}
+
+.gallery-thumbs__link {
+    display: block;
+}
+
+.gallery-thumbs__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.gallery-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    overflow: auto;
+    background-color: white;
+}
+
+.gallery-modal__dialog {
+    position: relative;
+    max-width: var(--max-container-width);
+    margin: 0 auto;
+    padding: var(--baseline) var(--gutter);
+}
+
+.gallery-modal__close {
+    display: flex;
+    margin: 0 0 calc(var(--baseline) / 2) auto;
+}
