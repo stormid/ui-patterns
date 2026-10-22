@@ -18,7 +18,9 @@ import { status as tablesRowLinksStatus } from './patterns/table-row-links';
 import { status as showMoreStatus } from './patterns/show-more';
 import { status as viewAllStatus } from './patterns/view-all';
 import { status as autocompleteStatus } from './patterns/autocomplete';
+import { status as carouselStatus } from './patterns/carousel';
 import { status as datePickerStatus } from './patterns/date-picker';
+import { status as galleryStatus } from './patterns/gallery';
 
 export const title = 'Home';
 
@@ -29,6 +31,7 @@ export const title = 'Home';
 
 const PATTERNS = [
     { title: 'Autocomplete', url: '/patterns/autocomplete', status: autocompleteStatus },
+    { title: 'Carousel', url: '/patterns/carousel', status: carouselStatus },
     { title: 'Cookie banner', url: '/patterns/cookie-banner', status: cookieBannerStatus },
     { title: 'Date picker', url: '/patterns/date-picker', status: datePickerStatus },
     { title: 'Exclusive toggles', url: '/patterns/exclusive-toggles', status: exclusiveTogglesStatus },
@@ -39,6 +42,7 @@ const PATTERNS = [
     { title: 'Form page headings', url: '/patterns/form-headings', status: formHeadingStatus },
     { title: 'Form validation', url: '/patterns/form-validation', status: formValidationStatus },
     { title: 'Full screen navigation', url: '/patterns/full-screen-navigation', status: fullScreenNavigationStatus },
+    { title: 'Gallery', url: '/patterns/gallery', status: galleryStatus },
     { title: 'Heading with subheading', url: '/patterns/heading-subheading', status: headingSubheadingStatus },
     { title: 'Modal confirmation', url: '/patterns/modal-confirmation', status: modalConfirmationStatus },
     // { title: 'Modal gallery', url: '/patterns/modal-gallery' },
