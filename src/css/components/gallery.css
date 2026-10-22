@@ -36,6 +36,18 @@
     background-color: var(--light-grey-1);
 }
 
+.gallery__link {
+    display: block;
+    cursor: zoom-in;
+}
+
+/* The viewport clips anything outside a slide, so draw the focus ring inside the image */
+.gallery__link:focus-visible {
+    box-shadow: none;
+    outline: 4px solid var(--highlight);
+    outline-offset: -4px;
+}
+
 .gallery__caption {
     padding-top: calc(var(--baseline) / 2);
 }
@@ -78,22 +90,65 @@
     object-fit: cover;
 }
 
+/* The dialog is dark, so it reads as a separate view of the images rather than more of the page */
 .gallery-modal {
     position: fixed;
     inset: 0;
     z-index: 10;
     overflow: auto;
-    background-color: white;
+    color: white;
+    background-color: var(--off-black);
 }
 
 .gallery-modal__dialog {
     position: relative;
     max-width: var(--max-container-width);
     margin: 0 auto;
-    padding: var(--baseline) var(--gutter);
+    padding: calc(var(--baseline) / 2) var(--gutter) var(--baseline);
 }
 
+/* Placed and styled like the close buttons of the other dialogs, so it isn't mistaken for one of the gallery's controls */
 .gallery-modal__close {
     display: flex;
-    margin: 0 0 calc(var(--baseline) / 2) auto;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin: 0 calc(var(--gutter) / -3) 0 auto;
+    padding: 0;
+    color: inherit;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.gallery-modal .carousel__btn {
+    color: white;
+    background-color: transparent;
+    border-color: white;
+}
+
+.gallery-modal .carousel__btn:hover {
+    color: var(--off-black);
+    background-color: var(--highlight);
+    border-color: var(--highlight);
+}
+
+/* Disabled buttons stay visible, with more than 3:1 contrast on the dark background */
+.gallery-modal .carousel__btn[aria-disabled="true"] {
+    color: var(--mid-grey-3);
+    background-color: transparent;
+    border-color: var(--mid-grey-3);
+}
+
+/* The dialog gives the images the height of the screen, less the controls and caption */
+.gallery-modal .gallery__img {
+    aspect-ratio: auto;
+    height: calc(100vh - 12rem);
+    max-height: none;
+    background-color: transparent;
+}
+
+.gallery-modal .gallery:fullscreen {
+    background-color: var(--off-black);
 }

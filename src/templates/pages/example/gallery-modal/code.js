@@ -1,5 +1,5 @@
 import { Fragment } from 'preact';
-import Gallery, { ITEMS } from '../gallery/code';
+import { GalleryDialog, ITEMS } from '../gallery/code';
 
 const Code = () => <Fragment>
     <h2 class="gallery-thumbs__heading">Illustrations</h2>
@@ -11,15 +11,7 @@ const Code = () => <Fragment>
             </a>
         </li>)}
     </ul>
-    <div id="gallery-modal" class="gallery-modal js-gallery-modal" data-modal-toggle="js-gallery-modal__close" hidden>
-        <div class="gallery-modal__dialog" role="dialog" aria-labelledby="gallery-modal-heading">
-            <button type="button" class="carousel__btn gallery-modal__close js-gallery-modal__close">
-                <span class="visuallyhidden">Close</span>
-                <svg focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" /></svg>
-            </button>
-            <Gallery headingId="gallery-modal-heading" inDialog />
-        </div>
-    </div>
+    <GalleryDialog />
 </Fragment>;
 
 export default Code;

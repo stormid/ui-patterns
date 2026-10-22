@@ -121,6 +121,8 @@ export const modalGallery = node => {
     const onTrigger = e => {
         // Without JS the thumbnails link to the full size images
         e.preventDefault();
+        // Safari doesn't focus a link that's clicked, and the dialog returns focus to whatever had it when it opened
+        e.currentTarget.focus({ preventScroll: true });
         open(indexOf(e.currentTarget.getAttribute('data-gallery-item')));
     };
     // A link to an item in the gallery opens the dialog at that item
