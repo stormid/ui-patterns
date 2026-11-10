@@ -12,6 +12,7 @@ import './modules/show-more';
 import './modules/view-all';
 import './modules/date-picker';
 import './modules/autocomplete';
+import './modules/carousel';
 
 // Importer(`tabs`)()
 // import(/* webpackChunkName: "toggle" */`./features/toggle`).then(module => module.default());
